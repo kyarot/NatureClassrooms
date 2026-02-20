@@ -1,5 +1,9 @@
 {
   "name": "nature-classrooms",
+  "scripts": {
+    "dev": "node server.js",
+    "zip": "zip -r nature-classrooms-theme.zip . -x \"node_modules/*\" \"*.git*\" \"*.DS_Store*\" \"server.js\" \".ghostignore\" \"*.zip\""
+  },
   "version": "1.0.0",
   "description": "Production-ready Ghost theme for Nature Classrooms",
   "author": {
@@ -18,5 +22,9 @@
   "config": {
     "posts_per_page": 12,
     "card_assets": true
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-hbs": "^2.5.0"
   }
 }

@@ -1,0 +1,19 @@
+# Exclude node_modules from theme zip
+node_modules/
+package-lock.json
+
+# Local dev server
+server.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Ghost-specific
+.ghostignore
+yarn-error.log
+npm-debug.log

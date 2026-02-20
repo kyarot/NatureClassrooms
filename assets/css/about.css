@@ -1,0 +1,560 @@
+/* About Page Styles - Production Ready */
+
+.about-page {
+    --about-bg-light: #f9f8f4;
+    --about-accent-green: #4a7c59;
+    --about-accent-yellow: #d4a373;
+    padding-top: 0;
+    overflow-x: hidden;
+}
+
+/* Background Gradients */
+.about-page section {
+    position: relative;
+}
+
+/* Hero Section */
+.about-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+.about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, white, transparent);
+    z-index: 2;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+}
+
+.about-hero-tag {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--about-accent-yellow);
+    margin-bottom: 25px;
+    display: block;
+    font-weight: 600;
+}
+
+.about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
+}
+
+.about-hero h1 span {
+    color: var(--about-accent-yellow);
+    font-style: italic;
+}
+
+/* Intro Section */
+.about-intro {
+    padding: 100px 10%;
+    background: white;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.section-line {
+    width: 60px;
+    height: 4px;
+    background: var(--about-accent-yellow);
+    margin-bottom: 30px;
+}
+
+.about-intro-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    color: #333;
+}
+
+.about-intro-content h2 span {
+    color: var(--about-accent-green);
+    display: block;
+}
+
+.about-intro-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.about-collaboration-box {
+    background: var(--about-bg-light);
+    border-radius: 16px;
+    padding: 35px;
+    margin-top: 45px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(74, 124, 89, 0.1);
+}
+
+.about-collaboration-box p {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+    color: #444;
+}
+
+.about-collaboration-box strong {
+    color: var(--about-accent-green);
+}
+
+.about-intro-image-container {
+    position: relative;
+    padding: 20px;
+}
+
+.image-decorative-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 40px;
+    bottom: 40px;
+    border: 2px dashed rgba(74, 124, 89, 0.2);
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.about-intro-image {
+    position: relative;
+    z-index: 2;
+    transform: translate(20px, 20px);
+}
+
+.about-intro-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 30px 30px 80px rgba(0, 0, 0, 0.1);
+}
+
+.about-founded-badge {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    background: #463d36;
+    color: white;
+    padding: 25px 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+
+.about-founded-badge h3 {
+    font-size: 28px;
+    margin: 0;
+    color: var(--about-accent-yellow);
+    font-weight: 700;
+}
+
+.about-founded-badge p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Vision Section */
+.about-vision {
+    background: var(--about-accent-green);
+    color: white;
+    padding: 120px 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vision-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 40px;
+    color: var(--about-accent-yellow);
+}
+
+.vision-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.about-vision h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.about-vision blockquote {
+    font-size: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.95;
+    border: none;
+    padding: 0;
+}
+
+.vision-dots {
+    display: flex;
+    gap: 12px;
+}
+
+.vision-dots span {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.vision-dots span.active {
+    background: var(--about-accent-yellow);
+    transform: scale(1.2);
+}
+
+/* Goals Section */
+.about-goals {
+    padding: 100px 10%;
+    background: var(--about-bg-light);
+}
+
+.about-goals-header {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 60px;
+    background: rgba(74, 124, 89, 0.2);
+    margin-bottom: 25px;
+}
+
+.about-goals-header span {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--about-accent-yellow);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.about-goals-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* 3-2 Grid Layout */
+.about-goals-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    grid-column: span 2;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.about-goals-grid .goal-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.about-goals-grid .goal-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+.goal-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+}
+
+.goal-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0f4f1;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: var(--about-accent-green);
+}
+
+.goal-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.goal-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.goal-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Team Section */
+.team-section {
+    padding: 120px 10%;
+    background: #f0ede8;
+}
+
+.team-header {
+    margin-bottom: 80px;
+}
+
+.team-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-arrow {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.team-card {
+    background: #f7f5f0;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.team-card::before {
+    content: attr(data-initials);
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    line-height: 1;
+    z-index: 0;
+    font-style: italic;
+}
+
+.team-badge-container {
+    margin-bottom: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.team-badge {
+    width: 70px;
+    height: 70px;
+    background: var(--about-accent-green);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 22px;
+    box-shadow: 0 10px 30px rgba(74, 124, 89, 0.3);
+}
+
+.team-card.yellow .team-badge {
+    background: var(--about-accent-yellow);
+    box-shadow: 0 10px 30px rgba(212, 163, 115, 0.3);
+}
+
+.team-info {
+    position: relative;
+    z-index: 2;
+}
+
+.team-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.team-info .role {
+    font-size: 13px;
+    color: var(--about-accent-yellow);
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-bio {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    margin: 0;
+    opacity: 0;
+}
+
+.team-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--about-accent-green);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.team-card:hover {
+    background: white;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+}
+
+.team-card:hover .team-bio {
+    max-height: 150px;
+    margin-top: 15px;
+    opacity: 1;
+}
+
+.team-card:hover .team-link {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .about-goals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-goals-grid .goal-card:nth-child(n) {
+        grid-column: span 1;
+    }
+
+    .about-goals-grid .goal-card:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-hero {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 3rem;
+    }
+
+    .about-intro-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-vision h2 {
+        font-size: 3rem;
+    }
+
+    .about-vision blockquote {
+        font-size: 1.5rem;
+    }
+
+    .team-header h2 {
+        font-size: 3rem;
+    }
+
+    .about-goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-goals-grid .goal-card:nth-child(n) {
+        grid-column: span 1;
+    }
+}
