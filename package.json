@@ -1,0 +1,22 @@
+{
+  "name": "nature-classrooms",
+  "version": "1.0.0",
+  "description": "Production-ready Ghost theme for Nature Classrooms",
+  "author": {
+    "name": "Nature Classrooms",
+    "email": "info@natureclassrooms.in"
+  },
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ghost-theme",
+    "nature-classrooms",
+    "education"
+  ],
+  "config": {
+    "posts_per_page": 12,
+    "card_assets": true
+  }
+}
