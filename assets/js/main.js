@@ -94,8 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Detect section backgrounds
             const heroCarousel = document.querySelector('.hero-carousel');
-            if (heroCarousel) {
-                const heroHeight = heroCarousel.offsetHeight;
+            const aboutHero = document.querySelector('.about-hero');
+            const heroElement = heroCarousel || aboutHero;
+
+            if (heroElement) {
+                const heroHeight = heroElement.offsetHeight;
 
                 // If we're still in the hero section (dark background)
                 if (scrollY < heroHeight - 100) {
@@ -108,6 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (floatingLogo) floatingLogo.classList.add('logo-dark');
                     if (floatingLogoImg && window.blackLogo) floatingLogoImg.src = window.blackLogo;
                 }
+            } else {
+                // For pages without a hero, default to light navbar
+                navbar.classList.add('navbar-light');
+                if (floatingLogo) floatingLogo.classList.add('logo-dark');
+                if (floatingLogoImg && window.blackLogo) floatingLogoImg.src = window.blackLogo;
             }
         }, 10);
     }

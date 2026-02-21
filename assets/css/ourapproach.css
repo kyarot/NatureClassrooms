@@ -1,0 +1,499 @@
+/* ================================
+   OUR APPROACH PAGE STYLES
+   ================================ */
+
+/* Local Variables for Our Approach */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --nature-gradient: linear-gradient(135deg, #4a7c59 0%, #2d5a3c 100%);
+    --soft-earth-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    --overlay-dark: rgba(0, 0, 0, 0.65);
+    /* Darkened for better readability */
+}
+
+/* 1. Enhanced Hero Section */
+.approach-hero {
+    position: relative;
+    height: 85vh;
+    /* Slightly reduced height for better proportions */
+    min-height: 650px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.approach-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.approach-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-dark);
+    z-index: 2;
+}
+
+.approach-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 0 24px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.approach-hero-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    /* Slightly smaller label */
+    color: #ffffff;
+    margin-bottom: 12px;
+    display: block;
+    opacity: 0.9;
+}
+
+.approach-hero-title {
+    font-size: 4.5rem;
+    /* Better scale for web */
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.approach-hero-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    /* Slightly smaller description */
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* 2. Fog Separator */
+.fog-separator {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.fog-blur {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to bottom, transparent, black);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+}
+
+/* 3. Alternating Content Sections */
+.approach-section {
+    padding: 90px 0;
+    /* Standardized spacing */
+    position: relative;
+}
+
+.approach-section:nth-child(even) {
+    background: #f9f9f7;
+    clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+    /* Subtle unique section skew */
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    align-items: center;
+}
+
+.approach-grid.alternate .approach-image-container {
+    order: -1;
+}
+
+.approach-content-block {
+    animation: fadeIn 1s ease-out;
+}
+
+.approach-image-container {
+    position: relative;
+    border-radius: 60px 20px 60px 20px;
+    /* Unique shape */
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-slow);
+}
+
+.approach-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.05);
+    /* Soft inner shadow */
+    pointer-events: none;
+}
+
+.approach-image-container:hover {
+    transform: scale(1.02) translateY(-5px) rotate(1deg);
+    /* Slight rotation for personality */
+    box-shadow: var(--shadow-2xl);
+    border-radius: 40px 40px 40px 40px;
+    /* Smooth transition to rounded rectangle */
+}
+
+.approach-image-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.approach-section-subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.approach-section-title {
+    font-size: 3rem;
+    margin-bottom: 24px;
+}
+
+.approach-section-text p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* Pillar Cards Styling (Updated with images) */
+.pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.pillar-card {
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    padding: 0;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-bounce);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.pillar-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.pillar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.pillar-card:hover .pillar-image img {
+    transform: scale(1.05);
+}
+
+.pillar-content-wrapper {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+.pillar-title {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+    color: var(--color-primary);
+}
+
+.pillar-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+/* Download Buttons (Standardized Green) */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 40px;
+    background: var(--color-primary);
+    color: #ffffff !important;
+    border-radius: var(--radius-full);
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-bounce);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+}
+
+.download-btn:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(74, 124, 89, 0.3);
+}
+
+.download-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover svg {
+    transform: translateY(2px);
+}
+
+/* Checklist Styling */
+.checklist-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.checklist-btn {
+    padding: 12px 28px;
+    background: var(--color-primary);
+    color: #ffffff !important;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.checklist-btn:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* 4. Navbar & Arrow Overrides */
+.navbar-glass a[href="/our-approach/"].nav-dropdown-toggle::after {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-reveal].active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 5. Responsive Behavior */
+@media (max-width: 1200px) {
+    .approach-grid {
+        gap: 60px;
+    }
+
+    .approach-hero-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .approach-grid.alternate .approach-image-container {
+        order: 0;
+    }
+
+    .pillar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-image-container img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .approach-hero {
+        height: 80vh;
+    }
+
+    .approach-hero-title {
+        font-size: 3rem;
+    }
+
+    .approach-section {
+        padding: 60px 0;
+    }
+
+    .approach-section-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .approach-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .approach-hero-label {
+        font-size: 28px;
+    }
+
+    .approach-image-container img {
+        height: 300px;
+    }
+
+    .checklist-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Gallery Restyle */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 300px 300px;
+    gap: 16px;
+}
+
+.gallery-item {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: span 2;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+/* CTA Section */
+.approach-cta {
+    padding: 100px 0;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 3rem;
+    margin-bottom: 24px;
+}
+
+.cta-btn {
+    display: inline-flex;
+    padding: 18px 48px;
+    background: var(--color-primary);
+    color: #ffffff !important;
+    border-radius: var(--radius-full);
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.cta-btn:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-3px) rotate(-1deg);
+    box-shadow: var(--shadow-xl);
+}

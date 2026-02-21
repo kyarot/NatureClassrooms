@@ -1,0 +1,378 @@
+/* Resource Creation Page Styles */
+
+.rc-page {
+    --text-main: #333333;
+    --text-light: #555555;
+    --bg-cream: #f9f8f4;
+    --nc-green: #2d5a3f;
+    --nc-green-dark: #1e3f2c;
+    --nc-green-light: #4A7C59;
+    --white: #ffffff;
+    background-color: var(--bg-cream);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+}
+
+/* Typography Overrides */
+.rc-page h1,
+.rc-page h2,
+.rc-page h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--nc-green);
+}
+
+/* Hero Section */
+.rc-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    background-image: url('/assets/resourcecreation/res1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.rc-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Dark top, fading to transparent, then solid cream at bottom */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, var(--bg-cream) 100%);
+    z-index: 1;
+}
+
+.rc-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.rc-hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.rc-hero h1 {
+    font-size: 5.5rem;
+    color: var(--white);
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rc-hero p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Intro Text */
+.rc-intro {
+    padding: 60px 5% 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.rc-intro p {
+    margin-bottom: 30px;
+}
+
+/* Inspiring Students Section */
+.rc-inspiring {
+    padding: 0 5% 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rc-inspiring h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.rc-inspiring>p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 60px;
+}
+
+.inspiring-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.inspiring-card {
+    background: var(--bg-cream);
+    border: 1px solid rgba(45, 90, 63, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.inspiring-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.ic-icon {
+    flex: 0 0 50px;
+    height: 50px;
+    background: rgba(45, 90, 63, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    color: var(--nc-green);
+}
+
+.ic-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.inspiring-card p {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Collab Box */
+.rc-collab-section {
+    padding: 0 5% 120px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.rc-collab-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 50px;
+}
+
+.collab-box {
+    background: var(--bg-cream);
+    border: 1px solid rgba(45, 90, 63, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.collab-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(139, 195, 74, 0.2);
+    /* lighter green bg */
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    color: var(--nc-green);
+}
+
+.collab-details h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.collab-details a {
+    color: var(--nc-green);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Featured Project */
+.rc-featured {
+    background-color: var(--nc-green-dark);
+    padding: 100px 5%;
+    color: var(--white);
+}
+
+.featured-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.featured-content {
+    flex: 1;
+}
+
+.featured-label {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8db596;
+    /* light muted green */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.featured-content h2 {
+    color: var(--white);
+    font-size: 4rem;
+    margin-bottom: 30px;
+}
+
+.featured-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+}
+
+.btn-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--nc-green-dark);
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-read-more:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.featured-image {
+    flex: 1;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Explore More */
+.rc-explore {
+    padding: 120px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.explore-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.explore-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.explore-content {
+    flex: 1;
+}
+
+.explore-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+.explore-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.btn-browse {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--nc-green);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.btn-browse:hover {
+    background: var(--nc-green-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .rc-hero h1 {
+        font-size: 4rem;
+    }
+
+    .featured-container,
+    .rc-explore {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .featured-content h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .inspiring-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rc-hero h1 {
+        font-size: 3rem;
+    }
+
+    .collab-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .collab-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,418 @@
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/ourapproach.css'}}">
+    {{/contentFor}}
+
+    <main class="site-main">
+        {{#post}}
+
+        {{!-- 1. Hero Section --}}
+        <section class="approach-hero">
+            <div class="approach-hero-bg" style="background-image: url('{{asset " carousel/1.jpg"}}');"></div>
+            <div class="approach-hero-overlay"></div>
+            <div class="approach-hero-content">
+                <span class="approach-hero-label" data-reveal>Cultivating Wonder</span>
+                <h1 class="approach-hero-title" data-reveal>Our Approach</h1>
+                <p class="approach-hero-description" data-reveal>
+                    In a world where nature often feels distant, we bridge the gap through a pedagogy of wonder,
+                    love, and lasting emotional connection with the natural world around us.
+                </p>
+            </div>
+
+            {{!-- 2. Fog / Cloud Section Separator --}}
+            <div class="fog-separator">
+                <div class="fog-blur"></div>
+            </div>
+        </section>
+
+        {{!-- 3. Philosophy Section (Alternating) --}}
+        <section class="approach-section approach-overview" id="philosophy">
+            <div class="container">
+                <div class="approach-grid">
+                    <div class="approach-content-block" data-reveal>
+                        <span class="approach-section-subtitle">Our Philosophy</span>
+                        <h2 class="approach-section-title">A Living Journey</h2>
+                        <div class="approach-section-text">
+                            <p>
+                                Our approach is not static; it is a dynamic and collaborative journey informed by deep
+                                research and real-world experiences. We engage with teachers, educators, and children
+                                across
+                                diverse geographies to understand the pulse of nature learning.
+                            </p>
+                            <p>
+                                By correlating school curricula with the natural world, we transform abstract concepts
+                                into experiential adventures that resonate with the heart and mind.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="approach-image-container" data-reveal>
+                        <img src="{{asset " carousel/2.jpg"}}" alt="Children exploring nature">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 4. Research Section (Alternating) --}}
+        <section class="approach-section" id="research">
+            <div class="container">
+                <div class="approach-grid alternate">
+                    <div class="approach-content-block" data-reveal>
+                        <span class="approach-section-subtitle">Evidence Based</span>
+                        <h2 class="approach-section-title">Grounded in Research</h2>
+                        <div class="approach-section-text">
+                            <p>
+                                Our Nature Learning Framework is built on hours of classroom observations, reflections,
+                                and meaningful conversations with educators who are as passionate as we are about
+                                reconnecting children with the earth.
+                            </p>
+                            <div class="stats-mini">
+                                <div class="stat-item">
+                                    <span class="stat-num">100+</span>
+                                    <span class="stat-label">Workshops</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-num">15+</span>
+                                    <span class="stat-label">States</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approach-image-container" data-reveal>
+                        <img src="{{asset " carousel/3.jpg"}}" alt="Researcher in nature">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 5. Pedagogy & Framework Section (Pillars) --}}
+        <section class="approach-section pillar-section" id="pedagogy">
+            <div class="container">
+                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">The
+                    Pillars
+                    of Our Program</h2>
+                <div class="pillar-grid">
+                    {{!-- Pillar 1: Pedagogy --}}
+                    <div class="pillar-card" data-reveal>
+                        <div class="pillar-image">
+                            <img src="{{asset " fourarms/CapacityBuilding.JPG"}}" alt="Capacity Building & Training">
+                        </div>
+                        <div class="pillar-content-wrapper">
+                            <h3 class="pillar-title">Nature Classrooms Pedagogy</h3>
+                            <p class="pillar-description">
+                                A dynamic, inclusive, and collaborative approach to planning nature learning
+                                engagements.
+                                It aims to develop a deep physical and emotional connection to the natural world.
+                            </p>
+                            <a href="https://www.natureclassrooms.org/_files/ugd/1dc466_b2c4f0bc82734afbafe657c177c1a1d3.pdf"
+                                class="download-btn" target="_blank">Download Pedagogy <svg width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg></a>
+                        </div>
+                    </div>
+
+                    {{!-- Pillar 2: Framework --}}
+                    <div class="pillar-card" data-reveal>
+                        <div class="pillar-image">
+                            <img src="{{asset " fourarms/Research.JPG"}}" alt="Research & Framework">
+                        </div>
+                        <div class="pillar-content-wrapper">
+                            <h3 class="pillar-title">Nature Learning Framework</h3>
+                            <p class="pillar-description">
+                                Our comprehensive guide for educators in selecting, designing, and developing
+                                age-appropriate resources and session plans for impactful nature education.
+                            </p>
+                            <a href="https://www.natureclassrooms.org/_files/ugd/1dc466_77e9664c22ea4220b94b23a27d56645b.pdf"
+                                class="download-btn" target="_blank">Download Framework <svg width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 6. Visual Engagement Section --}}
+        <section class="approach-gallery approach-section">
+            <div class="container">
+                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 40px;">Nature
+                    in
+                    Action</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-reveal>
+                        <img src="{{asset " carousel/1.jpg"}}" alt="Nature Classroom Activity" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" data-reveal>
+                        <img src="{{asset " carousel/2.jpg"}}" alt="Children exploring nature" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" data-reveal>
+                        <img src="{{asset " carousel/3.jpg"}}" alt="Nature observation" class="gallery-img">
+                    </div>
+                    <div class="gallery-item" data-reveal>
+                        <img src="{{asset " carousel/1.jpg"}}" alt="Outdoor learning" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 7. Action Checklist Section --}}
+        <section class="checklist-section approach-section">
+            <div class="container">
+                <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">Pedagogy in Action</h2>
+                <p class="text-center"
+                    style="text-align: center; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--text-secondary);">
+                    Ready to bring nature learning to your classroom? Download our action-oriented checklist
+                    available in multiple languages to get started today.
+                </p>
+
+                <div class="checklist-container" data-reveal>
+                    <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_1c0fb1e572744250bb13c46c50600429.pdf"
+                        class="checklist-btn" target="_blank">Download in English</a>
+                    <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_00af520eff704558a5b305a17d8138f9.pdf"
+                        class="checklist-btn" target="_blank">Download in ಕನ್ನಡ</a>
+                    <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_ab955eb6dc474e2a9304ab1375745e13.pdf"
+                        class="checklist-btn" target="_blank">Download in हिंदी</a>
+                </div>
+
+                <div style="margin-top: 80px; text-align: center;" data-reveal>
+                    <p style="margin-bottom: 24px; font-weight: 600;">Want a more elaborate version with examples and
+                        deeper
+                        questions?</p>
+                    <div class="elaborate-links"
+                        style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_05a37ffe832e4576b085daa13b0c83cf.pdf"
+                            class="checklist-btn"
+                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
+                            target="_blank">English Guide</a>
+                        <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_8b044e1feeb64e03bd3b96aec2ec02a1.pdf"
+                            class="checklist-btn"
+                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
+                            target="_blank">Kannada Guide</a>
+                        <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_eae39475a56745fe9fa7d912a5d7ad3f.pdf"
+                            class="checklist-btn"
+                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
+                            target="_blank">Hindi Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 8. Process Section --}}
+        <section class="process-section approach-section">
+            <div class="container">
+                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">Our
+                    Process
+                </h2>
+                <div class="process-steps">
+                    <div class="process-step" data-reveal>
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Observe & Listen</h3>
+                            <p>We start in the classroom, observing interactions and listening to the needs of both
+                                teachers
+                                and students.</p>
+                        </div>
+                    </div>
+                    <div class="process-step" data-reveal>
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Collaborate & Design</h3>
+                            <p>Working closely with experienced educators, we co-create resources that are
+                                age-appropriate
+                                and curriculum-aligned.</p>
+                        </div>
+                    </div>
+                    <div class="process-step" data-reveal>
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Implement & Reflect</h3>
+                            <p>Resources are tested in real environments, followed by a cycle of reflection and
+                                continuous
+                                improvement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 9. CTA Section --}}
+        <section class="approach-cta approach-section">
+            <div class="container">
+                <div class="cta-content" data-reveal>
+                    <h2 class="cta-title">Explore Our Resources</h2>
+                    <p class="cta-description"
+                        style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-secondary);">
+                        Discover curated readings, opinion pieces, and educational articles to deepen your understanding
+                        of nature education.
+                    </p>
+                    <a href="/readings" class="cta-btn">View Recommended Readings</a>
+                </div>
+            </div>
+        </section>
+
+        {{/post}}
+    </main>
+
+    {{!-- Scroll Reveal & Navbar Switching Script --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Reveal Initialization
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dynamic Navbar Color Switching
+            const header = document.getElementById('siteHeader');
+            const hero = document.querySelector('.approach-hero');
+            const logoContainer = document.getElementById('floatingLogo');
+            const logoImg = document.getElementById('floatingLogoImg');
+
+            function updateNavbar() {
+                if (!hero || !header) return;
+
+                const scrollY = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+
+                // If we're still in the hero section (dark background)
+                if (scrollY < heroHeight - 80) {
+                    header.classList.remove('navbar-light');
+                    header.classList.add('navbar-dark');
+                    if (logoContainer) logoContainer.classList.remove('logo-dark');
+                    if (logoImg && window.whiteLogo) logoImg.src = window.whiteLogo;
+                } else {
+                    // We're in light sections
+                    header.classList.add('navbar-light');
+                    header.classList.remove('navbar-dark');
+                    if (logoContainer) logoContainer.classList.add('logo-dark');
+                    if (logoImg && window.blackLogo) logoImg.src = window.blackLogo;
+                }
+
+                // Add scrolled class for glass effect refinement
+                if (scrollY > 100) {
+                    header.classList.add('navbar-scrolled');
+                } else {
+                    header.classList.remove('navbar-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar(); // Initial check
+        });
+    </script>
+
+    <style>
+        /* Inline styles for components within the page context */
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        .process-step:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(74, 124, 89, 0.15);
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            margin-bottom: 12px;
+            color: var(--color-primary);
+            font-size: 1.75rem;
+        }
+
+        .stats-mini {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .elaborate-links a {
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .elaborate-links a:hover {
+            opacity: 1 !important;
+            text-decoration: underline;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px;
+            }
+
+            .step-number {
+                font-size: 2.5rem;
+            }
+
+            .stats-mini {
+                gap: 24px;
+            }
+        }
+    </style>

@@ -1,0 +1,157 @@
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+
+    {{#post}} <main class="site-main">
+        {{!-- 1. Hero Banner --}}
+        <section class="resources-hero" style="height: 50vh; min-height: 400px;">
+            <div class="resources-hero-bg" style="background-image: url('{{asset " carousel/2.jpg"}}');"></div>
+            <div class="resources-hero-overlay"></div>
+            <div class="resources-hero-content">
+                <h1 class="resources-hero-title" data-reveal>Natural History</h1>
+                <p class="resources-hero-subtitle" data-reveal>
+                    Step into the fascinating world of the creatures and plants right outside your door. Our "Natural
+                    History
+                    Series" offers a collection of simple, beautifully illustrated stories about the common but often
+                    overlooked residents of our local ecosystems.
+                </p>
+            </div>
+        </section>
+
+        {{!-- 2. Resource Grid --}}
+        <section class="site-section">
+            <div class="container">
+                {{!-- 3. Resource Grid --}}
+                <div class="resource-item-grid">
+                    {{!-- Bats --}}
+                    {{> "resource-item"
+                    title="Bats: Flying Mammals"
+                    description="Bats are some of the most amazing flying mammals, but also the most misunderstood
+                    creatures
+                    sharing space with us. Use this resource to learn, teach and start the conversation around these
+                    curious, upside-down marvels!"
+                    preview_image=(asset "carousel/1.jpg")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Kannada"
+                    }}
+
+                    {{!-- Termites --}}
+                    {{> "resource-item"
+                    title="Termites and Termite Mounds"
+                    description="Termites are extraordinary engineers of the natural world. Our Termite resource
+                    introduces
+                    you to these tiny architects and their magnificent homes, the termitariums."
+                    preview_image=(asset "carousel/2.jpg")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Kannada"
+                    }}
+
+                    {{!-- Fig --}}
+                    {{> "resource-item"
+                    title="Fig Tree and Fig Wasp"
+                    description="We are incredibly lucky to have so many different types of Fig Trees growing all around
+                    us.
+                    As unique as the fig itself, are the Fig Wasps – very tiny flying insects, yet essential for the
+                    tree’s
+                    very existence."
+                    preview_image=(asset "carousel/3.jpg")
+                    download_url="#"
+                    lang1="English"
+                    }}
+                </div>
+            </div>
+        </section>
+
+        {{!-- 4. Educator Note Section --}}
+        <section class="educator-note-section">
+            <div class="container">
+                <div class="educator-note-card" data-reveal>
+                    <div class="educator-note-header">
+                        <div class="educator-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h2 class="educator-title">Note for Educators</h2>
+                    </div>
+                    <div class="educator-content">
+                        <p>
+                            These illustrated stories explore the common but often overlooked residents of our local
+                            ecosystems.
+                            From mud-architects like termites to the misunderstood marvels of flying mammals, these
+                            resources
+                            deepen connections with nature. Use them to introduce children and adults to the fascinating
+                            world of
+                            natural history—either indoors using the cards or outdoors near a termite mound or fig tree.
+                        </p>
+                    </div>
+                    <div class="educator-questions">
+                        <span class="questions-title">Questions to Explore</span>
+                        <ul class="questions-list">
+                            <li>Why are these creatures often misunderstood in our society?</li>
+                            <li>What signs of their architectural work can we find in our area?</li>
+                            <li>How do these organisms depend on specific local plants or soil?</li>
+                            <li>What unexpected discoveries did you make about their behaviors?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Reveal
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dynamic Navbar Color Switching
+            const header = document.getElementById('siteHeader');
+            const hero = document.querySelector('.resources-hero');
+            const logoContainer = document.getElementById('floatingLogo');
+            const logoImg = document.getElementById('floatingLogoImg');
+
+            function updateNavbar() {
+                if (!hero || !header) return;
+
+                const scrollY = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+
+                if (scrollY < heroHeight - 80) {
+                    header.classList.remove('navbar-light');
+                    header.classList.add('navbar-dark');
+                    if (logoContainer) logoContainer.classList.remove('logo-dark');
+                    if (logoImg && window.whiteLogo) logoImg.src = window.whiteLogo;
+                } else {
+                    header.classList.add('navbar-light');
+                    header.classList.remove('navbar-dark');
+                    if (logoContainer) logoContainer.classList.add('logo-dark');
+                    if (logoImg && window.blackLogo) logoImg.src = window.blackLogo;
+                }
+
+                if (scrollY > 100) {
+                    header.classList.add('navbar-scrolled');
+                } else {
+                    header.classList.remove('navbar-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar();
+        });
+    </script>
+    {{/post}}

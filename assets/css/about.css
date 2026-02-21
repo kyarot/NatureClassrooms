@@ -16,8 +16,8 @@
 /* Hero Section */
 .about-hero {
     position: relative;
-    height: 85vh;
-    min-height: 600px;
+    height: 60vh;
+    min-height: 450px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -58,8 +58,7 @@
 
 .about-hero-tag {
     font-size: 14px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--about-accent-yellow);
     margin-bottom: 25px;
     display: block;
@@ -67,11 +66,12 @@
 }
 
 .about-hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     line-height: 1.1;
     margin: 0;
     font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .about-hero h1 span {
@@ -81,7 +81,7 @@
 
 /* Intro Section */
 .about-intro {
-    padding: 100px 10%;
+    padding: 60px 10%;
     background: white;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -97,9 +97,9 @@
 }
 
 .about-intro-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
     line-height: 1.2;
     color: #333;
 }
@@ -188,7 +188,6 @@
     font-size: 14px;
     margin: 0;
     opacity: 0.8;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -196,7 +195,7 @@
 .about-vision {
     background: var(--about-accent-green);
     color: white;
-    padding: 120px 10%;
+    padding: 80px 10%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -216,16 +215,16 @@
 }
 
 .about-vision h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    margin-bottom: 40px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    margin-bottom: 30px;
     font-weight: 600;
 }
 
 .about-vision blockquote {
-    font-size: 2rem;
-    max-width: 1000px;
-    margin: 0 auto 50px;
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 40px;
     line-height: 1.6;
     font-weight: 400;
     font-style: italic;
@@ -253,7 +252,7 @@
 
 /* Goals Section */
 .about-goals {
-    padding: 100px 10%;
+    padding: 60px 10%;
     background: var(--about-bg-light);
 }
 
@@ -273,16 +272,15 @@
 }
 
 .about-goals-header span {
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: var(--about-accent-yellow);
     font-weight: 600;
     font-size: 14px;
 }
 
 .about-goals-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
     margin-top: 15px;
     color: #333;
 }
@@ -336,8 +334,8 @@
 }
 
 .goal-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.75rem;
     margin-bottom: 20px;
     color: #222;
 }
@@ -351,7 +349,7 @@
 
 /* Team Section */
 .team-section {
-    padding: 120px 10%;
+    padding: 80px 10%;
     background: #f0ede8;
 }
 
@@ -360,8 +358,8 @@
 }
 
 .team-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -379,24 +377,49 @@
     font-weight: 300;
 }
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 25px;
+.team-loop-container {
+    overflow: hidden;
+    padding: 60px 0;
+    margin: 0 -10vw;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.team-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: team-scroll 40s linear infinite;
+}
+
+.team-loop-container:hover .team-track {
+    animation-play-state: paused;
+}
+
+@keyframes team-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 15px));
+    }
 }
 
 .team-card {
+    flex: 0 0 300px;
     background: #f7f5f0;
     border-radius: 24px;
     padding: 40px;
     position: relative;
     overflow: hidden;
-    height: 520px;
+    height: 480px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     border: 1px solid rgba(0, 0, 0, 0.02);
+    cursor: pointer;
 }
 
 .team-card::before {
@@ -443,8 +466,8 @@
 }
 
 .team-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
     margin-bottom: 8px;
     color: #222;
 }
@@ -455,7 +478,6 @@
     font-weight: 700;
     margin-bottom: 20px;
     display: block;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -490,17 +512,237 @@
 
 .team-card:hover {
     background: white;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+    z-index: 10;
 }
 
 .team-card:hover .team-bio {
-    max-height: 150px;
+    max-height: 200px;
     margin-top: 15px;
     opacity: 1;
 }
 
 .team-card:hover .team-link {
     opacity: 1;
+}
+
+.team-card:hover .team-badge {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(74, 124, 89, 0.4);
+}
+
+.team-card.yellow:hover .team-badge {
+    box-shadow: 0 15px 35px rgba(212, 163, 115, 0.4);
+}
+
+/* New Sections UI */
+.container.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.alumni-interns-section {
+    padding: 100px 10%;
+    background: #fdfcf9;
+}
+
+.section-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.subtitle-icon {
+    width: 32px;
+    height: 32px;
+    background: #fdf5e6;
+    color: #8b6f47;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+}
+
+.section-subtitle h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+}
+
+.alumni-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alumni-card {
+    background: #f9f5ed;
+    border: 1px solid rgba(139, 111, 71, 0.1);
+    border-radius: 12px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition);
+}
+
+.alumni-card:hover {
+    background: #fff;
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.alumni-initials {
+    width: 40px;
+    height: 40px;
+    background: #e9e2d5;
+    color: #4a7c59;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.alumni-initials.gold {
+    color: #b08f54;
+}
+
+.alumni-name {
+    font-weight: 600;
+    color: #444;
+    flex: 1;
+}
+
+.alumni-name .year {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.linkedin-icon {
+    color: #a0a0a0;
+    width: 18px;
+    height: 18px;
+    transition: var(--transition);
+}
+
+.linkedin-icon:hover {
+    color: #0077b5;
+}
+
+/* Illustrators Section */
+.illustrators-section {
+    background: #463d36;
+    color: white;
+    padding: 60px 10%;
+}
+
+.illustrators-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.illustrators-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.illustrators-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.illustrator-pill {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.illustrator-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* CTA Section */
+.about-cta-section {
+    padding: 80px 10%;
+    background: #fafaf8;
+}
+
+.cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.cta-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 36px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: #4a7c59;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3d6849;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(74, 124, 89, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #4a7c59;
+    color: #4a7c59;
+}
+
+.btn-outline:hover {
+    background: rgba(74, 124, 89, 0.05);
+    transform: translateY(-3px);
 }
 
 /* Responsive */
@@ -556,5 +798,37 @@
 
     .about-goals-grid .goal-card:nth-child(n) {
         grid-column: span 1;
+    }
+
+    /* Stack grid-2 columns on mobile */
+    .container.grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .alumni-interns-section {
+        padding: 60px 5%;
+    }
+
+    .illustrators-section {
+        padding: 60px 5%;
+    }
+
+    .about-cta-section {
+        padding: 80px 5%;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 }

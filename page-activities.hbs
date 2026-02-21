@@ -1,0 +1,177 @@
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+
+    {{#post}} <main class="site-main">
+        {{!-- 1. Hero Banner --}}
+        <section class="resources-hero" style="height: 50vh; min-height: 400px;">
+            <div class="resources-hero-bg" style="background-image: url('{{asset " carousel/1.jpg"}}');"></div>
+            <div class="resources-hero-overlay"></div>
+            <div class="resources-hero-content">
+                <h1 class="resources-hero-title" data-reveal>Nature Activities</h1>
+                <p class="resources-hero-subtitle" data-reveal>
+                    Here are some quick nature activities to help you explore the natural world around you, with a goal
+                    in
+                    mind! Use these activities to introduce new learners into the world of their immediate nature.
+                </p>
+            </div>
+        </section>
+
+        {{!-- 2. Resource Grid --}}
+        <section class="site-section">
+            <div class="container">
+                {{!-- 3. Resource Grid --}}
+                <div class="resource-item-grid">
+                    {{!-- Colors --}}
+                    {{> "resource-item"
+                    title="Colors"
+                    description="A printable activity sheet that helps learners pay attention to the various colours in
+                    the
+                    natural world, from shades of green to vibrant butterflies."
+                    preview_image=(asset "carousel/1.jpg")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Kannada"
+                    }}
+
+                    {{!-- Patterns --}}
+                    {{> "resource-item"
+                    title="Patterns"
+                    description="A printable activity sheet that helps learners pay attention to different patterns in
+                    the
+                    natural world, from dots on insects to patterns on leaves."
+                    preview_image=(asset "carousel/2.jpg")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Kannada"
+                    }}
+
+                    {{!-- Textures --}}
+                    {{> "resource-item"
+                    title="Textures"
+                    description="A printable activity sheet that helps learners pay attention to different textures in
+                    the
+                    natural world—from rough, to smooth, to soft."
+                    preview_image=(asset "carousel/3.jpg")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Kannada"
+                    }}
+
+                    {{!-- Bird Migration --}}
+                    {{> "resource-item"
+                    title="Bird Migration"
+                    description="All in a Bird's Life is a 'bird survivor' game that helps learn about the different
+                    challenges that occur in a bird's life."
+                    preview_image=(asset "carousel/1.jpg")
+                    download_url="#"
+                    lang1="English"
+                    }}
+
+                    {{!-- Walls and Pavement --}}
+                    {{> "resource-item"
+                    title="Walls and Pavement"
+                    description="Discover an abundance of nature that lies hidden and not-so-hidden on our bricked and
+                    cemented walls and pavements!"
+                    preview_image=(asset "carousel/2.jpg")
+                    download_url="#"
+                    lang1="English"
+                    }}
+                </div>
+            </div>
+        </section>
+
+        {{!-- 4. Educator Note Section --}}
+        <section class="educator-note-section">
+            <div class="container">
+                <div class="educator-note-card" data-reveal>
+                    <div class="educator-note-header">
+                        <div class="educator-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <h2 class="educator-title">Note for Educators</h2>
+                    </div>
+                    <div class="educator-content">
+                        <p>
+                            These primary nature activities are designed to help students pay attention to the world
+                            around
+                            them with a focus on specific elements like patterns, textures, or migration. They are
+                            simple,
+                            versatile, and can be used in various learning contexts to foster empathy, teamwork, and
+                            sharp
+                            observation skills. Feel free to adapt them to your specific school premises or local
+                            neighborhood streets.
+                        </p>
+                    </div>
+                    <div class="educator-questions">
+                        <span class="questions-title">Questions to Explore</span>
+                        <ul class="questions-list">
+                            <li>What common patterns or textures did you observe in the wild?</li>
+                            <li>How did using all your senses change how you notice colors in nature?</li>
+                            <li>What challenges did you face while documenting your findings?</li>
+                            <li>How do these tiny details help animals and plants survive?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Reveal
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dynamic Navbar Color Switching
+            const header = document.getElementById('siteHeader');
+            const hero = document.querySelector('.resources-hero');
+            const logoContainer = document.getElementById('floatingLogo');
+            const logoImg = document.getElementById('floatingLogoImg');
+
+            function updateNavbar() {
+                if (!hero || !header) return;
+
+                const scrollY = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+
+                if (scrollY < heroHeight - 80) {
+                    header.classList.remove('navbar-light');
+                    header.classList.add('navbar-dark');
+                    if (logoContainer) logoContainer.classList.remove('logo-dark');
+                    if (logoImg && window.whiteLogo) logoImg.src = window.whiteLogo;
+                } else {
+                    header.classList.add('navbar-light');
+                    header.classList.remove('navbar-dark');
+                    if (logoContainer) logoContainer.classList.add('logo-dark');
+                    if (logoImg && window.blackLogo) logoImg.src = window.blackLogo;
+                }
+
+                if (scrollY > 100) {
+                    header.classList.add('navbar-scrolled');
+                } else {
+                    header.classList.remove('navbar-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar();
+        });
+    </script>
+    {{/post}}

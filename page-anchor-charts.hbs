@@ -1,0 +1,144 @@
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+
+    {{#post}} <main class="site-main">
+        {{!-- 1. Hero Banner --}}
+        <section class="resources-hero" style="height: 50vh; min-height: 400px;">
+            <div class="resources-hero-bg" style="background-image: url('{{asset " carousel/1.jpg"}}');"></div>
+            <div class="resources-hero-overlay"></div>
+            <div class="resources-hero-content">
+                <h1 class="resources-hero-title" data-reveal>Anchor Charts</h1>
+                <p class="resources-hero-subtitle" data-reveal>
+                    Anchor charts are a fun way to learn actively or passively! These charts are perfect for visually
+                    connecting things—like how a tiny insect relies on a specific plant—and understanding behaviors,
+                    interactions, and phenomena around us.
+                </p>
+            </div>
+        </section>
+
+        {{!-- 2. Resource Grid --}}
+        <section class="site-section">
+            <div class="container">
+                {{!-- 3. Resource Grid --}}
+                <div class="resource-item-grid">
+                    {{!-- Plant Posters --}}
+                    {{> "resource-item"
+                    title="Plant Posters"
+                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food,
+                    pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch."
+                    preview_image=(asset "carousel/2.jpg")
+                    download_url="/plantposter/"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Tamil"
+                    }}
+
+                    {{!-- Behaviour Tales --}}
+                    {{> "resource-item"
+                    title="Behaviour Tales"
+                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in
+                    which they do these essential behaviours and adaptations!"
+                    preview_image=(asset "carousel/3.jpg")
+                    download_url="/behaviortales/"
+                    lang1="English"
+                    lang2="Hindi"
+                    lang3="Kannada"
+                    }}
+                </div>
+            </div>
+        </section>
+
+        {{!-- 4. Educator Note Section --}}
+        <section class="educator-note-section">
+            <div class="container">
+                <div class="educator-note-card" data-reveal>
+                    <div class="educator-note-header">
+                        <div class="educator-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h2 class="educator-title">Note for Educators</h2>
+                    </div>
+                    <div class="educator-content">
+                        <p>
+                            Anchor charts are a powerful tool for visually connecting behaviors, interactions, and
+                            natural
+                            phenomena.
+                            They help students understand complex ecological relationships—like how an insect relies on
+                            a
+                            specific
+                            plant—making it simple to start conversations and spark curiosity about the living world.
+                            Use
+                            them to
+                            supplement textbook chapters with real-world examples.
+                        </p>
+                    </div>
+                    <div class="educator-questions">
+                        <span class="questions-title">Questions to Explore</span>
+                        <ul class="questions-list">
+                            <li>Why do animals need to keep clean or groom themselves?</li>
+                            <li>How does the interaction on this chart help both species?</li>
+                            <li>What other animal behaviors have you observed in domestic pets?</li>
+                            <li>Can you find a real-life example of this interaction outdoors?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Reveal
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dynamic Navbar Color Switching
+            const header = document.getElementById('siteHeader');
+            const hero = document.querySelector('.resources-hero');
+            const logoContainer = document.getElementById('floatingLogo');
+            const logoImg = document.getElementById('floatingLogoImg');
+
+            function updateNavbar() {
+                if (!hero || !header) return;
+
+                const scrollY = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+
+                if (scrollY < heroHeight - 80) {
+                    header.classList.remove('navbar-light');
+                    header.classList.add('navbar-dark');
+                    if (logoContainer) logoContainer.classList.remove('logo-dark');
+                    if (logoImg && window.whiteLogo) logoImg.src = window.whiteLogo;
+                } else {
+                    header.classList.add('navbar-light');
+                    header.classList.remove('navbar-dark');
+                    if (logoContainer) logoContainer.classList.add('logo-dark');
+                    if (logoImg && window.blackLogo) logoImg.src = window.blackLogo;
+                }
+
+                if (scrollY > 100) {
+                    header.classList.add('navbar-scrolled');
+                } else {
+                    header.classList.remove('navbar-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar();
+        });
+    </script>
+    {{/post}}

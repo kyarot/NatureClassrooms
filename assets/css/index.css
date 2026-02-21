@@ -101,13 +101,13 @@
 }
 
 .welcome-bold {
-    font-family: var(--gh-font-heading, 'Playfair Display', serif);
+    font-family: 'Oswald', sans-serif;
     font-size: 110px;
-    font-weight: 900;
+    font-weight: 700;
     color: #ffffff;
     text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
     line-height: 0.95;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
 }
 
 .hero-tagline {
@@ -125,18 +125,20 @@
 .hero-read-more {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px 40px;
+    gap: 10px;
+    padding: 16px 44px;
     background: var(--color-primary);
     color: #ffffff;
     border: none;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-lg);
 }
 
 .hero-read-more:hover {
@@ -170,6 +172,7 @@
 }
 
 .what-we-do-title {
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     margin: 0 0 var(--space-2xl) 0;
 }
@@ -262,6 +265,7 @@
 }
 
 .four-arms-title {
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     margin: 0 0 var(--space-3xl) 0;
 }
@@ -276,16 +280,18 @@
 .arm-card {
     position: relative;
     height: 400px;
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
 }
 
 .arm-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
 }
 
 /* Background Image */
@@ -329,7 +335,7 @@
 }
 
 .arm-card-title {
-    font-family: var(--gh-font-heading, 'Playfair Display', serif);
+    font-family: 'Oswald', sans-serif;
     font-size: 28px;
     font-weight: 700;
     color: #ffffff;
@@ -367,17 +373,18 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    background: rgba(74, 124, 89, 0.9);
-    color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
+    padding: 14px 28px;
+    background: var(--color-primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--radius-full);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-md);
     opacity: 0;
     transform: translateY(20px);
     width: fit-content;
@@ -515,6 +522,7 @@
 }
 
 .partners-title {
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     margin: 0 0 var(--space-2xl) 0;
 }
@@ -612,6 +620,7 @@
 }
 
 .collaborators-title {
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     margin: 0 0 var(--space-3xl) 0;
 }

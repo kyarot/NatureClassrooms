@@ -1,0 +1,204 @@
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+
+    {{#post}} <main class="site-main">
+        {{!-- 1. Enhanced Hero Section --}}
+        <section class="resources-hero hero-v2">
+            <div class="resources-hero-bg" style="background-image: url('{{asset " carousel/1.jpg"}}');"></div>
+            <div class="resources-hero-overlay"></div>
+
+            {{!-- Decorative shapes --}}
+            <div class="hero-decorative-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+
+            <div class="resources-hero-content">
+                <h1 class="resources-hero-title" data-reveal>
+                    <span class="title-cursive">Our Nature</span>
+                    <span class="title-bold">Resources</span>
+                </h1>
+                <div class="title-separator" data-reveal></div>
+                <p class="resources-hero-subtitle" data-reveal>
+                    A curated collection of nature-inspired learning materials designed to foster curiosity and a
+                    lifelong
+                    love for the environment.
+                </p>
+                <div class="hero-scroll-indicator" data-reveal>
+                    <span>Scroll to Explore</span>
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        {{!-- 2. Resource Category Grid --}}
+        <section class="resources-grid-section">
+            <div class="container">
+                <div class="resources-grid-header" data-reveal>
+                    <span class="grid-category-label">Explore</span>
+                    <h2 class="grid-title">Resource Categories</h2>
+                    <div class="title-separator" style="margin: 20px auto;"></div>
+                </div>
+                <div class="resources-grid" data-reveal>
+                    {{!-- Bingos --}}
+                    {{> "resource-card" url="/resources/bingos/" title="Bingos" description="Fun, interactive
+                    nature-themed
+                    bingo games for all ages." icon="images/ant-aphids.png"}}
+
+                    {{!-- Alphabet Charts --}}
+                    {{> "resource-card" url="/resources/alphabet-charts/" title="Alphabet Charts" description="Learn the
+                    ABCs through the wonders of the natural world."}}
+
+                    {{!-- Anchor Charts --}}
+                    {{> "resource-card" url="/resources/anchor-charts/" title="Anchor Charts" description="Visual aids
+                    to
+                    ground learning in natural concepts."}}
+
+                    {{!-- Natural History --}}
+                    {{> "resource-card" url="/resources/natural-history/" title="Natural History" description="Deep
+                    dives
+                    into the stories of plants and animals."}}
+
+                    {{!-- Modules --}}
+                    {{> "resource-card" url="/resources/modules/" title="Modules" description="Comprehensive learning
+                    units
+                    for structured nature education."}}
+
+                    {{!-- Activities --}}
+                    {{> "resource-card" url="/resources/activities/" title="Activities" description="Hands-on projects
+                    and
+                    experiments to do outdoors."}}
+
+                    {{!-- There's Nothing There --}}
+                    {{> "resource-card" url="/resources/theres-nothing-there/" title="There's Nothing There"
+                    description="A
+                    unique series challenging how we perceive 'empty' spaces."}}
+                </div>
+            </div>
+        </section>
+
+        {{!-- 3. Illustration Section (Engagement) --}}
+        <section class="resource-illustration-section">
+            <div class="curve-separator"></div>
+            <div class="container">
+                <div class="illustration-grid" data-reveal>
+                    <div class="illustration-image" data-reveal>
+                        <img src="{{asset " images/ant-aphids.png"}}" alt="Learning through Nature">
+                    </div>
+                    <div class="illustration-text" data-reveal>
+                        <h2 class="illustration-title">Learning Through Nature</h2>
+                        <p class="illustration-description">
+                            We believe that every leaf, insect, and trail has a story to tell. Our resources are
+                            designed to
+                            turn the outdoors into a living classroom, fostering curiosity and a lifelong love for the
+                            environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="curve-separator-bottom"></div>
+        </section>
+
+        {{!-- 4. Featured Resources Section --}}
+        <section class="featured-resources-section" id="framework">
+            <div class="container">
+                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 20px;"
+                    data-reveal>
+                    Featured Resources</h2>
+                <p class="text-center" style="text-align: center; margin-bottom: 60px; color: var(--text-secondary);"
+                    data-reveal>
+                    Handpicked materials to help you get started on your nature learning journey.</p>
+
+                <div class="featured-grid" data-reveal>
+                    {{!-- Featured 1 --}}
+                    <div class="featured-card" data-reveal>
+                        <div class="featured-img">
+                            <img src="{{asset " carousel/2.jpg"}}" alt="Nature Learning Framework">
+                        </div>
+                        <div class="featured-content">
+                            <span class="featured-tag">Guide</span>
+                            <h3 class="featured-title">Nature Learning Framework</h3>
+                            <p class="featured-description">Our comprehensive guide for educators in selecting,
+                                designing,
+                                and developing age-appropriate resources.</p>
+                            <a href="/our-approach/#framework" class="resource-card-btn"
+                                style="align-self: flex-start;">Explore Framework</a>
+                        </div>
+                    </div>
+
+                    {{!-- Featured 2 --}}
+                    <div class="featured-card" data-reveal>
+                        <div class="featured-img">
+                            <img src="{{asset " carousel/3.jpg"}}" alt="Pedagogy in Action">
+                        </div>
+                        <div class="featured-content">
+                            <span class="featured-tag">Implementation</span>
+                            <h3 class="featured-title">Pedagogy in Action</h3>
+                            <p class="featured-description">Discover how to implement nature learning in your classroom
+                                with
+                                our practical checklist and guide.</p>
+                            <a href="/our-approach/#pedagogy" class="resource-card-btn"
+                                style="align-self: flex-start;">Explore Pedagogy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Reveal
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dynamic Navbar Color Switching
+            const header = document.getElementById('siteHeader');
+            const hero = document.querySelector('.resources-hero');
+            const logoContainer = document.getElementById('floatingLogo');
+            const logoImg = document.getElementById('floatingLogoImg');
+
+            function updateNavbar() {
+                if (!hero || !header) return;
+
+                const scrollY = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+
+                if (scrollY < heroHeight - 80) {
+                    header.classList.remove('navbar-light');
+                    header.classList.add('navbar-dark');
+                    if (logoContainer) logoContainer.classList.remove('logo-dark');
+                    if (logoImg && window.whiteLogo) logoImg.src = window.whiteLogo;
+                } else {
+                    header.classList.add('navbar-light');
+                    header.classList.remove('navbar-dark');
+                    if (logoContainer) logoContainer.classList.add('logo-dark');
+                    if (logoImg && window.blackLogo) logoImg.src = window.blackLogo;
+                }
+
+                if (scrollY > 100) {
+                    header.classList.add('navbar-scrolled');
+                } else {
+                    header.classList.remove('navbar-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+            updateNavbar();
+        });
+    </script>
+    {{/post}}

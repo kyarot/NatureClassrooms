@@ -1,0 +1,309 @@
+/* ==========================================
+   RESEARCH PAGE STYLES
+   ========================================== */
+
+:root {
+    --research-primary: #2d4a35;
+    --research-accent: #4a7c59;
+    --research-soft-bg: #f8fbf8;
+    --research-text-muted: #5a6b5e;
+    --research-border: rgba(45, 74, 53, 0.1);
+}
+
+.research-page {
+    background: var(--color-white);
+    color: var(--text-primary);
+}
+
+.research-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* --- Hero Section --- */
+.research-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.research-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../research/res1.JPG');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: 1;
+}
+
+.research-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, var(--bg-body), transparent);
+    z-index: 2;
+}
+
+.research-hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 2rem;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.research-hero h1 {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.research-hero p {
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Philosophy Section --- */
+.research-philosophy {
+    padding: 100px 0;
+    background: var(--bg-body);
+}
+
+.philosophy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-content h2 {
+    font-size: 2.2rem;
+    color: var(--research-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.philosophy-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+}
+
+.philosophy-content .lead {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--research-primary);
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.philosophy-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--research-text-muted);
+}
+
+/* --- Projects Grid --- */
+.research-projects {
+    padding: 100px 0;
+    background: var(--color-white);
+}
+
+.project-item.alternating {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 120px;
+}
+
+.project-item.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-image {
+    flex: 1;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    height: 450px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-item:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-details {
+    flex: 1;
+}
+
+.project-category {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project-details h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--research-primary);
+    line-height: 1.2;
+}
+
+.project-details p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--research-text-muted);
+    margin-bottom: 2rem;
+}
+
+.read-more-link {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--research-primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--color-accent);
+    transform: translateX(5px);
+}
+
+/* --- Footer CTA --- */
+.research-footer-cta {
+    padding: 120px 0;
+    background: var(--research-primary);
+    color: white;
+    text-align: center;
+}
+
+.footer-cta-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-cta-card h2 {
+    color: white;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-cta-card p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-primary {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-primary:hover {
+    background: #e67e22;
+    /* Slightly different accent hover */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .project-item.alternating {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 350px;
+    }
+
+    .research-hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .philosophy-content .lead {
+        font-size: 1.25rem;
+    }
+
+    .project-details h3 {
+        font-size: 1.8rem;
+    }
+}

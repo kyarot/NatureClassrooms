@@ -1,0 +1,61 @@
+<div class="resource-item-card">
+    <div class="resource-item-thumbnail">
+        <img src="{{preview_image}}" alt="{{title}}" loading="lazy">
+        <div class="resource-actions-overlay">
+            <a href="{{download_url}}" class="overlay-download-link" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Quick Download
+            </a>
+        </div>
+    </div>
+    <div class="resource-item-content">
+        <h3 class="resource-item-title">{{title}}</h3>
+        <p class="resource-item-desc">{{description}}</p>
+
+        <div class="resource-item-footer">
+            {{#if lang2}}
+            {{!-- Multiple languages --}}
+            <div class="download-dropdown">
+                <button class="download-dropdown-btn">
+                    <span>Download</span>
+                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-menu">
+                    {{#if lang1}}<a href="{{download_url}}" class="dropdown-item">{{lang1}}</a>{{/if}}
+                    {{#if lang2}}<a href="{{download_url}}" class="dropdown-item">{{lang2}}</a>{{/if}}
+                    {{#if lang3}}<a href="{{download_url}}" class="dropdown-item">{{lang3}}</a>{{/if}}
+                </div>
+            </div>
+            {{else if lang3}}
+            {{!-- Case where lang2 is missing but lang3 exists --}}
+            <div class="download-dropdown">
+                <button class="download-dropdown-btn">
+                    <span>Download</span>
+                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-menu">
+                    {{#if lang1}}<a href="{{download_url}}" class="dropdown-item">{{lang1}}</a>{{/if}}
+                    {{#if lang3}}<a href="{{download_url}}" class="dropdown-item">{{lang3}}</a>{{/if}}
+                </div>
+            </div>
+            {{else}}
+            {{!-- Single file or only one language --}}
+            <a href="{{download_url}}" class="single-download-btn">
+                Download Resource
+                {{#if lang1}}({{lang1}}){{/if}}
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</div>

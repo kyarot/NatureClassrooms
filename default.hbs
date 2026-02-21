@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@900&family=Poppins:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oswald:wght@400;500;600;700&family=Playfair+Display:wght@900&family=Poppins:wght@400;600&display=swap"
         rel="stylesheet">
 
     {{ghost_head}}
@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="{{asset 'css/default.css'}}">
     <link rel="stylesheet" href="{{asset 'css/index.css'}}">
     <link rel="stylesheet" href="{{asset 'css/about.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/media.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/blog.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/resourcecreation.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/capacity.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/research.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/outreach.css'}}">
+
+    {{{block "styles"}}}
 
 </head>
 
@@ -26,7 +34,9 @@
 
     <!-- Floating Logo -->
     <div class="floating-logo" id="floatingLogo">
-        <img src="{{asset 'logo/main.png'}}" alt="{{@site.title}}" id="floatingLogoImg">
+        <a href="/" style="display: block;">
+            <img src="{{asset 'logo/main.png'}}" alt="{{@site.title}}" id="floatingLogoImg">
+        </a>
     </div>
 
     {{> header}}

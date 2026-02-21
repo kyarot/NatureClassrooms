@@ -1,0 +1,117 @@
+{{!< default}} <div class="blog-page">
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="blog-hero-content">
+            <h1>Blog</h1>
+            <p>A collection of reflections from the team as well as teachers who engage with and use our resources in
+                their spaces.</p>
+        </div>
+    </section>
+
+    <!-- Note Box -->
+    <div class="blog-note-container">
+        <div class="blog-note-box">
+            <div class="blog-note-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                A note from us
+            </div>
+            <div class="blog-note-content">
+                <p>We publish contributions from educators who wish to write about their experience with our resources
+                    and nature learning. Write to us with your pitches at <a href="mailto:info@natureclassrooms.in"
+                        class="pitch-info"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg> info[at]natureclassrooms[dot]in</a></p>
+                <p class="disclaimer">The reflections and learnings contributed by teachers and educators in these guest
+                    blog posts do not necessarily reflect the approach and views of Nature Classrooms. Please get in
+                    touch directly with the individual authors and contributors of these posts for clarifications or
+                    collaborations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Stories -->
+    <div class="stories-header">
+        <div class="stories-title">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a7 7 0 0 1-9 10z"></path>
+                <line x1="9" y1="21" x2="12" y2="11"></line>
+            </svg>
+            Latest Stories
+        </div>
+        <div class="stories-line"></div>
+        <div class="stories-count">{{posts.length}} posts</div>
+    </div>
+
+    <div class="blog-grid">
+        <!-- Ghost Dynamic Posts Loop -->
+        {{#get "posts" limit="10" include="authors,tags"}}
+        {{#foreach posts}}
+        <!-- Unified Post Card -->
+        <a href="{{url}}" class="post-card">
+            <div class="post-card-img">
+                {{#if feature_image}}
+                <img src="{{img_url feature_image}}" alt="{{title}}">
+                {{else}}
+                <div class="placeholder-img" style="background: #e9ecef; width:100%; height:100%;"></div>
+                {{/if}}
+                <div class="arrow-overlay">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M7 17l10-10M17 17V7H7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="post-card-content">
+                <div class="author-meta">
+                    <div class="author-avatar">
+                        {{#primary_author}}
+                        {{#if profile_image}}
+                        <img src="{{img_url profile_image}}" alt="{{name}}">
+                        {{else}}
+                        {{name.[0]}}{{name.[1]}}
+                        {{/if}}
+                        {{/primary_author}}
+                    </div>
+                    <div class="author-info">
+                        <span class="author-name">{{primary_author.name}}</span>
+                        <span class="post-read-time">
+                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                stroke-width="2.5" style="margin-right: 4px; vertical-align: -2px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            {{reading_time}}
+                        </span>
+                    </div>
+                </div>
+                <h3>{{title}}</h3>
+                <p class="post-card-excerpt">{{excerpt words="20"}}...</p>
+                <div class="card-stats">
+                    <div class="stat-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg> 29</div>
+                    <div class="stat-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg> 0 comments</div>
+                    <div class="stat-item views">29 views</div>
+                </div>
+            </div>
+        </a>
+        {{/foreach}}
+        {{else}}
+        <p>No posts found.</p>
+        {{/get}}
+    </div>
+
+    </div>
