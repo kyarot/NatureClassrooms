@@ -607,10 +607,11 @@
    COLLABORATORS SECTION
    ================================ */
 .collaborators-section {
-    padding: 100px 0;
+    padding: 100px 0 120px;
     background: #ffffff;
     overflow: hidden;
     position: relative;
+    margin-bottom: 80px;
 }
 
 .collaborators-section .container {

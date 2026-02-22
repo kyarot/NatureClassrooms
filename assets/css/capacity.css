@@ -42,7 +42,7 @@
     left: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%, var(--bg-cream) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--bg-cream) 100%);
     z-index: 2;
 }
 
@@ -79,6 +79,8 @@
     padding: 80px var(--space-lg);
     background: var(--bg-body);
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .capacity-intro-container {
@@ -119,6 +121,8 @@
     padding: 80px var(--space-lg);
     position: relative;
     overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .capacity-testimonial::before {
@@ -163,6 +167,8 @@
 .engagement-section {
     padding: 80px var(--space-lg);
     background: var(--color-white);
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .engagement-grid {
@@ -229,8 +235,10 @@
 
 /* --- Collaborators Section --- */
 .collaborators-section {
-    padding: 80px var(--space-lg);
+    padding: 100px var(--space-lg) 120px;
     background: var(--bg-body);
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .collaborators-container {
@@ -275,11 +283,13 @@
     background: #344e41;
     color: white;
     text-align: center;
+   
 }
 
 .cta-container {
     max-width: 700px;
     margin: 0 auto;
+    
 }
 
 .capacity-cta h2 {
