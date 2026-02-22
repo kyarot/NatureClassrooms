@@ -816,9 +816,10 @@ object {
    FOOTER
    ================================ */
 .site-footer {
-    background: linear-gradient(135deg, #2c5f2d 0%, #4a7c59 100%);
+    background: #2d4a35;
+    /* Solid dark green */
     color: #ffffff;
-    padding: var(--space-3xl) var(--space-lg) var(--space-lg);
+    padding: 80px var(--space-lg) 40px;
 }
 
 .footer-container {
@@ -828,49 +829,92 @@ object {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2xl);
-    margin-bottom: var(--space-2xl);
+    grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: start;
 }
 
 .footer-section {
     text-align: left;
 }
 
+.footer-brand-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-logo {
+    max-width: 280px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
 .footer-heading {
-    font-family: var(--gh-font-heading, "Playfair Display", serif);
+    font-family: var(--gh-font-heading, "Oswald", sans-serif);
     font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-md) 0;
+    font-weight: 600;
+    margin: 0 0 24px 0;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
 }
 
 .footer-text {
     font-family: var(--gh-font-body, "Poppins", sans-serif);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     line-height: 1.8;
     margin: 0;
     color: rgba(255, 255, 255, 0.9);
 }
 
+.collaboration-box {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.collaboration-box strong {
+    color: #2d4a35;
+    display: block;
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+.collaboration-box .footer-text {
+    color: #4a4a4a;
+}
+
 .footer-link {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .footer-link:hover {
     color: var(--color-accent);
-    text-decoration: underline;
+    border-color: var(--color-accent);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: var(--space-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-bottom p {
@@ -878,17 +922,39 @@ object {
 }
 
 /* Responsive Footer */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
 @media (max-width: 768px) {
     .site-footer {
-        padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+        padding: 60px var(--space-lg) 30px;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
+        gap: 40px;
+        text-align: center;
     }
 
     .footer-section {
         text-align: center;
+    }
+
+    .footer-heading {
+        justify-content: center;
+    }
+
+    .footer-brand-section {
+        align-items: center;
+    }
+
+    .collaboration-box {
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
