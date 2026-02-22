@@ -44,8 +44,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--overlay-dark);
-    z-index: 2;
+    background: linear-gradient(to bottom, rgba(45, 45, 45, 0.7)70%, rgba(255, 255, 255, 1));
+    z-index: 1;
 }
 
 .approach-hero-content {
