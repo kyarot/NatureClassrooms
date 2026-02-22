@@ -460,15 +460,16 @@
     padding: 100px 0;
     background: #f9f9f9;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 50;
 }
 
 .ant-decoration {
     position: absolute;
-    top: -30px;
-    width: 180px;
-    height: 180px;
-    z-index: 10;
+    top: -40px;
+    width: 250px;
+    height: 250px;
+    z-index: 1000;
     pointer-events: none;
 }
 
@@ -589,9 +590,9 @@
     }
 
     .ant-decoration {
-        width: 80px;
-        height: 80px;
-        top: -20px;
+        width: 120px;
+        height: 120px;
+        top: -30px;
     }
 
     .ant-left {
@@ -702,9 +703,9 @@
     }
 
     .ant-decoration {
-        width: 80px;
-        height: 80px;
-        top: -20px;
+        width: 120px;
+        height: 120px;
+        top: -30px;
     }
 }
 
