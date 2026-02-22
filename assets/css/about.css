@@ -16,8 +16,8 @@
 /* Hero Section */
 .about-hero {
     position: relative;
-    height: 60vh;
-    min-height: 450px;
+    height: 75vh;
+    min-height: 550px;
     display: flex;
     align-items: center;
     justify-content: flex-start;

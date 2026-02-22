@@ -13,7 +13,8 @@
 /* --- Hero Section --- */
 .capacity-hero {
     position: relative;
-    height: var(--capacity-hero-height);
+    height: 75vh;
+    min-height: 550px;
     width: 100%;
     display: flex;
     align-items: center;

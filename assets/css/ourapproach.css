@@ -16,9 +16,8 @@
 /* 1. Enhanced Hero Section */
 .approach-hero {
     position: relative;
-    height: 85vh;
-    /* Slightly reduced height for better proportions */
-    min-height: 650px;
+    height: 75vh;
+    min-height: 550px;
     width: 100%;
     display: flex;
     align-items: center;
