@@ -337,9 +337,10 @@ p:last-child {
     display: block;
 }
 
-.navbar-glass .header-nav a:hover {
-    color: rgb(255, 255, 255);
-    background: var(--color-primary);
+.navbar-glass .header-nav .nav a:hover,
+.navbar-glass .header-nav .nav .nav-dropdown:hover>.nav-dropdown-toggle {
+    color: #ffffff !important;
+    background: var(--color-primary) !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
