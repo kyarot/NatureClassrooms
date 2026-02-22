@@ -93,29 +93,66 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Detect section backgrounds
-            const heroCarousel = document.querySelector('.hero-carousel');
-            const aboutHero = document.querySelector('.about-hero');
-            const heroElement = heroCarousel || aboutHero;
+            // Check for various hero section classes across different pages
+            const heroSelectors = [
+                '.hero-carousel',
+                '.about-hero',
+                '.capacity-hero',
+                '.resources-hero',
+                '.research-hero',
+                '.outreach-hero',
+                '.media-hero',
+                '.resourcecreation-hero',
+                '.approach-hero',
+                '.rc-hero'
+            ];
+
+            let heroElement = null;
+            for (const selector of heroSelectors) {
+                const el = document.querySelector(selector);
+                if (el) {
+                    heroElement = el;
+                    break;
+                }
+            }
 
             if (heroElement) {
                 const heroHeight = heroElement.offsetHeight;
 
-                // If we're still in the hero section (dark background)
-                if (scrollY < heroHeight - 100) {
+                // Threshold for switching - usually near the bottom of hero
+                const threshold = heroHeight - 80;
+
+                if (scrollY < threshold) {
+                    // Dark background (hero)
                     navbar.classList.remove('navbar-light');
+                    navbar.classList.add('navbar-dark');
                     if (floatingLogo) floatingLogo.classList.remove('logo-dark');
-                    if (floatingLogoImg && window.whiteLogo) floatingLogoImg.src = window.whiteLogo;
+                    if (floatingLogoImg && window.whiteLogo) {
+                        if (floatingLogoImg.src !== window.whiteLogo) {
+                            floatingLogoImg.src = window.whiteLogo;
+                        }
+                    }
                 } else {
-                    // We're in light sections
+                    // Light background (content)
                     navbar.classList.add('navbar-light');
+                    navbar.classList.remove('navbar-dark');
                     if (floatingLogo) floatingLogo.classList.add('logo-dark');
-                    if (floatingLogoImg && window.blackLogo) floatingLogoImg.src = window.blackLogo;
+                    if (floatingLogoImg && window.blackLogo) {
+                        if (floatingLogoImg.src !== window.blackLogo) {
+                            floatingLogoImg.src = window.blackLogo;
+                        }
+                    }
                 }
             } else {
-                // For pages without a hero, default to light navbar
+                // For pages without a hero section, default to light navbar (black logo)
                 navbar.classList.add('navbar-light');
+                navbar.classList.remove('navbar-dark');
                 if (floatingLogo) floatingLogo.classList.add('logo-dark');
-                if (floatingLogoImg && window.blackLogo) floatingLogoImg.src = window.blackLogo;
+                if (floatingLogoImg && window.blackLogo) {
+                    if (floatingLogoImg.src !== window.blackLogo) {
+                        floatingLogoImg.src = window.blackLogo;
+                    }
+                }
             }
         }, 10);
     }
