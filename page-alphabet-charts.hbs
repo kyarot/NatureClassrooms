@@ -3,12 +3,13 @@
 
     {{#post}} <main class="site-main">
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero">
+        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
             <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/2.jpg"}}');"></div>
             <div class="resources-hero-overlay"></div>
-            <div class="resources-hero-content">
-                <h1 class="resources-hero-title" data-reveal>Alphabet Charts</h1>
-                <p class="resources-hero-subtitle" data-reveal>
+            <div class="container" style="z-index: 3; position: relative; width: 100%;">
+            <div class="resources-hero-content"style="margin-left: 0; padding-left: 0; text-align: left;">
+                <h1 class="resources-hero-title" style="color: white;" data-reveal>Alphabet Charts</h1>
+                <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
                     Walk into most stores and classrooms in India, and you will find alphabet learning charts connecting
                     the
                     alphabet using exotic animals, birds, or other man-made things from our lives. We bring you locally
@@ -16,6 +17,7 @@
                     culturally relevant nature alphabet charts that bring together some of the commonly found plants,
                     animals, and natural elements across region-specific ecosystems.
                 </p>
+            </div>
             </div>
         </section>
 

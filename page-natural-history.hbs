@@ -3,17 +3,19 @@
 
     {{#post}} <main class="site-main">
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero">
+        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
             <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/2.jpg"}}');"></div>
             <div class="resources-hero-overlay"></div>
-            <div class="resources-hero-content">
-                <h1 class="resources-hero-title" data-reveal>Natural History</h1>
-                <p class="resources-hero-subtitle" data-reveal>
+            <div class="container" style="z-index: 3; position: relative; width: 100%;">
+            <div class="resources-hero-content"style="margin-left: 0; padding-left: 0; text-align: left;">
+                <h1 class="resources-hero-title" style="color: white;" data-reveal>Natural History</h1>
+                <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
                     Step into the fascinating world of the creatures and plants right outside your door. Our "Natural
                     History
                     Series" offers a collection of simple, beautifully illustrated stories about the common but often
                     overlooked residents of our local ecosystems.
                 </p>
+            </div>
             </div>
         </section>
 

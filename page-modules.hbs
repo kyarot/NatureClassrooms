@@ -3,15 +3,17 @@
 
     {{#post}} <main class="site-main">
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero">
+        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
             <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/3.jpg"}}');"></div>
             <div class="resources-hero-overlay"></div>
-            <div class="resources-hero-content">
-                <h1 class="resources-hero-title" data-reveal>Learning Modules</h1>
-                <p class="resources-hero-subtitle" data-reveal>
+            <div class="container" style="z-index: 3; position: relative; width: 100%;">
+            <div class="resources-hero-content"style="margin-left: 0; padding-left: 0; text-align: left;">
+                <h1 class="resources-hero-title" style="color: white;" data-reveal>Learning Modules</h1>
+                <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
                     Our learning modules are designed to help you go beyond the textbook and explore the rich,
                     often-overlooked layers of the natural world through hands-on activities and engaging resources.
                 </p>
+            </div>
             </div>
         </section>
 
