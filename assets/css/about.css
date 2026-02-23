@@ -832,3 +832,54 @@
         justify-content: center;
     }
 }
+/* Decorative Illustration Overlay */
+.about-page-illustration {
+    position: absolute;
+    top: 2400px;
+    left: -100px;
+    z-index: 100;
+    width: clamp(250px, 35vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.about-page-illustration img {
+    width: 85%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 768px) {
+    .about-page-illustration {
+        width: 180px;
+        left: -40px;
+        top: 600px;
+    }
+}
+
+/* Bottom-Right Illustration Overlay */
+.about-page-bottom-illustration {
+    position: absolute;
+    top: 5230px;
+    right: -120px;
+    z-index: 100;
+    width: clamp(280px, 40vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.about-page-bottom-illustration img {
+    width: 85%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .about-page-bottom-illustration {
+        width: 200px;
+        right: -50px;
+        bottom: 50px;
+    }
+}

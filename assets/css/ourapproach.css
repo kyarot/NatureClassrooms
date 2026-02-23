@@ -496,3 +496,28 @@
     transform: translateY(-3px) rotate(-1deg);
     box-shadow: var(--shadow-xl);
 }
+/* Decorative Illustration Overlay */
+.page-approach-illustration {
+    position: absolute;
+    top: 5350px;
+    left: -120px;
+    z-index: 100;
+    width: clamp(280px, 40vw, 550px);
+    transform: rotate(15deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.page-approach-illustration img {
+    width: 85%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-approach-illustration {
+        width: 200px;
+        left: -50px;
+        top: 100px;
+    }
+}

@@ -229,3 +229,28 @@
         padding: 40px 20px;
     }
 }
+/* Decorative Illustration Overlay */
+.outreach-page-illustration {
+    position: absolute;
+    top:1495px;
+    left: -120px;
+    z-index: 100;
+    width: clamp(280px, 40vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.outreach-page-illustration img {
+    width: 95%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .outreach-page-illustration {
+        width: 200px;
+        left: -50px;
+        bottom: 100px;
+    }
+}

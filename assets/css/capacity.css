@@ -356,3 +356,28 @@
         grid-template-columns: 1fr;
     }
 }
+/* Decorative Illustration Overlay */
+.capacity-page-illustration {
+    position: absolute;
+    top: 1790px;
+    right: -270px;
+    z-index: 100;
+    width: clamp(280px, 40vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.capacity-page-illustration img {
+    width: 65%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .capacity-page-illustration {
+        width: 200px;
+        right: -50px;
+        bottom: 100px;
+    }
+}

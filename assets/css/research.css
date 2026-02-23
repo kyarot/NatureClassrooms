@@ -307,3 +307,54 @@
         font-size: 1.8rem;
     }
 }
+/* Decorative Illustration Overlay */
+.research-page-illustration {
+    position: absolute;
+    top: 650px;
+    left: -100px;
+    z-index: 100;
+    width: clamp(250px, 35vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.research-page-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 768px) {
+    .research-page-illustration {
+        width: 180px;
+        left: -40px;
+        top: 600px;
+    }
+}
+
+/* Bottom-Right Illustration Overlay */
+.research-page-bottom-illustration {
+    position: absolute;
+    top: 2650px;
+    right: -120px;
+    z-index: 100;
+    width: clamp(280px, 40vw, 550px);
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.research-page-bottom-illustration img {
+    width: 95%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .research-page-bottom-illustration {
+        width: 200px;
+        right: -50px;
+        bottom: 50px;
+    }
+}
