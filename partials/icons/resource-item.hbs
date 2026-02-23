@@ -18,8 +18,8 @@
         <p class="resource-item-desc">{{description}}</p>
 
         <div class="resource-item-footer">
-            {{#if lang2}}
-            {{!-- Multiple languages --}}
+            {{#if lang1}}
+            {{!-- Unified dropdown for one or more languages --}}
             <div class="download-dropdown">
                 <button class="download-dropdown-btn">
                     <span>Download</span>
@@ -34,26 +34,10 @@
                     {{#if lang3}}<a href="{{download_url}}" class="dropdown-item">{{lang3}}</a>{{/if}}
                 </div>
             </div>
-            {{else if lang3}}
-            {{!-- Case where lang2 is missing but lang3 exists --}}
-            <div class="download-dropdown">
-                <button class="download-dropdown-btn">
-                    <span>Download</span>
-                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="dropdown-menu">
-                    {{#if lang1}}<a href="{{download_url}}" class="dropdown-item">{{lang1}}</a>{{/if}}
-                    {{#if lang3}}<a href="{{download_url}}" class="dropdown-item">{{lang3}}</a>{{/if}}
-                </div>
-            </div>
             {{else}}
-            {{!-- Single file or only one language --}}
+            {{!-- Single file with no language specified --}}
             <a href="{{download_url}}" class="single-download-btn">
                 Download Resource
-                {{#if lang1}}({{lang1}}){{/if}}
             </a>
             {{/if}}
         </div>

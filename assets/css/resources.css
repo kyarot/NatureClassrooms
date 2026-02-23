@@ -575,7 +575,8 @@
     background: #ffffff;
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
-    overflow: hidden;
+    overflow: visible;
+    /* Allow dropdowns to pop out */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     height: 100%;
@@ -1017,14 +1018,18 @@
         top: 350px;
     }
 }
+
 /* Middle Floating Illustration Overlay */
 .page-middle-illustration {
     position: absolute;
-    top: 1800px; /* Positioned to overlap grid and learning section */
-    right: -250px; /* Coming from right */
+    top: 1800px;
+    /* Positioned to overlap grid and learning section */
+    right: -250px;
+    /* Coming from right */
     z-index: 3;
     width: clamp(250px, 40vw, 550px);
-    transform: rotate(-25deg); /* Tilted */
+    transform: rotate(-25deg);
+    /* Tilted */
     pointer-events: none;
     transition: transform 0.3s ease;
 }
@@ -1073,7 +1078,7 @@
 }
 .page-bingo1-illustration {
     position: absolute;
-    top: 1900px;
+    top: 1500px;
     /* Positioned to overlap hero and next section */
     left: -100px;
     /* Coming from left */
@@ -1099,4 +1104,90 @@
         left: -60px;
         top: 350px;
     }
+}
+.page-alphabet-illustration {
+    position: absolute;
+    top: 450px;
+    /* Positioned to overlap grid and learning section */
+    left: -90px;
+    /* Coming from right */
+    z-index: 3;
+    width: clamp(250px, 40vw, 550px);
+    
+    transform: rotate(-10deg);
+    /* Tilted */
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.page-alphabet-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-alphabet-illustration {
+        width: 200px;
+        right: -50px;
+        top: 1200px;
+    }
+}
+/* Bingo Horizontal Loop */
+.bingo-loop-container {
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 60px 0 150px;
+    /* Increased bottom padding for dropdowns */
+    position: relative;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.bingo-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    padding: 0 40px;
+    animation: bingoScroll 35s linear infinite;
+}
+
+@keyframes bingoScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Hover Interactions */
+.bingo-track:hover {
+    animation-play-state: paused;
+}
+
+.bingo-track .resource-item-card {
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 380px;
+    flex-shrink: 0;
+}
+
+.bingo-track .resource-item-card:hover {
+    transform: scale(1.08) translateY(-15px);
+    z-index: 50;
+    /* Ensure it stays above other cards and container boundaries */
+    box-shadow: 0 40px 80px rgba(74, 124, 89, 0.2);
+    border-color: var(--color-primary);
+}
+
+/* Ensure dropdowns work inside the loop */
+.bingo-track .download-dropdown {
+    position: relative;
+}
+
+.bingo-track .dropdown-menu {
+    bottom: auto;
+    top: calc(100% + 10px);
 }

@@ -28,65 +28,134 @@
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
-                    {{!-- Nature Bingo --}}
-                    {{> "resource-item"
-                    title="Nature Bingo"
-                    description="Step into the amazing world of local nature! From insects on the wall to flowers and
-                    flying
-                    birds, use all your senses to explore and say BINGO!"
-                    preview_image=(asset "carousel/1.jpg")
-                    download_url="#"
-                    lang1="English"
-                    lang2="Kannada"
-                    }}
+                <div class="bingo-loop-container">
+                    <div class="bingo-track">
+                        {{!-- Original Items --}}
+                        {{!-- Nature Bingo --}}
+                        {{> "resource-item"
+                        title="Nature Bingo"
+                        description="Step into the amazing world of local nature! From insects on the wall to flowers
+                        and
+                        flying
+                        birds, use all your senses to explore and say BINGO!"
+                        preview_image=(asset "carousel/1.jpg")
+                        download_url="#"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
 
-                    {{!-- Hidden Housemates --}}
-                    {{> "resource-item"
-                    title="Hidden Housemates"
-                    description="Nature isn't confined to forests—they are all around us, even within our own four
-                    walls!
-                    Explore the fascinating miniature ecosystems sharing your space."
-                    preview_image=(asset "carousel/2.jpg")
-                    download_url="/hiddenhousemates/"
-                    lang1="English"
-                    lang2="Hindi"
-                    lang3="Kannada"
-                    }}
+                        {{!-- Hidden Housemates --}}
+                        {{> "resource-item"
+                        title="Hidden Housemates"
+                        description="Nature isn't confined to forests—they are all around us, even within our own four
+                        walls!
+                        Explore the fascinating miniature ecosystems sharing your space."
+                        preview_image=(asset "carousel/2.jpg")
+                        download_url="/hiddenhousemates/"
+                        lang1="English"
+                        lang2="Hindi"
+                        lang3="Kannada"
+                        }}
 
-                    {{!-- Seasonal Bingo --}}
-                    {{> "resource-item"
-                    title="Seasonal Bingo"
-                    description="Seasons bring about remarkable transformations. Use these season-wise themed bingos to
-                    discover the unique ecological responses that define every season."
-                    preview_image=(asset "carousel/3.jpg")
-                    download_url="/seasonalbingo/"
-                    lang1="English"
-                    lang2="Kannada"
-                    }}
+                        {{!-- Seasonal Bingo --}}
+                        {{> "resource-item"
+                        title="Seasonal Bingo"
+                        description="Seasons bring about remarkable transformations. Use these season-wise themed bingos
+                        to
+                        discover the unique ecological responses that define every season."
+                        preview_image=(asset "carousel/3.jpg")
+                        download_url="/seasonalbingo/"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
 
-                    {{!-- Lotus Bingo --}}
-                    {{> "resource-item"
-                    title="Lotus Bingo"
-                    description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
-                    context
-                    of the Lotus plant which is integral to local culture."
-                    preview_image=(asset "carousel/1.jpg")
-                    download_url="#"
-                    lang1="English"
-                    }}
+                        {{!-- Lotus Bingo --}}
+                        {{> "resource-item"
+                        title="Lotus Bingo"
+                        description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
+                        context
+                        of the Lotus plant which is integral to local culture."
+                        preview_image=(asset "carousel/1.jpg")
+                        download_url="#"
+                        lang1="English"
+                        }}
 
-                    {{!-- Paddy Bingo --}}
-                    {{> "resource-item"
-                    title="Paddy Bingo"
-                    description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields to
-                    guide
-                    playful observation and connect with the landscape."
-                    preview_image=(asset "carousel/2.jpg")
-                    download_url="#"
-                    lang1="English"
-                    lang2="Kannada"
-                    }}
+                        {{!-- Paddy Bingo --}}
+                        {{> "resource-item"
+                        title="Paddy Bingo"
+                        description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields
+                        to
+                        guide
+                        playful observation and connect with the landscape."
+                        preview_image=(asset "carousel/2.jpg")
+                        download_url="#"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
+
+                        {{!-- Duplicated Items for Seamless Loop --}}
+                        {{!-- Nature Bingo --}}
+                        {{> "resource-item"
+                        title="Nature Bingo"
+                        description="Step into the amazing world of local nature! From insects on the wall to flowers
+                        and
+                        flying
+                        birds, use all your senses to explore and say BINGO!"
+                        preview_image=(asset "carousel/1.jpg")
+                        download_url="#"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
+
+                        {{!-- Hidden Housemates --}}
+                        {{> "resource-item"
+                        title="Hidden Housemates"
+                        description="Nature isn't confined to forests—they are all around us, even within our own four
+                        walls!
+                        Explore the fascinating miniature ecosystems sharing your space."
+                        preview_image=(asset "carousel/2.jpg")
+                        download_url="/hiddenhousemates/"
+                        lang1="English"
+                        lang2="Hindi"
+                        lang3="Kannada"
+                        }}
+
+                        {{!-- Seasonal Bingo --}}
+                        {{> "resource-item"
+                        title="Seasonal Bingo"
+                        description="Seasons bring about remarkable transformations. Use these season-wise themed bingos
+                        to
+                        discover the unique ecological responses that define every season."
+                        preview_image=(asset "carousel/3.jpg")
+                        download_url="/seasonalbingo/"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
+
+                        {{!-- Lotus Bingo --}}
+                        {{> "resource-item"
+                        title="Lotus Bingo"
+                        description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
+                        context
+                        of the Lotus plant which is integral to local culture."
+                        preview_image=(asset "carousel/1.jpg")
+                        download_url="#"
+                        lang1="English"
+                        }}
+
+                        {{!-- Paddy Bingo --}}
+                        {{> "resource-item"
+                        title="Paddy Bingo"
+                        description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields
+                        to
+                        guide
+                        playful observation and connect with the landscape."
+                        preview_image=(asset "carousel/2.jpg")
+                        download_url="#"
+                        lang1="English"
+                        lang2="Kannada"
+                        }}
+                    </div>
                 </div>
             </div>
         </section>
