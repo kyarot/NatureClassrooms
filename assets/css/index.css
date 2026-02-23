@@ -645,9 +645,6 @@
     animation: scroll 40s linear infinite;
 }
 
-.logo-track:hover {
-    animation-play-state: paused;
-}
 
 @keyframes scroll {
     0% {

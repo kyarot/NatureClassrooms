@@ -1,7 +1,20 @@
 {{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
     {{/contentFor}}
 
-    {{#post}} <main class="site-main">
+    {{#post}} <main class="site-main" style="position: relative;">
+        {{!-- Floating Illustration Overlay --}}
+        <div class="page-top-illustration" data-reveal>
+            <img src="{{asset 'illustrations/31.PNG'}}" alt="">
+        </div>
+
+        <div class="page-middle-illustration" data-reveal>
+            <img src="{{asset 'illustrations/16.PNG'}}" alt="">
+        </div>
+
+        <div class="page-bottom-illustration" data-reveal>
+            <img src="{{asset 'illustrations/25.PNG'}}" alt="">
+        </div>
+
         {{!-- 1. Enhanced Hero Section --}}
         <section class="resources-hero hero-v2">
             <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/1.jpg"}}');"></div>

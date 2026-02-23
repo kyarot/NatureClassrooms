@@ -986,3 +986,117 @@
         padding: 30px 24px;
     }
 }
+
+/* Floating Illustration Overlay */
+.page-top-illustration {
+    position: absolute;
+    top: 260px;
+    /* Positioned to overlap hero and next section */
+    left: -150px;
+    /* Coming from left */
+    z-index: 3;
+    /* Top most layer */
+    width: clamp(300px, 45vw, 600px);
+    transform: rotate(15deg);
+    /* Tilted as requested */
+    pointer-events: none;
+    /* Allows interaction with elements behind */
+    transition: transform 0.3s ease;
+}
+
+.page-top-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-top-illustration {
+        width: 250px;
+        left: -60px;
+        top: 350px;
+    }
+}
+/* Middle Floating Illustration Overlay */
+.page-middle-illustration {
+    position: absolute;
+    top: 1800px; /* Positioned to overlap grid and learning section */
+    right: -250px; /* Coming from right */
+    z-index: 3;
+    width: clamp(250px, 40vw, 550px);
+    transform: rotate(-25deg); /* Tilted */
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.page-middle-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-middle-illustration {
+        width: 200px;
+        right: -50px;
+        top: 1200px;
+    }
+}
+.page-bottom-illustration {
+    position: absolute;
+    top: 2860px;
+    /* Positioned to overlap hero and next section */
+    left: -120px;
+    /* Coming from left */
+    z-index: 3;
+    /* Top most layer */
+    width: clamp(300px, 45vw, 600px);
+    transform: rotate(0deg);
+    /* Tilted as requested */
+    pointer-events: none;
+    /* Allows interaction with elements behind */
+    transition: transform 0.3s ease;
+}
+
+.page-bottom-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-bottom-illustration {
+        width: 250px;
+        left: -60px;
+        top: 350px;
+    }
+}
+.page-bingo1-illustration {
+    position: absolute;
+    top: 1900px;
+    /* Positioned to overlap hero and next section */
+    left: -100px;
+    /* Coming from left */
+    z-index: 3;
+    /* Top most layer */
+    width: clamp(300px, 45vw, 600px);
+    transform: rotate(25deg);
+    /* Tilted as requested */
+    pointer-events: none;
+    /* Allows interaction with elements behind */
+    transition: transform 0.3s ease;
+}
+
+.page-bingo1-illustration img {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 768px) {
+    .page-bingo1-illustration {
+        width: 250px;
+        left: -60px;
+        top: 350px;
+    }
+}
