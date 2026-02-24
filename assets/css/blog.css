@@ -20,7 +20,7 @@
 }
 
 .blog-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--blog-green);
     margin-bottom: 25px;
@@ -101,8 +101,8 @@
     align-items: center;
     gap: 15px;
     color: var(--blog-green);
-    font-family: 'Poppins', sans-serif;
-    /* Using Poppins for simple title */
+    font-family: 'Oswald', sans-serif;
+    /* Using Oswald for simple title */
     font-size: 2.4rem;
     font-weight: 700;
 }
@@ -244,7 +244,7 @@
 }
 
 .post-card-content h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--blog-green);
     margin-bottom: 15px;

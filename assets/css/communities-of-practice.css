@@ -26,7 +26,7 @@
 }
 
 .cop-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5rem;
     color: var(--cop-primary);
     margin-bottom: 20px;
@@ -114,7 +114,8 @@
 
 .cop-video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
     overflow: hidden;
     background: #000;
@@ -130,7 +131,7 @@
 
 .cop-session-title {
     padding: 18px 22px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--cop-text-primary);
@@ -169,14 +170,34 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .cop-hero { padding: 120px 6% 40px; }
-    .cop-hero h1 { font-size: 3.2rem; }
-    .cop-hero-subtitle { font-size: 1.1rem; }
-    .cop-about-section { padding: 30px 6% 40px; }
-    .cop-session-row { flex-direction: column; gap: 20px; }
-    .cop-session-row-single .cop-session-card { flex: 1; }
+    .cop-hero {
+        padding: 120px 6% 40px;
+    }
+
+    .cop-hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .cop-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cop-about-section {
+        padding: 30px 6% 40px;
+    }
+
+    .cop-session-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cop-session-row-single .cop-session-card {
+        flex: 1;
+    }
 }
 
 @media (max-width: 480px) {
-    .cop-hero h1 { font-size: 2.4rem; }
+    .cop-hero h1 {
+        font-size: 2.4rem;
+    }
 }

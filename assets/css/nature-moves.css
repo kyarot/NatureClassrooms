@@ -26,7 +26,7 @@
 }
 
 .nm-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--nm-primary);
     margin-bottom: 25px;
@@ -56,7 +56,7 @@
     align-items: center;
     gap: 15px;
     color: var(--nm-primary);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
     white-space: nowrap;
@@ -88,7 +88,7 @@
     padding: 0 5% 80px;
 }
 
-.nm-grid > * {
+.nm-grid>* {
     flex: 0 1 calc(25% - 24px);
     min-width: 280px;
 }
@@ -179,6 +179,7 @@
 }
 
 .nm-card-content h3 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -283,7 +284,7 @@
 }
 
 .nm-educator-title {
-    font-family: "Playfair Display", serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.25rem;
     color: var(--nm-primary);
     margin: 0;
@@ -303,6 +304,7 @@
 }
 
 .nm-activities-title {
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: var(--nm-primary);
     margin-bottom: 20px;
@@ -367,30 +369,73 @@
 
 /* ── Responsive ── */
 @media (max-width: 1200px) {
-    .nm-grid > * {
+    .nm-grid>* {
         flex: 0 1 calc(33.333% - 24px);
     }
 }
 
 @media (max-width: 992px) {
-    .nm-grid > * { flex: 0 1 calc(50% - 24px); }
-    .nm-educator-note-card { padding: 40px; }
-    .nm-educator-title { font-size: 1.75rem; }
-    .nm-activities-list { grid-template-columns: 1fr; }
+    .nm-grid>* {
+        flex: 0 1 calc(50% - 24px);
+    }
+
+    .nm-educator-note-card {
+        padding: 40px;
+    }
+
+    .nm-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .nm-activities-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
-    .nm-hero { padding: 120px 6% 60px; }
-    .nm-hero h1 { font-size: 3.5rem; }
-    .nm-hero p { font-size: 1.1rem; }
-    .nm-grid > * { flex: 1 1 100%; max-width: 100%; }
-    .nm-section-header { padding: 0 5%; flex-wrap: wrap; }
-    .nm-section-title { font-size: 1.8rem; }
-    .nm-educator-note-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .nm-educator-note-card { padding: 30px 24px; }
+    .nm-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .nm-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .nm-hero p {
+        font-size: 1.1rem;
+    }
+
+    .nm-grid>* {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .nm-section-header {
+        padding: 0 5%;
+        flex-wrap: wrap;
+    }
+
+    .nm-section-title {
+        font-size: 1.8rem;
+    }
+
+    .nm-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .nm-educator-note-card {
+        padding: 30px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-    .nm-hero h1 { font-size: 2.6rem; }
-    .nm-section-title { font-size: 1.5rem; }
+    .nm-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .nm-section-title {
+        font-size: 1.5rem;
+    }
 }

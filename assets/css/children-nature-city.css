@@ -26,7 +26,7 @@
 }
 
 .cnc-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 4.5rem;
     color: var(--cnc-primary);
     margin-bottom: 20px;
@@ -73,7 +73,7 @@
 }
 
 .cnc-section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
     color: var(--cnc-primary);
     font-weight: 700;
@@ -133,7 +133,7 @@
 }
 
 .cnc-download-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--cnc-primary);
     margin-bottom: 24px;
@@ -189,7 +189,7 @@
 }
 
 .cnc-partners-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--cnc-primary);
     margin-bottom: 30px;
@@ -253,16 +253,42 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .cnc-hero { padding: 120px 6% 40px; }
-    .cnc-hero h1 { font-size: 3rem; }
-    .cnc-hero-subtitle { font-size: 1.1rem; }
-    .cnc-about-section { padding: 30px 6% 40px; }
-    .cnc-team-grid { gap: 12px; }
-    .cnc-download-card { padding: 30px 24px; }
+    .cnc-hero {
+        padding: 120px 6% 40px;
+    }
+
+    .cnc-hero h1 {
+        font-size: 3rem;
+    }
+
+    .cnc-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cnc-about-section {
+        padding: 30px 6% 40px;
+    }
+
+    .cnc-team-grid {
+        gap: 12px;
+    }
+
+    .cnc-download-card {
+        padding: 30px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-    .cnc-hero h1 { font-size: 2.2rem; }
-    .cnc-team-member { padding: 10px 18px; font-size: 0.85rem; }
-    .cnc-partners-logos img { width: 100px; }
+    .cnc-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .cnc-team-member {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .cnc-partners-logos img {
+        width: 100px;
+    }
 }

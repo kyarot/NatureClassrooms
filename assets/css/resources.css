@@ -87,6 +87,7 @@
 }
 
 .title-bold {
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     font-weight: 900;
     color: #ffffff;
@@ -269,6 +270,7 @@
 }
 
 .grid-title {
+    font-family: 'Oswald', sans-serif;
     font-size: 2.5rem;
     color: var(--color-primary);
     font-weight: 800;
@@ -395,7 +397,7 @@
 }
 
 .resource-card-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 12px;
@@ -491,7 +493,7 @@
 }
 
 .illustration-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 24px;
@@ -593,6 +595,7 @@
 }
 
 .featured-title {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 12px;
 }
@@ -664,6 +667,7 @@
 }
 
 .resource-item-title {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -951,7 +955,7 @@
 }
 
 .educator-title {
-    font-family: "Playfair Display", serif;
+    font-family: "oswald";
     font-size: 2.25rem;
     color: var(--color-primary);
     margin: 0;
@@ -1835,6 +1839,7 @@
         margin-right: auto;
     }
 }
+
 /* 3-Column Resource Grid (Uniform Dimensions) */
 .resource-item-grid-3-col {
     display: grid;

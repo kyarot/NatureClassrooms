@@ -26,7 +26,7 @@
 }
 
 .nbsel-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 4rem;
     color: var(--nbsel-primary);
     margin-bottom: 0;
@@ -69,7 +69,7 @@
 }
 
 .nbsel-section-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.4rem;
     color: var(--nbsel-primary);
     font-weight: 700;
@@ -119,7 +119,7 @@
 }
 
 .nbsel-workshop-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     color: var(--nbsel-primary);
     margin-bottom: 20px;
@@ -185,7 +185,7 @@
 }
 
 .nbsel-download-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--nbsel-primary);
     margin-bottom: 24px;
@@ -303,18 +303,52 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .nbsel-hero { padding: 120px 6% 40px; }
-    .nbsel-hero h1 { font-size: 2.6rem; }
-    .nbsel-about-section { padding: 30px 6% 40px; }
-    .nbsel-goal-card { flex-direction: column; padding: 24px 22px; gap: 14px; }
-    .nbsel-goal-text { padding-top: 0; }
-    .nbsel-workshop-images { flex-direction: column; }
-    .nbsel-workshop-image img { height: 220px; }
-    .nbsel-download-card { padding: 30px 24px; }
+    .nbsel-hero {
+        padding: 120px 6% 40px;
+    }
+
+    .nbsel-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .nbsel-about-section {
+        padding: 30px 6% 40px;
+    }
+
+    .nbsel-goal-card {
+        flex-direction: column;
+        padding: 24px 22px;
+        gap: 14px;
+    }
+
+    .nbsel-goal-text {
+        padding-top: 0;
+    }
+
+    .nbsel-workshop-images {
+        flex-direction: column;
+    }
+
+    .nbsel-workshop-image img {
+        height: 220px;
+    }
+
+    .nbsel-download-card {
+        padding: 30px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-    .nbsel-hero h1 { font-size: 2rem; }
-    .nbsel-download-buttons { flex-direction: column; }
-    .nbsel-download-btn { width: 100%; justify-content: center; }
+    .nbsel-hero h1 {
+        font-size: 2rem;
+    }
+
+    .nbsel-download-buttons {
+        flex-direction: column;
+    }
+
+    .nbsel-download-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }

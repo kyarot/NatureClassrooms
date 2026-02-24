@@ -26,7 +26,7 @@
 }
 
 .sm-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--sm-primary);
     margin-bottom: 20px;
@@ -137,7 +137,7 @@
 }
 
 .sm-goal-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     font-weight: 800;
     color: var(--sm-primary);
@@ -149,7 +149,7 @@
 }
 
 .sm-goal-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.35rem;
     color: var(--sm-primary);
     margin-bottom: 16px;
@@ -205,7 +205,7 @@
 }
 
 .sm-partners-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--sm-primary);
     margin-bottom: 30px;
@@ -269,19 +269,50 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .sm-hero { padding: 120px 6% 40px; }
-    .sm-hero h1 { font-size: 3.5rem; }
-    .sm-hero-subtitle { font-size: 1.1rem; }
-    .sm-about-section { padding: 30px 6% 40px; }
+    .sm-hero {
+        padding: 120px 6% 40px;
+    }
+
+    .sm-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .sm-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .sm-about-section {
+        padding: 30px 6% 40px;
+    }
+
     .sm-image-row {
         flex-direction: column;
         gap: 20px;
     }
-    .sm-image-item img { height: 220px; }
-    .sm-goal-card { padding: 30px 25px; }
-    .sm-goal-title { font-size: 1.15rem; padding-right: 30px; }
-    .sm-goal-number { font-size: 2.2rem; top: 15px; right: 20px; }
-    .sm-goal-image-wrapper img { height: 260px; }
+
+    .sm-image-item img {
+        height: 220px;
+    }
+
+    .sm-goal-card {
+        padding: 30px 25px;
+    }
+
+    .sm-goal-title {
+        font-size: 1.15rem;
+        padding-right: 30px;
+    }
+
+    .sm-goal-number {
+        font-size: 2.2rem;
+        top: 15px;
+        right: 20px;
+    }
+
+    .sm-goal-image-wrapper img {
+        height: 260px;
+    }
+
     .sm-partners-container {
         flex-direction: column;
         gap: 40px;
@@ -289,10 +320,29 @@
 }
 
 @media (max-width: 480px) {
-    .sm-hero h1 { font-size: 2.6rem; }
-    .sm-goal-card { padding: 24px 20px; }
-    .sm-goal-title { font-size: 1.05rem; padding-right: 0; }
-    .sm-goal-number { display: none; }
-    .sm-goal-image-wrapper img { height: 200px; }
-    .sm-partners-logos img { width: 90px; height: 90px; }
+    .sm-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .sm-goal-card {
+        padding: 24px 20px;
+    }
+
+    .sm-goal-title {
+        font-size: 1.05rem;
+        padding-right: 0;
+    }
+
+    .sm-goal-number {
+        display: none;
+    }
+
+    .sm-goal-image-wrapper img {
+        height: 200px;
+    }
+
+    .sm-partners-logos img {
+        width: 90px;
+        height: 90px;
+    }
 }

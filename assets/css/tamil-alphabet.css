@@ -26,7 +26,7 @@
 }
 
 .ta-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--ta-primary);
     margin-bottom: 25px;
@@ -56,7 +56,7 @@
     align-items: center;
     gap: 15px;
     color: var(--ta-primary);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
     white-space: nowrap;
@@ -88,7 +88,7 @@
     padding: 0 5% 80px;
 }
 
-.ta-grid > * {
+.ta-grid>* {
     flex: 0 1 calc(25% - 24px);
     min-width: 280px;
 }
@@ -179,6 +179,7 @@
 }
 
 .ta-card-content h3 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -283,7 +284,7 @@
 }
 
 .ta-video-title {
-    font-family: "Playfair Display", serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.25rem;
     color: var(--ta-primary);
     margin: 0;
@@ -310,13 +311,13 @@
 
 /* ── Responsive ── */
 @media (max-width: 1200px) {
-    .ta-grid > * {
+    .ta-grid>* {
         flex: 0 1 calc(33.333% - 24px);
     }
 }
 
 @media (max-width: 992px) {
-    .ta-grid > * {
+    .ta-grid>* {
         flex: 0 1 calc(50% - 24px);
     }
 
@@ -342,7 +343,7 @@
         font-size: 1.1rem;
     }
 
-    .ta-grid > * {
+    .ta-grid>* {
         flex: 1 1 100%;
         max-width: 100%;
     }

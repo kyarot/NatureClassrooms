@@ -16,8 +16,9 @@
 /* Typography Overrides */
 .rc-page h1,
 .rc-page h2,
-.rc-page h3 {
-    font-family: 'Playfair Display', serif;
+.rc-page h3,
+.rc-page h4 {
+    font-family: 'Oswald', sans-serif;
     color: var(--nc-green);
 }
 
@@ -31,7 +32,7 @@
     justify-content: center;
     text-align: center;
     color: var(--white);
-    background-image: url('/assets/resourcecreation/res1.jpg');
+    background-image: url('/assets/resourcecreation/res3.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -66,6 +67,7 @@
 }
 
 .rc-hero h1 {
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--white);
     margin-bottom: 25px;
@@ -376,6 +378,7 @@
         margin-bottom: 20px;
     }
 }
+
 /* Decorative Illustration Overlay */
 .rc-page-illustration {
     position: absolute;

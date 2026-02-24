@@ -26,7 +26,7 @@
 }
 
 .ns-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--ns-primary);
     margin-bottom: 25px;
@@ -93,7 +93,7 @@
 }
 
 .ns-educator-title {
-    font-family: "Playfair Display", serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.25rem;
     color: var(--ns-primary);
     margin: 0;
@@ -113,6 +113,7 @@
 }
 
 .ns-activities-title {
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: var(--ns-primary);
     margin-bottom: 20px;
@@ -168,7 +169,7 @@
 }
 
 .ns-coming-soon-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     color: var(--ns-primary);
     margin-bottom: 12px;
@@ -211,19 +212,45 @@
 
 /* ── Responsive ── */
 @media (max-width: 992px) {
-    .ns-educator-note-card { padding: 40px; }
-    .ns-educator-title { font-size: 1.75rem; }
-    .ns-activities-list { grid-template-columns: 1fr; }
+    .ns-educator-note-card {
+        padding: 40px;
+    }
+
+    .ns-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .ns-activities-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
-    .ns-hero { padding: 120px 6% 60px; }
-    .ns-hero h1 { font-size: 3.5rem; }
-    .ns-hero p { font-size: 1.1rem; }
-    .ns-educator-note-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .ns-educator-note-card { padding: 30px 24px; }
+    .ns-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .ns-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .ns-hero p {
+        font-size: 1.1rem;
+    }
+
+    .ns-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .ns-educator-note-card {
+        padding: 30px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-    .ns-hero h1 { font-size: 2.6rem; }
+    .ns-hero h1 {
+        font-size: 2.6rem;
+    }
 }

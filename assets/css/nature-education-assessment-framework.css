@@ -26,7 +26,7 @@
 }
 
 .neaf-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 4.5rem;
     color: var(--neaf-primary);
     margin-bottom: 20px;
@@ -75,7 +75,7 @@
 }
 
 .neaf-section-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
     color: var(--neaf-text-primary);
     font-weight: 600;
@@ -92,7 +92,7 @@
 }
 
 .neaf-objective-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     font-weight: 800;
     color: var(--neaf-primary);
@@ -147,7 +147,7 @@
 }
 
 .neaf-partners-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     color: var(--neaf-primary);
     margin-bottom: 30px;
@@ -211,18 +211,52 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .neaf-hero { padding: 120px 6% 40px; }
-    .neaf-hero h1 { font-size: 2.8rem; }
-    .neaf-hero-subtitle { font-size: 1.1rem; }
-    .neaf-about-section { padding: 30px 6% 40px; }
-    .neaf-objective-card { padding: 28px 22px; }
-    .neaf-objective-desc { padding-right: 30px; }
-    .neaf-objective-number { font-size: 2.2rem; top: 14px; right: 18px; }
+    .neaf-hero {
+        padding: 120px 6% 40px;
+    }
+
+    .neaf-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .neaf-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .neaf-about-section {
+        padding: 30px 6% 40px;
+    }
+
+    .neaf-objective-card {
+        padding: 28px 22px;
+    }
+
+    .neaf-objective-desc {
+        padding-right: 30px;
+    }
+
+    .neaf-objective-number {
+        font-size: 2.2rem;
+        top: 14px;
+        right: 18px;
+    }
 }
 
 @media (max-width: 480px) {
-    .neaf-hero h1 { font-size: 2.2rem; }
-    .neaf-objective-card { padding: 22px 18px; }
-    .neaf-objective-desc { padding-right: 0; font-size: 1rem; }
-    .neaf-objective-number { display: none; }
+    .neaf-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .neaf-objective-card {
+        padding: 22px 18px;
+    }
+
+    .neaf-objective-desc {
+        padding-right: 0;
+        font-size: 1rem;
+    }
+
+    .neaf-objective-number {
+        display: none;
+    }
 }

@@ -26,7 +26,7 @@
 }
 
 .go-hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 5.5rem;
     color: var(--go-primary);
     margin-bottom: 25px;
@@ -56,7 +56,7 @@
     align-items: center;
     gap: 15px;
     color: var(--go-primary);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
     white-space: nowrap;
@@ -88,7 +88,7 @@
     padding: 0 5% 80px;
 }
 
-.go-grid > * {
+.go-grid>* {
     flex: 0 1 calc(25% - 24px);
     min-width: 280px;
 }
@@ -179,6 +179,7 @@
 }
 
 .go-card-content h3 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -283,7 +284,7 @@
 }
 
 .go-educator-title {
-    font-family: "Playfair Display", serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.25rem;
     color: var(--go-primary);
     margin: 0;
@@ -315,6 +316,7 @@
 }
 
 .go-activities-title {
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: var(--go-primary);
     margin-bottom: 20px;
@@ -351,34 +353,75 @@
 
 /* ── Responsive ── */
 @media (max-width: 1200px) {
-    .go-grid > * {
+    .go-grid>* {
         flex: 0 1 calc(33.333% - 24px);
     }
 }
 
 @media (max-width: 992px) {
-    .go-grid > * {
+    .go-grid>* {
         flex: 0 1 calc(50% - 24px);
     }
-    .go-educator-note-card { padding: 40px; }
-    .go-educator-title { font-size: 1.75rem; }
-    .go-activities-list { grid-template-columns: 1fr; }
+
+    .go-educator-note-card {
+        padding: 40px;
+    }
+
+    .go-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .go-activities-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
-    .go-hero { padding: 120px 6% 60px; }
-    .go-hero h1 { font-size: 3.5rem; }
-    .go-hero p { font-size: 1.1rem; }
-    .go-grid > * { flex: 1 1 100%; max-width: 100%; }
-    .go-section-header { padding: 0 5%; flex-wrap: wrap; }
-    .go-section-title { font-size: 1.8rem; }
-    .go-educator-note-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .go-educator-note-card { padding: 30px 24px; }
+    .go-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .go-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .go-hero p {
+        font-size: 1.1rem;
+    }
+
+    .go-grid>* {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .go-section-header {
+        padding: 0 5%;
+        flex-wrap: wrap;
+    }
+
+    .go-section-title {
+        font-size: 1.8rem;
+    }
+
+    .go-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .go-educator-note-card {
+        padding: 30px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-    .go-hero h1 { font-size: 2.6rem; }
-    .go-section-title { font-size: 1.5rem; }
+    .go-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .go-section-title {
+        font-size: 1.5rem;
+    }
 }
 
 /* ── Explore More Section ── */
