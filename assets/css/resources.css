@@ -13,7 +13,7 @@
 /* 1. Resources Hero Section */
 .resources-hero {
     position: relative;
-    height: 75vh;
+    height: 100vh;
     min-height: 550px;
     width: 100%;
     display: flex;
@@ -110,6 +110,53 @@
     margin: 0 auto 40px;
     line-height: 1.6;
     font-weight: 400;
+}
+
+.hero-age-label {
+    display: inline-block;
+    background-color: #2d5a3f;
+    color: #ffffff;
+    padding: 8px 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 1.2 Minimal Hero Modifier */
+.resources-hero.hero-minimal {
+    background: #ffffff !important;
+    height: 75vh !important;
+    min-height: 75vh !important;
+    padding: 100px 0 60px !important;
+    color: var(--color-primary) !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+.resources-hero.hero-minimal .resources-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.resources-hero.hero-minimal .resources-hero-title {
+    color: var(--color-primary) !important;
+    margin-bottom: 20px !important;
+    font-size: 3.5rem;
+}
+
+.resources-hero.hero-minimal .resources-hero-subtitle {
+    color: var(--text-secondary) !important;
+    margin: 0 auto !important;
+    max-width: 800px;
+    font-size: 1.15rem;
+}
+
+.resources-hero.hero-minimal .hero-age-label {
+    margin-top: 30px !important;
 }
 
 /* Decorative Blobs */
@@ -628,13 +675,9 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     line-height: 1.5;
-    height: 3em;
+    height: auto;
+    overflow: visible;
 }
 
 .resource-item-footer {
@@ -1047,6 +1090,7 @@
         top: 1200px;
     }
 }
+
 .page-bottom-illustration {
     position: absolute;
     top: 2860px;
@@ -1076,6 +1120,7 @@
         top: 350px;
     }
 }
+
 .page-bingo1-illustration {
     position: absolute;
     top: 1500px;
@@ -1105,6 +1150,7 @@
         top: 350px;
     }
 }
+
 .page-alphabet-illustration {
     position: absolute;
     top: 450px;
@@ -1113,7 +1159,7 @@
     /* Coming from right */
     z-index: 3;
     width: clamp(250px, 40vw, 550px);
-    
+
     transform: rotate(-10deg);
     /* Tilted */
     pointer-events: none;
@@ -1133,6 +1179,7 @@
         top: 1200px;
     }
 }
+
 /* Bingo Horizontal Loop */
 .bingo-loop-container {
     overflow: hidden;
@@ -1191,12 +1238,16 @@
     bottom: auto;
     top: calc(100% + 10px);
 }
+
 /* Neem Fruit Illustration Overlay (Anchor Charts) */
 .page-neem-illustration {
     position: absolute;
-    top: 1000px; /* Coming from top of screen */
-    right: -200px; /* Positioned on right */
-    z-index: 100; /* Top-most layer */
+    top: 1000px;
+    /* Coming from top of screen */
+    right: -200px;
+    /* Positioned on right */
+    z-index: 100;
+    /* Top-most layer */
     width: clamp(250px, 35vw, 500px);
     transform: rotate(30deg);
     pointer-events: none;
@@ -1220,8 +1271,10 @@
 /* Anchor Charts Bottom-Left Illustration */
 .page-anchor-bottom-illustration {
     position: absolute;
-    top: 1650px; /* Positioned near the bottom section */
-    left: -100px; /* Coming from left */
+    top: 1650px;
+    /* Positioned near the bottom section */
+    left: -100px;
+    /* Coming from left */
     z-index: 100;
     width: clamp(280px, 40vw, 550px);
     transform: rotate(-10deg);
@@ -1246,8 +1299,10 @@
 /* Natural History Illustration Overlay */
 .page-natural-history-illustration {
     position: absolute;
-    top: 300px; /* Positioned to overlap hero and grid */
-    right: -200px; /* Coming from right */
+    top: 300px;
+    /* Positioned to overlap hero and grid */
+    right: -200px;
+    /* Coming from right */
     z-index: 3;
     width: clamp(280px, 40vw, 550px);
     transform: rotate(-35deg);
@@ -1272,8 +1327,10 @@
 /* Natural History Bottom-Left Illustration */
 .page-natural-history-bottom-illustration {
     position: absolute;
-    top: 1590px; /* Positioned near the bottom section */
-    left: -120px; /* Coming from left */
+    top: 1590px;
+    /* Positioned near the bottom section */
+    left: -120px;
+    /* Coming from left */
     z-index: 3;
     width: clamp(280px, 40vw, 550px);
     transform: rotate(15deg);
@@ -1298,8 +1355,10 @@
 /* Modules Page Illustration Overlay */
 .page-modules-illustration {
     position: absolute;
-    top: 400px; /* Coming from top */
-    right: -120px; /* Coming from right */
+    top: 400px;
+    /* Coming from top */
+    right: -120px;
+    /* Coming from right */
     z-index: 100;
     width: clamp(250px, 35vw, 500px);
     transform: rotate(-55deg);
@@ -1350,8 +1409,10 @@
 /* Activities Page Bottom-Left Illustration */
 .page-activities-bottom-illustration {
     position: absolute;
-    top: 1750px; /* Positioned near the bottom section */
-    left: -120px; /* Coming from left */
+    top: 1750px;
+    /* Positioned near the bottom section */
+    left: -120px;
+    /* Coming from left */
     z-index: 100;
     width: clamp(280px, 40vw, 550px);
     transform: rotate(15deg);
@@ -1398,10 +1459,13 @@
         top: 600px;
     }
 }
+
 .page-nothing-bottom-illustration {
     position: absolute;
-    top: 1400px; /* Positioned near the bottom section */
-    left: -120px; /* Coming from left */
+    top: 1400px;
+    /* Positioned near the bottom section */
+    left: -120px;
+    /* Coming from left */
     z-index: 100;
     width: clamp(280px, 40vw, 550px);
     transform: rotate(15deg);
@@ -1420,5 +1484,388 @@
         width: 200px;
         left: -50px;
         top: 1900px;
+    }
+}
+
+/* 5. Horizontal Feature Card Section */
+.horizontal-feature-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.feature-card-horizontal {
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: visible;
+    /* Allowed expansion for dropdown */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.feature-card-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card-image {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    border-radius: 20px 0 0 20px;
+}
+
+.feature-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-card-horizontal:hover .feature-card-image img {
+    transform: scale(1.05);
+}
+
+.feature-card-content {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+}
+
+.feature-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    line-height: 1.3;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.feature-card-title span {
+    display: block;
+}
+
+.feature-card-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+}
+
+/* Download Dropdown */
+.download-container {
+    position: relative;
+    display: inline-block;
+}
+
+.download-btn-main {
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn-main:hover {
+    background: #3e7a56;
+}
+
+.download-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 10px 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.download-container:hover .download-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.download-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.download-dropdown-menu a:hover {
+    background: rgba(45, 90, 63, 0.08);
+    color: var(--color-primary);
+}
+
+/* Game Promo Section */
+.game-promo-section {
+    background: rgba(45, 90, 63, 0.05);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.game-promo-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-promo-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--color-primary);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.btn-game {
+    background: var(--color-accent);
+    color: white;
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(220, 118, 51, 0.3);
+}
+
+.btn-game:hover {
+    background: #c36224;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(220, 118, 51, 0.4);
+}
+
+@media (max-width: 991px) {
+    .feature-card-horizontal {
+        flex-direction: column;
+    }
+
+    .feature-card-image {
+        flex: 0 0 300px;
+        min-height: 300px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .feature-card-content {
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+/* 6. Horizontal Resource List Section */
+.resource-horizontal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.resource-horizontal-list .resource-item-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    /* Match height of thumbnail and content */
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: visible;
+    /* Prevent dropdown clipping */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.resource-horizontal-list .resource-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+.resource-horizontal-list .resource-item-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.resource-horizontal-list .resource-item-thumbnail {
+    flex: 0 0 40%;
+    min-height: 300px;
+    position: relative;
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+    display: block;
+}
+
+.resource-horizontal-list .resource-item-card:nth-child(even) .resource-item-thumbnail {
+    border-radius: 0 20px 20px 0;
+}
+
+.resource-horizontal-list .resource-item-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resource-horizontal-list .resource-item-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resource-horizontal-list .resource-item-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.resource-horizontal-list .resource-item-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    height: auto;
+    overflow: visible;
+    display: block;
+    /* Remove line-clamp */
+}
+
+/* Ensure dropdowns are visible over other cards */
+.resource-horizontal-list .resource-item-card {
+    position: relative;
+    z-index: 1;
+}
+
+.resource-horizontal-list .resource-item-card:hover {
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+
+    .resource-horizontal-list .resource-item-card,
+    .resource-horizontal-list .resource-item-card:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .resource-horizontal-list .resource-item-thumbnail,
+    .resource-horizontal-list .resource-item-card:nth-child(even) .resource-item-thumbnail {
+        flex: 0 0 250px;
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+/* Explore Button Style */
+.explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 30px;
+    background: var(--color-primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--transition);
+    width: fit-content;
+}
+
+.explore-btn:hover {
+    background: var(--color-primary-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* 2-Column Resource Grid (Uniform Dimensions) */
+.resource-item-grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.resource-item-grid-2-col .resource-item-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-item-grid-2-col .resource-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    .resource-item-grid-2-col {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/* 3-Column Resource Grid (Uniform Dimensions) */
+.resource-item-grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.resource-item-grid-3-col .resource-item-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-item-grid-3-col .resource-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+    .resource-item-grid-3-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .resource-item-grid-3-col {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

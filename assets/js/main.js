@@ -118,11 +118,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (heroElement) {
                 const heroHeight = heroElement.offsetHeight;
+                const isMinimal = heroElement.classList.contains('hero-minimal');
 
                 // Threshold for switching - usually near the bottom of hero
                 const threshold = heroHeight - 80;
 
-                if (scrollY < threshold) {
+                if (scrollY < threshold && !isMinimal) {
                     // Dark background (hero)
                     navbar.classList.remove('navbar-light');
                     navbar.classList.add('navbar-dark');
@@ -133,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 } else {
-                    // Light background (content)
+                    // Light background (content or minimal hero)
                     navbar.classList.add('navbar-light');
                     navbar.classList.remove('navbar-dark');
                     if (floatingLogo) floatingLogo.classList.add('logo-dark');
@@ -305,5 +306,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Prevent search dropdown from closing when clicking inside
     searchDropdown.addEventListener('click', function (e) {
         e.stopPropagation();
+    });
+});
+// Team Card Expansion Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const teamCards = document.querySelectorAll('.team-card');
+
+    teamCards.forEach(card => {
+        card.addEventListener('click', function (e) {
+            // Check if user clicked a link inside the card
+            if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) {
+                return;
+            }
+
+            const isExpanded = this.classList.contains('expanded');
+
+            // Close other expanded cards first
+            document.querySelectorAll('.team-card.expanded').forEach(otherCard => {
+                if (otherCard !== this) {
+                    otherCard.classList.remove('expanded');
+                }
+            });
+
+            // Toggle expansion
+            this.classList.toggle('expanded');
+        });
     });
 });

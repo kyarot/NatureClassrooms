@@ -9,16 +9,18 @@
             <img src="{{asset 'illustrations/13_3289.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/1.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Anchor Charts</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                       
-Anchor charts are a fun way to learn actively or passively! These anchor charts are perfect for visually connecting things- like how a tiny insect relies on a specific plant—and understanding behaviors, interactions, and phenomena around us, making it simple to start conversations and get curious about the living world around us.
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Anchor Charts</h1>
+                    <p class="resources-hero-subtitle">
+
+                        Anchor charts are a fun way to learn actively or passively! These anchor charts are perfect for
+                        visually connecting things- like how a tiny insect relies on a specific plant—and understanding
+                        behaviors, interactions, and phenomena around us, making it simple to start conversations and
+                        get curious about the living world around us.
                     </p>
+                    <div class="hero-age-label">Ages 5+, Adults</div>
                 </div>
             </div>
         </section>
@@ -27,29 +29,23 @@ Anchor charts are a fun way to learn actively or passively! These anchor charts 
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
+                <div class="resource-horizontal-list">
                     {{!-- Plant Posters --}}
                     {{> "resource-item"
                     title="Plant Posters"
-                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food,
-                    pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch."
-                    preview_image=(asset "carousel/2.jpg")
+                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food, pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch. These plant posters offer a close-up, dynamic view of a single plant, highlighting its various parts and the fascinating interactions it has with the most common animals, birds, and insects that use them."
+                    preview_image=(asset "anchor/Plant_Poster.png")
                     download_url="/plantposter/"
-                    lang1="English"
-                    lang2="Hindi"
-                    lang3="Tamil"
+                   is_explore=true
                     }}
 
                     {{!-- Behaviour Tales --}}
                     {{> "resource-item"
                     title="Behaviour Tales"
-                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in
-                    which they do these essential behaviours and adaptations!"
-                    preview_image=(asset "carousel/3.jpg")
+                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in which they do these essential behaviours and adaptations! This resource was made to supplement primary school chapters on human cleaning habits and delves into the amazing world of animal hygiene, exploring how animals employ unique strategies to stay clean."
+                    preview_image=(asset "anchor/Behaviour_tales.png")
                     download_url="/behaviortales/"
-                    lang1="English"
-                    lang2="Hindi"
-                    lang3="Kannada"
+                    is_explore=true
                     }}
                 </div>
             </div>
@@ -60,9 +56,7 @@ Anchor charts are a fun way to learn actively or passively! These anchor charts 
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
+                    
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

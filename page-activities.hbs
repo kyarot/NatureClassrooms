@@ -9,18 +9,17 @@
             <img src="{{asset 'illustrations/31.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/1.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Nature Activities</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Nature Activities</h1>
+                    <p class="resources-hero-subtitle">
                         Here are some quick nature activities to help you explore the natural world around you, with a
                         goal
                         in
                         mind! Use these activities to introduce new learners into the world of their immediate nature.
                     </p>
+                    <div class="hero-age-label">Ages 3+, Adults</div>
                 </div>
             </div>
         </section>
@@ -29,14 +28,15 @@
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
+                <div class="resource-item-grid-2-col">
                     {{!-- Colors --}}
                     {{> "resource-item"
                     title="Colors"
                     description="A printable activity sheet that helps learners pay attention to the various colours in
-                    the
-                    natural world, from shades of green to vibrant butterflies."
-                    preview_image=(asset "carousel/1.jpg")
+                    the natural world, from the many shades of green to the colours of birds, butterflies, soil, and
+                    spiders! Document your colour walk by collecting fallen leaves, seeds, or flowers to create a
+                    display, take pictures, or fill in the colour wheel in the activity sheet."
+                    preview_image=(asset "activities/Colours.png")
                     download_url="#"
                     lang1="English"
                     lang2="Hindi"
@@ -47,9 +47,10 @@
                     {{> "resource-item"
                     title="Patterns"
                     description="A printable activity sheet that helps learners pay attention to different patterns in
-                    the
-                    natural world, from dots on insects to patterns on leaves."
-                    preview_image=(asset "carousel/2.jpg")
+                    the natural world, from dots and spots on insects to patterns on leaves. Document your shape &
+                    pattern walk using the activity sheet, sketch, and make notes of what you find, take pictures, or
+                    create a display with fallen leaves, seeds, or flowers."
+                    preview_image=(asset "activities/Shapes.png")
                     download_url="#"
                     lang1="English"
                     lang2="Hindi"
@@ -60,9 +61,10 @@
                     {{> "resource-item"
                     title="Textures"
                     description="A printable activity sheet that helps learners pay attention to different textures in
-                    the
-                    natural world—from rough, to smooth, to soft."
-                    preview_image=(asset "carousel/3.jpg")
+                    the natural world- from rough, to smooth, to soft, to bumpy. Document the textures you experience in
+                    the nature around you using the activity sheet. Sketch and make notes of what you find, take
+                    pictures, or create a display with fallen leaves, seeds, or flowers."
+                    preview_image=(asset "activities/Textures.png")
                     download_url="#"
                     lang1="English"
                     lang2="Hindi"
@@ -72,9 +74,12 @@
                     {{!-- Bird Migration --}}
                     {{> "resource-item"
                     title="Bird Migration"
-                    description="All in a Bird's Life is a 'bird survivor' game that helps learn about the different
-                    challenges that occur in a bird's life."
-                    preview_image=(asset "carousel/1.jpg")
+                    description="All in a Bird's Life is a ‘bird survivor’ and life cycle game that helps learn about
+                    the different events and challenges (natural and man-made) that occur in a bird's life. This game
+                    introduces the players to how birds migrate and builds teamwork, empathy, and knowledge while
+                    learning about the intricacies of the life of a bird. The design is simple and versatile, and can be
+                    used in various contexts of learning and playing, with various age groups."
+                    preview_image=(asset "activities/Bird_Migration_Game.png")
                     download_url="#"
                     lang1="English"
                     }}
@@ -82,9 +87,12 @@
                     {{!-- Walls and Pavement --}}
                     {{> "resource-item"
                     title="Walls and Pavement"
-                    description="Discover an abundance of nature that lies hidden and not-so-hidden on our bricked and
-                    cemented walls and pavements!"
-                    preview_image=(asset "carousel/2.jpg")
+                    description="There is an abundance of nature that lies hidden and not-so-hidden on our bricked and
+                    cemented walls and pavements! These charismatic and quirky species are a great source of joy and
+                    curiosity once you begin to explore these surfaces. Take this activity sheet with you to explore the
+                    walls and pavements around or within your homes, schools, or streets and observe, marvel, and
+                    document what creatures you come across!"
+                    preview_image=(asset "activities/Walls_and_Pavements.png")
                     download_url="#"
                     lang1="English"
                     }}
@@ -97,9 +105,6 @@
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-walking"></i>
-                        </div>
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

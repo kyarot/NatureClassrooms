@@ -117,22 +117,24 @@
 }
 
 .about-collaboration-box {
-    background: var(--about-bg-light);
+    background: var(--about-accent-green);
     border-radius: 16px;
     padding: 35px;
     margin-top: 45px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(74, 124, 89, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .about-collaboration-box p {
     font-size: 1.05rem;
     margin-bottom: 0;
-    color: #444;
+    color: #ffffff;
+    line-height: 1.7;
 }
 
 .about-collaboration-box strong {
-    color: var(--about-accent-green);
+    color: var(--about-accent-yellow);
+    font-weight: 700;
 }
 
 .about-intro-image-container {
@@ -407,10 +409,11 @@
 }
 
 .team-card {
-    flex: 0 0 300px;
-    background: #f7f5f0;
+    flex: 0 0 320px;
+    background: #222;
+    /* Fallback for when image fails */
     border-radius: 24px;
-    padding: 40px;
+    padding: 0;
     position: relative;
     overflow: hidden;
     height: 480px;
@@ -418,72 +421,83 @@
     flex-direction: column;
     justify-content: flex-end;
     transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
-.team-card::before {
-    content: attr(data-initials);
+.team-card-image {
     position: absolute;
-    top: 50px;
-    right: -20px;
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(0, 0, 0, 0.03);
-    line-height: 1;
-    z-index: 0;
-    font-style: italic;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.team-badge-container {
-    margin-bottom: auto;
-    position: relative;
+.team-card:hover .team-card-image {
+    transform: scale(1.05);
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 100%);
     z-index: 2;
 }
 
-.team-badge {
-    width: 70px;
-    height: 70px;
-    background: var(--about-accent-green);
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 800;
-    font-size: 22px;
-    box-shadow: 0 10px 30px rgba(74, 124, 89, 0.3);
+.team-card.expanded {
+    height: auto;
+    min-height: 480px;
+    z-index: 100;
 }
 
-.team-card.yellow .team-badge {
-    background: var(--about-accent-yellow);
-    box-shadow: 0 10px 30px rgba(212, 163, 115, 0.3);
+/* Hide Initials and badge holders for the new look */
+.team-card::before,
+.team-badge-container {
+    display: none;
 }
 
 .team-info {
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    padding: 30px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-header-info {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
 }
 
 .team-info h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
-    margin-bottom: 8px;
-    color: #222;
+    margin-bottom: 0px;
+    color: #fff;
 }
 
 .team-info .role {
     font-size: 13px;
     color: var(--about-accent-yellow);
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 0;
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
 }
 
 .team-bio {
     font-size: 14px;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     max-height: 0;
     overflow: hidden;
@@ -492,38 +506,34 @@
     opacity: 0;
 }
 
+.team-card.expanded .team-bio {
+    max-height: 1000px;
+    margin-top: 15px;
+    opacity: 1;
+}
+
 .team-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--about-accent-green);
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 20px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    opacity: 0.7;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.team-link:hover {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 .team-link svg {
-    width: 16px;
-    height: 16px;
-}
-
-.team-card:hover {
-    background: white;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
-    transform: scale(1.1);
-    z-index: 10;
+    width: 20px;
+    height: 20px;
 }
 
 .team-card:hover .team-bio {
     max-height: 200px;
     margin-top: 15px;
-    opacity: 1;
-}
-
-.team-card:hover .team-link {
     opacity: 1;
 }
 
@@ -832,6 +842,7 @@
         justify-content: center;
     }
 }
+
 /* Decorative Illustration Overlay */
 .about-page-illustration {
     position: absolute;

@@ -2,7 +2,15 @@
     <div class="resource-item-thumbnail">
         <img src="{{preview_image}}" alt="{{title}}" loading="lazy">
         <div class="resource-actions-overlay">
-            <a href="{{download_url}}" class="overlay-download-link" download>
+            <a href="{{download_url}}" class="overlay-download-link" {{#unless is_explore}}download{{/unless}}>
+                {{#if is_explore}}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                Explore
+                {{else}}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -10,6 +18,7 @@
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
                 Quick Download
+                {{/if}}
             </a>
         </div>
     </div>
@@ -18,6 +27,11 @@
         <p class="resource-item-desc">{{description}}</p>
 
         <div class="resource-item-footer">
+            {{#if is_explore}}
+            <a href="{{download_url}}" class="explore-btn">
+                Explore
+            </a>
+            {{else}}
             {{#if lang1}}
             {{!-- Unified dropdown for one or more languages --}}
             <div class="download-dropdown">
@@ -39,6 +53,7 @@
             <a href="{{download_url}}" class="single-download-btn">
                 Download Resource
             </a>
+            {{/if}}
             {{/if}}
         </div>
     </div>

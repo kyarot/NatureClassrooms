@@ -6,14 +6,14 @@
             <img src="{{asset 'illustrations/10.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/3.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Learning Modules</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                        Our learning modules are designed to help you go beyond the textbook and explore the rich, often-overlooked layers of the natural world. Each module is an invitation to discover, develop, and nurture a deep sense of wonder through hands-on activities and engaging resources.
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Learning Modules</h1>
+                    <p class="resources-hero-subtitle">
+                        Our learning modules are designed to help you go beyond the textbook and explore the rich,
+                        often-overlooked layers of the natural world. Each module is an invitation to discover, develop,
+                        and nurture a deep sense of wonder through hands-on activities and engaging resources.
                     </p>
                 </div>
             </div>
@@ -23,38 +23,32 @@
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
+                <div class="resource-horizontal-list">
                     {{!-- Water Module --}}
                     {{> "resource-item"
-                    title="Water Module"
-                    description="Water is an ecosystem that goes so much beyond our use. Explore the amazing life forms
-                    that
-                    use it in various ways, from puddles to rivers!"
-                    preview_image=(asset "carousel/1.jpg")
+                    title="Water Module - Explore Life in Water"
+                    description="Water, as an ecosystem, goes so much beyond our use and interactions with it. Even a little puddle of water after a rain that collects on your potholed road or in the crevice of a tree trunk will attract birds, frogs, and dragonflies! This learning module is an invitation to discover, develop, and nurture a wonderment and curiosity for water as an ecosystem that is teeming with amazing life forms that use it in various ways!"
+                    preview_image=(asset "modules/Water_Module.png")
                     download_url="/watermodule/"
-                    lang1="English"
-                    lang2="Kannada"
+                    is_explore=true
                     }}
 
                     {{!-- Nature Moves --}}
                     {{> "resource-item"
                     title="Nature Moves"
-                    description="Nature Moves is a resource bank of movement-based activities exploring how everything
-                    in
-                    nature moves, from leaves to ants."
-                    preview_image=(asset "carousel/2.jpg")
+                    description="Something we overlook in nature is how it moves, from Peepal leaves on a windy day to the shuffle of antennae in an army of weaver ants. An exploration of the integration of movement and nature education, Nature Moves is a resource bank of movement-based activities that educators can choose from in their nature education and environmental studies classes."
+                    preview_image=(asset "modules/Nature_Moves.png")
                     download_url="/naturemoves/"
-                    lang1="English"
+                    is_explore=true
                     }}
 
                     {{!-- Nature Strokes --}}
                     {{> "resource-item"
                     title="Nature Strokes"
-                    description="Nature Strokes is an Art and Nature handbook using art as a vibrant medium for learning
-                    about nature and vice versa."
-                    preview_image=(asset "carousel/3.jpg")
+                    description="The Nature Strokes module is an Art and Nature handbook filled with activities, resources, and ideas that use art as a vibrant medium for learning about nature and, in turn, learning about art through nature. Look out for updates from us as we release more units of this module in various themes!"
+                    preview_image=(asset "modules/Nature_Strokes.png")
                     download_url="/naturestrokes/"
-                    lang1="English"
+                    is_explore=true
                     }}
                 </div>
             </div>
@@ -65,9 +59,7 @@
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-cubes"></i>
-                        </div>
+
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">
