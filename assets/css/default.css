@@ -911,6 +911,31 @@ object {
     border-color: var(--color-accent);
 }
 
+.footer-social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-social-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.footer-social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
