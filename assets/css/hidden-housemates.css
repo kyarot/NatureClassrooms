@@ -1,0 +1,476 @@
+/* Hidden Housemates Page Styles — Resources Theme */
+
+.hidden-housemates-page {
+    --hh-primary: #3a6b4a;
+    --hh-primary-hover: #4a7c59;
+    --hh-accent: #d4a373;
+    --hh-bg: #f5f4ef;
+    --hh-bg-light: #fafaf7;
+    --hh-white: #ffffff;
+    --hh-text-primary: #333;
+    --hh-text-secondary: #666;
+    --hh-text-muted: #777;
+    --hh-border-light: rgba(0, 0, 0, 0.08);
+    --hh-radius-lg: 16px;
+    --hh-radius-md: 10px;
+    --hh-radius-full: 100px;
+    --hh-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--hh-bg);
+}
+
+/* ── Hero Section ── */
+.hh-hero {
+    padding: 160px 10% 100px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.hh-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    color: var(--hh-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.hh-hero p {
+    font-size: 1.3rem;
+    color: var(--hh-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ── Section Header ── */
+.hh-section-header {
+    padding: 0 10%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.hh-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--hh-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hh-section-title svg {
+    color: var(--hh-primary-hover);
+    flex-shrink: 0;
+}
+
+.hh-section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--hh-border-light);
+}
+
+.hh-section-count {
+    color: var(--hh-text-muted);
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* ── Resource Grid (matches resources.css resource-item-grid) ── */
+.hh-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 5% 80px;
+}
+
+.hh-grid > * {
+    flex: 0 1 calc(25% - 24px);
+    min-width: 280px;
+}
+
+/* ── Resource Card (matches resources.css resource-item-card) ── */
+.hh-card {
+    background: var(--hh-white);
+    border: 1px solid var(--hh-border-light);
+    border-radius: var(--hh-radius-lg);
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--hh-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hh-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(74, 124, 89, 0.1);
+    border-color: var(--hh-primary);
+}
+
+/* Card Thumbnail */
+.hh-card-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: var(--hh-bg-light);
+    border-radius: var(--hh-radius-lg) var(--hh-radius-lg) 0 0;
+}
+
+.hh-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hh-card:hover .hh-card-img img {
+    transform: scale(1.1);
+}
+
+/* Image Overlay */
+.hh-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 124, 89, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--hh-transition);
+}
+
+.hh-card-img:hover .hh-card-overlay {
+    opacity: 1;
+}
+
+.hh-overlay-link {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--hh-primary);
+    padding: 12px 20px;
+    border-radius: var(--hh-radius-full);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hh-card-img:hover .hh-overlay-link {
+    transform: translateY(0);
+}
+
+/* Card Content */
+.hh-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.hh-card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--hh-text-primary);
+    line-height: 1.3;
+}
+
+.hh-card-desc {
+    font-size: 0.9rem;
+    color: var(--hh-text-secondary);
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+
+/* Card Footer — Download Links */
+.hh-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--hh-border-light);
+}
+
+/* Download Dropdown */
+.hh-download-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.hh-download-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--hh-primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--hh-radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--hh-transition);
+}
+
+.hh-download-btn:hover {
+    background: var(--hh-primary-hover);
+    box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
+    transform: translateY(-1px);
+}
+
+.hh-download-btn .chevron {
+    transition: transform 0.3s ease;
+}
+
+.hh-download-dropdown:hover .hh-download-btn .chevron {
+    transform: rotate(180deg);
+}
+
+.hh-dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background: var(--hh-white);
+    border-radius: var(--hh-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+    border: 1px solid var(--hh-border-light);
+}
+
+.hh-download-dropdown:hover .hh-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.hh-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: var(--hh-text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: var(--hh-transition);
+}
+
+.hh-dropdown-item:hover {
+    background: var(--hh-bg-light);
+    color: var(--hh-primary);
+    transform: translateX(4px);
+}
+
+/* ── Educator Note Section (matches resources.css educator-note-section) ── */
+.hh-educator-note-section {
+    padding: 100px 0;
+    background: #fdfcf9;
+    border-top: 1px solid var(--hh-border-light);
+}
+
+.hh-educator-note-card {
+    background: var(--hh-white);
+    border-radius: var(--hh-radius-lg);
+    padding: 60px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.hh-educator-note-card::before {
+    content: "i";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: "Playfair Display", serif;
+    font-size: 15rem;
+    font-weight: 800;
+    color: var(--hh-primary);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.hh-educator-note-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.hh-educator-icon {
+    width: 54px;
+    height: 54px;
+    background: var(--hh-primary);
+    color: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.hh-educator-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    color: var(--hh-primary);
+    margin: 0;
+    font-weight: 800;
+}
+
+.hh-educator-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--hh-text-secondary);
+}
+
+.hh-educator-content a {
+    font-weight: 700;
+    color: var(--hh-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hh-educator-content a:hover {
+    color: var(--hh-primary-hover);
+    text-decoration: underline;
+}
+
+.hh-educator-activities {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--hh-border-light);
+}
+
+.hh-activities-title {
+    font-weight: 700;
+    color: var(--hh-primary);
+    margin-bottom: 20px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.hh-activities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hh-activities-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 1rem;
+    color: var(--hh-text-secondary);
+    line-height: 1.5;
+}
+
+.hh-activities-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--hh-accent);
+    font-weight: bold;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .hh-grid > * {
+        flex: 0 1 calc(33.333% - 24px);
+    }
+}
+
+@media (max-width: 992px) {
+    .hh-grid > * {
+        flex: 0 1 calc(50% - 24px);
+    }
+
+    .hh-educator-note-card {
+        padding: 40px;
+    }
+
+    .hh-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .hh-activities-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hh-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .hh-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hh-hero p {
+        font-size: 1.1rem;
+    }
+
+    .hh-grid > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .hh-section-header {
+        padding: 0 5%;
+        flex-wrap: wrap;
+    }
+
+    .hh-section-title {
+        font-size: 1.8rem;
+    }
+
+    .hh-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .hh-educator-note-card {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hh-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .hh-section-title {
+        font-size: 1.5rem;
+    }
+}

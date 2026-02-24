@@ -1,0 +1,476 @@
+/* Seasonal Bingos Page Styles — Resources Theme */
+
+.seasonal-bingos-page {
+    --sb-primary: #3a6b4a;
+    --sb-primary-hover: #4a7c59;
+    --sb-accent: #d4a373;
+    --sb-bg: #f5f4ef;
+    --sb-bg-light: #fafaf7;
+    --sb-white: #ffffff;
+    --sb-text-primary: #333;
+    --sb-text-secondary: #666;
+    --sb-text-muted: #777;
+    --sb-border-light: rgba(0, 0, 0, 0.08);
+    --sb-radius-lg: 16px;
+    --sb-radius-md: 10px;
+    --sb-radius-full: 100px;
+    --sb-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--sb-bg);
+}
+
+/* ── Hero Section ── */
+.sb-hero {
+    padding: 160px 10% 100px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.sb-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    color: var(--sb-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.sb-hero p {
+    font-size: 1.3rem;
+    color: var(--sb-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ── Section Header ── */
+.sb-section-header {
+    padding: 0 10%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.sb-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--sb-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sb-section-title svg {
+    color: var(--sb-primary-hover);
+    flex-shrink: 0;
+}
+
+.sb-section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--sb-border-light);
+}
+
+.sb-section-count {
+    color: var(--sb-text-muted);
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* ── Resource Grid (matches resources.css resource-item-grid) ── */
+.sb-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 5% 80px;
+}
+
+.sb-grid > * {
+    flex: 0 1 calc(25% - 24px);
+    min-width: 280px;
+}
+
+/* ── Resource Card (matches resources.css resource-item-card) ── */
+.sb-card {
+    background: var(--sb-white);
+    border: 1px solid var(--sb-border-light);
+    border-radius: var(--sb-radius-lg);
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--sb-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sb-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(74, 124, 89, 0.1);
+    border-color: var(--sb-primary);
+}
+
+/* Card Thumbnail */
+.sb-card-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: var(--sb-bg-light);
+    border-radius: var(--sb-radius-lg) var(--sb-radius-lg) 0 0;
+}
+
+.sb-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.sb-card:hover .sb-card-img img {
+    transform: scale(1.1);
+}
+
+/* Image Overlay */
+.sb-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 124, 89, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--sb-transition);
+}
+
+.sb-card-img:hover .sb-card-overlay {
+    opacity: 1;
+}
+
+.sb-overlay-link {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--sb-primary);
+    padding: 12px 20px;
+    border-radius: var(--sb-radius-full);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sb-card-img:hover .sb-overlay-link {
+    transform: translateY(0);
+}
+
+/* Card Content */
+.sb-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sb-card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--sb-text-primary);
+    line-height: 1.3;
+}
+
+.sb-card-desc {
+    font-size: 0.9rem;
+    color: var(--sb-text-secondary);
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+
+/* Card Footer — Download Links */
+.sb-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--sb-border-light);
+}
+
+/* Download Dropdown */
+.sb-download-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.sb-download-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--sb-primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--sb-radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--sb-transition);
+}
+
+.sb-download-btn:hover {
+    background: var(--sb-primary-hover);
+    box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
+    transform: translateY(-1px);
+}
+
+.sb-download-btn .chevron {
+    transition: transform 0.3s ease;
+}
+
+.sb-download-dropdown:hover .sb-download-btn .chevron {
+    transform: rotate(180deg);
+}
+
+.sb-dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background: var(--sb-white);
+    border-radius: var(--sb-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+    border: 1px solid var(--sb-border-light);
+}
+
+.sb-download-dropdown:hover .sb-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sb-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: var(--sb-text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: var(--sb-transition);
+}
+
+.sb-dropdown-item:hover {
+    background: var(--sb-bg-light);
+    color: var(--sb-primary);
+    transform: translateX(4px);
+}
+
+/* ── Educator Note Section (matches resources.css educator-note-section) ── */
+.sb-educator-note-section {
+    padding: 100px 0;
+    background: #fdfcf9;
+    border-top: 1px solid var(--sb-border-light);
+}
+
+.sb-educator-note-card {
+    background: var(--sb-white);
+    border-radius: var(--sb-radius-lg);
+    padding: 60px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.sb-educator-note-card::before {
+    content: "i";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: "Playfair Display", serif;
+    font-size: 15rem;
+    font-weight: 800;
+    color: var(--sb-primary);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.sb-educator-note-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.sb-educator-icon {
+    width: 54px;
+    height: 54px;
+    background: var(--sb-primary);
+    color: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.sb-educator-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    color: var(--sb-primary);
+    margin: 0;
+    font-weight: 800;
+}
+
+.sb-educator-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--sb-text-secondary);
+}
+
+.sb-educator-content a {
+    font-weight: 700;
+    color: var(--sb-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sb-educator-content a:hover {
+    color: var(--sb-primary-hover);
+    text-decoration: underline;
+}
+
+.sb-educator-questions {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--sb-border-light);
+}
+
+.sb-questions-title {
+    font-weight: 700;
+    color: var(--sb-primary);
+    margin-bottom: 20px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.sb-questions-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sb-questions-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 1rem;
+    color: var(--sb-text-secondary);
+    line-height: 1.5;
+}
+
+.sb-questions-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--sb-accent);
+    font-weight: bold;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .sb-grid > * {
+        flex: 0 1 calc(33.333% - 24px);
+    }
+}
+
+@media (max-width: 992px) {
+    .sb-grid > * {
+        flex: 0 1 calc(50% - 24px);
+    }
+
+    .sb-educator-note-card {
+        padding: 40px;
+    }
+
+    .sb-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .sb-questions-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sb-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .sb-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .sb-hero p {
+        font-size: 1.1rem;
+    }
+
+    .sb-grid > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .sb-section-header {
+        padding: 0 5%;
+        flex-wrap: wrap;
+    }
+
+    .sb-section-title {
+        font-size: 1.8rem;
+    }
+
+    .sb-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .sb-educator-note-card {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sb-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .sb-section-title {
+        font-size: 1.5rem;
+    }
+}

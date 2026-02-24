@@ -1,0 +1,320 @@
+/* Nature-Based Social-Emotional Learning Page Styles */
+
+.nbsel-page {
+    --nbsel-primary: #3a6b4a;
+    --nbsel-primary-hover: #4a7c59;
+    --nbsel-accent: #d4a373;
+    --nbsel-bg: #f5f4ef;
+    --nbsel-bg-light: #fafaf7;
+    --nbsel-white: #ffffff;
+    --nbsel-text-primary: #333;
+    --nbsel-text-secondary: #666;
+    --nbsel-text-muted: #777;
+    --nbsel-border-light: rgba(0, 0, 0, 0.08);
+    --nbsel-radius-lg: 16px;
+    --nbsel-radius-md: 10px;
+    --nbsel-radius-full: 100px;
+    --nbsel-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--nbsel-bg);
+}
+
+/* ── Hero Section ── */
+.nbsel-hero {
+    padding: 160px 10% 60px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.nbsel-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--nbsel-primary);
+    margin-bottom: 0;
+    font-weight: 400;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── About Section ── */
+.nbsel-about-section {
+    padding: 40px 5% 60px;
+}
+
+.nbsel-about-card {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.nbsel-about-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--nbsel-text-secondary);
+    margin-bottom: 24px;
+}
+
+/* ── Programme Goals Section ── */
+.nbsel-goals-section {
+    padding: 60px 5% 80px;
+    background: #fdfcf9;
+    border-top: 1px solid var(--nbsel-border-light);
+}
+
+.nbsel-goals-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nbsel-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: var(--nbsel-primary);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.nbsel-goal-card {
+    background: var(--nbsel-white);
+    border-radius: var(--nbsel-radius-lg);
+    padding: 28px 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-left: 4px solid var(--nbsel-primary);
+}
+
+.nbsel-goal-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--nbsel-primary);
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nbsel-goal-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--nbsel-text-secondary);
+    margin: 0;
+    padding-top: 10px;
+}
+
+/* ── Pilot Workshop Section ── */
+.nbsel-workshop-section {
+    padding: 80px 5%;
+    border-top: 1px solid var(--nbsel-border-light);
+}
+
+.nbsel-workshop-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.nbsel-workshop-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--nbsel-primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.nbsel-workshop-desc {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--nbsel-text-secondary);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.nbsel-workshop-images {
+    display: flex;
+    gap: 24px;
+}
+
+.nbsel-workshop-image {
+    flex: 1;
+    border-radius: var(--nbsel-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.nbsel-workshop-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.nbsel-workshop-image:hover img {
+    transform: scale(1.05);
+}
+
+/* ── Download Section ── */
+.nbsel-download-section {
+    padding: 60px 5% 40px;
+    background: #fdfcf9;
+    border-top: 1px solid var(--nbsel-border-light);
+}
+
+.nbsel-download-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--nbsel-white);
+    border-radius: var(--nbsel-radius-lg);
+    padding: 45px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.nbsel-download-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nbsel-download-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--nbsel-primary);
+    margin-bottom: 24px;
+    font-weight: 800;
+}
+
+.nbsel-download-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.nbsel-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--nbsel-primary);
+    color: #ffffff !important;
+    border: 2px solid var(--nbsel-primary);
+    border-radius: var(--nbsel-radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--nbsel-transition);
+}
+
+.nbsel-download-btn:hover {
+    background: var(--nbsel-primary-hover);
+    border-color: var(--nbsel-primary-hover);
+    box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
+    transform: translateY(-2px);
+}
+
+.nbsel-download-btn-outline {
+    background: transparent;
+    color: var(--nbsel-primary) !important;
+    border: 2px solid var(--nbsel-primary);
+}
+
+.nbsel-download-btn-outline:hover {
+    background: var(--nbsel-primary);
+    color: #ffffff !important;
+}
+
+.nbsel-download-credit {
+    font-size: 0.95rem;
+    color: var(--nbsel-text-muted);
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ── Contact Section ── */
+.nbsel-contact-section {
+    padding: 40px 5% 60px;
+    background: #fdfcf9;
+}
+
+.nbsel-contact-card {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nbsel-contact-card p {
+    font-size: 1.05rem;
+    color: var(--nbsel-text-secondary);
+    line-height: 1.7;
+}
+
+.nbsel-contact-card a {
+    color: var(--nbsel-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nbsel-contact-card a:hover {
+    color: var(--nbsel-primary-hover);
+}
+
+/* ── Explore More Section ── */
+.nbsel-explore-more {
+    text-align: center;
+    padding: 60px 5% 80px;
+    background-color: transparent;
+}
+
+.nbsel-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--nbsel-primary);
+    color: #ffffff !important;
+    border-radius: var(--nbsel-radius-full);
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--nbsel-transition);
+    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.2);
+}
+
+.nbsel-explore-btn:hover {
+    background: var(--nbsel-primary-hover);
+    box-shadow: 0 8px 25px rgba(74, 124, 89, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .nbsel-hero { padding: 120px 6% 40px; }
+    .nbsel-hero h1 { font-size: 2.6rem; }
+    .nbsel-about-section { padding: 30px 6% 40px; }
+    .nbsel-goal-card { flex-direction: column; padding: 24px 22px; gap: 14px; }
+    .nbsel-goal-text { padding-top: 0; }
+    .nbsel-workshop-images { flex-direction: column; }
+    .nbsel-workshop-image img { height: 220px; }
+    .nbsel-download-card { padding: 30px 24px; }
+}
+
+@media (max-width: 480px) {
+    .nbsel-hero h1 { font-size: 2rem; }
+    .nbsel-download-buttons { flex-direction: column; }
+    .nbsel-download-btn { width: 100%; justify-content: center; }
+}

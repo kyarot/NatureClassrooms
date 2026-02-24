@@ -1,0 +1,476 @@
+/* Plant Poster Page Styles — Resources Theme */
+
+.plant-poster-page {
+    --pp-primary: #3a6b4a;
+    --pp-primary-hover: #4a7c59;
+    --pp-accent: #d4a373;
+    --pp-bg: #f5f4ef;
+    --pp-bg-light: #fafaf7;
+    --pp-white: #ffffff;
+    --pp-text-primary: #333;
+    --pp-text-secondary: #666;
+    --pp-text-muted: #777;
+    --pp-border-light: rgba(0, 0, 0, 0.08);
+    --pp-radius-lg: 16px;
+    --pp-radius-md: 10px;
+    --pp-radius-full: 100px;
+    --pp-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--pp-bg);
+}
+
+/* ── Hero Section ── */
+.pp-hero {
+    padding: 160px 10% 100px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.pp-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    color: var(--pp-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.pp-hero p {
+    font-size: 1.3rem;
+    color: var(--pp-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ── Section Header ── */
+.pp-section-header {
+    padding: 0 10%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.pp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--pp-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pp-section-title svg {
+    color: var(--pp-primary-hover);
+    flex-shrink: 0;
+}
+
+.pp-section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--pp-border-light);
+}
+
+.pp-section-count {
+    color: var(--pp-text-muted);
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* ── Resource Grid (matches resources.css resource-item-grid) ── */
+.pp-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 5% 80px;
+}
+
+.pp-grid > * {
+    flex: 0 1 calc(25% - 24px);
+    min-width: 280px;
+}
+
+/* ── Resource Card (matches resources.css resource-item-card) ── */
+.pp-card {
+    background: var(--pp-white);
+    border: 1px solid var(--pp-border-light);
+    border-radius: var(--pp-radius-lg);
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--pp-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(74, 124, 89, 0.1);
+    border-color: var(--pp-primary);
+}
+
+/* Card Thumbnail */
+.pp-card-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: var(--pp-bg-light);
+    border-radius: var(--pp-radius-lg) var(--pp-radius-lg) 0 0;
+}
+
+.pp-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.pp-card:hover .pp-card-img img {
+    transform: scale(1.1);
+}
+
+/* Image Overlay */
+.pp-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 124, 89, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--pp-transition);
+}
+
+.pp-card-img:hover .pp-card-overlay {
+    opacity: 1;
+}
+
+.pp-overlay-link {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--pp-primary);
+    padding: 12px 20px;
+    border-radius: var(--pp-radius-full);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pp-card-img:hover .pp-overlay-link {
+    transform: translateY(0);
+}
+
+/* Card Content */
+.pp-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pp-card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--pp-text-primary);
+    line-height: 1.3;
+}
+
+.pp-card-desc {
+    font-size: 0.9rem;
+    color: var(--pp-text-secondary);
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+
+/* Card Footer — Download Links */
+.pp-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--pp-border-light);
+}
+
+/* Download Dropdown */
+.pp-download-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.pp-download-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--pp-primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--pp-radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--pp-transition);
+}
+
+.pp-download-btn:hover {
+    background: var(--pp-primary-hover);
+    box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
+    transform: translateY(-1px);
+}
+
+.pp-download-btn .chevron {
+    transition: transform 0.3s ease;
+}
+
+.pp-download-dropdown:hover .pp-download-btn .chevron {
+    transform: rotate(180deg);
+}
+
+.pp-dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background: var(--pp-white);
+    border-radius: var(--pp-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+    border: 1px solid var(--pp-border-light);
+}
+
+.pp-download-dropdown:hover .pp-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.pp-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: var(--pp-text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: var(--pp-transition);
+}
+
+.pp-dropdown-item:hover {
+    background: var(--pp-bg-light);
+    color: var(--pp-primary);
+    transform: translateX(4px);
+}
+
+/* ── Educator Note Section (matches resources.css educator-note-section) ── */
+.pp-educator-note-section {
+    padding: 100px 0;
+    background: #fdfcf9;
+    border-top: 1px solid var(--pp-border-light);
+}
+
+.pp-educator-note-card {
+    background: var(--pp-white);
+    border-radius: var(--pp-radius-lg);
+    padding: 60px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.pp-educator-note-card::before {
+    content: "i";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: "Playfair Display", serif;
+    font-size: 15rem;
+    font-weight: 800;
+    color: var(--pp-primary);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.pp-educator-note-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.pp-educator-icon {
+    width: 54px;
+    height: 54px;
+    background: var(--pp-primary);
+    color: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.pp-educator-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    color: var(--pp-primary);
+    margin: 0;
+    font-weight: 800;
+}
+
+.pp-educator-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--pp-text-secondary);
+}
+
+.pp-educator-content a {
+    font-weight: 700;
+    color: var(--pp-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.pp-educator-content a:hover {
+    color: var(--pp-primary-hover);
+    text-decoration: underline;
+}
+
+.pp-educator-activities {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--pp-border-light);
+}
+
+.pp-activities-title {
+    font-weight: 700;
+    color: var(--pp-primary);
+    margin-bottom: 20px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.pp-activities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pp-activities-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 1rem;
+    color: var(--pp-text-secondary);
+    line-height: 1.5;
+}
+
+.pp-activities-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--pp-accent);
+    font-weight: bold;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .pp-grid > * {
+        flex: 0 1 calc(33.333% - 24px);
+    }
+}
+
+@media (max-width: 992px) {
+    .pp-grid > * {
+        flex: 0 1 calc(50% - 24px);
+    }
+
+    .pp-educator-note-card {
+        padding: 40px;
+    }
+
+    .pp-educator-title {
+        font-size: 1.75rem;
+    }
+
+    .pp-activities-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pp-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .pp-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .pp-hero p {
+        font-size: 1.1rem;
+    }
+
+    .pp-grid > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .pp-section-header {
+        padding: 0 5%;
+        flex-wrap: wrap;
+    }
+
+    .pp-section-title {
+        font-size: 1.8rem;
+    }
+
+    .pp-educator-note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .pp-educator-note-card {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pp-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .pp-section-title {
+        font-size: 1.5rem;
+    }
+}

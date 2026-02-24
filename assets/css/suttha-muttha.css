@@ -1,0 +1,298 @@
+/* Suttha Muttha Page Styles */
+
+.suttha-muttha-page {
+    --sm-primary: #3a6b4a;
+    --sm-primary-hover: #4a7c59;
+    --sm-accent: #d4a373;
+    --sm-bg: #f5f4ef;
+    --sm-bg-light: #fafaf7;
+    --sm-white: #ffffff;
+    --sm-text-primary: #333;
+    --sm-text-secondary: #666;
+    --sm-text-muted: #777;
+    --sm-border-light: rgba(0, 0, 0, 0.08);
+    --sm-radius-lg: 16px;
+    --sm-radius-md: 10px;
+    --sm-radius-full: 100px;
+    --sm-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--sm-bg);
+}
+
+/* ── Hero Section ── */
+.sm-hero {
+    padding: 160px 10% 60px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.sm-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    color: var(--sm-primary);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.sm-hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--sm-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* ── About Section ── */
+.sm-about-section {
+    padding: 40px 5% 60px;
+}
+
+.sm-about-card {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sm-about-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--sm-text-secondary);
+    margin-bottom: 24px;
+}
+
+.sm-about-content a {
+    color: var(--sm-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s;
+}
+
+.sm-about-content a:hover {
+    color: var(--sm-primary-hover);
+}
+
+/* ── Image Section ── */
+.sm-image-section {
+    padding: 20px 5% 40px;
+}
+
+.sm-image-row {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sm-image-item {
+    flex: 1;
+    border-radius: var(--sm-radius-lg);
+    overflow: hidden;
+    background: var(--sm-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.sm-image-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.sm-image-item:hover img {
+    transform: scale(1.05);
+}
+
+.sm-image-caption {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--sm-text-muted);
+    text-align: center;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ── Goals Section ── */
+.sm-goals-section {
+    padding: 60px 5% 80px;
+    background: #fdfcf9;
+    border-top: 1px solid var(--sm-border-light);
+}
+
+.sm-goals-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sm-goal-card {
+    background: var(--sm-white);
+    border-radius: var(--sm-radius-lg);
+    padding: 40px 45px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    position: relative;
+    border-left: 4px solid var(--sm-primary);
+}
+
+.sm-goal-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--sm-primary);
+    opacity: 0.12;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    line-height: 1;
+}
+
+.sm-goal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--sm-primary);
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-right: 50px;
+}
+
+.sm-goal-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--sm-text-secondary);
+    margin: 0;
+}
+
+/* Goal Image */
+.sm-goal-image-wrapper {
+    border-radius: var(--sm-radius-lg);
+    overflow: hidden;
+    background: var(--sm-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.sm-goal-image-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.sm-goal-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+/* ── Partners & Funders Section ── */
+.sm-partners-section {
+    padding: 80px 5%;
+    border-top: 1px solid var(--sm-border-light);
+}
+
+.sm-partners-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+}
+
+.sm-partners-block {
+    text-align: center;
+    flex: 1;
+}
+
+.sm-partners-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--sm-primary);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.sm-partners-logos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sm-partners-logos a {
+    display: block;
+    transition: var(--sm-transition);
+}
+
+.sm-partners-logos a:hover {
+    transform: translateY(-4px);
+}
+
+.sm-partners-logos img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: var(--sm-radius-md);
+    background: var(--sm-white);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Explore More / Back Section ── */
+.sm-explore-more {
+    text-align: center;
+    padding: 60px 5% 80px;
+    background-color: transparent;
+}
+
+.sm-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--sm-primary);
+    color: #ffffff !important;
+    border-radius: var(--sm-radius-full);
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--sm-transition);
+    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.2);
+}
+
+.sm-explore-btn:hover {
+    background: var(--sm-primary-hover);
+    box-shadow: 0 8px 25px rgba(74, 124, 89, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .sm-hero { padding: 120px 6% 40px; }
+    .sm-hero h1 { font-size: 3.5rem; }
+    .sm-hero-subtitle { font-size: 1.1rem; }
+    .sm-about-section { padding: 30px 6% 40px; }
+    .sm-image-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .sm-image-item img { height: 220px; }
+    .sm-goal-card { padding: 30px 25px; }
+    .sm-goal-title { font-size: 1.15rem; padding-right: 30px; }
+    .sm-goal-number { font-size: 2.2rem; top: 15px; right: 20px; }
+    .sm-goal-image-wrapper img { height: 260px; }
+    .sm-partners-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sm-hero h1 { font-size: 2.6rem; }
+    .sm-goal-card { padding: 24px 20px; }
+    .sm-goal-title { font-size: 1.05rem; padding-right: 0; }
+    .sm-goal-number { display: none; }
+    .sm-goal-image-wrapper img { height: 200px; }
+    .sm-partners-logos img { width: 90px; height: 90px; }
+}

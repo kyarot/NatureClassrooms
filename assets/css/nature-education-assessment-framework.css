@@ -1,0 +1,228 @@
+/* Nature Education Assessment Framework Page Styles */
+
+.neaf-page {
+    --neaf-primary: #3a6b4a;
+    --neaf-primary-hover: #4a7c59;
+    --neaf-accent: #d4a373;
+    --neaf-bg: #f5f4ef;
+    --neaf-bg-light: #fafaf7;
+    --neaf-white: #ffffff;
+    --neaf-text-primary: #333;
+    --neaf-text-secondary: #666;
+    --neaf-text-muted: #777;
+    --neaf-border-light: rgba(0, 0, 0, 0.08);
+    --neaf-radius-lg: 16px;
+    --neaf-radius-md: 10px;
+    --neaf-radius-full: 100px;
+    --neaf-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--neaf-bg);
+}
+
+/* ── Hero Section ── */
+.neaf-hero {
+    padding: 160px 10% 60px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.neaf-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    color: var(--neaf-primary);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.neaf-hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--neaf-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* ── About Section ── */
+.neaf-about-section {
+    padding: 40px 5% 60px;
+}
+
+.neaf-about-card {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.neaf-about-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--neaf-text-secondary);
+    margin-bottom: 24px;
+}
+
+/* ── Objectives Section ── */
+.neaf-objectives-section {
+    padding: 60px 5% 80px;
+    background: #fdfcf9;
+    border-top: 1px solid var(--neaf-border-light);
+}
+
+.neaf-objectives-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.neaf-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: var(--neaf-text-primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.neaf-objective-card {
+    background: var(--neaf-white);
+    border-radius: var(--neaf-radius-lg);
+    padding: 35px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    position: relative;
+    border-left: 4px solid var(--neaf-primary);
+}
+
+.neaf-objective-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--neaf-primary);
+    opacity: 0.12;
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    line-height: 1;
+}
+
+.neaf-objective-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--neaf-text-secondary);
+    margin: 0;
+    padding-right: 50px;
+}
+
+/* ── Image Section ── */
+.neaf-image-section {
+    padding: 40px 5% 60px;
+}
+
+.neaf-image-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--neaf-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.neaf-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Partners Section ── */
+.neaf-partners-section {
+    padding: 80px 5%;
+    border-top: 1px solid var(--neaf-border-light);
+}
+
+.neaf-partners-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.neaf-partners-block {
+    text-align: center;
+}
+
+.neaf-partners-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--neaf-primary);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.neaf-partners-logos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.neaf-partners-logos a {
+    display: block;
+    transition: var(--neaf-transition);
+}
+
+.neaf-partners-logos a:hover {
+    transform: translateY(-4px);
+}
+
+.neaf-partners-logos img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--neaf-radius-md);
+    background: var(--neaf-white);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Explore More Section ── */
+.neaf-explore-more {
+    text-align: center;
+    padding: 60px 5% 80px;
+    background-color: transparent;
+}
+
+.neaf-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--neaf-primary);
+    color: #ffffff !important;
+    border-radius: var(--neaf-radius-full);
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--neaf-transition);
+    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.2);
+}
+
+.neaf-explore-btn:hover {
+    background: var(--neaf-primary-hover);
+    box-shadow: 0 8px 25px rgba(74, 124, 89, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .neaf-hero { padding: 120px 6% 40px; }
+    .neaf-hero h1 { font-size: 2.8rem; }
+    .neaf-hero-subtitle { font-size: 1.1rem; }
+    .neaf-about-section { padding: 30px 6% 40px; }
+    .neaf-objective-card { padding: 28px 22px; }
+    .neaf-objective-desc { padding-right: 30px; }
+    .neaf-objective-number { font-size: 2.2rem; top: 14px; right: 18px; }
+}
+
+@media (max-width: 480px) {
+    .neaf-hero h1 { font-size: 2.2rem; }
+    .neaf-objective-card { padding: 22px 18px; }
+    .neaf-objective-desc { padding-right: 0; font-size: 1rem; }
+    .neaf-objective-number { display: none; }
+}
