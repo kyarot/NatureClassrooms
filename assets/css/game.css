@@ -1,0 +1,380 @@
+/* Game Page Styles — Nature Classrooms Theme */
+
+.game-page {
+    --game-primary: #3a6b4a;
+    --game-primary-hover: #4a7c59;
+    --game-primary-light: #e8f0eb;
+    --game-accent: #d4a373;
+    --game-accent-light: #f5ece2;
+    --game-bg: #f5f4ef;
+    --game-bg-light: #fafaf7;
+    --game-white: #ffffff;
+    --game-text-primary: #333;
+    --game-text-secondary: #555;
+    --game-text-muted: #777;
+    --game-border-light: rgba(0, 0, 0, 0.08);
+    --game-radius-lg: 20px;
+    --game-radius-md: 12px;
+    --game-radius-sm: 8px;
+    --game-radius-full: 100px;
+    --game-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --game-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    --game-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.1);
+    background-color: var(--game-bg);
+}
+
+/* ── Hero Section ── */
+.game-hero {
+    padding: 160px 10% 80px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.game-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    color: var(--game-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.game-hero p {
+    font-size: 1.25rem;
+    color: var(--game-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.85;
+}
+
+/* ── Game Preview Section ── */
+.game-preview-section {
+    padding: 0 8% 60px;
+}
+
+.game-preview-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.game-preview-image {
+    border-radius: var(--game-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--game-shadow);
+    border: 1px solid var(--game-border-light);
+    transition: var(--game-transition);
+    position: relative;
+}
+
+.game-preview-image:hover {
+    box-shadow: var(--game-shadow-hover);
+    transform: translateY(-4px);
+}
+
+.game-preview-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── About the Game Section ── */
+.game-about-section {
+    padding: 40px 8% 60px;
+}
+
+.game-about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.game-about-card {
+    background: var(--game-white);
+    border-radius: var(--game-radius-lg);
+    box-shadow: var(--game-shadow);
+    border: 1px solid var(--game-border-light);
+    overflow: hidden;
+}
+
+.game-about-content {
+    padding: 45px 45px 30px;
+}
+
+.game-about-content p {
+    font-size: 1.1rem;
+    color: var(--game-text-secondary);
+    line-height: 1.85;
+    margin: 0;
+}
+
+.game-about-content strong {
+    color: var(--game-primary);
+    font-weight: 600;
+}
+
+/* Credits Grid */
+.game-credits {
+    padding: 10px 45px 45px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.game-credit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    background: var(--game-bg-light);
+    border-radius: var(--game-radius-sm);
+    border: 1px solid var(--game-border-light);
+    transition: var(--game-transition);
+}
+
+.game-credit-item:hover {
+    background: var(--game-primary-light);
+    border-color: rgba(58, 107, 74, 0.15);
+}
+
+.game-credit-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--game-primary);
+}
+
+.game-credit-value {
+    font-size: 0.95rem;
+    color: var(--game-text-primary);
+    line-height: 1.5;
+}
+
+/* ── Download Instructions Section ── */
+.game-download-section {
+    padding: 40px 8% 100px;
+}
+
+.game-download-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.game-download-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--game-primary);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.game-download-title svg {
+    color: var(--game-accent);
+    flex-shrink: 0;
+}
+
+/* Steps */
+.game-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 50px;
+}
+
+.game-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: var(--game-white);
+    border-radius: var(--game-radius-lg);
+    padding: 30px 35px;
+    box-shadow: var(--game-shadow);
+    border: 1px solid var(--game-border-light);
+    transition: var(--game-transition);
+}
+
+.game-step:hover {
+    box-shadow: var(--game-shadow-hover);
+    transform: translateX(6px);
+}
+
+.game-step-number {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--game-primary);
+    color: var(--game-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.game-step-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--game-text-primary);
+    margin: 0 0 6px;
+}
+
+.game-step-content p {
+    font-size: 1rem;
+    color: var(--game-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.game-step-content strong {
+    color: var(--game-primary);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    background: var(--game-primary-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.game-step-connector {
+    width: 3px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--game-primary), var(--game-accent));
+    margin-left: 57px;
+    border-radius: 3px;
+    opacity: 0.4;
+}
+
+/* Download Button */
+.game-download-action {
+    text-align: center;
+}
+
+.game-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--game-primary);
+    color: var(--game-white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 42px;
+    border-radius: var(--game-radius-full);
+    text-decoration: none;
+    transition: var(--game-transition);
+    box-shadow: 0 4px 20px rgba(58, 107, 74, 0.3);
+    letter-spacing: 0.02em;
+}
+
+.game-download-btn:hover {
+    background: var(--game-primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(58, 107, 74, 0.4);
+    color: var(--game-white);
+    text-decoration: none;
+}
+
+.game-download-btn:active {
+    transform: translateY(-1px);
+}
+
+.game-download-btn svg {
+    animation: game-bounce 2s ease-in-out infinite;
+}
+
+@keyframes game-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .game-hero {
+        padding: 130px 6% 50px;
+    }
+
+    .game-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .game-hero p {
+        font-size: 1.05rem;
+    }
+
+    .game-preview-section {
+        padding: 0 5% 40px;
+    }
+
+    .game-about-section {
+        padding: 20px 5% 40px;
+    }
+
+    .game-about-content {
+        padding: 30px 25px 20px;
+    }
+
+    .game-credits {
+        padding: 10px 25px 30px;
+        grid-template-columns: 1fr;
+    }
+
+    .game-download-section {
+        padding: 20px 5% 70px;
+    }
+
+    .game-download-title {
+        font-size: 1.4rem;
+    }
+
+    .game-step {
+        padding: 22px 20px;
+        gap: 16px;
+    }
+
+    .game-step-number {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1rem;
+    }
+
+    .game-step-connector {
+        margin-left: 39px;
+    }
+
+    .game-download-btn {
+        font-size: 1rem;
+        padding: 16px 34px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .game-hero p {
+        font-size: 0.95rem;
+    }
+
+    .game-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .game-step-connector {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

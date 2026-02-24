@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: 'Resources: Modules', url: '/resources/modules/' },
         { title: 'Resources: Activities', url: '/resources/activities/' },
         { title: 'Resources: There\'s Nothing There', url: '/resources/theres-nothing-there/' },
+        { title: 'There\'s Nothing There: Game', url: '/game/' },
         { title: 'Our Approach', url: '/our-approach/' },
         { title: 'Our Approach: Pedagogy', url: '/our-approach/#pedagogy' },
         { title: 'Our Approach: Framework', url: '/our-approach/#framework' },
