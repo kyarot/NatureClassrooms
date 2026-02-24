@@ -59,6 +59,21 @@
 
                 <li><a href="/blog/">Blog</a></li>
 
+                <!-- Search Button -->
+                <li class="search-nav-item">
+                    <button class="search-toggle" id="searchToggle" aria-label="Search">
+                        {{> "icons/search"}}
+                    </button>
+                    <div class="search-dropdown-panel" id="searchDropdown">
+                        <div class="search-input-wrapper">
+                            <span class="search-icon-inside">{{> "icons/search"}}</span>
+                            <input type="text" class="search-input-field" id="searchInput"
+                                placeholder="Search resources, blog, work..." autocomplete="off">
+                        </div>
+                        <ul class="search-results-list" id="searchResults"></ul>
+                    </div>
+                </li>
+
             </ul>
 
         </nav>

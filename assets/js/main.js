@@ -198,21 +198,112 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Dropdown Navigation
+// Search Dropdown Functionality
 document.addEventListener('DOMContentLoaded', function () {
-    const desktopDropdowns = document.querySelectorAll('.header-nav .nav-dropdown');
+    const searchToggle = document.getElementById('searchToggle');
+    const searchDropdown = document.getElementById('searchDropdown');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
 
-    desktopDropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!searchToggle || !searchDropdown || !searchInput || !searchResults) return;
 
-        if (toggle) {
-            toggle.addEventListener('click', function (e) {
-                if (window.innerWidth > 1024) {
-                    if (toggle.getAttribute('href') === '#') {
-                        e.preventDefault();
-                    }
-                }
-            });
+    // Search Index Data (Mocking content for the theme)
+    const searchIndex = [
+        { title: 'Home', url: '/' },
+        { title: 'About Us', url: '/about/' },
+        { title: 'Vision & Goals', url: '/about/#vision' },
+        { title: 'Nature Classrooms in Media', url: '/media/' },
+        { title: 'Our Work: Resource Creation', url: '/resourcecreation/' },
+        { title: 'Our Work: Capacity Building & Training', url: '/capacity/' },
+        { title: 'Our Work: Research', url: '/research/' },
+        { title: 'Our Work: Outreach & Public Engagement', url: '/outreach/' },
+        { title: 'Resources: All', url: '/resources/' },
+        { title: 'Resources: Bingos', url: '/resources/bingos/' },
+        { title: 'Resources: Alphabet Charts', url: '/resources/alphabet-charts/' },
+        { title: 'Resources: Anchor Charts', url: '/resources/anchor-charts/' },
+        { title: 'Resources: Natural History', url: '/resources/natural-history/' },
+        { title: 'Resources: Modules', url: '/resources/modules/' },
+        { title: 'Resources: Activities', url: '/resources/activities/' },
+        { title: 'Resources: There\'s Nothing There', url: '/resources/theres-nothing-there/' },
+        { title: 'Our Approach', url: '/our-approach/' },
+        { title: 'Our Approach: Pedagogy', url: '/our-approach/#pedagogy' },
+        { title: 'Our Approach: Framework', url: '/our-approach/#framework' },
+        { title: 'Blog', url: '/blog/' },
+        { title: 'Suttha Muttha Project', url: '/resourcecreation/#featured' },
+        { title: 'Nature Learning Checklist', url: '/our-approach/#checklist' }
+    ];
+
+    function toggleSearch(e) {
+        e.stopPropagation();
+        const isActive = searchDropdown.classList.contains('is-active');
+
+        if (!isActive) {
+            searchDropdown.classList.add('is-active');
+            searchToggle.classList.add('is-active');
+            setTimeout(() => searchInput.focus(), 100);
+        } else {
+            closeSearch();
         }
+    }
+
+    function closeSearch() {
+        searchDropdown.classList.remove('is-active');
+        searchToggle.classList.remove('is-active');
+        searchInput.value = '';
+        renderResults([]);
+    }
+
+    function handleSearch(e) {
+        const query = e.target.value.toLowerCase().trim();
+
+        if (query.length < 2) {
+            renderResults([]);
+            return;
+        }
+
+        const filtered = searchIndex.filter(item =>
+            item.title.toLowerCase().includes(query) ||
+            item.url.toLowerCase().includes(query)
+        );
+
+        renderResults(filtered);
+    }
+
+    function renderResults(results) {
+        searchResults.innerHTML = '';
+
+        results.forEach(result => {
+            const li = document.createElement('li');
+            li.className = 'search-result-item';
+            li.innerHTML = `
+                <a href="${result.url}">
+                    <span class="search-result-title">${result.title}</span>
+                </a>
+            `;
+            searchResults.appendChild(li);
+        });
+    }
+
+    // Event Listeners
+    searchToggle.addEventListener('click', toggleSearch);
+    searchInput.addEventListener('input', handleSearch);
+
+    // Close on click outside
+    document.addEventListener('click', function (e) {
+        if (!searchDropdown.contains(e.target) && !searchToggle.contains(e.target)) {
+            closeSearch();
+        }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeSearch();
+        }
+    });
+
+    // Prevent search dropdown from closing when clicking inside
+    searchDropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
     });
 });
