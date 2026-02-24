@@ -9,89 +9,122 @@
             <img src="{{asset 'illustrations/10.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/2.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>There's Nothing There</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                       
-Nature Classrooms’ nature learning book ‘There’s Nothing There!’ follows Arali and her Amma’s journey from her school to their home, and everything that they see (or maybe don’t) in between - and you will get a chance to join them in these delightful journeys! This visually stunning bilingual book was inspired by the younglings and teachers of Tarabanahalli Govt. School, in peri urban Bangalore who embarked on adventures to explore nature in and around their school grounds and local neighbourhoods. 
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">There's Nothing There</h1>
+                    <p class="resources-hero-subtitle">
+
+                        Nature Classrooms’ nature learning book ‘There’s Nothing There!’ follows Arali and her Amma’s
+                        journey from her school to their home, and everything that they see (or maybe don’t) in between
+                        - and you will get a chance to join them in these delightful journeys! This visually stunning
+                        bilingual book was inspired by the younglings and teachers of Tarabanahalli Govt. School, in
+                        peri urban Bangalore who embarked on adventures to explore nature in and around their school
+                        grounds and local neighbourhoods.
                     </p>
                 </div>
             </div>
         </section>
 
-        {{!-- 2. Resource Grid --}}
-        <section class="site-section">
+        {{!-- 2. Feature Card Section --}}
+        <section class="horizontal-feature-section">
             <div class="container">
-                {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
-                    {{!-- English & Kannada --}}
-                    {{> "resource-item"
-                    title="There's Nothing There - English & Kannada"
-                    description="This visually stunning bilingual book follows Arali's journey and was inspired by
-                    younglings exploring nature in government schools."
-                    preview_image=(asset "carousel/1.jpg")
-                    download_url="#"
-                    lang1="English"
-                    lang2="Kannada"
-                    }}
+                <div class="feature-card-horizontal" data-reveal>
+                    <div class="feature-card-image">
+                        <img src="{{asset "storybooks/storybooks.png"}}" alt="There's Nothing There">
+                    </div>
+                    <div class="feature-card-content">
+                        <h2 class="feature-card-title">
+                            <span>There's Nothing There !!</span>
+                            <span>ಅಲ್ಲಿ ಏನೂ ಇಲ್ಲ !!</span>
+                            <span>वहाँ तो कुछ भी नहीं है !!</span>
+                        </h2>
+                        <p class="feature-card-description">
+                            Nature Classrooms’ nature learning book ‘There’s Nothing There!’ follows Arali and her
+                            Amma’s journey from her school to their home, and everything that they see (or maybe don’t)
+                            in between - and you will get a chance to join them in these delightful journeys! This
+                            visually stunning bilingual book was inspired by the younglings and teachers of
+                            Tarabanahalli Govt. School, in peri urban Bangalore who embarked on adventures to explore
+                            nature in and around their school grounds and local neighbourhoods.
+                        </p>
 
-                    {{!-- English & Hindi --}}
-                    {{> "resource-item"
-                    title="There's Nothing There - English & Hindi"
-                    description="Join Arali and Amma in this delightful journey through peri-urban landscapes,
-                    discovering
-                    that there's always nature to be found."
-                    preview_image=(asset "carousel/2.jpg")
-                    download_url="#"
-                    lang1="English"
-                    lang2="Hindi"
-                    }}
+                        <div class="download-container">
+                            <button class="download-btn-main">
+                                Download <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                            </button>
+                            <div class="download-dropdown-menu">
+                                <a href="#">English</a>
+                                <a href="#">हिन्दी</a>
+                                <a href="#">ಕನ್ನಡ</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        {{!-- 3. Game Section --}}
+        <section class="game-promo-section">
+            <div class="container">
+                <div class="game-promo-container" data-reveal>
+                    <p class="game-promo-text">
+                        Join Arali and her Amma on their journey from school to their home and help them spot hidden and
+                        not-so-hidden plants, animals, insects, birds and everything that you can through this game!
+                    </p>
+                    <a href="#" class="btn-game">The Game</a>
+                </div>
+            </div>
+        </section>
+
 
         {{!-- 4. Educator Note Section --}}
         <section class="educator-note-section">
             <div class="container">
                 <div class="educator-note-card" data-reveal>
-                  
+
                     <div class="educator-content">
                         <p>
-                           'There’s Nothing There!’ finds its roots in the conversations and interactions during our two year collaborative Suttha Muttha project with the Fig Tree Learning Center supported by The Bangalore Sustainability Forum. The Nature Classrooms team and Fig Tree's dedicated educators (Jane, Sarojini, and Gousia), illustrator and designer Karunya Bhaskar joined hands, weaving together the little and not-so-little interactions and shared experiences of nature that they came across along with the students and teachers from government schools in Silvepura Village, Bengaluru's vibrant and rapidly changing peri-urban landscape.</p><br>
+                            'There’s Nothing There!’ finds its roots in the conversations and interactions during our
+                            two year collaborative Suttha Muttha project with the Fig Tree Learning Center supported by
+                            The Bangalore Sustainability Forum. The Nature Classrooms team and Fig Tree's dedicated
+                            educators (Jane, Sarojini, and Gousia), illustrator and designer Karunya Bhaskar joined
+                            hands, weaving together the little and not-so-little interactions and shared experiences of
+                            nature that they came across along with the students and teachers from government schools in
+                            Silvepura Village, Bengaluru's vibrant and rapidly changing peri-urban landscape.</p><br>
 
 
- 
-<p>
-Based on our trials with the schools we work with, we are in the process of compiling various nature activity ideas that can compliment the story book and also be used by teachers in and around their classroom and school spaces. Look out for these on our website! If you use this book with your students and would like to share your nature activity ideas with us please get in touch - we would love to trial them out as well! 
+
+                        <p>
+                            Based on our trials with the schools we work with, we are in the process of compiling
+                            various nature activity ideas that can compliment the story book and also be used by
+                            teachers in and around their classroom and school spaces. Look out for these on our website!
+                            If you use this book with your students and would like to share your nature activity ideas
+                            with us please get in touch - we would love to trial them out as well!
                         </p>
                     </div>
                     <div class="educator-questions">
-                        
+
                         <ul class="questions-list">
-                            <li>Authors: Roshni Ravi, Jane Sahi 
+                            <p style="font-weight: bold;">Authors:</p> Roshni Ravi, Jane Sahi
 
-Design and Illustrations: Karunya Bhaskar 
+                                <p style="font-weight: bold;">Design and Illustrations:</p> Karunya Bhaskar
 
-Supported by: The Bangalore Sustainability Forum 
+                                <p style="font-weight: bold;">Supported by:</p> The Bangalore Sustainability Forum
 
-In collaboration with: The Fig Tree Learning Center 
+                                <p style="font-weight: bold;">In collaboration with:</p> The Fig Tree Learning Center
 
-Languages: English and Kannada, English and Hindi
+                                <p style="font-weight: bold;">Languages:</p> English and ಕನ್ನಡ, English and हिन्दी
 
-Translation support (Kannada): Anu Mothi, Maadhyama Aneka Pvt. Ltd
+                                <p style="font-weight: bold;">Translation support (ಕನ್ನಡ):</p> Anu Mothi, Maadhyama Aneka Pvt. Ltd
 
-Design support (Hindi): Janhavi
+                                <p style="font-weight: bold;">Design support (हिन्दी):</p> Janhavi
 
-Translation support (Hindi): Nidhi Pal
+                                <p style="font-weight: bold;">Translation support (हिन्दी):</p> Nidhi Pal
 
-Additional support (Hindi): Mihir Pathak </li>
-                            
-                        </ul>
+                                <p style="font-weight: bold;">Additional support (हिन्दी):</p> Mihir Pathak </li>
+
                         
+
                     </div>
                 </div>
             </div>

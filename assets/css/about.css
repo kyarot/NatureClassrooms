@@ -117,22 +117,24 @@
 }
 
 .about-collaboration-box {
-    background: var(--about-bg-light);
+    background: var(--about-accent-green);
     border-radius: 16px;
     padding: 35px;
     margin-top: 45px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(74, 124, 89, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .about-collaboration-box p {
     font-size: 1.05rem;
     margin-bottom: 0;
-    color: #444;
+    color: #ffffff;
+    line-height: 1.7;
 }
 
 .about-collaboration-box strong {
-    color: var(--about-accent-green);
+    color: var(--about-accent-yellow);
+    font-weight: 700;
 }
 
 .about-intro-image-container {
@@ -407,10 +409,10 @@
 }
 
 .team-card {
-    flex: 0 0 300px;
-    background: #f7f5f0;
+    flex: 0 0 320px;
+    background: #222;
     border-radius: 24px;
-    padding: 40px;
+    padding: 0;
     position: relative;
     overflow: hidden;
     height: 480px;
@@ -418,122 +420,267 @@
     flex-direction: column;
     justify-content: flex-end;
     transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: default;
 }
 
-.team-card::before {
-    content: attr(data-initials);
+.team-card-image {
     position: absolute;
-    top: 50px;
-    right: -20px;
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(0, 0, 0, 0.03);
-    line-height: 1;
-    z-index: 0;
-    font-style: italic;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.team-badge-container {
-    margin-bottom: auto;
-    position: relative;
+.team-card:hover .team-card-image {
+    transform: scale(1.05);
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 100%);
     z-index: 2;
 }
 
-.team-badge {
-    width: 70px;
-    height: 70px;
-    background: var(--about-accent-green);
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 800;
-    font-size: 22px;
-    box-shadow: 0 10px 30px rgba(74, 124, 89, 0.3);
-}
+/* Bio hidden on card — shown in modal */
 
-.team-card.yellow .team-badge {
-    background: var(--about-accent-yellow);
-    box-shadow: 0 10px 30px rgba(212, 163, 115, 0.3);
+/* Hide Initials and badge holders for the new look */
+.team-card::before,
+.team-badge-container {
+    display: none;
 }
 
 .team-info {
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    padding: 30px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-header-info {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
 }
 
 .team-info h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 24px;
-    margin-bottom: 8px;
-    color: #222;
+    margin-bottom: 0px;
+    color: #fff;
 }
 
 .team-info .role {
     font-size: 13px;
     color: var(--about-accent-yellow);
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 0;
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
 }
 
 .team-bio {
     font-size: 14px;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     margin: 0;
-    opacity: 0;
+    padding-top: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+.team-bio p {
+    display: none;
+}
+
+.team-read-more {
+    position: relative;
+    z-index: 3;
+    display: block;
+    color: var(--about-accent-yellow);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0 30px 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.team-read-more:hover {
+    color: #fff;
+}
+
+.team-read-more svg {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+}
+
+.team-read-more:hover svg {
+    transform: translateX(3px);
 }
 
 .team-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--about-accent-green);
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 20px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    opacity: 0.7;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.team-link:hover {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 .team-link svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
 }
 
-.team-card:hover {
-    background: white;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
-    transform: scale(1.1);
+/* Team Modal Overlay */
+.team-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.team-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.team-modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.team-modal-overlay.active .team-modal {
+    transform: translateY(0) scale(1);
+}
+
+.team-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.06);
+    border: none;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: background 0.3s ease;
+    line-height: 1;
 }
 
-.team-card:hover .team-bio {
-    max-height: 200px;
-    margin-top: 15px;
+.team-modal-close:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.team-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-modal-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.team-modal-info {
+    padding: 30px 35px 35px;
+}
+
+.team-modal-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.team-modal-role {
+    font-size: 14px;
+    color: var(--about-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.team-modal-bio {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.8;
+}
+
+.team-modal-bio p {
+    margin-bottom: 15px;
+}
+
+.team-modal-bio a {
+    color: var(--about-primary);
+    text-decoration: underline;
+}
+
+.team-modal-bio .team-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--about-primary);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin-top: 10px;
+}
+
+.team-modal-bio .team-link:hover {
     opacity: 1;
 }
 
-.team-card:hover .team-link {
-    opacity: 1;
-}
-
-.team-card:hover .team-badge {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(74, 124, 89, 0.4);
-}
-
-.team-card.yellow:hover .team-badge {
-    box-shadow: 0 15px 35px rgba(212, 163, 115, 0.4);
+.team-modal-bio .team-link svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--about-primary);
 }
 
 /* New Sections UI */
@@ -792,6 +939,30 @@
         font-size: 3rem;
     }
 
+    .team-card {
+        flex: 0 0 260px;
+        height: 400px;
+    }
+
+    .team-modal {
+        width: 95%;
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+
+    .team-modal-image {
+        height: 250px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .team-modal-info {
+        padding: 20px 25px 25px;
+    }
+
+    .team-modal-name {
+        font-size: 24px;
+    }
+
     .about-goals-grid {
         grid-template-columns: 1fr;
     }
@@ -832,6 +1003,7 @@
         justify-content: center;
     }
 }
+
 /* Decorative Illustration Overlay */
 .about-page-illustration {
     position: absolute;

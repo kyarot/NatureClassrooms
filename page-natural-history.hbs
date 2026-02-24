@@ -9,16 +9,20 @@
             <img src="{{asset 'illustrations/1.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/2.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Natural History</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                       
-Step into the fascinating world of the creatures and plants right outside your door. Our "Natural History Series" offers a collection of simple, beautifully illustrated stories about the common but often overlooked residents of our local ecosystems. From mud and leaf architects to friendships and deception, these resources are designed to spark curiosity, deepen connections with nature, and provide educators and learners with accessible, engaging tools to explore and learn about the natural world around them.
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Natural History</h1>
+                    <p class="resources-hero-subtitle">
+
+                        Step into the fascinating world of the creatures and plants right outside your door. Our
+                        "Natural History Series" offers a collection of simple, beautifully illustrated stories about
+                        the common but often overlooked residents of our local ecosystems. From mud and leaf architects
+                        to friendships and deception, these resources are designed to spark curiosity, deepen
+                        connections with nature, and provide educators and learners with accessible, engaging tools to
+                        explore and learn about the natural world around them.
                     </p>
+                    <div class="hero-age-label">Ages 6+, Adults</div>
                 </div>
             </div>
         </section>
@@ -27,27 +31,22 @@ Step into the fascinating world of the creatures and plants right outside your d
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
+                <div class="resource-item-grid-3-col">
                     {{!-- Bats --}}
-                    {{> "resource-item"
+                    {{> "icons/resource-item"
                     title="Bats: Flying Mammals"
-                    description="Bats are some of the most amazing flying mammals, but also the most misunderstood
-                    creatures
-                    sharing space with us. Use this resource to learn, teach and start the conversation around these
-                    curious, upside-down marvels!"
-                    preview_image=(asset "carousel/1.jpg")
+                    description="Bats are some of the most amazing flying mammals, but also the most misunderstood creatures sharing space with us. Use this resource to learn, teach and start the conversation around these curious, upside-down marvels!"
+                    preview_image=(asset "naturalhistory/Bats_Flying_Mammals.png")
                     download_url="#"
                     lang1="English"
                     lang2="Kannada"
                     }}
 
                     {{!-- Termites --}}
-                    {{> "resource-item"
+                    {{> "icons/resource-item"
                     title="Termites and Termite Mounds"
-                    description="Termites are extraordinary engineers of the natural world. Our Termite resource
-                    introduces
-                    you to these tiny architects and their magnificent homes, the termitariums."
-                    preview_image=(asset "carousel/2.jpg")
+                    description="Termites are extraordinary engineers of the natural world. Our Termite resource introduces you to these tiny architects and their magnificent homes, the termitariums. Use this teaching-learning resource to introduce children and adults to the fascinating world of termites and their homes, or as an anchor chart. Find a termite mound and learn around it!"
+                    preview_image=(asset "naturalhistory/Termite_and_Termite_Mounds.png")
                     download_url="#"
                     lang1="English"
                     lang2="Hindi"
@@ -55,14 +54,10 @@ Step into the fascinating world of the creatures and plants right outside your d
                     }}
 
                     {{!-- Fig --}}
-                    {{> "resource-item"
+                    {{> "icons/resource-item"
                     title="Fig Tree and Fig Wasp"
-                    description="We are incredibly lucky to have so many different types of Fig Trees growing all around
-                    us.
-                    As unique as the fig itself, are the Fig Wasps – very tiny flying insects, yet essential for the
-                    tree’s
-                    very existence."
-                    preview_image=(asset "carousel/3.jpg")
+                    description="We are incredibly lucky to have so many different types of Fig Trees growing all around us. As unique as the fig itself, are the Fig Wasps – very tiny flying insects, yet essential for the tree’s very existence. Our 'Fig Tree and Fig Wasp' story cards invite you to listen carefully to the tale of this extraordinary friendship. Use this teaching-learning resource to introduce children and adults to the fascinating world of Fig Trees and Fig Wasps- indoors or outdoors, near or under a Fig tree."
+                    preview_image=(asset "naturalhistory/Fig_and_Wasp_Resource.png")
                     download_url="#"
                     lang1="English"
                     }}
@@ -75,9 +70,7 @@ Step into the fascinating world of the creatures and plants right outside your d
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
+                        
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

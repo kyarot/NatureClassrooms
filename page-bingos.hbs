@@ -7,149 +7,79 @@
             <img src="{{asset 'illustrations/10.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/2.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Nature Bingos</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                        
-We believe learning should be self-directed and fun, and Bingos are designed to do just that. Bingos encourage exploring the immediate nature around homes, neighborhoods, and schools – promoting close observation, engaging multiple senses, and making learning a delightful game for both young students and adults. Use these diverse themes of Bingos to make your nature exploration all the more exciting!
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Nature Bingos</h1>
+                    <p class="resources-hero-subtitle">
+
+                        We believe learning should be self-directed and fun, and Bingos are designed to do just that.
+                        Bingos encourage exploring the immediate nature around homes, neighborhoods, and schools –
+                        promoting close observation, engaging multiple senses, and making learning a delightful game for
+                        both young students and adults. Use these diverse themes of Bingos to make your nature
+                        exploration all the more exciting!
                     </p>
+                    <div class="hero-age-label">Ages 5+, Adults</div>
                 </div>
             </div>
         </section>
 
-        {{!-- 2. Resource Grid --}}
+        {{!-- 2. Resource Horizontal List --}}
         <section class="site-section">
             <div class="container">
-                {{!-- 3. Resource Grid --}}
-                <div class="bingo-loop-container">
-                    <div class="bingo-track">
-                        {{!-- Original Items --}}
-                        {{!-- Nature Bingo --}}
-                        {{> "resource-item"
-                        title="Nature Bingo"
-                        description="Step into the amazing world of local nature with our fun 'Nature Bingo' activity! From insects on the wall, to flowers, fruits, and flying birds around you, use all your senses to explore the nature around you and say BINGO!"
-                        preview_image=(asset "carousel/1.jpg")
-                        download_url="#"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
+                <div class="resource-horizontal-list">
+                    {{!-- Nature Bingo --}}
+                    {{> "icons/resource-item"
+                    title="Nature Bingo"
+                    description="Step into the amazing world of local nature with our fun 'Nature Bingo' activity! From
+                    insects on the wall, to flowers, fruits, and flying birds around you, use all your senses to explore
+                    the nature around you and say BINGO!"
+                    preview_image=(asset "bingos/Nature_Bingo.png")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Kannada"
+                    }}
 
-                        {{!-- Hidden Housemates --}}
-                        {{> "resource-item"
-                        title="Hidden Housemates"
-                        description="Nature isn't confined to forests—they are all around us, even within our own four
-                        walls!
-                        Explore the fascinating miniature ecosystems sharing your space."
-                        preview_image=(asset "carousel/2.jpg")
-                        download_url="/hiddenhousemates/"
-                        lang1="English"
-                        lang2="Hindi"
-                        lang3="Kannada"
-                        }}
+                    {{!-- Hidden Housemates --}}
+                    {{> "icons/resource-item"
+                    title="Hidden Housemates"
+                    description="Nature isn't confined to forests—they are all around us, even within our own four
+                    walls! Explore the fascinating miniature ecosystems sharing your space."
+                    preview_image=(asset "bingos/Hidden_Housemates.png")
+                    download_url="/hidden-housemates/"
+                    is_explore=true
+                    }}
 
-                        {{!-- Seasonal Bingo --}}
-                        {{> "resource-item"
-                        title="Seasonal Bingo"
-                        description="Seasons bring about remarkable transformations. Use these season-wise themed bingos
-                        to
-                        discover the unique ecological responses that define every season."
-                        preview_image=(asset "carousel/3.jpg")
-                        download_url="/seasonalbingo/"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
+                    {{!-- Seasonal Bingo --}}
+                    {{> "icons/resource-item"
+                    title="Seasonal Bingo"
+                    description="Seasons bring about remarkable transformations. Use these season-wise themed bingos to
+                    discover the unique ecological responses that define every season."
+                    preview_image=(asset "bingos/Rain_Bingo.png")
+                    download_url="/seasonal-bingos/"
+                    is_explore=true
+                    }}
 
-                        {{!-- Lotus Bingo --}}
-                        {{> "resource-item"
-                        title="Lotus Bingo"
-                        description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
-                        context
-                        of the Lotus plant which is integral to local culture."
-                        preview_image=(asset "carousel/1.jpg")
-                        download_url="#"
-                        lang1="English"
-                        }}
+                    {{!-- Lotus Bingo --}}
+                    {{> "icons/resource-item"
+                    title="Lotus Bingo"
+                    description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
+                    context of the Lotus plant which is integral to local culture."
+                    preview_image=(asset "bingos/Lotus_Bingo.png")
+                    download_url="#"
+                    lang1="English"
+                    }}
 
-                        {{!-- Paddy Bingo --}}
-                        {{> "resource-item"
-                        title="Paddy Bingo"
-                        description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields
-                        to
-                        guide
-                        playful observation and connect with the landscape."
-                        preview_image=(asset "carousel/2.jpg")
-                        download_url="#"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
-
-                        {{!-- Duplicated Items for Seamless Loop --}}
-                        {{!-- Nature Bingo --}}
-                        {{> "resource-item"
-                        title="Nature Bingo"
-                        description="Step into the amazing world of local nature! From insects on the wall to flowers
-                        and
-                        flying
-                        birds, use all your senses to explore and say BINGO!"
-                        preview_image=(asset "carousel/1.jpg")
-                        download_url="#"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
-
-                        {{!-- Hidden Housemates --}}
-                        {{> "resource-item"
-                        title="Hidden Housemates"
-                        description="Nature isn't confined to forests—they are all around us, even within our own four
-                        walls!
-                        Explore the fascinating miniature ecosystems sharing your space."
-                        preview_image=(asset "carousel/2.jpg")
-                        download_url="/hiddenhousemates/"
-                        lang1="English"
-                        lang2="Hindi"
-                        lang3="Kannada"
-                        }}
-
-                        {{!-- Seasonal Bingo --}}
-                        {{> "resource-item"
-                        title="Seasonal Bingo"
-                        description="Seasons bring about remarkable transformations. Use these season-wise themed bingos
-                        to
-                        discover the unique ecological responses that define every season."
-                        preview_image=(asset "carousel/3.jpg")
-                        download_url="/seasonalbingo/"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
-
-                        {{!-- Lotus Bingo --}}
-                        {{> "resource-item"
-                        title="Lotus Bingo"
-                        description="A Bingo designed to explore the world of wetlands in Kashmir, specifically in the
-                        context
-                        of the Lotus plant which is integral to local culture."
-                        preview_image=(asset "carousel/1.jpg")
-                        download_url="#"
-                        lang1="English"
-                        }}
-
-                        {{!-- Paddy Bingo --}}
-                        {{> "resource-item"
-                        title="Paddy Bingo"
-                        description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields
-                        to
-                        guide
-                        playful observation and connect with the landscape."
-                        preview_image=(asset "carousel/2.jpg")
-                        download_url="#"
-                        lang1="English"
-                        lang2="Kannada"
-                        }}
-                    </div>
+                    {{!-- Paddy Bingo --}}
+                    {{> "icons/resource-item"
+                    title="Paddy Bingo"
+                    description="Paddy fields are rich, dynamic ecosystems. This bingo is designed for paddy fields to
+                    guide playful observation and connect with the landscape."
+                    preview_image=(asset "bingos/Rain_Bingo.png")
+                    download_url="#"
+                    lang1="English"
+                    lang2="Kannada"
+                    }}
                 </div>
             </div>
         </section>
@@ -158,9 +88,6 @@ We believe learning should be self-directed and fun, and Bingos are designed to 
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

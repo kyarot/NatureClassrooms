@@ -16,7 +16,7 @@
 /* 1. Enhanced Hero Section */
 .approach-hero {
     position: relative;
-    height: 75vh;
+    height: 100vh;
     min-height: 550px;
     width: 100%;
     display: flex;
@@ -81,8 +81,8 @@
     font-size: 1.3rem;
     /* Slightly smaller description */
     color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    max-width: 650px;
+    line-height: 1;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -496,6 +496,7 @@
     transform: translateY(-3px) rotate(-1deg);
     box-shadow: var(--shadow-xl);
 }
+
 /* Decorative Illustration Overlay */
 .page-approach-illustration {
     position: absolute;

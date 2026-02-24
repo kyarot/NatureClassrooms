@@ -6,14 +6,14 @@
             <img src="{{asset 'illustrations/10.PNG'}}" alt="">
         </div>
         {{!-- 1. Hero Banner --}}
-        <section class="resources-hero" style="text-align: left; justify-content: flex-start;">
-            <div class="resources-hero-bg" style="background-image: url('{{asset "carousel/3.jpg"}}');"></div>
-            <div class="resources-hero-overlay"></div>
-            <div class="container" style="z-index: 3; position: relative; width: 100%;">
-                <div class="resources-hero-content" style="margin-left: 0; padding-left: 0; text-align: left;">
-                    <h1 class="resources-hero-title" style="color: white;" data-reveal>Learning Modules</h1>
-                    <p class="resources-hero-subtitle" style="margin-left: 0;" data-reveal>
-                        Our learning modules are designed to help you go beyond the textbook and explore the rich, often-overlooked layers of the natural world. Each module is an invitation to discover, develop, and nurture a deep sense of wonder through hands-on activities and engaging resources.
+        <section class="resources-hero hero-minimal">
+            <div class="container">
+                <div class="resources-hero-content" data-reveal>
+                    <h1 class="resources-hero-title">Learning Modules</h1>
+                    <p class="resources-hero-subtitle">
+                        Our learning modules are designed to help you go beyond the textbook and explore the rich,
+                        often-overlooked layers of the natural world. Each module is an invitation to discover, develop,
+                        and nurture a deep sense of wonder through hands-on activities and engaging resources.
                     </p>
                 </div>
             </div>
@@ -23,84 +23,33 @@
         <section class="site-section">
             <div class="container">
                 {{!-- 3. Resource Grid --}}
-                <div class="resource-item-grid">
+                <div class="resource-horizontal-list">
                     {{!-- Water Module --}}
-                    <div class="resource-item-card">
-                        <div class="resource-item-thumbnail">
-                            <img src="https://static.wixstatic.com/media/9fa2a3_ef436494deb24c9b886885828cef9243~mv2.png/v1/fill/w_240,h_346,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WaterModule_Redesign%20-%20Learning%20Module%20on%20Aquatic%20Ecosystems.png" alt="Water Module" loading="lazy">
-                            <div class="resource-actions-overlay">
-                                <a href="/watermodule/" class="overlay-download-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                    Explore More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="resource-item-content">
-                            <h3 class="resource-item-title">Water Module</h3>
-                            <p class="resource-item-desc">Water is an ecosystem that goes so much beyond our use. Explore the amazing life forms that use it in various ways, from puddles to rivers!</p>
-                            <div class="resource-item-footer">
-                                <a href="/watermodule/" class="single-download-btn" style="background: var(--resources-primary); color: #fff; text-align: center;">
-                                    Explore More →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {{> "icons/resource-item"
+                    title="Water Module - Explore Life in Water"
+                    description="Water, as an ecosystem, goes so much beyond our use and interactions with it. Even a little puddle of water after a rain that collects on your potholed road or in the crevice of a tree trunk will attract birds, frogs, and dragonflies! This learning module is an invitation to discover, develop, and nurture a wonderment and curiosity for water as an ecosystem that is teeming with amazing life forms that use it in various ways!"
+                    preview_image=(asset "modules/Water_Module.png")
+                    download_url="/watermodule/"
+                    is_explore=true
+                    }}
 
                     {{!-- Nature Moves --}}
-                    <div class="resource-item-card">
-                        <div class="resource-item-thumbnail">
-                            <img src="https://static.wixstatic.com/media/9fa2a3_8cdb6af28bff40e0ade7ae07a6d10b06~mv2.png/v1/fill/w_384,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/NatureMoves_PNG.png" alt="Nature Moves" loading="lazy">
-                            <div class="resource-actions-overlay">
-                                <a href="/naturemoves/" class="overlay-download-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                    Explore More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="resource-item-content">
-                            <h3 class="resource-item-title">Nature Moves</h3>
-                            <p class="resource-item-desc">Nature Moves is a resource bank of movement-based activities exploring how everything in nature moves, from leaves to ants.</p>
-                            <div class="resource-item-footer">
-                                <a href="/naturemoves/" class="single-download-btn" style="background: var(--resources-primary); color: #fff; text-align: center;">
-                                    Explore More →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {{> "icons/resource-item"
+                    title="Nature Moves"
+                    description="Something we overlook in nature is how it moves, from Peepal leaves on a windy day to the shuffle of antennae in an army of weaver ants. An exploration of the integration of movement and nature education, Nature Moves is a resource bank of movement-based activities that educators can choose from in their nature education and environmental studies classes."
+                    preview_image=(asset "modules/Nature_Moves.png")
+                    download_url="/naturemoves/"
+                    is_explore=true
+                    }}
 
                     {{!-- Nature Strokes --}}
-                    <div class="resource-item-card">
-                        <div class="resource-item-thumbnail">
-                            <img src="{{asset 'carousel/3.jpg'}}" alt="Nature Strokes" loading="lazy">
-                            <div class="resource-actions-overlay">
-                                <a href="/naturestrokes/" class="overlay-download-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                    Explore More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="resource-item-content">
-                            <h3 class="resource-item-title">Nature Strokes</h3>
-                            <p class="resource-item-desc">Nature Strokes is an Art and Nature handbook using art as a vibrant medium for learning about nature and vice versa.</p>
-                            <div class="resource-item-footer">
-                                <a href="/naturestrokes/" class="single-download-btn" style="background: var(--resources-primary); color: #fff; text-align: center;">
-                                    Explore More →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {{> "icons/resource-item"
+                    title="Nature Strokes"
+                    description="The Nature Strokes module is an Art and Nature handbook filled with activities, resources, and ideas that use art as a vibrant medium for learning about nature and, in turn, learning about art through nature. Look out for updates from us as we release more units of this module in various themes!"
+                    preview_image=(asset "modules/Nature_Strokes.png")
+                    download_url="/naturestrokes/"
+                    is_explore=true
+                    }}
                 </div>
             </div>
         </section>
@@ -110,9 +59,7 @@
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <div class="educator-icon">
-                            <i class="fas fa-cubes"></i>
-                        </div>
+
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

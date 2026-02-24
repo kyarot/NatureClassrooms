@@ -104,7 +104,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 '.media-hero',
                 '.resourcecreation-hero',
                 '.approach-hero',
-                '.rc-hero'
+                '.rc-hero',
+                '.wm-hero',
+                '.nm-hero',
+                '.ns-hero',
+                '.sm-hero',
+                '.neaf-hero',
+                '.nbsel-hero',
+                '.cnc-hero',
+                '.cop-hero',
+                '.nem-hero'
             ];
 
             let heroElement = null;
@@ -118,11 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (heroElement) {
                 const heroHeight = heroElement.offsetHeight;
+                const isMinimal = heroElement.classList.contains('hero-minimal');
 
                 // Threshold for switching - usually near the bottom of hero
                 const threshold = heroHeight - 80;
 
-                if (scrollY < threshold) {
+                if (scrollY < threshold && !isMinimal) {
                     // Dark background (hero)
                     navbar.classList.remove('navbar-light');
                     navbar.classList.add('navbar-dark');
@@ -133,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 } else {
-                    // Light background (content)
+                    // Light background (content or minimal hero)
                     navbar.classList.add('navbar-light');
                     navbar.classList.remove('navbar-dark');
                     if (floatingLogo) floatingLogo.classList.add('logo-dark');
@@ -229,8 +239,16 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: 'Our Approach: Pedagogy', url: '/our-approach/#pedagogy' },
         { title: 'Our Approach: Framework', url: '/our-approach/#framework' },
         { title: 'Blog', url: '/blog/' },
-        { title: 'Suttha Muttha Project', url: '/resourcecreation/#featured' },
-        { title: 'Nature Learning Checklist', url: '/our-approach/#checklist' }
+        { title: 'Suttha Muttha Project', url: '/suttha-muttha/' },
+        { title: 'Nature Learning Checklist', url: '/our-approach/#checklist' },
+        { title: 'Nature Education Assessment Framework (NEAF)', url: '/nature-education-assessment-framework/' },
+        { title: 'Nature-Based Social-Emotional Learning', url: '/nature-based-social-emotional-learning/' },
+        { title: 'Children and Nature in the City', url: '/children-nature-city/' },
+        { title: 'Communities of Practice', url: '/communitiesofpractice/' },
+        { title: 'Nature Educators Meet-ups', url: '/natureeducator/' },
+        { title: 'Water Module - Life in Water', url: '/watermodule/' },
+        { title: 'Nature Moves', url: '/naturemoves/' },
+        { title: 'Nature Strokes', url: '/naturestrokes/' }
     ];
 
     function toggleSearch(e) {
@@ -305,5 +323,76 @@ document.addEventListener('DOMContentLoaded', function () {
     // Prevent search dropdown from closing when clicking inside
     searchDropdown.addEventListener('click', function (e) {
         e.stopPropagation();
+    });
+});
+// Team Card Modal Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const teamCards = document.querySelectorAll('.team-card');
+    const modal = document.getElementById('teamModal');
+
+    if (!modal || teamCards.length === 0) return;
+
+    const modalImage = modal.querySelector('.team-modal-image');
+    const modalName = modal.querySelector('.team-modal-name');
+    const modalRole = modal.querySelector('.team-modal-role');
+    const modalBio = modal.querySelector('.team-modal-bio');
+    const modalClose = modal.querySelector('.team-modal-close');
+
+    // Add "Read More" hint to each card (only if bio has content)
+    teamCards.forEach(card => {
+        const bio = card.querySelector('.team-bio');
+        const bioText = bio ? bio.querySelector('p') : null;
+        const info = card.querySelector('.team-info');
+
+        if (bioText && bioText.textContent.trim().length > 0 && info) {
+            const readMore = document.createElement('span');
+            readMore.className = 'team-read-more';
+            readMore.innerHTML = 'Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+            // Insert after team-info
+            card.appendChild(readMore);
+        }
+    });
+
+    // Open modal on "Read More" click
+    document.addEventListener('click', function (e) {
+        const readMoreBtn = e.target.closest('.team-read-more');
+        if (!readMoreBtn) return;
+
+        const card = readMoreBtn.closest('.team-card');
+        if (!card) return;
+
+        const img = card.querySelector('.team-card-image');
+        const name = card.querySelector('.team-info h3');
+        const role = card.querySelector('.team-info .role');
+        const bio = card.querySelector('.team-bio');
+
+        if (img) {
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+        }
+        if (name) modalName.textContent = name.textContent;
+        if (role) modalRole.textContent = role.textContent;
+        if (bio) modalBio.innerHTML = bio.innerHTML;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
     });
 });
