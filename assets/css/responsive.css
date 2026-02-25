@@ -181,6 +181,52 @@ body.menu-open .hamburger-line-3 {
     transform: rotate(180deg);
 }
 
+/* Mobile nav link row — page link + separate arrow toggle */
+.mobile-nav-link-row {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-nav-link-row .mobile-nav-page-link {
+    flex: 1;
+    display: block;
+    padding: 14px 0 14px 24px;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-link-row .mobile-nav-page-link:hover {
+    color: #4a7c59;
+}
+
+.mobile-dropdown-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.mobile-dropdown-arrow:hover {
+    color: #4a7c59;
+}
+
+.mobile-nav .nav-dropdown.is-open > .mobile-nav-link-row .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+    color: #4a7c59;
+}
+
 /* Dropdown menu */
 .mobile-nav .nav-dropdown-menu {
     list-style: none;
@@ -249,7 +295,7 @@ body.menu-open .hamburger-line-3 {
     }
 
     .floating-logo img {
-        width: 220px !important;
+        width: 280px !important;
     }
 
     /* ---- INDEX PAGE ---- */
@@ -388,7 +434,7 @@ body.menu-open .hamburger-line-3 {
     }
 
     .floating-logo img {
-        width: 140px !important;
+        width: 160px !important;
     }
 
     /* ================================
@@ -1218,8 +1264,11 @@ body.menu-open .hamburger-line-3 {
        SEARCH DROPDOWN MOBILE
        ================================ */
     .search-nav-item .search-dropdown-panel {
-        width: calc(100vw - 24px);
-        right: -8px;
+        position: fixed;
+        top: 80px;
+        left: 12px;
+        right: 12px;
+        width: auto;
         padding: 16px;
     }
 
@@ -1319,7 +1368,7 @@ body.menu-open .hamburger-line-3 {
     }
 
     .floating-logo img {
-        width: 110px !important;
+        width: 130px !important;
     }
 
     /* ---- NAVBAR ---- */

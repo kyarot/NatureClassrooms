@@ -29,7 +29,7 @@
         <!-- Gujarati Alphabet Chart -->
         <div class="gu-card">
             <div class="gu-card-img">
-                <img src="/assets/gj/Preview of Gujarati Alphabet Chart.png" alt="Gujarati Alphabet Chart">
+                <img src="{{asset 'gj/Preview of Gujarati Alphabet Chart.png'}}" alt="Gujarati Alphabet Chart">
                 <div class="gu-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Gujarati Alphabet Chart A1.pdf'}}" class="gu-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -52,7 +52,7 @@
         <!-- Activity Sheet 1 -->
         <div class="gu-card">
             <div class="gu-card-img">
-                <img src="/assets/gj/Preview - Activity Sheet 1.png" alt="Activity Sheet 1">
+                <img src="{{asset 'gj/Preview - Activity Sheet 1.png'}}" alt="Activity Sheet 1">
                 <div class="gu-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 1.pdf'}}" class="gu-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -75,7 +75,7 @@
         <!-- Activity Sheet 2 -->
         <div class="gu-card">
             <div class="gu-card-img">
-                <img src="/assets/gj/Preview - Activity Sheet 2.png" alt="Activity Sheet 2">
+                <img src="{{asset 'gj/Preview - Activity Sheet 2.png'}}" alt="Activity Sheet 2">
                 <div class="gu-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 2.pdf'}}" class="gu-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -98,7 +98,7 @@
         <!-- Activity Sheet 3 -->
         <div class="gu-card">
             <div class="gu-card-img">
-                <img src="/assets/gj/Preview - Activity Sheet 3.png" alt="Activity Sheet 3">
+                <img src="{{asset 'gj/Preview - Activity Sheet 3.png'}}" alt="Activity Sheet 3">
                 <div class="gu-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 3.pdf'}}" class="gu-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -117,6 +117,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Cards from Ghost Admin (tag: gujarati-alphabet-chart) -->
+        {{#get "posts" filter="tag:gujarati-alphabet-chart" limit="100" include="authors,tags"}}
+            {{#foreach posts}}
+                <div class="gu-card">
+                    <div class="gu-card-img">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                        <div class="gu-card-overlay">
+                            <a href="{{url}}" class="gu-overlay-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gu-card-content">
+                        <h3>{{title}}</h3>
+                        <p class="gu-card-desc">{{excerpt}}</p>
+                        <div class="gu-card-footer">
+                            <a href="{{url}}" class="gu-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/get}}
 
     </div>
 

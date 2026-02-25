@@ -27,7 +27,7 @@
         <!-- Hidden Housemates (1) -->
         <div class="hh-card">
             <div class="hh-card-img">
-                <img src="/assets/hh/h1.png" alt="Hidden Housemates (1)">
+                <img src="{{asset 'hh/h1.png'}}" alt="Hidden Housemates (1)">
                 <div class="hh-card-overlay">
                     <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 1 (English, digital).pdf'}}" class="hh-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -57,7 +57,7 @@
         <!-- Hidden Housemates (2) -->
         <div class="hh-card">
             <div class="hh-card-img">
-                <img src="/assets/hh/h2.png" alt="Hidden Housemates (2)">
+                <img src="{{asset 'hh/h2.png'}}" alt="Hidden Housemates (2)">
                 <div class="hh-card-overlay">
                     <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 2 (English, digital).pdf'}}" class="hh-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -87,7 +87,7 @@
         <!-- Hidden Housemates (3) -->
         <div class="hh-card">
             <div class="hh-card-img">
-                <img src="/assets/hh/h3.png" alt="Hidden Housemates (3)">
+                <img src="{{asset 'hh/h3.png'}}" alt="Hidden Housemates (3)">
                 <div class="hh-card-overlay">
                     <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 3 (English, digital).pdf'}}" class="hh-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -113,6 +113,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Cards from Ghost Admin (tag: hidden-housemates) -->
+        {{#get "posts" filter="tag:hidden-housemates" limit="100" include="authors,tags"}}
+            {{#foreach posts}}
+                <div class="hh-card">
+                    <div class="hh-card-img">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                        <div class="hh-card-overlay">
+                            <a href="{{url}}" class="hh-overlay-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hh-card-content">
+                        <h3>{{title}}</h3>
+                        <p class="hh-card-desc">{{excerpt}}</p>
+                        <div class="hh-card-footer">
+                            <a href="{{url}}" class="hh-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/get}}
 
     </div>
 

@@ -58,24 +58,24 @@
 
                 <li><a href="/blog/">Blog</a></li>
 
-                <!-- Search Button -->
-                <li class="search-nav-item">
-                    <button class="search-toggle" id="searchToggle" aria-label="Search">
-                        {{> "icons/search"}}
-                    </button>
-                    <div class="search-dropdown-panel" id="searchDropdown">
-                        <div class="search-input-wrapper">
-                            <span class="search-icon-inside">{{> "icons/search"}}</span>
-                            <input type="text" class="search-input-field" id="searchInput"
-                                placeholder="Search resources, blog, work..." autocomplete="off">
-                        </div>
-                        <ul class="search-results-list" id="searchResults"></ul>
-                    </div>
-                </li>
-
             </ul>
 
         </nav>
+
+        <!-- Search Button (outside nav so it's visible on mobile too) -->
+        <div class="search-nav-item">
+            <button class="search-toggle" id="searchToggle" aria-label="Search">
+                {{> "icons/search"}}
+            </button>
+            <div class="search-dropdown-panel" id="searchDropdown">
+                <div class="search-input-wrapper">
+                    <span class="search-icon-inside">{{> "icons/search"}}</span>
+                    <input type="text" class="search-input-field" id="searchInput"
+                        placeholder="Search resources, blog, work..." autocomplete="off">
+                </div>
+                <ul class="search-results-list" id="searchResults"></ul>
+            </div>
+        </div>
 
         <!-- Hamburger Menu Button -->
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
@@ -109,7 +109,10 @@
             <ul class="nav">
                 <li><a href="/">Home</a></li>
                 <li class="nav-dropdown">
-                    <a href="/resources/" class="nav-dropdown-toggle">Resources</a>
+                    <div class="mobile-nav-link-row">
+                        <a href="/resources/" class="mobile-nav-page-link">Resources</a>
+                        <button class="mobile-dropdown-arrow" aria-label="Expand Resources">▾</button>
+                    </div>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/resources/bingos/">Bingos</a></li>
                         <li><a href="/resources/activities/">Activities</a></li>
@@ -121,14 +124,20 @@
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="/our-approach/" class="nav-dropdown-toggle">Our Approach</a>
+                    <div class="mobile-nav-link-row">
+                        <a href="/our-approach/" class="mobile-nav-page-link">Our Approach</a>
+                        <button class="mobile-dropdown-arrow" aria-label="Expand Our Approach">▾</button>
+                    </div>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/our-approach/#pedagogy">Nature Classrooms Pedagogy</a></li>
                         <li><a href="/our-approach/#framework">Nature Learning Framework</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-toggle">Our Work</a>
+                    <div class="mobile-nav-link-row">
+                        <a href="#" class="mobile-nav-page-link">Our Work</a>
+                        <button class="mobile-dropdown-arrow" aria-label="Expand Our Work">▾</button>
+                    </div>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/resourcecreation/">Resource Creation</a></li>
                         <li><a href="/capacity/">Capacity Building & Training</a></li>
@@ -137,7 +146,10 @@
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="/about/" class="nav-dropdown-toggle">About Us</a>
+                    <div class="mobile-nav-link-row">
+                        <a href="/about/" class="mobile-nav-page-link">About Us</a>
+                        <button class="mobile-dropdown-arrow" aria-label="Expand About Us">▾</button>
+                    </div>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/media/">NC in Media</a></li>
                     </ul>

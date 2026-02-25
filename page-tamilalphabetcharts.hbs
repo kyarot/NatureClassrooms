@@ -29,7 +29,7 @@
         <!-- Tamil Alphabet Chart -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="/assets/ta/Tamil Alphabet Chart.png" alt="Tamil Alphabet Chart">
+                <img src="{{asset 'ta/Tamil Alphabet Chart.png'}}" alt="Tamil Alphabet Chart">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Tamil Alphabat Chart.pdf'}}" class="ta-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -52,7 +52,7 @@
         <!-- Explainer Document -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="/assets/ta/Explainer Document - Tamil Alphabet Chart.png" alt="Explainer Document">
+                <img src="{{asset 'ta/Explainer Document - Tamil Alphabet Chart.png'}}" alt="Explainer Document">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Explainer Document - Tamil Alphabet Chart.pdf'}}" class="ta-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -75,7 +75,7 @@
         <!-- Vowels -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="/assets/ta/Vowels- Tamil Alphabet Chart.png" alt="Vowels - Tamil Alphabet Chart">
+                <img src="{{asset 'ta/Vowels- Tamil Alphabet Chart.png'}}" alt="Vowels - Tamil Alphabet Chart">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowels - Tamil Alphabet Chart.pdf'}}" class="ta-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -98,7 +98,7 @@
         <!-- Vowel-Consonants -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="/assets/ta/Vowels Consonants - Tamil Alphabet Chart.png" alt="Vowel-Consonants Tamil Alphabet Chart">
+                <img src="{{asset 'ta/Vowels Consonants - Tamil Alphabet Chart.png'}}" alt="Vowel-Consonants Tamil Alphabet Chart">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowel-Consonents Tamil Alphabet Chart.pdf'}}" class="ta-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -121,7 +121,7 @@
         <!-- Consonants -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="/assets/ta/Consonants - Tamil Alphabet Chart.png" alt="Consonants - Tamil Alphabet Chart">
+                <img src="{{asset 'ta/Consonants - Tamil Alphabet Chart.png'}}" alt="Consonants - Tamil Alphabet Chart">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Consonents - Tamil Alphabet Chart.pdf'}}" class="ta-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -140,6 +140,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Cards from Ghost Admin (tag: tamil-alphabet-charts) -->
+        {{#get "posts" filter="tag:tamil-alphabet-charts" limit="100" include="authors,tags"}}
+            {{#foreach posts}}
+                <div class="ta-card">
+                    <div class="ta-card-img">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                        <div class="ta-card-overlay">
+                            <a href="{{url}}" class="ta-overlay-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ta-card-content">
+                        <h3>{{title}}</h3>
+                        <p class="ta-card-desc">{{excerpt}}</p>
+                        <div class="ta-card-footer">
+                            <a href="{{url}}" class="ta-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/get}}
 
     </div>
 

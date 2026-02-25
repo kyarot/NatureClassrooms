@@ -27,7 +27,7 @@
         <!-- Giant Milkweed -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Giant Milkweed.png" alt="Giant Milkweed">
+                <img src="{{asset 'pp/Giant Milkweed.png'}}" alt="Giant Milkweed">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Giant Milkweed/Giant Milkweed_English_A2.PDF'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -58,7 +58,7 @@
         <!-- Fishtail Palm -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Lotus.png" alt="Fishtail Palm">
+                <img src="{{asset 'pp/Lotus.png'}}" alt="Fishtail Palm">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Fishtail palm A2.pdf'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -87,7 +87,7 @@
         <!-- Singapore Cherry -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Singapore Cherry.png" alt="Singapore Cherry">
+                <img src="{{asset 'pp/Singapore Cherry.png'}}" alt="Singapore Cherry">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Singapore Cherry/English_Singapore Cherry_A2 .PDF'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -117,7 +117,7 @@
         <!-- Lotus Poster -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Lotus.png" alt="Lotus Poster">
+                <img src="{{asset 'pp/Lotus.png'}}" alt="Lotus Poster">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Lotus Kashmiri chart.pdf'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -146,7 +146,7 @@
         <!-- Neem -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Neem.png" alt="Neem">
+                <img src="{{asset 'pp/Neem.png'}}" alt="Neem">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Neem/Neem Poster_English_A2.PDF'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -176,7 +176,7 @@
         <!-- Lotus Kashmiri -->
         <div class="pp-card">
             <div class="pp-card-img">
-                <img src="/assets/pp/Lotus.png" alt="Lotus Kashmiri">
+                <img src="{{asset 'pp/Lotus.png'}}" alt="Lotus Kashmiri">
                 <div class="pp-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Plant Posters/Lotus Kashmiri chart.pdf'}}" class="pp-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -195,6 +195,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Cards from Ghost Admin (tag: plant-poster) -->
+        {{#get "posts" filter="tag:plant-poster" limit="100" include="authors,tags"}}
+            {{#foreach posts}}
+                <div class="pp-card">
+                    <div class="pp-card-img">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                        <div class="pp-card-overlay">
+                            <a href="{{url}}" class="pp-overlay-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pp-card-content">
+                        <h3>{{title}}</h3>
+                        <p class="pp-card-desc">{{excerpt}}</p>
+                        <div class="pp-card-footer">
+                            <a href="{{url}}" class="pp-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/get}}
 
     </div>
 

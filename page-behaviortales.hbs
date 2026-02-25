@@ -29,7 +29,7 @@
         <!-- Animal Grooming Charts -->
         <div class="bt-card">
             <div class="bt-card-img">
-                <img src="/assets/bt/Animal Grooming Chart.png" alt="Animal Grooming Charts">
+                <img src="{{asset 'bt/Animal Grooming Chart.png'}}" alt="Animal Grooming Charts">
                 <div class="bt-card-overlay">
                     <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}" class="bt-overlay-link" download>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -55,6 +55,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Cards from Ghost Admin (tag: behaviour-tales) -->
+        {{#get "posts" filter="tag:behaviour-tales" limit="100" include="authors,tags"}}
+            {{#foreach posts}}
+                <div class="bt-card">
+                    <div class="bt-card-img">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                        <div class="bt-card-overlay">
+                            <a href="{{url}}" class="bt-overlay-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bt-card-content">
+                        <h3>{{title}}</h3>
+                        <p class="bt-card-desc">{{excerpt}}</p>
+                        <div class="bt-card-footer">
+                            <a href="{{url}}" class="bt-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/get}}
 
     </div>
 
