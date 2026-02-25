@@ -1,0 +1,1538 @@
+/* ================================================================
+   NATURE CLASSROOMS — COMPREHENSIVE RESPONSIVE CSS
+   Mobile-first responsive overrides for ALL pages.
+   Does NOT change any desktop styles — only adds mobile/tablet views.
+   ================================================================ */
+
+/* ================================
+   MOBILE NAV PANEL — SLIDE DRAWER
+   ================================ */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 1002;
+    color: rgba(255,255,255,0.95);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.navbar-light .mobile-menu-btn {
+    color: rgba(0,0,0,0.8);
+}
+
+.navbar-light .mobile-menu-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+/* Hamburger line animation */
+.hamburger-line {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+body.menu-open .hamburger-line-1 {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+body.menu-open .hamburger-line-2 {
+    opacity: 0;
+}
+
+body.menu-open .hamburger-line-3 {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Mobile Nav Panel */
+.mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.mobile-nav-panel.is-open {
+    pointer-events: all;
+    visibility: visible;
+}
+
+/* Overlay */
+.mobile-nav-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-nav-panel.is-open .mobile-nav-overlay {
+    opacity: 1;
+}
+
+/* Drawer */
+.mobile-nav-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 320px;
+    max-width: 85vw;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-panel.is-open .mobile-nav-drawer {
+    transform: translateX(0);
+}
+
+/* Drawer Header */
+.mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.mobile-nav-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.mobile-nav-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-close:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* Drawer Navigation */
+.mobile-nav .nav {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+}
+
+.mobile-nav .nav > li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav .nav > li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav .nav > li > a {
+    display: block;
+    padding: 14px 24px;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav .nav > li > a:hover {
+    background: #f5f8f6;
+    color: #4a7c59;
+}
+
+/* Dropdown toggle indicator */
+.mobile-nav .nav-dropdown-toggle {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav .nav-dropdown-toggle::after {
+    content: '▾';
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    color: #888;
+}
+
+.mobile-nav .nav-dropdown.is-open > .nav-dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.mobile-nav .nav-dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: #fafaf8;
+}
+
+.mobile-nav .nav-dropdown.is-open > .nav-dropdown-menu {
+    max-height: 500px;
+}
+
+.mobile-nav .nav-dropdown-menu li a {
+    display: block;
+    padding: 12px 24px 12px 40px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav .nav-dropdown-menu li a:hover {
+    color: #4a7c59;
+    background: #eef3ef;
+    border-left-color: #4a7c59;
+}
+
+
+/* ================================================================
+   TABLET BREAKPOINT — max-width: 1024px
+   ================================================================ */
+@media (max-width: 1024px) {
+
+    /* Show hamburger, hide desktop nav */
+    .mobile-menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-glass .header-nav {
+        display: none !important;
+    }
+
+    /* Navbar adjustments */
+    .navbar-glass {
+        right: 20px !important;
+        top: 20px !important;
+        border-radius: 12px;
+    }
+
+    .navbar-glass .header-inner {
+        padding: 8px 16px;
+        height: 48px;
+    }
+
+    /* Floating Logo */
+    .floating-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .floating-logo img {
+        width: 220px !important;
+    }
+
+    /* ---- INDEX PAGE ---- */
+    .hero-overlay {
+        padding: 0 40px;
+    }
+
+    .welcome-cursive {
+        font-size: 40px;
+    }
+
+    .welcome-bold {
+        font-size: 72px;
+    }
+
+    .four-arms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ---- ABOUT PAGE ---- */
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-goals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ---- RESOURCES PAGE ---- */
+    .resource-item-grid {
+        flex-wrap: wrap;
+    }
+
+    .resource-item-grid .resource-item {
+        flex: 0 1 calc(33.333% - 24px);
+    }
+
+    .feature-card-horizontal {
+        flex-direction: column;
+    }
+
+    .feature-card-horizontal .feature-card-image {
+        flex: 0 0 auto;
+        min-height: 280px;
+    }
+
+    /* ---- RESEARCH PAGE ---- */
+    .project-item {
+        flex-direction: column;
+    }
+
+    .project-image {
+        height: 350px;
+    }
+
+    /* ---- RESOURCE CREATION PAGE ---- */
+    .featured-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .explore-section .explore-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* ---- MEDIA PAGE ---- */
+    .podcast-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- POST PAGE ---- */
+    .post-body {
+        grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+        display: none;
+    }
+
+    /* ---- OUR APPROACH PAGE ---- */
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .approach-image {
+        height: 400px;
+    }
+
+    .pillar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- COMMUNITIES OF PRACTICE ---- */
+    .session-row {
+        flex-direction: column;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    /* ---- PAGE TEMPLATE ---- */
+    .page-tags-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ================================================================
+   MOBILE BREAKPOINT — max-width: 768px
+   ================================================================ */
+@media (max-width: 768px) {
+
+    /* ---- NAVBAR ---- */
+    .navbar-glass {
+        right: 12px !important;
+        top: 12px !important;
+        left: auto !important;
+        width: auto;
+    }
+
+    .navbar-glass .header-inner {
+        padding: 6px 12px;
+        height: 44px;
+    }
+
+    /* ---- FLOATING LOGO ---- */
+    .floating-logo {
+        top: 12px;
+        left: 12px;
+    }
+
+    .floating-logo img {
+        width: 140px !important;
+    }
+
+    /* ================================
+       GLOBAL TYPOGRAPHY
+       ================================ */
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1.2rem; }
+
+    /* ================================
+       INDEX / HOME PAGE
+       ================================ */
+    .hero-carousel {
+        height: 100vh;
+    }
+
+    .hero-overlay {
+        padding: 0 20px;
+        justify-content: center;
+        padding-top: 80px;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .welcome-cursive {
+        font-size: 30px;
+    }
+
+    .welcome-bold {
+        font-size: 46px;
+    }
+
+    .hero-tagline {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .hero-read-more {
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+
+    /* What We Do */
+    .what-we-do-section {
+        padding: 50px 16px;
+    }
+
+    .what-we-do-wrapper {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .what-we-do-content p {
+        font-size: 15px;
+    }
+
+    /* Four Arms */
+    .four-arms-section {
+        padding: 50px 16px;
+    }
+
+    .four-arms-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .arm-card {
+        height: 300px;
+    }
+
+    .arm-card-title {
+        font-size: 22px;
+    }
+
+    .arm-card-description {
+        font-size: 13px;
+    }
+
+    .arm-card-content {
+        padding: 24px;
+    }
+
+    /* Partners */
+    .partners-section {
+        padding: 40px 16px;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .partner-card img {
+        max-height: 70px;
+    }
+
+    .ant-decoration {
+        width: 100px;
+        height: 100px;
+        top: -25px;
+    }
+
+    /* Collaborators */
+    .collaborators-section {
+        padding: 50px 16px;
+        margin-bottom: 40px;
+    }
+
+    .logo-track {
+        gap: 30px;
+    }
+
+    .logo-item {
+        width: 110px;
+        height: 60px;
+    }
+
+    /* ================================
+       ABOUT PAGE
+       ================================ */
+    .about-hero {
+        height: 60vh;
+        min-height: 400px;
+        padding: 100px 6% 60px;
+        background-attachment: scroll !important;
+    }
+
+    .about-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 16px;
+    }
+
+    .about-vision h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-vision blockquote {
+        font-size: 1.2rem;
+    }
+
+    .about-goals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .goal-card {
+        padding: 30px 24px;
+    }
+
+    /* Team Cards */
+    .team-card {
+        flex: 0 0 260px;
+        height: 400px;
+    }
+
+    .team-modal-content {
+        max-width: 95vw;
+        flex-direction: column;
+    }
+
+    .team-modal-image {
+        height: 250px;
+    }
+
+    /* Alumni */
+    .alumni-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* ================================
+       BLOG PAGE
+       ================================ */
+    .blog-hero {
+        padding: 120px 6% 60px;
+    }
+
+    .blog-hero h1 {
+        font-size: 3rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .blog-post-card .post-card-image {
+        height: 200px;
+    }
+
+    .blog-post-card .post-card-content {
+        padding: 20px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.3rem;
+    }
+
+    /* ================================
+       CAPACITY PAGE
+       ================================ */
+    .capacity-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .capacity-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .engagement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .engagement-card .card-image {
+        height: 180px;
+    }
+
+    /* ================================
+       RESEARCH PAGE
+       ================================ */
+    .research-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .research-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .project-item {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .project-image {
+        height: 280px;
+    }
+
+    .research-footer-cta {
+        padding: 60px 20px;
+    }
+
+    .research-footer-cta h2 {
+        font-size: 2rem;
+    }
+
+    /* ================================
+       OUTREACH PAGE
+       ================================ */
+    .outreach-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .outreach-hero h1 {
+        font-size: 2rem;
+    }
+
+    .initiative-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-strip {
+        padding: 40px 16px;
+    }
+
+    .contact-strip h2 {
+        font-size: 1.5rem;
+    }
+
+    /* ================================
+       MEDIA PAGE
+       ================================ */
+    .media-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .media-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .media-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .media-card .card-image {
+        height: 200px;
+    }
+
+    .collab-banner {
+        padding: 50px 20px;
+    }
+
+    .collab-banner h2 {
+        font-size: 2rem;
+    }
+
+    .podcast-card {
+        padding: 24px;
+    }
+
+    .podcast-thumb {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* ================================
+       RESOURCE CREATION PAGE
+       ================================ */
+    .resourcecreation-hero,
+    .rc-hero {
+        height: 60vh;
+        min-height: 400px;
+        background-attachment: scroll !important;
+    }
+
+    .resourcecreation-hero h1,
+    .rc-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .inspiring-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inspiring-card {
+        padding: 28px;
+    }
+
+    .featured-container {
+        gap: 30px;
+    }
+
+    .featured-container h2 {
+        font-size: 2.5rem;
+    }
+
+    .explore-section h2 {
+        font-size: 2.2rem;
+    }
+
+    /* ================================
+       OUR APPROACH PAGE
+       ================================ */
+    .approach-hero {
+        height: 70vh;
+        min-height: 400px;
+    }
+
+    .approach-hero .approach-title {
+        font-size: 2.8rem;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .approach-image {
+        height: 300px;
+    }
+
+    .approach-section-title {
+        font-size: 2.2rem;
+    }
+
+    .pillar-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .pillar-image {
+        height: 220px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .approach-cta-title {
+        font-size: 2.2rem;
+    }
+
+    .approach-cta .cta-btn {
+        padding: 14px 36px;
+    }
+
+    /* ================================
+       RESOURCES HUB PAGE
+       ================================ */
+    .resources-hero {
+        height: 80vh;
+        min-height: 400px;
+    }
+
+    .resources-hero .title-bold {
+        font-size: 3rem;
+    }
+
+    .resources-hero .title-cursive {
+        font-size: 2rem;
+    }
+
+    /* Resource grids */
+    .resource-item-grid {
+        flex-wrap: wrap;
+    }
+
+    .resource-item-grid .resource-item {
+        flex: 0 1 100%;
+        min-width: 100%;
+    }
+
+    .resource-item .item-thumbnail {
+        height: 160px;
+    }
+
+    /* Featured cards */
+    .featured-resource-grid {
+        flex-direction: column;
+    }
+
+    .featured-card {
+        flex-direction: column;
+    }
+
+    .featured-card .featured-card-image {
+        min-height: 220px;
+    }
+
+    .featured-card .featured-card-content {
+        padding: 28px;
+    }
+
+    /* Feature horizontal cards */
+    .feature-card-horizontal {
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .feature-card-horizontal .feature-card-image {
+        flex: 0 0 auto;
+        min-height: 250px;
+    }
+
+    .feature-card-horizontal .feature-card-content {
+        padding: 28px;
+    }
+
+    /* Resource horizontal list */
+    .resource-horizontal-list .resource-horizontal-item {
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .resource-horizontal-item .resource-horizontal-thumbnail {
+        flex: 0 0 auto;
+        min-height: 220px;
+    }
+
+    /* Illustration grid */
+    .illustration-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .illustration-grid .section-title {
+        font-size: 2.2rem;
+    }
+
+    /* Educator note */
+    .educator-note {
+        padding: 30px 20px;
+        max-width: 100%;
+    }
+
+    .educator-note-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* Questions list */
+    .questions-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Activities list grid */
+    .activities-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* 2-col and 3-col grids */
+    .two-col-grid,
+    .three-col-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Bingo loop */
+    .bingo-card {
+        width: 280px;
+    }
+
+    /* ================================
+       SHARED RESOURCE SUB-PAGES
+       (Bingos, Alphabets, Behavior Tales,
+        Hidden Housemates, Plant Poster,
+        Nature Moves, Seasonal Bingos)
+       ================================ */
+    /* Common hero pattern */
+    .bt-hero, .go-hero, .gu-hero, .ka-hero, .ta-hero,
+    .hh-hero, .pp-hero, .sb-hero, .nm-hero, .ns-hero,
+    .wm-hero, .sm-hero, .neaf-hero, .nbsel-hero,
+    .cnc-hero, .cop-hero, .nem-hero {
+        padding: 110px 6% 50px;
+    }
+
+    .bt-hero h1, .go-hero h1, .gu-hero h1, .ka-hero h1, .ta-hero h1,
+    .hh-hero h1, .pp-hero h1, .sb-hero h1, .nm-hero h1, .ns-hero h1,
+    .wm-hero h1, .sm-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .neaf-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .nbsel-hero h1, .cop-hero h1, .nem-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .cnc-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    /* Card grids - all sub-pages */
+    .bt-grid, .go-grid, .gu-grid, .ka-grid, .ta-grid,
+    .hh-grid, .pp-grid, .sb-grid, .nm-grid {
+        flex-wrap: wrap;
+    }
+
+    .bt-grid .bt-card, .go-grid .go-card,
+    .gu-grid .gu-card, .ka-grid .ka-card,
+    .ta-grid .ta-card, .hh-grid .hh-card,
+    .pp-grid .pp-card, .sb-grid .sb-card,
+    .nm-grid .nm-card {
+        flex: 0 1 100%;
+        min-width: 100%;
+    }
+
+    /* Educator/Video notes - shared */
+    .bt-educator-note, .go-educator-note, .gu-educator-note,
+    .ka-educator-note, .ta-educator-note, .hh-educator-note,
+    .pp-educator-note, .sb-educator-note, .nm-educator-note,
+    .ns-educator-note {
+        padding: 30px 20px;
+    }
+
+    /* ================================
+       GAME PAGE
+       ================================ */
+    .game-hero {
+        padding: 110px 6% 50px;
+    }
+
+    .game-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        padding: 20px 16px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .download-btn {
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+
+    /* ================================
+       NATURE EDUCATION ASSESSMENT FRAMEWORK
+       ================================ */
+    .neaf-objective-card {
+        padding: 24px 18px;
+    }
+
+    .neaf-objective-number {
+        font-size: 2rem;
+    }
+
+    .neaf-partner-logos img {
+        width: 100px;
+    }
+
+    /* ================================
+       NB-SEL PAGE
+       ================================ */
+    .nbsel-goal-card {
+        padding: 20px 24px;
+    }
+
+    .nbsel-workshop-images {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nbsel-workshop-images img {
+        height: 200px;
+    }
+
+    .nbsel-download-card, .cnc-download-card {
+        padding: 30px 20px;
+    }
+
+    /* ================================
+       NATURE EDUCATOR PAGE
+       ================================ */
+    .nem-highlights {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nem-highlight-number {
+        font-size: 2.5rem;
+    }
+
+    .nem-contact-card {
+        padding: 28px 20px;
+    }
+
+    /* ================================
+       CHILDREN NATURE CITY PAGE
+       ================================ */
+    .cnc-partner-logos img {
+        width: 100px;
+    }
+
+    .cnc-download-card {
+        padding: 30px 20px;
+    }
+
+    /* ================================
+       SUTTHA MUTTHA PAGE
+       ================================ */
+    .sm-image-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .sm-image-row img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .sm-goal-card {
+        padding: 28px 20px;
+    }
+
+    .sm-goal-number {
+        font-size: 2.2rem;
+    }
+
+    .sm-goal-image {
+        height: 240px;
+    }
+
+    .sm-partners {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .sm-partner-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* ================================
+       WATER MODULE PAGE
+       ================================ */
+    .wm-download-card {
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 20px;
+    }
+
+    .wm-download-image {
+        width: 160px;
+    }
+
+    .wm-about-content {
+        font-size: 1rem;
+    }
+
+    /* ================================
+       COMMUNITIES OF PRACTICE
+       ================================ */
+    .session-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* ================================
+       POST / SINGLE POST PAGE
+       ================================ */
+    .post-body {
+        grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+        display: none;
+    }
+
+    .post-title {
+        font-size: 2rem;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+
+    .author-bio {
+        flex-direction: column;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .author-bio img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .share-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* ================================
+       PAGE TEMPLATE
+       ================================ */
+    .page-tags-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-content {
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        padding: 24px 16px;
+    }
+
+    /* ================================
+       AUTHOR PAGE
+       ================================ */
+    .author-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* ================================
+       TAG PAGE
+       ================================ */
+    .tag-name {
+        font-size: 2rem;
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    .site-footer {
+        padding: 30px 16px 20px;
+        margin-top: 50px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-brand-section {
+        align-items: center;
+    }
+
+    .footer-logo {
+        max-width: 200px;
+    }
+
+    .footer-heading {
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+
+    .footer-social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        padding-top: 20px;
+    }
+
+    /* ================================
+       SEARCH DROPDOWN MOBILE
+       ================================ */
+    .search-nav-item .search-dropdown-panel {
+        width: calc(100vw - 24px);
+        right: -8px;
+        padding: 16px;
+    }
+
+    /* ================================
+       DECORATIVE ILLUSTRATIONS
+       Hide on mobile to prevent overflow & layout issues
+       ================================ */
+    .decorative-illustration,
+    .decorative-img,
+    [class*="illustration-decoration"],
+    .approach-illustration,
+    .about-illustration,
+    .about-page-illustration,
+    .about-page-bottom-illustration,
+    .capacity-page-illustration,
+    .page-top-illustration,
+    .page-middle-illustration,
+    .page-bottom-illustration,
+    .page-bingo1-illustration,
+    .page-alphabet-illustration,
+    .rc-page-illustration,
+    .rc-page-bottom-illustration,
+    .research-page-illustration,
+    .research-page-bottom-illustration,
+    .outreach-page-illustration,
+    .page-approach-illustration {
+        display: none !important;
+    }
+
+    /* ================================
+       KOENIG EDITOR CONTENT
+       ================================ */
+    .kg-width-wide {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .kg-width-full {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+    }
+
+    .kg-header-card {
+        min-height: 300px;
+        padding: 40px 20px;
+    }
+
+    .kg-header-card h2 {
+        font-size: 2rem;
+    }
+
+    /* ================================
+       GENERAL — Images & Overflow Control
+       ================================ */
+    img, video, iframe, embed, object {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Section padding reduction */
+    .site-section,
+    section[class*="-section"] {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /* Prevent horizontal scroll */
+    body, html {
+        overflow-x: hidden;
+    }
+
+    /* background-attachment: fixed breaks on iOS */
+    [style*="background-attachment: fixed"],
+    .about-hero,
+    .resourcecreation-hero,
+    .rc-hero {
+        background-attachment: scroll !important;
+    }
+}
+
+
+/* ================================================================
+   SMALL MOBILE BREAKPOINT — max-width: 480px
+   ================================================================ */
+@media (max-width: 480px) {
+
+    /* ---- FLOATING LOGO ---- */
+    .floating-logo {
+        top: 10px;
+        left: 10px;
+    }
+
+    .floating-logo img {
+        width: 110px !important;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar-glass {
+        right: 10px !important;
+        top: 10px !important;
+    }
+
+    .navbar-glass .header-inner {
+        padding: 5px 10px;
+        height: 40px;
+    }
+
+    /* ---- TYPOGRAPHY ---- */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+
+    /* ---- HERO SECTIONS ---- */
+    .welcome-cursive {
+        font-size: 24px;
+    }
+
+    .welcome-bold {
+        font-size: 36px;
+    }
+
+    .hero-tagline {
+        font-size: 14px;
+    }
+
+    .hero-read-more {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+
+    /* Common hero h1 overrides */
+    .about-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .bt-hero h1, .go-hero h1, .gu-hero h1, .ka-hero h1, .ta-hero h1,
+    .hh-hero h1, .pp-hero h1, .sb-hero h1, .nm-hero h1, .ns-hero h1,
+    .wm-hero h1, .sm-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .blog-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .media-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .research-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .resourcecreation-hero h1,
+    .rc-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .capacity-hero h1 {
+        font-size: 2rem;
+    }
+
+    .outreach-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .game-hero h1 {
+        font-size: 2rem;
+    }
+
+    .neaf-hero h1 {
+        font-size: 2rem;
+    }
+
+    .nbsel-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .cop-hero h1 {
+        font-size: 2rem;
+    }
+
+    .nem-hero h1 {
+        font-size: 2rem;
+    }
+
+    .cnc-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .approach-hero .approach-title {
+        font-size: 2.2rem;
+    }
+
+    .resources-hero .title-bold {
+        font-size: 2.4rem;
+    }
+
+    .resources-hero .title-cursive {
+        font-size: 1.6rem;
+    }
+
+    /* ---- CARDS ---- */
+    .arm-card {
+        height: 260px;
+    }
+
+    .arm-card-content {
+        padding: 20px;
+    }
+
+    .arm-card-title {
+        font-size: 20px;
+    }
+
+    /* ---- PARTNERS ---- */
+    .partners-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .partner-card img {
+        max-height: 55px;
+    }
+
+    /* ---- ABOUT ---- */
+    .team-card {
+        flex: 0 0 240px;
+        height: 360px;
+    }
+
+    .goal-card {
+        padding: 24px 18px;
+    }
+
+    /* ---- STEPS ---- */
+    .step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* ---- DOWNLOAD BUTTONS ---- */
+    .download-btn,
+    .nbsel-download-btn,
+    .cnc-download-btn,
+    .wm-download-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    .nbsel-download-actions,
+    .cnc-download-actions,
+    .wm-download-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* ---- NEAF ---- */
+    .neaf-objective-number {
+        display: none;
+    }
+
+    /* ---- SUTTHA MUTTHA ---- */
+    .sm-goal-image {
+        height: 180px;
+    }
+
+    .sm-partner-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* ---- MOBILE NAV DRAWER ---- */
+    .mobile-nav-drawer {
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer-logo {
+        max-width: 160px;
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+    }
+
+    .collaboration-box {
+        padding: 12px;
+    }
+
+    /* ---- GALLERY ---- */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+
+/* ================================================================
+   EXTRA — Fix for iOS Safari background-attachment
+   ================================================================ */
+@supports (-webkit-touch-callout: none) {
+    .about-hero,
+    .resourcecreation-hero,
+    .rc-hero {
+        background-attachment: scroll !important;
+    }
+}
