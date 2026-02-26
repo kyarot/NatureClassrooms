@@ -1,270 +1,156 @@
-Ghostbase – Custom Ghost Theme (Ghost 6.x)
+# Nature Classrooms — Ghost Theme
+
+A custom Ghost CMS theme built for [Nature Classrooms](https://natureclassrooms.in), an organisation that integrates nature-based learning into teaching spaces. The theme is designed to be clean, responsive, and content-rich, with tailored pages for resources, research, outreach, capacity building, and more.
+
+---
+
+## Requirements
+
+- Ghost CMS **v5.0.0 or later**
+- Node.js (as required by your Ghost version)
+
+---
+
+## Installation
+
+### Upload to Ghost Admin
+
+1. Zip the theme folder (excluding `node_modules`, `server.js`, `.ghostignore`):
+   ```bash
+   npm run zip
+   ```
+2. Go to **Ghost Admin → Settings → Design → Change theme**
+3. Upload the generated `nature-classrooms-theme.zip`
+4. Activate the theme
+
+### Local Development
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the local preview server:
+   ```bash
+   npm run dev
+   ```
+3. Open [http://localhost:2368](http://localhost:2368) in your browser
+
+---
+
+## Theme Structure
+
+```
+nature-classrooms-theme/
+├── assets/
+│   ├── css/                  # Page-specific and global stylesheets
+│   ├── js/                   # JavaScript files (main.js, page scripts)
+│   ├── logo/                 # main.png (white), blackmain.png (dark)
+│   ├── images/               # Illustrations and UI images
+│   ├── home/                 # Hero carousel images
+│   ├── about/                # Team member photos
+│   ├── fourarms/             # Our Work section images
+│   ├── collaborators/        # Collaborator logos
+│   ├── partnerlogo/          # Partner logos
+│   ├── files/                # Downloadable resources
+│   └── ...                   # Other page-specific media folders
+├── partials/
+│   ├── header.hbs            # Site header with navbar, search, mobile drawer
+│   ├── footer.hbs            # Site footer
+│   └── icons/                # SVG icon partials
+├── default.hbs               # Base layout template
+├── index.hbs                 # Homepage
+├── post.hbs                  # Blog post template
+├── page.hbs                  # Generic page template
+├── author.hbs                # Author page
+├── tag.hbs                   # Tag archive page
+├── custom-about.hbs          # About Us page
+├── custom-blog.hbs           # Blog listing page
+├── custom-capacity.hbs       # Capacity Building page
+├── custom-media.hbs          # NC in Media page
+├── custom-outreach.hbs       # Outreach page
+├── custom-research.hbs       # Research page
+├── custom-resourcecreation.hbs  # Resource Creation page
+├── page-resources.hbs        # Resources hub
+├── page-activities.hbs       # Activities resource page
+├── page-bingos.hbs           # Bingos resource page
+├── page-anchor-charts.hbs    # Anchor Charts page
+├── page-alphabet-charts.hbs  # Alphabet Charts page
+├── page-modules.hbs          # Modules page
+├── page-natural-history.hbs  # Natural History page
+├── page-game.hbs             # There's Nothing There game page
+├── page-search.hbs           # Search results page
+├── page-our-approach.hbs     # Our Approach page
+├── page-naturemoves.hbs      # Nature Moves page
+├── page-naturestrokes.hbs    # Nature Strokes page
+├── ...                       # Other custom pages
+├── package.json
+├── server.js                 # Local dev server
+└── export-theme.sh           # Export/zip helper script
+```
+
+---
+
+## CSS Architecture
+
+Global and page-specific styles are split across dedicated files in `assets/css/`:
+
+| File | Purpose |
+|---|---|
+| `default.css` | Global layout, navbar, typography, variables |
+| `responsive.css` | All mobile/tablet overrides (breakpoints: 1024px, 768px, 480px) |
+| `index.css` | Homepage styles |
+| `post.css` | Blog post styles |
+| `page.css` | Generic page styles |
+| `about.css` | About Us page |
+| `resources.css` | Resources hub and all sub-resource pages |
+| `blog.css` | Blog listing |
+| `game.css` | Game page |
+| `search.css` | Search results page |
+| `koenig.css` | Ghost editor card styles |
+| *(others)* | One CSS file per custom page/template |
 
-A modern, responsive, and performance-focused Ghost CMS theme built for blogs, publications, and content-driven websites.
-This theme is fully compatible with Ghost v6.x, follows Ghost best practices, and passes gscan validation.
+---
 
-🚀 Overview
+## Key Features
 
-Ghostbase is designed to deliver a clean reading experience with powerful content discovery, modern membership support, and fully responsive layouts across desktop, tablet, and mobile.
+- **Fixed floating navbar** — glass-morphism style, switches between dark/light mode based on scroll position
+- **Mobile navigation drawer** — slides in from the right with rounded corners, full navigation tree with expandable dropdowns
+- **Custom search** — dropdown search panel in the navbar with live results
+- **Hero carousel** — auto-advancing full-viewport image carousel on the homepage
+- **Decorative illustrations** — page-specific SVG/PNG illustrations, hidden on mobile to prevent overflow
+- **Resource hub** — dedicated pages for Bingos, Activities, Alphabet Charts, Anchor Charts, Modules, Natural History, and more
+- **Multilingual alphabet charts** — Gujarati, Gojri, Kashmiri, Tamil alphabet chart pages
+- **Downloadable resources** — direct file download support (PDFs, ZIPs, EXEs)
+- **Team section** — animated team card loop on the About page
+- **Collaborator logo loop** — infinite scroll logo ticker
+- **Responsive design** — fully optimised for iPhone 12 Pro and all mobile/tablet sizes
 
-The theme supports:
+---
 
-Dynamic tag-based browsing
+## Navbar Behaviour
 
-Membership & newsletter signup
+- **Desktop (>1024px):** Full horizontal nav with dropdown menus
+- **Tablet/Mobile (≤1024px):** Hamburger button + search icon in a floating pill navbar (top-right), full menu in a side drawer
 
-Responsive post grids
+---
 
-Modern Ghost editor cards
+## Fonts Used
 
-Multi-author content
+| Font | Usage |
+|---|---|
+| Poppins | Body text, UI elements |
+| Oswald | Page titles, section headers |
+| Playfair Display / Dancing Script | Decorative headings (some pages) |
 
-SEO-friendly structure
+All fonts are loaded via Google Fonts in `default.hbs`.
 
-✨ Key Features
-🖥️ Fully Responsive Design
+---
 
-Optimized layouts for desktop, tablet, and mobile
+## License
 
-Adaptive grids for posts and tag previews
+MIT — free to modify and use for the Nature Classrooms project.
 
-Touch-friendly UI elements
+---
 
-No layout shifts across breakpoints
-
-📰 Homepage & Post Layouts
-
-Hero section with optional site cover image
-
-Recent posts grid with featured images
-
-Overlay-style post cards with title, excerpt, and tags
-
-Graceful fallback for posts without images
-
-🏷️ Advanced Tag System
-
-Tag chips navigation bar
-
-Responsive behavior:
-
-Desktop: shows up to 5 tags
-
-Tablet: shows 3 tags
-
-Mobile: shows 2 tags
-
-Overflow tags handled via a dots (•••) dropdown
-
-Dropdown auto-populates hidden tags dynamically
-
-Tag preview section displays posts per selected tag
-
-Smooth transitions when switching tags
-
-🔍 Tag Preview System
-
-Dynamic tag-based post previews
-
-Each tag loads its own post grid
-
-“View all posts” link per tag
-
-Responsive grid:
-
-Desktop: 4 columns
-
-Tablet: 2 columns
-
-Mobile: 1 column
-
-👥 Multi-Author Support (Ghost 6.x)
-
-Fully compatible with Ghost’s multiple authors system
-
-Uses:
-
-primary_author
-
-authors collections
-
-Author data includes:
-
-Name
-
-Bio
-
-Profile image
-
-Social links (if enabled)
-
-✉️ Membership & Newsletter Support
-
-Built using Ghost Members
-
-Supports:
-
-Magic link sign-in
-
-One-time code (OTC) login
-
-Newsletter subscription
-
-Signup form supports:
-
-Email capture
-
-Form states (loading, success, error)
-
-Fully compatible with Ghost Portal
-
-💳 Paid Membership Ready
-
-Compatible with Ghost Tiers
-
-Supports:
-
-Free members
-
-Paid members
-
-Uses:
-
-@member
-
-@member.paid
-
-@member.subscriptions
-
-Ready for Stripe integration via Ghost Admin
-
-🧠 Content Visibility Controls
-
-Supports Ghost post visibility levels:
-
-Public
-
-Members-only
-
-Paid-only
-
-Templates respect access logic
-
-Clean fallback messaging for non-members
-
-✍️ Editor & Card Support
-
-Fully styled Ghost editor cards:
-
-Wide content (.kg-width-wide)
-
-Full-width content (.kg-width-full)
-
-Works with:
-
-Gallery cards
-
-Bookmark cards
-
-Embed cards
-
-No deprecated editor card usage
-
-⚡ Performance & UX
-
-Optimized CSS and layout structure
-
-No unused assets
-
-Minimal JavaScript footprint
-
-Smooth hover and transition effects
-
-Accessible keyboard navigation
-
-🔍 SEO & Accessibility
-
-Semantic HTML structure
-
-Proper heading hierarchy
-
-Meta-ready templates
-
-Clean URLs
-
-Accessible navigation and buttons
-
-🗂️ Theme Structure
-
-
-<img width="722" height="498" alt="image" src="https://github.com/user-attachments/assets/e34e9dda-1753-4388-a0fb-2d7c097f4655" />
-
-
-⚙️ Requirements
-
-Ghost CMS: v6.x or later
-
-Node.js: As required by Ghost
-
-Ghost Members: Optional (recommended)
-
-Stripe: Optional (for paid memberships)
-
-📦 Installation
-
-Download or clone this repository
-
-Zip the theme folder
-
-Upload via:
-
-Ghost Admin → Settings → Design → Change theme
-
-
-Activate the theme
-
-Configure Members, Tiers, and Portal (optional)
-
-🧪 Validation & Compatibility
-
-✅ Ghost 6.x compatible
-
-✅ gscan compliant
-
-✅ Multi-author ready
-
-✅ Members & tiers ready
-
-✅ No deprecated helpers
-
-✅ Modern Ghost editor compatible
-
-🛠️ Customization
-
-Colors and typography can be adjusted in CSS
-
-Layout behavior controlled via media queries
-
-Tag display logic handled dynamically via JavaScript
-
-Safe to extend with:
-
-Custom pages
-
-Additional partials
-
-Custom integrations
-
-📄 License
-
-This theme is provided for personal or commercial use.
-Modify and extend as required for your project.
-
-Built with ❤️ for Ghost CMS
-Designed for clarity, performance, and scalability.
-
-Development & Maintenance:
-👉 https://github.com/Sakthi10122004
-Supported By:
-👉 https://github.com/ajith4Tech
-👉 https://github.com/T4GC-Official
+**Nature Classrooms** — Connecting Learning to the Natural World  
+[natureclassrooms.in](https://natureclassrooms.in) · [info@natureclassrooms.in](mailto:info@natureclassrooms.in)
