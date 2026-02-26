@@ -382,7 +382,7 @@
 /* Decorative Illustration Overlay */
 .rc-page-illustration {
     position: absolute;
-    top: 1770px;
+    top: 1650px;
     left: -100px;
     z-index: 100;
     width: clamp(250px, 35vw, 550px);
@@ -408,7 +408,7 @@
 /* Bottom-Right Illustration Overlay */
 .rc-page-bottom-illustration {
     position: absolute;
-    top: 3540px;
+    top: 3350px;
     right: -120px;
     z-index: 100;
     width: clamp(280px, 40vw, 550px);

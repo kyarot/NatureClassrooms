@@ -1127,7 +1127,7 @@
 
 .page-bingo1-illustration {
     position: absolute;
-    top: 1500px;
+    top: 400px;
     /* Positioned to overlap hero and next section */
     left: -100px;
     /* Coming from left */
@@ -1157,7 +1157,7 @@
 
 .page-alphabet-illustration {
     position: absolute;
-    top: 450px;
+    top: 400px;
     /* Positioned to overlap grid and learning section */
     left: -90px;
     /* Coming from right */
@@ -1246,7 +1246,7 @@
 /* Neem Fruit Illustration Overlay (Anchor Charts) */
 .page-neem-illustration {
     position: absolute;
-    top: 1000px;
+    top: 100px;
     /* Coming from top of screen */
     right: -200px;
     /* Positioned on right */
@@ -1275,13 +1275,13 @@
 /* Anchor Charts Bottom-Left Illustration */
 .page-anchor-bottom-illustration {
     position: absolute;
-    top: 1650px;
+    top: 2220px;
     /* Positioned near the bottom section */
     left: -100px;
     /* Coming from left */
     z-index: 100;
     width: clamp(280px, 40vw, 550px);
-    transform: rotate(-10deg);
+    transform: rotate(0deg);
     pointer-events: none;
     transition: transform 0.3s ease;
 }
@@ -1331,7 +1331,7 @@
 /* Natural History Bottom-Left Illustration */
 .page-natural-history-bottom-illustration {
     position: absolute;
-    top: 1590px;
+    top: 1750px;
     /* Positioned near the bottom section */
     left: -120px;
     /* Coming from left */

@@ -305,6 +305,8 @@ p:last-child {
     padding: 8px 24px;
     height: 54px;
     gap: 12px;
+    width: auto !important;
+    max-width: none !important;
 }
 
 .navbar-glass .header-brand a {
@@ -468,14 +470,17 @@ p:last-child {
 /* Responsive navbar */
 @media (max-width: 768px) {
     .navbar-glass {
-        width: calc(100% - 32px);
-        top: 16px;
+        width: fit-content !important;
+        top: 12px !important;
+        right: 12px !important;
+        left: auto !important;
         margin-left: 0;
-
     }
 
     .navbar-glass .header-inner {
         padding: 10px 16px;
+        width: auto !important;
+        max-width: none !important;
     }
 
     .navbar-glass .header-nav {
@@ -483,7 +488,9 @@ p:last-child {
     }
 
     .navbar-glass .mobile-menu-btn {
-        display: block;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
     }
 
     .floating-logo {
@@ -497,7 +504,7 @@ p:last-child {
     }
 
     body {
-        padding-top: 70px;
+        padding-top: 0px;
     }
 }
 
@@ -770,7 +777,9 @@ object {
     }
 
     .mobile-menu-btn {
-        display: block;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
     }
 
     .mobile-nav-panel {
@@ -1150,7 +1159,7 @@ object {
 
 @media (max-width: 768px) {
     .search-dropdown-panel {
-        width: calc(100vw - 40px);
-        right: -20px;
+        width: calc(100vw - 24px);
+        right: 0;
     }
 }

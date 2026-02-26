@@ -232,7 +232,7 @@
 /* Decorative Illustration Overlay */
 .outreach-page-illustration {
     position: absolute;
-    top:1495px;
+    top:1695px;
     left: -120px;
     z-index: 100;
     width: clamp(280px, 40vw, 550px);

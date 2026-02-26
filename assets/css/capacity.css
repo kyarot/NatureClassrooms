@@ -359,7 +359,7 @@
 /* Decorative Illustration Overlay */
 .capacity-page-illustration {
     position: absolute;
-    top: 1790px;
+    top: 2800px;
     right: -270px;
     z-index: 100;
     width: clamp(280px, 40vw, 550px);
