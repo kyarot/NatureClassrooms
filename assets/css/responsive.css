@@ -59,6 +59,9 @@ body.menu-open .hamburger-line-3 {
     z-index: 9999;
     pointer-events: none;
     visibility: hidden;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .mobile-nav-panel.is-open {
@@ -70,7 +73,7 @@ body.menu-open .hamburger-line-3 {
 .mobile-nav-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
