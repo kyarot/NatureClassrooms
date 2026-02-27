@@ -1,58 +1,90 @@
-{{!< default}}
-
-<div class="water-module-page">
+{{!< default}} {{#post}} <div class="water-module-page">
 
     <!-- Hero Section -->
     <section class="wm-hero">
-        <h1>Life in Water</h1>
+        <h1>{{#if title}}{{title}}{{else}}Life in Water{{/if}}</h1>
     </section>
 
     <!-- About Section -->
     <section class="wm-about-section">
         <div class="wm-about-card">
             <div class="wm-about-content">
-                <p>In our current school textbooks, the topic of water is introduced to teachers and learners with a focus on our 'uses of water.' For example: how and why is water useful and important to humans, what does scarcity of water imply for us, or how should we conserve it? Water, as an ecosystem, however, goes so much beyond our use and interactions with it. As you will discover through this module, water is also home to and as important to a multitude of life on Earth.</p>
+                {{#if content}}
+                {{content}}
+                {{else}}
+                <p>In our current school textbooks, the topic of water is introduced to teachers and learners with a
+                    focus on our 'uses of water.' For example: how and why is water useful and important to humans, what
+                    does scarcity of water imply for us, or how should we conserve it? Water, as an ecosystem, however,
+                    goes so much beyond our use and interactions with it. As you will discover through this module,
+                    water is also home to and as important to a multitude of life on Earth.</p>
 
-                <p class="wm-levels-intro">Divided into three levels — each level has been designed for children belonging to specific grades and age groups.</p>
+                <p class="wm-levels-intro">Divided into three levels — each level has been designed for children
+                    belonging to specific grades and age groups.</p>
 
                 <ul class="wm-about-list">
-                    <li>With two major topics and relevant sub-topics covered, each level has been designed with an aim to achieve a series of nature learning goals.</li>
-                    <li>The module is designed using different mediums to engage the learner, including read-aloud stories, observation charts, picture-cards, audio-visual resources, group activities, and discussions.</li>
-                    <li>The lessons are linked with existing EVS chapters and cover a range of topics that nurture wonderment for water as an ecosystem.</li>
+                    <li>With two major topics and relevant sub-topics covered, each level has been designed with an aim
+                        to achieve a series of nature learning goals.</li>
+                    <li>The module is designed using different mediums to engage the learner, including read-aloud
+                        stories, observation charts, picture-cards, audio-visual resources, group activities, and
+                        discussions.</li>
+                    <li>The lessons are linked with existing EVS chapters and cover a range of topics that nurture
+                        wonderment for water as an ecosystem.</li>
                 </ul>
+                {{/if}}
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
+    {{#unless content}}
+    <!-- Download Section (Fallback) -->
     <section class="wm-download-section">
         <div class="wm-download-card">
             <div class="wm-download-image">
-                <img src="{{asset 'mod/Water Module - Explore Life in Water.png'}}" alt="Water Module - Learning Module on Aquatic Ecosystems">
+                <img src="{{asset 'mod/Water Module - Explore Life in Water.png'}}"
+                    alt="Water Module - Learning Module on Aquatic Ecosystems">
             </div>
             <div class="wm-download-info">
                 <h3 class="wm-download-title">Download the Water Module</h3>
                 <div class="wm-download-buttons">
-                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/Learning Module.pdf'}}" class="wm-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/Learning Module.pdf'}}"
+                        class="wm-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Learning Module
                     </a>
-                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/WaterModule_WithResources (1).pdf'}}" class="wm-download-btn wm-download-btn-outline" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/WaterModule_WithResources (1).pdf'}}"
+                        class="wm-download-btn wm-download-btn-outline" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Module with Resources
                     </a>
                 </div>
-                <p class="wm-download-tagline">This learning module is an invitation to discover, develop and nurture a wonderment and curiosity for water as an ecosystem that is teeming with amazing life forms that use it in various ways!</p>
+                <p class="wm-download-tagline">This learning module is an invitation to discover, develop and nurture a
+                    wonderment and curiosity for water as an ecosystem that is teeming with amazing life forms that use
+                    it in various ways!</p>
             </div>
         </div>
     </section>
+    {{/unless}}
 
     <!-- Explore More Section -->
     <section class="wm-explore-more">
         <a href="/modules/" class="wm-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Learning Modules
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

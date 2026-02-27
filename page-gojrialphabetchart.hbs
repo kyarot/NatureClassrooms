@@ -1,11 +1,21 @@
-{{!< default}}
-
-<div class="gojri-alphabet-page">
+{{!< default}} {{#post}} <div class="gojri-alphabet-page">
 
     <!-- Hero Section -->
     <section class="go-hero">
-        <h1>Gojri Alphabet Chart</h1>
-        <p>The Gojri-English Alphabet Chart is a powerful cultural and ecological bridge designed for the children of the Gujjar and Bakarwal pastoral tribes in the Kashmir Himalayas. Gojri, their mother tongue, is rich with expressions reflecting their nomadic life and deep ecological knowledge. Since Gojri finds little space in formal schooling, this chart was created to affirm the child's identity and make learning relatable. This resource was created in collaboration with the Himalayan Pastoral Trust.</p>
+        <h1>{{#if title}}{{title}}{{else}}Gojri Alphabet Chart{{/if}}</h1>
+        <div class="go-hero-content">
+            <p>The Gojri-English Alphabet Chart is a powerful cultural and ecological bridge designed for the children
+                of the Gujjar and Bakarwal pastoral tribes in the Kashmir Himalayas. Gojri, their mother tongue, is rich
+                with expressions reflecting their nomadic life and deep ecological knowledge. Since Gojri finds little
+                space in formal schooling, this chart was created to affirm the child's identity and make learning
+                relatable. This resource was created in collaboration with the Himalayan Pastoral Trust.</p>
+
+            {{#if content}}
+            <div class="ghost-content" style="margin-top: 2rem;">
+                {{content}}
+            </div>
+            {{/if}}
+        </div>
     </section>
 
     <!-- Section Header -->
@@ -20,29 +30,72 @@
             Resources
         </div>
         <div class="go-section-line"></div>
-        <div class="go-section-count">2 resources</div>
     </div>
 
     <!-- Resource Grid -->
     <div class="go-grid">
-
+        {{#get "posts" filter="tag:#hash-gojri-alphabet" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="go-card">
+            <div class="go-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="go-card-overlay">
+                    <a href="{{url}}" class="go-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="go-card-content">
+                <h3>{{title}}</h3>
+                <p class="go-card-desc">{{custom_excerpt}}</p>
+                <div class="go-card-footer">
+                    <a href="{{url}}" class="go-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback to original content --}}
         <!-- Gojri Alphabet Chart -->
         <div class="go-card">
             <div class="go-card-img">
                 <img src="{{asset 'gojri/g2.png'}}" alt="Gojri Alphabet Chart">
                 <div class="go-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Chart.pdf'}}" class="go-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Chart.pdf'}}"
+                        class="go-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="go-card-content">
                 <h3>Gojri Alphabet Chart</h3>
-                <p class="go-card-desc">Connecting English and Gojri alphabets to local flora, fauna, and pastoral life — like Bakri (goat) or Jaberd (water pond).</p>
+                <p class="go-card-desc">Connecting English and Gojri alphabets to local flora, fauna, and pastoral life
+                    — like Bakri (goat) or Jaberd (water pond).</p>
                 <div class="go-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Chart.pdf'}}" class="go-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Chart.pdf'}}"
+                        class="go-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -54,53 +107,37 @@
             <div class="go-card-img">
                 <img src="{{asset 'gojri/g1.png'}}" alt="Gojri Alphabet Booklet">
                 <div class="go-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Booklet.pdf'}}" class="go-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Booklet.pdf'}}"
+                        class="go-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="go-card-content">
                 <h3>Gojri Alphabet Booklet</h3>
-                <p class="go-card-desc">A portable booklet format of the Gojri alphabet — perfect for mobile schools and homes.</p>
+                <p class="go-card-desc">A portable booklet format of the Gojri alphabet — perfect for mobile schools and
+                    homes.</p>
                 <div class="go-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Booklet.pdf'}}" class="go-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Booklet.pdf'}}"
+                        class="go-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Dynamic Cards from Ghost Admin (tag: gojri-alphabet-chart) -->
-        {{#get "posts" filter="tag:gojri-alphabet-chart" limit="100" include="authors,tags"}}
-            {{#foreach posts}}
-                <div class="go-card">
-                    <div class="go-card-img">
-                        {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
-                        {{/if}}
-                        <div class="go-card-overlay">
-                            <a href="{{url}}" class="go-overlay-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                Quick View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="go-card-content">
-                        <h3>{{title}}</h3>
-                        <p class="go-card-desc">{{excerpt}}</p>
-                        <div class="go-card-footer">
-                            <a href="{{url}}" class="go-download-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                View Resource
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {{/foreach}}
         {{/get}}
-
     </div>
 
     <!-- Educator Note Section -->
@@ -109,20 +146,30 @@
             <div class="go-educator-note-card">
                 <div class="go-educator-note-header">
                     <div class="go-educator-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
                     </div>
                     <h2 class="go-educator-title">Note for Educators</h2>
                 </div>
                 <div class="go-educator-content">
-                    <p>By connecting English and Gojri alphabets to local flora, fauna, and pastoral life — like Bakri (goat) or Jaberd (water pond) — this chart ensures that literacy celebrates and preserves the unique language, culture, and environmental wisdom of the Gujjar and Bakarwal communities. It serves as a portable, visible, and culturally relevant teaching aid for mobile schools and homes, empowering the next generation to see their world reflected in their learning.</p>
+                    <p>By connecting English and Gojri alphabets to local flora, fauna, and pastoral life — like Bakri
+                        (goat) or Jaberd (water pond) — this chart ensures that literacy celebrates and preserves the
+                        unique language, culture, and environmental wisdom of the Gujjar and Bakarwal communities. It
+                        serves as a portable, visible, and culturally relevant teaching aid for mobile schools and
+                        homes, empowering the next generation to see their world reflected in their learning.</p>
                 </div>
                 <div class="go-educator-activities">
                     <span class="go-activities-title">Ways to Use</span>
                     <ul class="go-activities-list">
                         <li>Use the chart as a bilingual literacy tool connecting English and Gojri alphabets</li>
-                        <li>Ask children to identify plants and animals from their surroundings that appear on the chart</li>
+                        <li>Ask children to identify plants and animals from their surroundings that appear on the chart
+                        </li>
                         <li>Use the booklet for take-home practice and family involvement in learning</li>
-                        <li>Encourage students to share stories about the pastoral life elements depicted on the chart</li>
+                        <li>Encourage students to share stories about the pastoral life elements depicted on the chart
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -132,9 +179,13 @@
     <!-- Explore More Section -->
     <section class="go-explore-more">
         <a href="/alphabet-charts/" class="go-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Alphabet Charts
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

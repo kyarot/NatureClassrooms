@@ -1,46 +1,49 @@
-{{!< default}}
+{{!< default}} {{#post}} {{!-- Search Results Page --}} {{#contentFor "styles" }} <link rel="stylesheet"
+    href="{{asset 'css/search.css'}}">
+    {{/contentFor}}
 
-{{!-- Search Results Page --}}
+    <section class="search-page">
+        <div class="search-page-container">
 
-{{#contentFor "styles"}}
-<link rel="stylesheet" href="{{asset 'css/search.css'}}">
-{{/contentFor}}
+            <h1 class="search-page-title">{{#if title}}{{title}}{{else}}Search Results{{/if}}</h1>
 
-<section class="search-page">
-    <div class="search-page-container">
-
-        <h1 class="search-page-title">Search Results</h1>
-
-        <!-- Search Input -->
-        <div class="search-page-input-wrapper">
-            <svg class="search-page-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" class="search-page-input" id="searchPageInput" placeholder="Search pages, blog posts, resources..." autocomplete="off" autofocus>
-            <button class="search-page-clear" id="searchPageClear" aria-label="Clear search">&times;</button>
-        </div>
-
-        <!-- Tabs -->
-        <div class="search-page-tabs" id="searchPageTabs">
-            <button class="search-tab is-active" data-tab="all">All <span class="tab-count" id="countAll">0</span></button>
-            <button class="search-tab" data-tab="pages">Pages <span class="tab-count" id="countPages">0</span></button>
-            <button class="search-tab" data-tab="posts">Blog Posts <span class="tab-count" id="countPosts">0</span></button>
-        </div>
-
-        <!-- Results Summary -->
-        <p class="search-page-summary" id="searchPageSummary"></p>
-
-        <!-- Results Container -->
-        <div class="search-page-results" id="searchPageResults">
-            <div class="search-page-empty" id="searchPageEmpty">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <!-- Search Input -->
+            <div class="search-page-input-wrapper">
+                <svg class="search-page-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <p>Start typing to search across all pages and blog posts</p>
+                <input type="text" class="search-page-input" id="searchPageInput"
+                    placeholder="Search pages, blog posts, resources..." autocomplete="off" autofocus>
+                <button class="search-page-clear" id="searchPageClear" aria-label="Clear search">&times;</button>
             </div>
-        </div>
 
-    </div>
-</section>
+            <!-- Tabs -->
+            <div class="search-page-tabs" id="searchPageTabs">
+                <button class="search-tab is-active" data-tab="all">All <span class="tab-count"
+                        id="countAll">0</span></button>
+                <button class="search-tab" data-tab="pages">Pages <span class="tab-count"
+                        id="countPages">0</span></button>
+                <button class="search-tab" data-tab="posts">Blog Posts <span class="tab-count"
+                        id="countPosts">0</span></button>
+            </div>
+
+            <!-- Results Summary -->
+            <p class="search-page-summary" id="searchPageSummary"></p>
+
+            <!-- Results Container -->
+            <div class="search-page-results" id="searchPageResults">
+                <div class="search-page-empty" id="searchPageEmpty">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <p>Start typing to search across all pages and blog posts</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    {{/post}}

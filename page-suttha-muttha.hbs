@@ -1,30 +1,54 @@
-{{!< default}}
-
-<div class="suttha-muttha-page">
+{{!< default}} {{#post}} <div class="suttha-muttha-page">
 
     <!-- Hero Section -->
     <section class="sm-hero">
-        <h1>Suttha Muttha</h1>
-        <p class="sm-hero-subtitle">Connecting school communities in peri-urban Bengaluru to their local ecology and biodiversity</p>
+        <h1>{{#if title}}{{title}}{{else}}Suttha Muttha{{/if}}</h1>
+        <p class="sm-hero-subtitle">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}Connecting school communities in
+            peri-urban Bengaluru to their local ecology and biodiversity{{/if}}</p>
     </section>
 
     <!-- About Section -->
     <section class="sm-about-section">
         <div class="sm-about-card">
             <div class="sm-about-content">
-                <p>The <a href="http://www.bengalurusustainabilityforum.org/suttha-muttha/" target="_blank" rel="noopener">Suttha Muttha project</a> is a collaboration between the <a href="https://www.ncf-india.org/education-and-public-engagement/a-nature-learning-framework-for-schools" target="_blank" rel="noopener">Nature Learning Team</a> at Nature Conservation Foundation and the Fig Tree Learning Centre in Silvepura Village to take experiences and stories of local ecology and biodiversity to school communities in peri-urban Bengaluru. Suttha Muttha in Kannada translates to 'our surroundings'.</p>
+                <p>The <a href="http://www.bengalurusustainabilityforum.org/suttha-muttha/" target="_blank"
+                        rel="noopener">Suttha Muttha project</a> is a collaboration between the <a
+                        href="https://www.ncf-india.org/education-and-public-engagement/a-nature-learning-framework-for-schools"
+                        target="_blank" rel="noopener">Nature Learning Team</a> at Nature Conservation Foundation and
+                    the Fig Tree Learning Centre in Silvepura Village to take experiences and stories of local ecology
+                    and biodiversity to school communities in peri-urban Bengaluru. Suttha Muttha in Kannada translates
+                    to 'our surroundings'.</p>
 
-                <p>This work supported by a <a href="http://www.bengalurusustainabilityforum.org/small-grants/" target="_blank" rel="noopener">Bangalore Sustainability Forum</a> small grant will engage and collaborate with school communities and learning centres in and around Silvepura village to bring the natural world and ecological processes around them closer. Government schools in peri-urban Bengaluru are unique in their needs, opportunities and challenges. The school, classroom space and campuses are often small, with one or two rooms for the entire primary school and one teacher for 40 students across classes I-V. Few schools are fortunate to have access to a tree or two within or just outside the school compound. Learning in these schools is disconnected with the rapidly changing neighbouring landscapes of farmlands, gardens and fruit orchards. Many students come from families that have migrated from other parts of India to Bengaluru in search of work, making both the Kannada language and the local landscape something they have to contend with and acclimatise to.</p>
+                <p>This work supported by a <a href="http://www.bengalurusustainabilityforum.org/small-grants/"
+                        target="_blank" rel="noopener">Bangalore Sustainability Forum</a> small grant will engage and
+                    collaborate with school communities and learning centres in and around Silvepura village to bring
+                    the natural world and ecological processes around them closer. Government schools in peri-urban
+                    Bengaluru are unique in their needs, opportunities and challenges. The school, classroom space and
+                    campuses are often small, with one or two rooms for the entire primary school and one teacher for 40
+                    students across classes I-V. Few schools are fortunate to have access to a tree or two within or
+                    just outside the school compound. Learning in these schools is disconnected with the rapidly
+                    changing neighbouring landscapes of farmlands, gardens and fruit orchards. Many students come from
+                    families that have migrated from other parts of India to Bengaluru in search of work, making both
+                    the Kannada language and the local landscape something they have to contend with and acclimatise to.
+                </p>
+
+                {{#if content}}
+                <div class="ghost-content" style="margin-top: 2rem;">
+                    {{content}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
 
+    {{!-- The following sections are preserved as hardcoded unless managed via Ghost later --}}
     <!-- Image Gallery Row 1 -->
     <section class="sm-image-section">
         <div class="sm-image-row">
             <div class="sm-image-item">
                 <img src="{{asset 'sm/sm1.png'}}" alt="How do animals eat?">
-                <p class="sm-image-caption">How do animals eat? Students observing cows in a shed near their school to find the answer.</p>
+                <p class="sm-image-caption">How do animals eat? Students observing cows in a shed near their school to
+                    find the answer.</p>
             </div>
             <div class="sm-image-item">
                 <img src="{{asset 'sm/sm2.jpg'}}" alt="Students going on a nature walk">
@@ -37,9 +61,19 @@
     <section class="sm-about-section">
         <div class="sm-about-card">
             <div class="sm-about-content">
-                <p>However, these sparsely equipped, small, learning spaces are not without excitement and serendipitous opportunities to engage with nature though; during one of our school visits we were lucky to observe a pair of skinks frolic on the sunbathed school steps. The skinks captured the students' attention and sparked many conversations about the similarity with snakes, superstitious beliefs and questions about their behaviour. By making meaning of these kinds of serendipitous encounters with myriad creatures that visit their schools, and then designing and creating relevant and accessible teaching-learning material, curating stories, songs, and sayings and offering immersive nature workshops we hope to facilitate deeper connections towards the natural world for teachers and students.</p>
+                <p>However, these sparsely equipped, small, learning spaces are not without excitement and serendipitous
+                    opportunities to engage with nature though; during one of our school visits we were lucky to observe
+                    a pair of skinks frolic on the sunbathed school steps. The skinks captured the students' attention
+                    and sparked many conversations about the similarity with snakes, superstitious beliefs and questions
+                    about their behaviour. By making meaning of these kinds of serendipitous encounters with myriad
+                    creatures that visit their schools, and then designing and creating relevant and accessible
+                    teaching-learning material, curating stories, songs, and sayings and offering immersive nature
+                    workshops we hope to facilitate deeper connections towards the natural world for teachers and
+                    students.</p>
 
-                <p>We hope that consistent and meaningful experiences, conversations in and about nature will enable school communities to be more connected to their surroundings (Suttha Muttha) and encourage them to include nature learning as an integral part of their school culture and ethos.</p>
+                <p>We hope that consistent and meaningful experiences, conversations in and about nature will enable
+                    school communities to be more connected to their surroundings (Suttha Muttha) and encourage them to
+                    include nature learning as an integral part of their school culture and ethos.</p>
             </div>
         </div>
     </section>
@@ -51,28 +85,39 @@
             <!-- Goal 1 -->
             <div class="sm-goal-card">
                 <div class="sm-goal-number">01</div>
-                <h3 class="sm-goal-title">To provide government schools in peri-urban Bengaluru access to good quality nature related teaching-learning material</h3>
-                <p class="sm-goal-desc">The creation and distribution of teaching-learning material that reflects local ecology and biodiversity is likely to increase the richness and diversity of EVS and nature studies in government school classrooms in the area. This will help teachers transact lessons in EVS as well as help students better understand concepts through local examples that can be easily observed.</p>
+                <h3 class="sm-goal-title">To provide government schools in peri-urban Bengaluru access to good quality
+                    nature related teaching-learning material</h3>
+                <p class="sm-goal-desc">The creation and distribution of teaching-learning material that reflects local
+                    ecology and biodiversity is likely to increase the richness and diversity of EVS and nature studies
+                    in government school classrooms in the area. This will help teachers transact lessons in EVS as well
+                    as help students better understand concepts through local examples that can be easily observed.</p>
             </div>
 
             <!-- Goal Image -->
             <div class="sm-goal-image-wrapper">
                 <img src="{{asset 'sm/sm4.png'}}" alt="Students playing Colours in Nature">
-                <p class="sm-image-caption">Students playing "Colours in Nature", a game designed to observe the variety of colours that can be found in the natural world</p>
+                <p class="sm-image-caption">Students playing "Colours in Nature", a game designed to observe the variety
+                    of colours that can be found in the natural world</p>
             </div>
 
             <!-- Goal 2 -->
             <div class="sm-goal-card">
                 <div class="sm-goal-number">02</div>
                 <h3 class="sm-goal-title">To increase awareness and curiosity about local ecology and biodiversity</h3>
-                <p class="sm-goal-desc">Good quality, factually and ecologically sound nature learning material has the potential to inspire and motivate students to be more curious about their surroundings and natural phenomena around them. Students are likely to ask more questions, experience moments of wonder in nature and be more open to learning about biodiversity in their immediate surroundings.</p>
+                <p class="sm-goal-desc">Good quality, factually and ecologically sound nature learning material has the
+                    potential to inspire and motivate students to be more curious about their surroundings and natural
+                    phenomena around them. Students are likely to ask more questions, experience moments of wonder in
+                    nature and be more open to learning about biodiversity in their immediate surroundings.</p>
             </div>
 
             <!-- Goal 3 -->
             <div class="sm-goal-card">
                 <div class="sm-goal-number">03</div>
-                <h3 class="sm-goal-title">To foster ecological relationships and identities among school communities</h3>
-                <p class="sm-goal-desc">Through classroom discussions, stories, observations, nature immersion workshops and nature walks around the school(s) we hope to encourage school communities to engage with their local environments more regularly and meaningfully.</p>
+                <h3 class="sm-goal-title">To foster ecological relationships and identities among school communities
+                </h3>
+                <p class="sm-goal-desc">Through classroom discussions, stories, observations, nature immersion workshops
+                    and nature walks around the school(s) we hope to encourage school communities to engage with their
+                    local environments more regularly and meaningfully.</p>
             </div>
 
             <!-- Goal 3 Image -->
@@ -115,9 +160,13 @@
     <!-- Back to Projects -->
     <section class="sm-explore-more">
         <a href="/" class="sm-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Back to Projects
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

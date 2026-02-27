@@ -1,9 +1,10 @@
 {{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
     {{/contentFor}}
 
-    {{#post}} <main class="site-main">
+    {{#post}}
+    <main class="site-main">
         <div class="page-natural-history-illustration" data-reveal>
-            <img src="{{asset 'illustrations/21.PNG'}}" alt="">
+            <img src="{{#if feature_image}}{{feature_image}}{{else}}{{asset 'illustrations/21.PNG'}}{{/if}}" alt="">
         </div>
         <div class="page-natural-history-bottom-illustration" data-reveal>
             <img src="{{asset 'illustrations/1.PNG'}}" alt="">
@@ -12,17 +13,27 @@
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">Natural History</h1>
-                    <p class="resources-hero-subtitle">
-
-                        Step into the fascinating world of the creatures and plants right outside your door. Our
-                        "Natural History Series" offers a collection of simple, beautifully illustrated stories about
-                        the common but often overlooked residents of our local ecosystems. From mud and leaf architects
-                        to friendships and deception, these resources are designed to spark curiosity, deepen
-                        connections with nature, and provide educators and learners with accessible, engaging tools to
-                        explore and learn about the natural world around them.
-                    </p>
-                    <div class="hero-age-label">Ages 6+, Adults</div>
+                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Natural History{{/if}}</h1>
+                    <div class="resources-hero-subtitle">
+                        {{#if content}}
+                        {{content}}
+                        {{else}}
+                        <p>
+                            Step into the fascinating world of the creatures and plants right outside your door. Our
+                            "Natural History Series" offers a collection of simple, beautifully illustrated stories
+                            about
+                            the common but often overlooked residents of our local ecosystems. From mud and leaf
+                            architects
+                            to friendships and deception, these resources are designed to spark curiosity, deepen
+                            connections with nature, and provide educators and learners with accessible, engaging tools
+                            to
+                            explore and learn about the natural world around them.
+                        </p>
+                        {{/if}}
+                    </div>
+                    {{#if custom_excerpt}}
+                    <div class="hero-age-label">{{custom_excerpt}}</div>
+                    {{/if}}
                 </div>
             </div>
         </section>
@@ -30,24 +41,41 @@
         {{!-- 2. Resource Grid --}}
         <section class="site-section">
             <div class="container">
-                {{!-- 3. Resource Grid --}}
                 <div class="resource-item-grid-3-col">
+                    {{#get "posts" filter="tag:#hash-natural-history" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
+                    {{else}}
+                    {{!-- Fallback to original content --}}
                     {{!-- Bats --}}
                     {{> "icons/resource-item"
                     title="Bats: Flying Mammals"
-                    description="Bats are some of the most amazing flying mammals, but also the most misunderstood creatures sharing space with us. Use this resource to learn, teach and start the conversation around these curious, upside-down marvels!"
+                    description="Bats are some of the most amazing flying mammals, but also the most misunderstood
+                    creatures sharing space with us. Use this resource to learn, teach and start the conversation around
+                    these curious, upside-down marvels!"
                     preview_image=(asset "naturalhistory/Bats_Flying_Mammals.png")
                     download_url=(asset "files/Resources/Natural History Stories/Bats_ Flying Mammals/Bats English.pdf")
                     lang1="English"
                     lang1_url=(asset "files/Resources/Natural History Stories/Bats_ Flying Mammals/Bats English.pdf")
                     lang2="ಕನ್ನಡ"
-                    lang2_url=(asset "files/Resources/Natural History Stories/Bats_ Flying Mammals/Kannada- Flying Mammals Leaflet.pdf")
+                    lang2_url=(asset "files/Resources/Natural History Stories/Bats_ Flying Mammals/Kannada- Flying
+                    Mammals Leaflet.pdf")
                     }}
 
                     {{!-- Termites --}}
                     {{> "icons/resource-item"
                     title="Termites and Termite Mounds"
-                    description="Termites are extraordinary engineers of the natural world. Our Termite resource introduces you to these tiny architects and their magnificent homes, the termitariums. Use this teaching-learning resource to introduce children and adults to the fascinating world of termites and their homes, or as an anchor chart. Find a termite mound and learn around it!"
+                    description="Termites are extraordinary engineers of the natural world. Our Termite resource
+                    introduces you to these tiny architects and their magnificent homes, the termitariums. Use this
+                    teaching-learning resource to introduce children and adults to the fascinating world of termites and
+                    their homes, or as an anchor chart. Find a termite mound and learn around it!"
                     preview_image=(asset "naturalhistory/Termite_and_Termite_Mounds.png")
                     download_url=(asset "files/Resources/Natural History Stories/Termites/Termites English.pdf")
                     lang1="English"
@@ -61,11 +89,17 @@
                     {{!-- Fig --}}
                     {{> "icons/resource-item"
                     title="Fig Tree and Fig Wasp"
-                    description="We are incredibly lucky to have so many different types of Fig Trees growing all around us. As unique as the fig itself, are the Fig Wasps – very tiny flying insects, yet essential for the tree’s very existence. Our 'Fig Tree and Fig Wasp' story cards invite you to listen carefully to the tale of this extraordinary friendship. Use this teaching-learning resource to introduce children and adults to the fascinating world of Fig Trees and Fig Wasps- indoors or outdoors, near or under a Fig tree."
+                    description="We are incredibly lucky to have so many different types of Fig Trees growing all around
+                    us. As unique as the fig itself, are the Fig Wasps – very tiny flying insects, yet essential for the
+                    tree’s very existence. Our 'Fig Tree and Fig Wasp' story cards invite you to listen carefully to the
+                    tale of this extraordinary friendship. Use this teaching-learning resource to introduce children and
+                    adults to the fascinating world of Fig Trees and Fig Wasps- indoors or outdoors, near or under a Fig
+                    tree."
                     preview_image=(asset "naturalhistory/Fig_and_Wasp_Resource.png")
                     download_url=(asset "files/Resources/Natural History Stories/Fig and Wasp_Natural History.pdf")
                     lang1="English"
                     }}
+                    {{/get}}
                 </div>
             </div>
         </section>
@@ -75,18 +109,17 @@
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">
                         <p>
                             These illustrated stories explore the common but often overlooked residents of our local
-                            ecosystems.
-                            From mud-architects like termites to the misunderstood marvels of flying mammals, these
-                            resources
-                            deepen connections with nature. Use them to introduce children and adults to the fascinating
-                            world of
-                            natural history—either indoors using the cards or outdoors near a termite mound or fig tree.
+                            ecosystems. From mud-architects like termites to the misunderstood marvels of flying
+                            mammals, these
+                            resources deepen connections with nature. Use them to introduce children and adults to the
+                            fascinating
+                            world of natural history—either indoors using the cards or outdoors near a termite mound or
+                            fig tree.
                         </p>
                     </div>
                     <div class="educator-questions">

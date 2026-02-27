@@ -12,7 +12,7 @@
                 <article class="post-card {{post_class}}">
                     <a href="{{url}}" class="post-card-link">
                         {{#if feature_image}}
-                        <div class="post-card-image" style="background-image: url('{{feature_image}}');"></div>
+                        <div class="post-card-image" style="background-image: url('{{img_url feature_image}}');"></div>
                         {{else}}
                         <div class="post-card-image post-card-no-image"></div>
                         {{/if}}
@@ -72,7 +72,7 @@
                 {{#if count.posts}}
                 <a href="{{url}}" class="tag-card">
                     {{#if feature_image}}
-                    <div class="tag-card-bg" style="background-image: url('{{feature_image}}');"></div>
+                    <div class="tag-card-bg" style="background-image: url('{{img_url feature_image}}');"></div>
                     {{else}}
                     <div class="tag-card-bg tag-card-no-image" {{#if
                         accent_color}}style="background-color: {{accent_color}};" {{/if}}></div>
@@ -80,8 +80,8 @@
                     <div class="tag-card-overlay"></div>
                     <div class="tag-card-content">
                         <h3 class="tag-card-name">{{name}}</h3>
-                        <span class="tag-card-count">{{count.posts}} {{#if count.posts}}post{{#unless
-                            count.posts}}s{{/unless}}{{/if}}</span>
+                        <span class="tag-card-count">{{plural count.posts empty="No posts" singular="% post" plural="%
+                            posts"}}</span>
                         {{#if description}}
                         <p class="tag-card-description">{{description}}</p>
                         {{/if}}
@@ -108,7 +108,7 @@
                 <h1>{{title}}</h1>
 
                 {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
+                <img src="{{img_url feature_image}}" alt="{{title}}">
                 {{/if}}
             </header>
             {{/if}}

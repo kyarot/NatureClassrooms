@@ -30,10 +30,24 @@ registerHelper('asset', function (context) {
 });
 
 registerHelper('get', function (resource, options) {
-    // Support Ghost-style {{#get "posts" limit="3"}}
-    // In our mock, we just use the 'posts' data we passed to the template
-    const data = { posts: this.posts || [] };
-    return options.fn(data);
+    let data = {};
+    const root = (options.data && options.data.root) ? options.data.root : this;
+
+    if (resource === 'posts') {
+        // Fallback to a global mock if nothing is found in context
+        data.posts = this.posts || root.posts || [];
+    } else if (resource === 'pages') {
+        data.pages = this.pages || root.pages || [];
+    }
+
+    console.log(`[DEBUG] get ${resource}: context has posts? ${!!this.posts}, root has posts? ${!!root.posts}, count: ${data[resource].length}`);
+
+    if (data[resource] && data[resource].length > 0) {
+        return options.fn(data);
+    } else if (options.inverse) {
+        return options.inverse(this);
+    }
+    return '';
 });
 
 registerHelper('foreach', function (context, options) {
@@ -139,6 +153,8 @@ app.get('/our-approach/', (req, res) => {
     res.render('page-our-approach');
 });
 
+
+
 app.get('/blog/', (req, res) => {
     res.render('custom-blog', {
         posts: [
@@ -207,12 +223,14 @@ app.get('/:slug/', (req, res) => {
     const templatePath = path.join(__dirname, `page-${slug}.hbs`);
     const fallbackPath = path.join(__dirname, `${slug}.hbs`);
 
+    const data = {};
+
     if (fs.existsSync(customPath)) {
-        res.render(`custom-${slug}`);
+        res.render(`custom-${slug}`, data);
     } else if (fs.existsSync(templatePath)) {
-        res.render(`page-${slug}`);
+        res.render(`page-${slug}`, data);
     } else if (fs.existsSync(fallbackPath)) {
-        res.render(slug);
+        res.render(slug, data);
     } else {
         res.status(404).send('<h1>404: Page Not Found</h1><p>The template for this page was not found locally.</p><a href="/">Go Home</a>');
     }

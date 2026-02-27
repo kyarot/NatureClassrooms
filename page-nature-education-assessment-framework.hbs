@@ -1,20 +1,35 @@
-{{!< default}}
-
-<div class="neaf-page">
+{{!< default}} {{#post}} <div class="neaf-page">
 
     <!-- Hero Section -->
     <section class="neaf-hero">
-        <h1>Nature Education Assessment Framework (NEAF)</h1>
-        <p class="neaf-hero-subtitle">Supported by InLaks Ravi Sankaran Small Grants</p>
+        <h1>{{#if title}}{{title}}{{else}}Nature Education Assessment Framework (NEAF){{/if}}</h1>
+        <p class="neaf-hero-subtitle">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}Supported by InLaks Ravi Sankaran
+            Small Grants{{/if}}</p>
     </section>
 
     <!-- About Section -->
     <section class="neaf-about-section">
         <div class="neaf-about-card">
             <div class="neaf-about-content">
-                <p>The Nature Education Assessment Framework (NEAF) is being developed by Tanaya Rele of Nature Classrooms, with the support of the Inlaks Ravi Sankaran Small Grants Programme as an open-source tool to assess the effectiveness of nature education programmes and other nature learning initiatives. It aims to provide a holistic assessment of nature education/conservation education programmes by assessing the knowledge, attitude and behaviour of participants before and after the intervention through a set of collaboratively designed qualitative and quantitative tools including existing scales and peer-reviewed literature. NEAF seeks for honest feedback from the target group which will also highlight the areas in which the intervening organisation or individual needs to address and course correct.</p>
+                <p>The Nature Education Assessment Framework (NEAF) is being developed by Tanaya Rele of Nature
+                    Classrooms, with the support of the Inlaks Ravi Sankaran Small Grants Programme as an open-source
+                    tool to assess the effectiveness of nature education programmes and other nature learning
+                    initiatives. It aims to provide a holistic assessment of nature education/conservation education
+                    programmes by assessing the knowledge, attitude and behaviour of participants before and after the
+                    intervention through a set of collaboratively designed qualitative and quantitative tools including
+                    existing scales and peer-reviewed literature. NEAF seeks for honest feedback from the target group
+                    which will also highlight the areas in which the intervening organisation or individual needs to
+                    address and course correct.</p>
 
-                <p>This framework will also be trialled collaboratively through nature education initiatives and reviewed by education practitioners, to make it replicable, unbiased, easy-to-use and relevant to the nature and conservation education community in India.</p>
+                <p>This framework will also be trialled collaboratively through nature education initiatives and
+                    reviewed by education practitioners, to make it replicable, unbiased, easy-to-use and relevant to
+                    the nature and conservation education community in India.</p>
+
+                {{#if content}}
+                <div class="ghost-content" style="margin-top: 2rem;">
+                    {{content}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
@@ -26,17 +41,22 @@
 
             <div class="neaf-objective-card">
                 <div class="neaf-objective-number">01</div>
-                <p class="neaf-objective-desc">Designing a framework for Nature Classrooms to assess the ongoing nature education projects through a pre and post intervention study.</p>
+                <p class="neaf-objective-desc">Designing a framework for Nature Classrooms to assess the ongoing nature
+                    education projects through a pre and post intervention study.</p>
             </div>
 
             <div class="neaf-objective-card">
                 <div class="neaf-objective-number">02</div>
-                <p class="neaf-objective-desc">To explore the relationship that teachers and students share with nature, assess their understanding about the environment and determine how nature learning interventions influence this dynamic.</p>
+                <p class="neaf-objective-number">02</p>
+                <p class="neaf-objective-desc">To explore the relationship that teachers and students share with nature,
+                    assess their understanding about the environment and determine how nature learning interventions
+                    influence this dynamic.</p>
             </div>
 
             <div class="neaf-objective-card">
                 <div class="neaf-objective-number">03</div>
-                <p class="neaf-objective-desc">To understand and assess the impact of age-appropriate nature learning interventions on students' attitudes and perceptions towards local biodiversity.</p>
+                <p class="neaf-objective-desc">To understand and assess the impact of age-appropriate nature learning
+                    interventions on students' attitudes and perceptions towards local biodiversity.</p>
             </div>
         </div>
     </section>
@@ -55,7 +75,8 @@
                 <h3 class="neaf-partners-title">Supported by</h3>
                 <div class="neaf-partners-logos">
                     <a href="https://www.inlaksfoundation.org/" target="_blank" rel="noopener">
-                        <img src="{{asset 'collaborators/WhatsApp Image 2025-03-03 at 12.59.50.jpeg'}}" alt="InLaks Ravi Sankaran Small Grants">
+                        <img src="{{asset 'collaborators/WhatsApp Image 2025-03-03 at 12.59.50.jpeg'}}"
+                            alt="InLaks Ravi Sankaran Small Grants">
                     </a>
                 </div>
             </div>
@@ -65,9 +86,13 @@
     <!-- Back to Projects -->
     <section class="neaf-explore-more">
         <a href="/" class="neaf-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Back to Projects
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

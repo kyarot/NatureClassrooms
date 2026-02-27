@@ -1,11 +1,22 @@
-{{!< default}}
-
-<div class="nature-moves-page">
+{{!< default}} {{#post}} <div class="nature-moves-page">
 
     <!-- Hero Section -->
     <section class="nm-hero">
-        <h1>Nature Moves</h1>
-        <p>An exploration of the integration of movement and nature education, Nature Moves is an attempt to diversify nature education resources by creating and documenting movement-based nature learning resources inspired by fascinating movements in nature, and the performing arts. With a little deep observation of our natural surroundings, we'll realise that nature is so much more than colours, sights, and words. Take these ideas and activities to your classroom to explore how nature moves, and watch your space transform!</p>
+        <h1>{{#if title}}{{title}}{{else}}Nature Moves{{/if}}</h1>
+        <div class="nm-hero-content">
+            <p>An exploration of the integration of movement and nature education, Nature Moves is an attempt to
+                diversify nature education resources by creating and documenting movement-based nature learning
+                resources inspired by fascinating movements in nature, and the performing arts. With a little deep
+                observation of our natural surroundings, we'll realise that nature is so much more than colours, sights,
+                and words. Take these ideas and activities to your classroom to explore how nature moves, and watch your
+                space transform!</p>
+
+            {{#if content}}
+            <div class="ghost-content" style="margin-top: 2rem;">
+                {{content}}
+            </div>
+            {{/if}}
+        </div>
     </section>
 
     <!-- Section Header -->
@@ -20,29 +31,72 @@
             Resources
         </div>
         <div class="nm-section-line"></div>
-        <div class="nm-section-count">2 resources</div>
     </div>
 
     <!-- Resource Grid -->
     <div class="nm-grid">
-
+        {{#get "posts" filter="tag:#hash-nature-move" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="nm-card">
+            <div class="nm-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="nm-card-overlay">
+                    <a href="{{url}}" class="nm-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="nm-card-content">
+                <h3>{{title}}</h3>
+                <p class="nm-card-desc">{{custom_excerpt}}</p>
+                <div class="nm-card-footer">
+                    <a href="{{url}}" class="nm-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback to original content --}}
         <!-- Nature Moves Resource Bank -->
         <div class="nm-card">
             <div class="nm-card-img">
                 <img src="{{asset 'mod/Nature Moves.png'}}" alt="Nature Moves Resource Bank">
                 <div class="nm-card-overlay">
-                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Moves.pdf'}}" class="nm-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Moves.pdf'}}" class="nm-overlay-link"
+                        download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="nm-card-content">
                 <h3>Nature Moves Resource Bank</h3>
-                <p class="nm-card-desc">A resource bank of movement-based activities that educators can use in nature education and environmental studies classes.</p>
+                <p class="nm-card-desc">A resource bank of movement-based activities that educators can use in nature
+                    education and environmental studies classes.</p>
                 <div class="nm-card-footer">
-                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Moves.pdf'}}" class="nm-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Moves.pdf'}}" class="nm-download-btn"
+                        download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -54,63 +108,49 @@
             <div class="nm-card-img">
                 <img src="{{asset 'mod/Nature Movements Bingo.png'}}" alt="Nature Movements Bingo">
                 <div class="nm-card-overlay">
-                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Movements Bingo.pdf'}}" class="nm-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Movements Bingo.pdf'}}"
+                        class="nm-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="nm-card-content">
                 <h3>Nature Movements Bingo</h3>
-                <p class="nm-card-desc">A fun bingo game exploring the fascinating ways that creatures and elements in nature move — from leaves to ants!</p>
+                <p class="nm-card-desc">A fun bingo game exploring the fascinating ways that creatures and elements in
+                    nature move — from leaves to ants!</p>
                 <div class="nm-card-footer">
-                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Movements Bingo.pdf'}}" class="nm-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Modules/Nature Moves/Nature Movements Bingo.pdf'}}"
+                        class="nm-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Dynamic Cards from Ghost Admin (tag: nature-moves) -->
-        {{#get "posts" filter="tag:nature-moves" limit="100" include="authors,tags"}}
-            {{#foreach posts}}
-                <div class="nm-card">
-                    <div class="nm-card-img">
-                        {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
-                        {{/if}}
-                        <div class="nm-card-overlay">
-                            <a href="{{url}}" class="nm-overlay-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                Quick View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="nm-card-content">
-                        <h3>{{title}}</h3>
-                        <p class="nm-card-desc">{{excerpt}}</p>
-                        <div class="nm-card-footer">
-                            <a href="{{url}}" class="nm-download-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                View Resource
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {{/foreach}}
         {{/get}}
-
     </div>
-
-
 
     <!-- Explore More Section -->
     <section class="nm-explore-more">
         <a href="/modules/" class="nm-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Learning Modules
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

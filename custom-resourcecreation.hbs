@@ -1,4 +1,4 @@
-{{!< default}} <div class="rc-page">
+{{!< default}} {{#post}} <div class="rc-page">
     <div class="rc-page-illustration" data-reveal>
         <img src="{{asset 'illustrations/13_3289.PNG'}}" alt="">
     </div>
@@ -10,10 +10,17 @@
     <section class="rc-hero">
         <div class="rc-hero-content">
             <div class="rc-hero-subtitle">Nature Classrooms</div>
-            <h1>Resource Creation</h1>
-        
+            <h1>{{#if title}}{{title}}{{else}}Resource Creation{{/if}}</h1>
         </div>
     </section>
+
+    {{#if content}}
+    <section class="rc-dynamic-content">
+        <div class="rc-intro">
+            {{content}}
+        </div>
+    </section>
+    {{/if}}
 
     <!-- Intro Text -->
     <section class="rc-intro">
@@ -87,7 +94,9 @@
             <div class="featured-content">
                 <div class="featured-label">Featured Project</div>
                 <h2>Suttha Muttha</h2>
-                <p>Working with schools in Silvepura to make experiences and stories of local ecology and biodiversity accessible to school communities in peri-urban Bengaluru in partnership with the Fig Tree Learning Centre.</p>
+                <p>Working with schools in Silvepura to make experiences and stories of local ecology and biodiversity
+                    accessible to school communities in peri-urban Bengaluru in partnership with the Fig Tree Learning
+                    Centre.</p>
                 <a href="/suttha-muttha/" class="btn-read-more">Read More →</a>
             </div>
             <div class="featured-image">
@@ -104,11 +113,16 @@
         </div>
         <div class="explore-content">
             <h2>Explore More Resources</h2>
-            <p>Browse through our growing collection of meaningfully designed Nature Learning Resources, created around different themes in nature. All our resources are open-source, tested and trialled, and continually updated as new ideas evolve. Our resources are free for teachers and educators to download, adapt, and use.</p>
+            <p>Browse through our growing collection of meaningfully designed Nature Learning Resources, created around
+                different themes in nature. All our resources are open-source, tested and trialled, and continually
+                updated as new ideas evolve. Our resources are free for teachers and educators to download, adapt, and
+                use.</p>
             <a href="/resources/activities/" class="btn-browse">Browse Resources →</a>
         </div>
     </section>
-     <!-- Collaboration Callout -->
+
+    <!-- Always Visible Footer -->
+    <!-- Collaboration Callout -->
     <section class="rc-collab-section">
         <div class="collab-box">
             <div class="collab-icon">
@@ -125,3 +139,4 @@
     </section>
 
     </div>
+    {{/post}}

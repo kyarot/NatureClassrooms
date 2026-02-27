@@ -1,23 +1,32 @@
 {{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
     {{/contentFor}}
 
-    {{#post}} <main class="site-main">
+    {{#post}}
+    <main class="site-main">
         <div class="page-activities-illustration" data-reveal>
-            <img src="{{asset 'illustrations/23.PNG'}}" alt="">
+            <img src="{{#if feature_image}}{{feature_image}}{{else}}{{asset 'illustrations/23.PNG'}}{{/if}}" alt="">
         </div>
-       
+
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">Nature Activities</h1>
-                    <p class="resources-hero-subtitle">
-                        Here are some quick nature activities to help you explore the natural world around you, with a
-                        goal
-                        in
-                        mind! Use these activities to introduce new learners into the world of their immediate nature.
-                    </p>
-                    <div class="hero-age-label">Ages 3+, Adults</div>
+                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Nature Activities{{/if}}</h1>
+                    <div class="resources-hero-subtitle">
+                        {{#if content}}
+                        {{content}}
+                        {{else}}
+                        <p>
+                            Here are some quick nature activities to help you explore the natural world around you, with
+                            a
+                            goal in mind! Use these activities to introduce new learners into the world of their
+                            immediate nature.
+                        </p>
+                        {{/if}}
+                    </div>
+                    {{#if custom_excerpt}}
+                    <div class="hero-age-label">{{custom_excerpt}}</div>
+                    {{/if}}
                 </div>
             </div>
         </section>
@@ -25,8 +34,19 @@
         {{!-- 2. Resource Grid --}}
         <section class="site-section">
             <div class="container">
-                {{!-- 3. Resource Grid --}}
                 <div class="resource-item-grid-2-col">
+                    {{#get "posts" filter="tag:#hash-activity" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
+                    {{else}}
+                    {{!-- Fallback to original content --}}
                     {{!-- Colors --}}
                     {{> "icons/resource-item"
                     title="Colors"
@@ -81,7 +101,8 @@
                     learning about the intricacies of the life of a bird. The design is simple and versatile, and can be
                     used in various contexts of learning and playing, with various age groups."
                     preview_image=(asset "activities/Bird_Migration_Game.png")
-                    download_url=(asset "files/Resources/Activities/Bird Migration Blindfold Game Instructions-merged.pdf")
+                    download_url=(asset "files/Resources/Activities/Bird Migration Blindfold Game
+                    Instructions-merged.pdf")
                     lang1="English"
                     }}
 
@@ -94,12 +115,14 @@
                     walls and pavements around or within your homes, schools, or streets and observe, marvel, and
                     document what creatures you come across!"
                     preview_image=(asset "activities/Walls_and_Pavements.png")
-                    download_url=(asset "files/Resources/Activities/Walls and Pavements/Walls and Pavements_English.pdf")
+                    download_url=(asset "files/Resources/Activities/Walls and Pavements/Walls and
+                    Pavements_English.pdf")
                     lang1="English"
                     lang1_url=(asset "files/Resources/Activities/Walls and Pavements/Walls and Pavements_English.pdf")
                     lang2="ಕನ್ನಡ"
                     lang2_url=(asset "files/Resources/Activities/Walls and Pavements/Walls & Pavements_Kannada.pdf")
                     }}
+                    {{/get}}
                 </div>
             </div>
         </section>
@@ -114,12 +137,11 @@
                     <div class="educator-content">
                         <p>
                             These primary nature activities are designed to help students pay attention to the world
-                            around
-                            them with a focus on specific elements like patterns, textures, or migration. They are
-                            simple,
-                            versatile, and can be used in various learning contexts to foster empathy, teamwork, and
-                            sharp
-                            observation skills. Feel free to adapt them to your specific school premises or local
+                            around them with a focus on specific elements like patterns, textures, or migration. They
+                            are
+                            simple, versatile, and can be used in various learning contexts to foster empathy, teamwork,
+                            and
+                            sharp observation skills. Feel free to adapt them to your specific school premises or local
                             neighborhood streets.
                         </p>
                     </div>

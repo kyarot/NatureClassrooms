@@ -1,11 +1,21 @@
-{{!< default}}
-
-<div class="gujarati-alphabet-page">
+{{!< default}} {{#post}} <div class="gujarati-alphabet-page">
 
     <!-- Hero Section -->
     <section class="gu-hero">
-        <h1>Gujarati Alphabet Chart</h1>
-        <p>Walk into any classroom and you'll often find charts featuring exotic animals. But what about the unique life thriving in our own landscapes? Our Gujarati Alphabet Chart celebrates the rich biodiversity of the Surendranagar district in Saurashtra, Gujarat. Featuring names in the Kathiawadi dialect, this resource brings the vast savanna grasslands and thorn forests right into the learning space. Developed collaboratively with pastoralists, botanists, and artists.</p>
+        <h1>{{#if title}}{{title}}{{else}}Gujarati Alphabet Chart{{/if}}</h1>
+        <div class="gu-hero-content">
+            <p>Walk into any classroom and you'll often find charts featuring exotic animals. But what about the unique
+                life thriving in our own landscapes? Our Gujarati Alphabet Chart celebrates the rich biodiversity of the
+                Surendranagar district in Saurashtra, Gujarat. Featuring names in the Kathiawadi dialect, this resource
+                brings the vast savanna grasslands and thorn forests right into the learning space. Developed
+                collaboratively with pastoralists, botanists, and artists.</p>
+
+            {{#if content}}
+            <div class="ghost-content" style="margin-top: 2rem;">
+                {{content}}
+            </div>
+            {{/if}}
+        </div>
     </section>
 
     <!-- Section Header -->
@@ -20,29 +30,72 @@
             Resources
         </div>
         <div class="gu-section-line"></div>
-        <div class="gu-section-count">4 resources</div>
     </div>
 
     <!-- Resource Grid -->
     <div class="gu-grid">
-
+        {{#get "posts" filter="tag:#hash-gujarati-alphabet" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="gu-card">
+            <div class="gu-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="gu-card-overlay">
+                    <a href="{{url}}" class="gu-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="gu-card-content">
+                <h3>{{title}}</h3>
+                <p class="gu-card-desc">{{custom_excerpt}}</p>
+                <div class="gu-card-footer">
+                    <a href="{{url}}" class="gu-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback to original content --}}
         <!-- Gujarati Alphabet Chart -->
         <div class="gu-card">
             <div class="gu-card-img">
                 <img src="{{asset 'gj/Preview of Gujarati Alphabet Chart.png'}}" alt="Gujarati Alphabet Chart">
                 <div class="gu-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Gujarati Alphabet Chart A1.pdf'}}" class="gu-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Gujarati Alphabet Chart A1.pdf'}}"
+                        class="gu-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="gu-card-content">
                 <h3>Gujarati Alphabet Chart</h3>
-                <p class="gu-card-desc">The complete Gujarati alphabet chart featuring biodiversity from Saurashtra's savanna grasslands and thorn forests.</p>
+                <p class="gu-card-desc">The complete Gujarati alphabet chart featuring biodiversity from Saurashtra's
+                    savanna grasslands and thorn forests.</p>
                 <div class="gu-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Gujarati Alphabet Chart A1.pdf'}}" class="gu-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Gujarati Alphabet Chart A1.pdf'}}"
+                        class="gu-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -54,18 +107,31 @@
             <div class="gu-card-img">
                 <img src="{{asset 'gj/Preview - Activity Sheet 1.png'}}" alt="Activity Sheet 1">
                 <div class="gu-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 1.pdf'}}" class="gu-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 1.pdf'}}"
+                        class="gu-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="gu-card-content">
                 <h3>Activity Sheet 1</h3>
-                <p class="gu-card-desc">Hands-on activity sheet to complement the Gujarati Alphabet Chart with fun learning exercises.</p>
+                <p class="gu-card-desc">Hands-on activity sheet to complement the Gujarati Alphabet Chart with fun
+                    learning exercises.</p>
                 <div class="gu-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 1.pdf'}}" class="gu-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 1.pdf'}}"
+                        class="gu-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -77,18 +143,31 @@
             <div class="gu-card-img">
                 <img src="{{asset 'gj/Preview - Activity Sheet 2.png'}}" alt="Activity Sheet 2">
                 <div class="gu-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 2.pdf'}}" class="gu-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 2.pdf'}}"
+                        class="gu-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="gu-card-content">
                 <h3>Activity Sheet 2</h3>
-                <p class="gu-card-desc">More activities exploring the flora and fauna featured in the Gujarati Alphabet Chart.</p>
+                <p class="gu-card-desc">More activities exploring the flora and fauna featured in the Gujarati Alphabet
+                    Chart.</p>
                 <div class="gu-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 2.pdf'}}" class="gu-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 2.pdf'}}"
+                        class="gu-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -100,53 +179,37 @@
             <div class="gu-card-img">
                 <img src="{{asset 'gj/Preview - Activity Sheet 3.png'}}" alt="Activity Sheet 3">
                 <div class="gu-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 3.pdf'}}" class="gu-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 3.pdf'}}"
+                        class="gu-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="gu-card-content">
                 <h3>Activity Sheet 3</h3>
-                <p class="gu-card-desc">Creative exercises connecting Kathiawadi dialect with Gujarat's unique grassland ecology.</p>
+                <p class="gu-card-desc">Creative exercises connecting Kathiawadi dialect with Gujarat's unique grassland
+                    ecology.</p>
                 <div class="gu-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 3.pdf'}}" class="gu-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Gujarati Alphabet Chart/Activity Sheet 3.pdf'}}"
+                        class="gu-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Dynamic Cards from Ghost Admin (tag: gujarati-alphabet-chart) -->
-        {{#get "posts" filter="tag:gujarati-alphabet-chart" limit="100" include="authors,tags"}}
-            {{#foreach posts}}
-                <div class="gu-card">
-                    <div class="gu-card-img">
-                        {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
-                        {{/if}}
-                        <div class="gu-card-overlay">
-                            <a href="{{url}}" class="gu-overlay-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                Quick View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="gu-card-content">
-                        <h3>{{title}}</h3>
-                        <p class="gu-card-desc">{{excerpt}}</p>
-                        <div class="gu-card-footer">
-                            <a href="{{url}}" class="gu-download-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                View Resource
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {{/foreach}}
         {{/get}}
-
     </div>
 
     <!-- Educator Note Section -->
@@ -155,20 +218,32 @@
             <div class="gu-educator-note-card">
                 <div class="gu-educator-note-header">
                     <div class="gu-educator-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
                     </div>
                     <h2 class="gu-educator-title">Note for Educators</h2>
                 </div>
                 <div class="gu-educator-content">
-                    <p>This chart highlights unique local life — like wolves and indigenous breeds of livestock — that are essential to the region's ecology and pastoral culture. Developed collaboratively with pastoralists, botanists, and artists, this chart helps children and teachers discover the beauty, diversity, and cultural value embedded in Gujarat's grasslands. Use the accompanying activity sheets for structured, hands-on learning.</p>
+                    <p>This chart highlights unique local life — like wolves and indigenous breeds of livestock — that
+                        are essential to the region's ecology and pastoral culture. Developed collaboratively with
+                        pastoralists, botanists, and artists, this chart helps children and teachers discover the
+                        beauty, diversity, and cultural value embedded in Gujarat's grasslands. Use the accompanying
+                        activity sheets for structured, hands-on learning.</p>
                 </div>
                 <div class="gu-educator-activities">
                     <span class="gu-activities-title">Ways to Use</span>
                     <ul class="gu-activities-list">
-                        <li>Display the chart in classrooms as a conversation starter about local grassland ecosystems</li>
-                        <li>Use the activity sheets for individual or group exercises exploring Gujarat's biodiversity</li>
-                        <li>Ask students to compare the organisms on the chart with ones they see in their own surroundings</li>
-                        <li>Connect to EVS lessons about habitats, food chains, and pastoral livelihoods in Saurashtra</li>
+                        <li>Display the chart in classrooms as a conversation starter about local grassland ecosystems
+                        </li>
+                        <li>Use the activity sheets for individual or group exercises exploring Gujarat's biodiversity
+                        </li>
+                        <li>Ask students to compare the organisms on the chart with ones they see in their own
+                            surroundings</li>
+                        <li>Connect to EVS lessons about habitats, food chains, and pastoral livelihoods in Saurashtra
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -178,9 +253,13 @@
     <!-- Explore More Section -->
     <section class="gu-explore-more">
         <a href="/alphabet-charts/" class="gu-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Alphabet Charts
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

@@ -36,7 +36,10 @@
 
                 {{#if feature_image}}
                 <figure class="post-feature-image">
-                    <img src="{{feature_image}}" alt="{{title}}">
+                    <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,
+                        {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+                        sizes="(max-width: 1000px) 100vw, 1000px" src="{{img_url feature_image size=" l"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
                     {{#if feature_image_caption}}
                     <figcaption>{{feature_image_caption}}</figcaption>
                     {{/if}}
@@ -105,7 +108,7 @@
             <footer class="post-footer">
                 <div class="author-card-single">
                     {{#if profile_image}}
-                    <img src="{{profile_image}}" alt="{{name}}" class="author-avatar-single">
+                    <img src="{{img_url profile_image}}" alt="{{name}}" class="author-avatar-single">
                     {{else}}
                     <div class="author-avatar-single author-avatar-fallback">
                         <span>{{name.[0]}}</span>

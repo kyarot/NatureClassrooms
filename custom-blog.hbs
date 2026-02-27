@@ -1,18 +1,26 @@
-{{!< default}} <div class="blog-page">
+{{!< default}} {{#post}} <div class="blog-page">
 
     <!-- Hero Section -->
     <section class="blog-hero">
         <div class="blog-hero-content">
-            <h1>Blog</h1>
-            <p>A collection of reflections from the team as well as teachers who engage with and use our resources in
-                their spaces.</p>
+            <h1>{{#if title}}{{title}}{{else}}Blog{{/if}}</h1>
+            <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}A collection of reflections from the team as well as
+                teachers who engage with and use our resources in their spaces.{{/if}}</p>
         </div>
     </section>
+
+    {{#if content}}
+    <div class="blog-dynamic-content">
+        <div class="container">
+            {{content}}
+        </div>
+    </div>
+    {{/if}}
 
     <!-- Note Box -->
     <div class="blog-note-container">
         <div class="blog-note-box">
-           
+
             <div class="blog-note-content">
                 <p>We publish contributions from educators who wish to write about their experience with our resources
                     and nature learning. Write to us with your pitches at <a href="mailto:info@natureclassrooms.in"
@@ -108,3 +116,4 @@
     </div>
 
     </div>
+    {{/post}}

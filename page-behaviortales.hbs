@@ -1,11 +1,19 @@
-{{!< default}}
-
-<div class="behavior-tales-page">
+{{!< default}} {{#post}} <div class="behavior-tales-page">
 
     <!-- Hero Section -->
     <section class="bt-hero">
-        <h1>Behaviour Tales</h1>
-        <p>This resource delves into the amazing world of animal hygiene exploring how animals — from birds preening their feathers to mammals licking their fur and insects maintaining their exoskeletons — employ unique strategies to stay clean. This resource can be effectively integrated into science lessons focusing on animal adaptations or health and hygiene units. The activity around it can be adapted to increasing or decreasing complexity for older or younger students, respectively.</p>
+        <h1>{{#if title}}{{title}}{{else}}Behaviour Tales{{/if}}</h1>
+        <div class="bt-hero-content">
+            {{#if content}}
+            {{content}}
+            {{else}}
+            <p>This resource delves into the amazing world of animal hygiene exploring how animals — from birds preening
+                their feathers to mammals licking their fur and insects maintaining their exoskeletons — employ unique
+                strategies to stay clean. This resource can be effectively integrated into science lessons focusing on
+                animal adaptations or health and hygiene units. The activity around it can be adapted to increasing or
+                decreasing complexity for older or younger students, respectively.</p>
+            {{/if}}
+        </div>
     </section>
 
     <!-- Section Header -->
@@ -17,74 +25,87 @@
                 <line x1="9" y1="9" x2="9.01" y2="9"></line>
                 <line x1="15" y1="9" x2="15.01" y2="9"></line>
             </svg>
-            Anchor Charts
+            Resources
         </div>
         <div class="bt-section-line"></div>
-        <div class="bt-section-count">1 resource</div>
     </div>
 
     <!-- Resource Grid -->
     <div class="bt-grid">
-
-        <!-- Animal Grooming Charts -->
+        {{#get "posts" filter="tag:#hash-behaviour-tale" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="bt-card">
+            <div class="bt-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="bt-card-overlay">
+                    <a href="{{url}}" class="bt-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="bt-card-content">
+                <h3>{{title}}</h3>
+                <p class="bt-card-desc">{{custom_excerpt}}</p>
+                <div class="bt-card-footer">
+                    <a href="{{url}}" class="bt-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback to original content if no posts found --}}
         <div class="bt-card">
             <div class="bt-card-img">
                 <img src="{{asset 'bt/Animal Grooming Chart.png'}}" alt="Animal Grooming Charts">
                 <div class="bt-card-overlay">
-                    <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}" class="bt-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}"
+                        class="bt-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="bt-card-content">
                 <h3>Animal Grooming Charts</h3>
-                <p class="bt-card-desc">Explore how animals keep themselves clean — from birds preening to insects maintaining their exoskeletons.</p>
+                <p class="bt-card-desc">Explore how animals keep themselves clean — from birds preening to insects
+                    maintaining their exoskeletons.</p>
                 <div class="bt-card-footer">
                     <div class="bt-download-dropdown">
                         <button class="bt-download-btn">
                             <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
                         </button>
                         <div class="bt-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}" class="bt-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Hindi Animal Grooming Charts.pdf'}}" class="bt-dropdown-item">हिंदी</a>
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Kannada Animal Grooming Charts.pdf'}}" class="bt-dropdown-item">ಕನ್ನಡ</a>
+                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}"
+                                class="bt-dropdown-item">English</a>
+                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Hindi Animal Grooming Charts.pdf'}}"
+                                class="bt-dropdown-item">हिंदी</a>
+                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Kannada Animal Grooming Charts.pdf'}}"
+                                class="bt-dropdown-item">ಕನ್ನಡ</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Dynamic Cards from Ghost Admin (tag: behaviour-tales) -->
-        {{#get "posts" filter="tag:behaviour-tales" limit="100" include="authors,tags"}}
-            {{#foreach posts}}
-                <div class="bt-card">
-                    <div class="bt-card-img">
-                        {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
-                        {{/if}}
-                        <div class="bt-card-overlay">
-                            <a href="{{url}}" class="bt-overlay-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                Quick View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="bt-card-content">
-                        <h3>{{title}}</h3>
-                        <p class="bt-card-desc">{{excerpt}}</p>
-                        <div class="bt-card-footer">
-                            <a href="{{url}}" class="bt-download-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                View Resource
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {{/foreach}}
         {{/get}}
-
     </div>
 
     <!-- Educator Note Section -->
@@ -93,12 +114,20 @@
             <div class="bt-educator-note-card">
                 <div class="bt-educator-note-header">
                     <div class="bt-educator-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
                     </div>
                     <h2 class="bt-educator-title">Note for Educators</h2>
                 </div>
                 <div class="bt-educator-content">
-                    <p>Begin by asking students how and why they keep themselves clean. Introduce the concept that animals also groom themselves using different organs and behaviours that we do not have or use! Use the poster to discuss specific examples, and explore other animal grooming behaviours students might have observed of domestic animals around them. This resource is a direct example of how local nature and ecology can be incorporated into our EVS textbook chapters.</p>
+                    <p>Begin by asking students how and why they keep themselves clean. Introduce the concept that
+                        animals also groom themselves using different organs and behaviours that we do not have or use!
+                        Use the poster to discuss specific examples, and explore other animal grooming behaviours
+                        students might have observed of domestic animals around them. This resource is a direct example
+                        of how local nature and ecology can be incorporated into our EVS textbook chapters.</p>
                 </div>
                 <div class="bt-educator-questions">
                     <span class="bt-questions-title">Questions to Explore</span>
@@ -106,11 +135,13 @@
                         <li>Why do animals need to keep clean? How do their methods compare to ours?</li>
                         <li>Students can be encouraged to observe pets or local birds for grooming behaviors</li>
                         <li>Draw different animals grooming or roleplay/enact different grooming behaviours</li>
-                        <li>Research other unique animal cleaning habits (e.g., ants grooming each other, fish cleaning stations)</li>
+                        <li>Research other unique animal cleaning habits (e.g., ants grooming each other, fish cleaning
+                            stations)</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-</div>
+    </div>
+    {{/post}}

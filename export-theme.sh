@@ -8,7 +8,7 @@ echo "Creating clean Ghost theme ZIP..."
 echo "-------------------------------------------"
 
 # Create zip excluding node_modules and other non-theme files
-zip -r nature-classrooms-theme.zip . -x "node_modules/*" "*.git*" "*.DS_Store*" "server.js" "export-theme.sh" ".ghostignore" "package-lock.json" "*.zip"
+zip -r nature-classrooms-theme.zip . -x "node_modules/*" "*.git*" "*.DS_Store*" "server.js" "export-theme.sh" ".ghostignore" "package-lock.json" "assets/files/*" "*.zip"
 
 echo "-------------------------------------------"
 echo "SUCCESS: nature-classrooms-theme.zip created!"

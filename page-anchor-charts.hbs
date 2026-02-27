@@ -6,21 +6,34 @@
             <img src="{{asset 'illustrations/neem_fruit.png'}}" alt="">
         </div>
         <div class="page-anchor-bottom-illustration" data-reveal>
-            <img src="{{asset 'illustrations/13_3289.PNG'}}" alt="">
+            {{#if access}}
+            {{!-- Fallback or secondary illustration can go here if needed --}}
+            {{/if}}
         </div>
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">Anchor Charts</h1>
-                    <p class="resources-hero-subtitle">
+                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Anchor Charts{{/if}}</h1>
+                    <div class="resources-hero-subtitle">
+                        {{!-- Original Static Description (Always There) --}}
+                        <p>
+                            Anchor charts are a fun way to learn actively or passively! These anchor charts are perfect
+                            for
+                            visually connecting things- like how a tiny insect relies on a specific plant—and
+                            understanding
+                            behaviors, interactions, and phenomena around us, making it simple to start conversations
+                            and
+                            get curious about the living world around us.
+                        </p>
 
-                        Anchor charts are a fun way to learn actively or passively! These anchor charts are perfect for
-                        visually connecting things- like how a tiny insect relies on a specific plant—and understanding
-                        behaviors, interactions, and phenomena around us, making it simple to start conversations and
-                        get curious about the living world around us.
-                    </p>
-                    <div class="hero-age-label">Ages 5+, Adults</div>
+                        {{!-- Extra Ghost Content (Additive) --}}
+                        {{#if content}}
+                        <div class="ghost-content" style="margin-top: 20px;">
+                            {{content}}
+                        </div>
+                        {{/if}}
+                    </div>
                 </div>
             </div>
         </section>
@@ -30,23 +43,42 @@
             <div class="container">
                 {{!-- 3. Resource Grid --}}
                 <div class="resource-horizontal-list">
-                    {{!-- Plant Posters --}}
+                    {{!-- 1. Static Content (Always Visible) --}}
                     {{> "icons/resource-item"
                     title="Plant Posters"
-                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food, pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch. These plant posters offer a close-up, dynamic view of a single plant, highlighting its various parts and the fascinating interactions it has with the most common animals, birds, and insects that use them."
+                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food,
+                    pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch.
+                    These plant posters offer a close-up, dynamic view of a single plant, highlighting its various parts
+                    and the fascinating interactions it has with the most common animals, birds, and insects that use
+                    them."
                     preview_image=(asset "anchor/Plant_Poster.png")
                     download_url="/plantposter/"
-                   is_explore=true
+                    is_explore=true
                     }}
 
-                    {{!-- Behaviour Tales --}}
                     {{> "icons/resource-item"
                     title="Behaviour Tales"
-                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in which they do these essential behaviours and adaptations! This resource was made to supplement primary school chapters on human cleaning habits and delves into the amazing world of animal hygiene, exploring how animals employ unique strategies to stay clean."
+                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in
+                    which they do these essential behaviours and adaptations! This resource was made to supplement
+                    primary school chapters on human cleaning habits and delves into the amazing world of animal
+                    hygiene, exploring how animals employ unique strategies to stay clean."
                     preview_image=(asset "anchor/Behaviour_tales.png")
                     download_url="/behaviortales/"
                     is_explore=true
                     }}
+
+                    {{!-- 2. Dynamic Content (Ghost) --}}
+                    {{#get "posts" filter="tag:#hash-anchor-chart" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
+                    {{/get}}
                 </div>
             </div>
         </section>
@@ -56,7 +88,7 @@
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                    
+
                         <h2 class="educator-title">Note for Educators</h2>
                     </div>
                     <div class="educator-content">

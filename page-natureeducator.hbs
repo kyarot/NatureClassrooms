@@ -1,23 +1,37 @@
-{{!< default}}
-
-<div class="nem-page">
+{{!< default}} {{#post}} <div class="nem-page">
 
     <!-- Hero Section -->
     <section class="nem-hero">
-        <h1>Nature Educators Meet-ups</h1>
+        <h1>{{#if title}}{{title}}{{else}}Nature Educators Meet-ups{{/if}}</h1>
     </section>
 
     <!-- About Section -->
     <section class="nem-about-section">
         <div class="nem-about-card">
             <div class="nem-about-content">
-                <p>The Nature Educator Meet-ups began as an informal gathering of educators, facilitators, and nature enthusiasts who are passionate about nurturing meaningful connections between children, adults, and the natural world. Started in April 2024 at Cubbon Park, Bengaluru, the community has grown with over 250+ nature education enthusiasts eager to forge connections and collaborate.</p>
+                <p>The Nature Educator Meet-ups began as an informal gathering of educators, facilitators, and nature
+                    enthusiasts who are passionate about nurturing meaningful connections between children, adults, and
+                    the natural world. Started in April 2024 at Cubbon Park, Bengaluru, the community has grown with
+                    over 250+ nature education enthusiasts eager to forge connections and collaborate.</p>
 
-                <p>Since our first meet-up, we have hosted and facilitated 15+ gatherings in Bangalore so far with sessions on theatre, tree and bird walks, games, storytelling, ethical dilemmas that confront us as nature educators, thinking with a design lens, to name a few! Our meet-ups were also featured in an article published in <a href="https://www.thehindu.com/news/cities/bangalore/building-a-community-of-nature-educators-in-bengaluru/article69352709.ece" target="_blank" rel="noopener">The Hindu</a> in March 2025.</p>
+                <p>Since our first meet-up, we have hosted and facilitated 15+ gatherings in Bangalore so far with
+                    sessions on theatre, tree and bird walks, games, storytelling, ethical dilemmas that confront us as
+                    nature educators, thinking with a design lens, to name a few! Our meet-ups were also featured in an
+                    article published in <a
+                        href="https://www.thehindu.com/news/cities/bangalore/building-a-community-of-nature-educators-in-bengaluru/article69352709.ece"
+                        target="_blank" rel="noopener">The Hindu</a> in March 2025.</p>
 
-                <p>The community has now grown beyond Bangalore, reaching nature education enthusiasts in Mumbai, Goa, and Chennai!</p>
+                <p>The community has now grown beyond Bangalore, reaching nature education enthusiasts in Mumbai, Goa,
+                    and Chennai!</p>
 
-                <p>These meet-ups are a space to meet and reflect, share our wonder and our challenges, and brainstorm creative ways to bring nature into our everyday life and learning.</p>
+                <p>These meet-ups are a space to meet and reflect, share our wonder and our challenges, and brainstorm
+                    creative ways to bring nature into our everyday life and learning.</p>
+
+                {{#if content}}
+                <div class="ghost-content" style="margin-top: 2rem;">
+                    {{content}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
@@ -44,18 +58,26 @@
     <section class="nem-contact-section">
         <div class="nem-contact-card">
             <div class="nem-contact-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
             </div>
-            <p>If you are interested in joining or initiating a chapter in your city or town, reach out to us at <a href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
+            <p>If you are interested in joining or initiating a chapter in your city or town, reach out to us at <a
+                    href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
         </div>
     </section>
 
     <!-- Back to Projects -->
     <section class="nem-explore-more">
         <a href="/" class="nem-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Back to Projects
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

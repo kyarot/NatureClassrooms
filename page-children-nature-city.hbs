@@ -1,20 +1,49 @@
-{{!< default}}
-
-<div class="cnc-page">
+{{!< default}} {{#post}} <div class="cnc-page">
 
     <!-- Hero Section -->
     <section class="cnc-hero">
-        <h1>Children and Nature in the City</h1>
-        <p class="cnc-hero-subtitle">A research project to explore the city through the lens of children</p>
+        <h1>{{#if title}}{{title}}{{else}}Children and Nature in the City{{/if}}</h1>
+        <p class="cnc-hero-subtitle">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}A research project to explore the
+            city through the lens of children{{/if}}</p>
     </section>
 
     <!-- About Section -->
     <section class="cnc-about-section">
         <div class="cnc-about-card">
             <div class="cnc-about-content">
-                <p>It is now common to speak of children in the city as being vulnerable to a 'nature-deficit disorder'; a term that has foregrounded social movements that attempt to bring children 'back to nature'. Children in the city, in this sense, are twice removed from 'nature' — once by being spatially distant from 'nature spaces' and then through the digital worlds that they inhabit even within the cityscape. The onset of the COVID-19 pandemic has further marked a pronounced shift in how the everyday is experienced — shaping our mobilities and increasing our dependence on digital technologies. For many children, the space of the school has been brought to the home and interactions with outdoor spaces have become sparse. These pronounced shifts in how the everyday is experienced could have lasting implications on the development of children's affective attitudes towards nature. 'Nature', however, is not only consumed through embodied experiences but through varied forms — from cultural artefacts such as toys and posters to nature documentaries. For children enrolled in schools, Environmental Studies (EVS) is another medium which presents an opportunity to be introduced to and learn more deeply about nature around them. But often, these syllabi too present a nature that is distant from them. Children are often seen to be more acquainted with charismatic species that are 'far away' than those closer to home.</p>
+                <p>It is now common to speak of children in the city as being vulnerable to a 'nature-deficit disorder';
+                    a term that has foregrounded social movements that attempt to bring children 'back to nature'.
+                    Children in the city, in this sense, are twice removed from 'nature' — once by being spatially
+                    distant from 'nature spaces' and then through the digital worlds that they inhabit even within the
+                    cityscape. The onset of the COVID-19 pandemic has further marked a pronounced shift in how the
+                    everyday is experienced — shaping our mobilities and increasing our dependence on digital
+                    technologies. For many children, the space of the school has been brought to the home and
+                    interactions with outdoor spaces have become sparse. These pronounced shifts in how the everyday is
+                    experienced could have lasting implications on the development of children's affective attitudes
+                    towards nature. 'Nature', however, is not only consumed through embodied experiences but through
+                    varied forms — from cultural artefacts such as toys and posters to nature documentaries. For
+                    children enrolled in schools, Environmental Studies (EVS) is another medium which presents an
+                    opportunity to be introduced to and learn more deeply about nature around them. But often, these
+                    syllabi too present a nature that is distant from them. Children are often seen to be more
+                    acquainted with charismatic species that are 'far away' than those closer to home.</p>
 
-                <p>A research project designed in collaboration with Azim Premji University, this study looks to understand how different children in the city relate to, connect with, frame and consume 'nature'. The study will generate baseline information on the nature literacy levels and connections of 10-12 year olds in the city; which will aid us in identifying areas that need addressing as part of our own interventions at Nature Classrooms. We look to employ a range of research methods in our study to present avenues through which participants can articulate and express the relationships that they have with the non-human world. Through the study, we also try to attend to the socio-material lives of children by looking at how their mobilities and spaces have been shaped and transformed by the pandemic. We hope to explore the city through the lens of children and learn more about their lives as situated and on-going; with children framing their own narratives about their lives, neighbourhoods and communities.</p>
+                <p>A research project designed in collaboration with Azim Premji University, this study looks to
+                    understand how different children in the city relate to, connect with, frame and consume 'nature'.
+                    The study will generate baseline information on the nature literacy levels and connections of 10-12
+                    year olds in the city; which will aid us in identifying areas that need addressing as part of our
+                    own interventions at Nature Classrooms. We look to employ a range of research methods in our study
+                    to present avenues through which participants can articulate and express the relationships that they
+                    have with the non-human world. Through the study, we also try to attend to the socio-material lives
+                    of children by looking at how their mobilities and spaces have been shaped and transformed by the
+                    pandemic. We hope to explore the city through the lens of children and learn more about their lives
+                    as situated and on-going; with children framing their own narratives about their lives,
+                    neighbourhoods and communities.</p>
+
+                {{#if content}}
+                <div class="ghost-content" style="margin-top: 2rem;">
+                    {{content}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
@@ -24,12 +53,18 @@
         <div class="cnc-team-container">
             <h2 class="cnc-section-title">Team Members</h2>
             <div class="cnc-team-grid">
-                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener" class="cnc-team-member">Aashish Gokhale</a>
-                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener" class="cnc-team-member">Kaustubh Rau</a>
-                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener" class="cnc-team-member">Vena Kapoor</a>
-                <a href="https://www.ncf-india.org/author/647029/roshni-ravi" target="_blank" rel="noopener" class="cnc-team-member">Roshni Ravi</a>
-                <a href="https://www.linkedin.com/in/ovee-thorat-31295310a/" target="_blank" rel="noopener" class="cnc-team-member">Ovee Thorat</a>
-                <a href="https://www.ncf-india.org/author/646394/suhel-quader" target="_blank" rel="noopener" class="cnc-team-member">Suhel Quader</a>
+                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener"
+                    class="cnc-team-member">Aashish Gokhale</a>
+                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener"
+                    class="cnc-team-member">Kaustubh Rau</a>
+                <a href="https://www.ncf-india.org/author/646987/vena-kapoor-2" target="_blank" rel="noopener"
+                    class="cnc-team-member">Vena Kapoor</a>
+                <a href="https://www.ncf-india.org/author/647029/roshni-ravi" target="_blank" rel="noopener"
+                    class="cnc-team-member">Roshni Ravi</a>
+                <a href="https://www.linkedin.com/in/ovee-thorat-31295310a/" target="_blank" rel="noopener"
+                    class="cnc-team-member">Ovee Thorat</a>
+                <a href="https://www.ncf-india.org/author/646394/suhel-quader" target="_blank" rel="noopener"
+                    class="cnc-team-member">Suhel Quader</a>
             </div>
         </div>
     </section>
@@ -40,8 +75,14 @@
             <div class="cnc-download-info">
                 <h3 class="cnc-download-title">Download Report</h3>
                 <div class="cnc-download-buttons">
-                    <a href="{{asset 'files/Our Work/Research/Child Nature Ooru.pdf'}}" class="cnc-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Our Work/Research/Child Nature Ooru.pdf'}}" class="cnc-download-btn"
+                        download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download
                     </a>
                 </div>
@@ -56,7 +97,8 @@
                 <h3 class="cnc-partners-title">Partner</h3>
                 <div class="cnc-partners-logos">
                     <a href="https://azimpremjiuniversity.edu.in/" target="_blank" rel="noopener">
-                        <img src="{{asset 'collaborators/Azim_Premji_University_logo.png'}}" alt="Azim Premji University">
+                        <img src="{{asset 'collaborators/Azim_Premji_University_logo.png'}}"
+                            alt="Azim Premji University">
                     </a>
                 </div>
             </div>
@@ -66,9 +108,13 @@
     <!-- Back to Projects -->
     <section class="cnc-explore-more">
         <a href="/" class="cnc-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Back to Projects
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

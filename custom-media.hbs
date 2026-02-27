@@ -1,16 +1,22 @@
-{{!< default}} <div class="media-page">
+{{!< default}} {{#post}} <div class="media-page">
 
     <!-- Hero Section -->
     <section class="media-hero">
         <div class="media-hero-content">
             <div class="media-hero-tag">
-
                 Press & Publications
             </div>
-            <h1 style="color: white;">NC in Media</h1>
-
+            <h1 style="color: white;">{{#if title}}{{title}}{{else}}NC in Media{{/if}}</h1>
         </div>
     </section>
+
+    {{#if content}}
+    <section class="media-dynamic-content">
+        <div class="container" style="padding: 60px 20px;">
+            {{content}}
+        </div>
+    </section>
+    {{/if}}
 
     <!-- Articles & Publications -->
     <section class="media-stories-section">
@@ -49,8 +55,7 @@
 
             <!-- Article 2 -->
             <div class="media-card" data-category="research">
-                <a href="{{asset 'files/Our Work/Research/Child Nature Ooru.pdf'}}"
-                    target="_blank" rel="noopener">
+                <a href="{{asset 'files/Our Work/Research/Child Nature Ooru.pdf'}}" target="_blank" rel="noopener">
                     <div class="media-card-img">
                         <span class="media-category-badge research">Research</span>
                         <img src="https://static.wixstatic.com/media/9fa2a3_f7439b99bf3e4a2bba9d5778d49aabef~mv2.png"
@@ -66,8 +71,7 @@
 
             <!-- Article 3 -->
             <div class="media-card" data-category="publication">
-                <a href="{{asset 'files/Our Work/Research/MASTER_S THESIS.pdf'}}"
-                    target="_blank" rel="noopener">
+                <a href="{{asset 'files/Our Work/Research/MASTER_S THESIS.pdf'}}" target="_blank" rel="noopener">
                     <div class="media-card-img">
                         <span class="media-category-badge publication">Publication</span>
                         <img src="https://static.wixstatic.com/media/9fa2a3_2d5996e3159344de82c0ce472bebe078~mv2.png"
@@ -261,6 +265,10 @@
             </div>
         </div>
     </section>
+
+    </div>
+    {{/post}}
+
 
 
 

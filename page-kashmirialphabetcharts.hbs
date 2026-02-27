@@ -1,11 +1,20 @@
-{{!< default}}
-
-<div class="kashmiri-alphabet-page">
+{{!< default}} {{#post}} <div class="kashmiri-alphabet-page">
 
     <!-- Hero Section -->
     <section class="ka-hero">
-        <h1>Kashmiri Alphabet Chart</h1>
-        <p>Walk into any bookstore and you'll find alphabet charts filled with giraffes, penguins, and macaws. But what about all of nature that is right around us? Use this alphabet chart to explore Kashmir's landscape and language through this fun twist on the regular A to Z chart! It can also be used as an anchor chart to base various other activities on.</p>
+        <h1>{{#if title}}{{title}}{{else}}Kashmiri Alphabet Chart{{/if}}</h1>
+        <div class="ka-hero-content">
+            <p>Walk into any bookstore and you'll find alphabet charts filled with giraffes, penguins, and macaws. But
+                what about all of nature that is right around us? Use this alphabet chart to explore Kashmir's landscape
+                and language through this fun twist on the regular A to Z chart! It can also be used as an anchor chart
+                to base various other activities on.</p>
+
+            {{#if content}}
+            <div class="ghost-content" style="margin-top: 2rem;">
+                {{content}}
+            </div>
+            {{/if}}
+        </div>
     </section>
 
     <!-- Section Header -->
@@ -20,29 +29,72 @@
             Resources
         </div>
         <div class="ka-section-line"></div>
-        <div class="ka-section-count">4 resources</div>
     </div>
 
     <!-- Resource Grid -->
     <div class="ka-grid">
-
+        {{#get "posts" filter="tag:#hash-kashmiri-alphabet" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="ka-card">
+            <div class="ka-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="ka-card-overlay">
+                    <a href="{{url}}" class="ka-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="ka-card-content">
+                <h3>{{title}}</h3>
+                <p class="ka-card-desc">{{custom_excerpt}}</p>
+                <div class="ka-card-footer">
+                    <a href="{{url}}" class="ka-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback to original content --}}
         <!-- Kashmiri Alphabet Chart -->
         <div class="ka-card">
             <div class="ka-card-img">
                 <img src="{{asset 'ka/Kashmiri Alphabet Chart.png'}}" alt="Kashmiri Alphabet Chart">
                 <div class="ka-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Kashmiri Alphabet Chart.pdf'}}" class="ka-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Kashmiri Alphabet Chart.pdf'}}"
+                        class="ka-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="ka-card-content">
                 <h3>Kashmiri Alphabet Chart</h3>
-                <p class="ka-card-desc">Explore Kashmir's biodiversity through the Kashmiri alphabet — flip the chart for fun puzzles and activities!</p>
+                <p class="ka-card-desc">Explore Kashmir's biodiversity through the Kashmiri alphabet — flip the chart
+                    for fun puzzles and activities!</p>
                 <div class="ka-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Kashmiri Alphabet Chart.pdf'}}" class="ka-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Kashmiri Alphabet Chart.pdf'}}"
+                        class="ka-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -54,18 +106,31 @@
             <div class="ka-card-img">
                 <img src="{{asset 'ka/Coloring Sheets.png'}}" alt="Colouring Sheets">
                 <div class="ka-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Colouring Sheets.pdf'}}" class="ka-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Colouring Sheets.pdf'}}"
+                        class="ka-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="ka-card-content">
                 <h3>Colouring Sheets</h3>
-                <p class="ka-card-desc">Colour in the plants and animals of Kashmir while learning the Kashmiri alphabet.</p>
+                <p class="ka-card-desc">Colour in the plants and animals of Kashmir while learning the Kashmiri
+                    alphabet.</p>
                 <div class="ka-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Colouring Sheets.pdf'}}" class="ka-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Colouring Sheets.pdf'}}"
+                        class="ka-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -77,18 +142,31 @@
             <div class="ka-card-img">
                 <img src="{{asset 'ka/Cut-Outs.png'}}" alt="Alphabet Chart Cut-Outs">
                 <div class="ka-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Alphabet Chart Cut-Outs.pdf'}}" class="ka-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Alphabet Chart Cut-Outs.pdf'}}"
+                        class="ka-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="ka-card-content">
                 <h3>Alphabet Chart Cut-Outs</h3>
-                <p class="ka-card-desc">Cut out individual letters and illustrations for hands-on learning activities.</p>
+                <p class="ka-card-desc">Cut out individual letters and illustrations for hands-on learning activities.
+                </p>
                 <div class="ka-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Alphabet Chart Cut-Outs.pdf'}}" class="ka-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Alphabet Chart Cut-Outs.pdf'}}"
+                        class="ka-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
@@ -100,53 +178,37 @@
             <div class="ka-card-img">
                 <img src="{{asset 'ka/Activity Ideas.png'}}" alt="Activity Ideas">
                 <div class="ka-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Activity Ideas.pdf'}}" class="ka-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Activity Ideas.pdf'}}"
+                        class="ka-overlay-link" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Quick Download
                     </a>
                 </div>
             </div>
             <div class="ka-card-content">
                 <h3>Activity Ideas</h3>
-                <p class="ka-card-desc">Creative activity ideas to use alongside the Kashmiri Alphabet Chart in classrooms.</p>
+                <p class="ka-card-desc">Creative activity ideas to use alongside the Kashmiri Alphabet Chart in
+                    classrooms.</p>
                 <div class="ka-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Activity Ideas.pdf'}}" class="ka-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Resources/Alphabet Charts/Kashmiri Alphabet Chart/Activity Ideas.pdf'}}"
+                        class="ka-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Resource
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Dynamic Cards from Ghost Admin (tag: kashmiri-alphabet-charts) -->
-        {{#get "posts" filter="tag:kashmiri-alphabet-charts" limit="100" include="authors,tags"}}
-            {{#foreach posts}}
-                <div class="ka-card">
-                    <div class="ka-card-img">
-                        {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
-                        {{/if}}
-                        <div class="ka-card-overlay">
-                            <a href="{{url}}" class="ka-overlay-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                Quick View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ka-card-content">
-                        <h3>{{title}}</h3>
-                        <p class="ka-card-desc">{{excerpt}}</p>
-                        <div class="ka-card-footer">
-                            <a href="{{url}}" class="ka-download-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                View Resource
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            {{/foreach}}
         {{/get}}
-
     </div>
 
     <!-- Educator Note Section -->
@@ -155,12 +217,19 @@
             <div class="ka-educator-note-card">
                 <div class="ka-educator-note-header">
                     <div class="ka-educator-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
                     </div>
                     <h2 class="ka-educator-title">Note for Educators</h2>
                 </div>
                 <div class="ka-educator-content">
-                    <p>Use the Kashmiri Alphabet Chart as an anchor chart in your classroom to spark conversations about local biodiversity. To find other small fun activities, such as puzzles, flip the chart! The accompanying resources — colouring sheets, cut-outs, and activity ideas — can be used for hands-on, multisensory learning across age groups.</p>
+                    <p>Use the Kashmiri Alphabet Chart as an anchor chart in your classroom to spark conversations about
+                        local biodiversity. To find other small fun activities, such as puzzles, flip the chart! The
+                        accompanying resources — colouring sheets, cut-outs, and activity ideas — can be used for
+                        hands-on, multisensory learning across age groups.</p>
                 </div>
                 <div class="ka-educator-activities">
                     <span class="ka-activities-title">Ways to Use</span>
@@ -178,9 +247,13 @@
     <!-- Explore More Section -->
     <section class="ka-explore-more">
         <a href="/alphabet-charts/" class="ka-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Alphabet Charts
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

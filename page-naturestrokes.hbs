@@ -1,29 +1,75 @@
-{{!< default}}
-
-<div class="nature-strokes-page">
+{{!< default}} {{#post}} <div class="nature-strokes-page">
 
     <!-- Hero Section -->
     <section class="ns-hero">
-        <h1>Nature Strokes</h1>
-        <p>Nature has always been our greatest muse. From the earliest forms of communication, we've looked to the natural world for inspiration — a world rich in colour, pattern, texture, design, movement, and more. The Nature Strokes module is an Art and Nature handbook designed to help you explore this timeless connection through hands-on, fun, and exploratory activities! This working module is filled with activities, resources, and ideas that use art as a vibrant medium for learning about nature and, in turn, learning about art through nature.</p>
-    </section>
-
-    <!-- Coming Soon Section -->
-    <section class="ns-coming-soon">
-        <div class="ns-coming-soon-card">
-            <h3>Resources Coming Soon</h3>
-            <p>Look out for updates from us as we release more units of this module in various themes!</p>
+        <h1>{{#if title}}{{title}}{{else}}Nature Strokes{{/if}}</h1>
+        <div class="ns-hero-content">
+            {{#if content}}
+            {{content}}
+            {{else}}
+            <p>Nature has always been our greatest muse. From the earliest forms of communication, we've looked to the
+                natural world for inspiration — a world rich in colour, pattern, texture, design, movement, and more.
+                The Nature Strokes module is an Art and Nature handbook designed to help you explore this timeless
+                connection through hands-on, fun, and exploratory activities! This working module is filled with
+                activities, resources, and ideas that use art as a vibrant medium for learning about nature and, in
+                turn, learning about art through nature.</p>
+            {{/if}}
         </div>
     </section>
 
-
+    <!-- Resources Section -->
+    <div class="ns-grid">
+        {{#get "posts" filter="tag:#hash-nature-stroke" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="ns-card">
+            <div class="ns-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="ns-card-overlay">
+                    <a href="{{url}}" class="ns-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="ns-card-content">
+                <h3>{{title}}</h3>
+                <p class="ns-card-desc">{{custom_excerpt}}</p>
+                <div class="ns-card-footer">
+                    <a href="{{url}}" class="ns-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+        {{else}}
+        <!-- Coming Soon Section -->
+        <section class="ns-coming-soon">
+            <div class="ns-coming-soon-card">
+                <h3>Resources Coming Soon</h3>
+                <p>Look out for updates from us as we release more units of this module in various themes!</p>
+            </div>
+        </section>
+        {{/get}}
+    </div>
 
     <!-- Explore More Section -->
     <section class="ns-explore-more">
         <a href="/modules/" class="ns-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Explore More Learning Modules
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

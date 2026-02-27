@@ -8,12 +8,21 @@
 
     {{#post}}
     <!-- Hero Section -->
-    <section class="about-hero" style="background-image: url('{{asset 'about/about.jpeg'}}');">
+    <section class="about-hero"
+        style="background-image: url('{{#if feature_image}}{{img_url feature_image}}{{else}}{{asset 'about/about.jpeg'}}{{/if}}');">
         <div class="about-hero-content"><br>
             <br>
-            <h1 style="color: white;">About Us</h1>
+            <h1 style="color: white;">{{#if title}}{{title}}{{else}}About Us{{/if}}</h1>
         </div>
     </section>
+
+    {{#if content}}
+    <section class="about-dynamic-content">
+        <div class="container" style="padding: 100px 20px;">
+            {{content}}
+        </div>
+    </section>
+    {{/if}}
 
     <!-- Intro Section -->
     <section class="about-intro">

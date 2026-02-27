@@ -1,19 +1,30 @@
-{{!< default}}
-
-<div class="nbsel-page">
+{{!< default}} {{#post}} <div class="nbsel-page">
 
     <!-- Hero Section -->
     <section class="nbsel-hero">
-        <h1>Nature-Based Social-Emotional Learning for Teachers &amp; Educators</h1>
+        <h1>{{#if title}}{{title}}{{else}}Nature-Based Social-Emotional Learning for Teachers &amp; Educators{{/if}}
+        </h1>
     </section>
 
     <!-- About Section -->
     <section class="nbsel-about-section">
         <div class="nbsel-about-card">
             <div class="nbsel-about-content">
-                <p>Nature Classrooms, to further its goal of supporting teachers and educators with their endeavours in nature education, has developed a programme that integrates nature learning with social-emotional learning.</p>
+                <p>Nature Classrooms, to further its goal of supporting teachers and educators with their endeavours in
+                    nature education, has developed a programme that integrates nature learning with social-emotional
+                    learning.</p>
 
-                <p>With this programme our goal is to put together effective practices, resources, and frameworks integrated with social, emotional, and nature–based learning at its core, with a focus on supporting the overall well-being of teachers. The long-term vision is that this social and emotional development within teachers also influences the manner in which they impart nature education within their classrooms.</p>
+                <p>With this programme our goal is to put together effective practices, resources, and frameworks
+                    integrated with social, emotional, and nature–based learning at its core, with a focus on supporting
+                    the overall well-being of teachers. The long-term vision is that this social and emotional
+                    development within teachers also influences the manner in which they impart nature education within
+                    their classrooms.</p>
+
+                {{#if content}}
+                <div class="ghost-content" style="margin-top: 2rem;">
+                    {{content}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
@@ -25,23 +36,35 @@
 
             <div class="nbsel-goal-card">
                 <div class="nbsel-goal-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
                 </div>
-                <p class="nbsel-goal-text">Can nature-based practices and engagements support in promoting social and emotional well-being of teachers?</p>
+                <p class="nbsel-goal-text">Can nature-based practices and engagements support in promoting social and
+                    emotional well-being of teachers?</p>
             </div>
 
             <div class="nbsel-goal-card">
                 <div class="nbsel-goal-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
                 </div>
-                <p class="nbsel-goal-text">How does supporting teachers' emotional state influence their connections with nature?</p>
+                <p class="nbsel-goal-text">How does supporting teachers' emotional state influence their connections
+                    with nature?</p>
             </div>
 
             <div class="nbsel-goal-card">
                 <div class="nbsel-goal-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
                 </div>
-                <p class="nbsel-goal-text">How does this process of engaging with nature-based social-emotional learning translate in the long-term into subject lessons and classroom practices?</p>
+                <p class="nbsel-goal-text">How does this process of engaging with nature-based social-emotional learning
+                    translate in the long-term into subject lessons and classroom practices?</p>
             </div>
         </div>
     </section>
@@ -50,7 +73,10 @@
     <section class="nbsel-workshop-section">
         <div class="nbsel-workshop-container">
             <h2 class="nbsel-workshop-title">Pilot Workshop</h2>
-            <p class="nbsel-workshop-desc">With the initial framework and practices developed, we launched an online pilot workshop with a goal to engage with a small focus group of teachers/educators, for trialling out the initially developed practices and taking into consideration their feedback and responses which will influence the future implementation of the programme.</p>
+            <p class="nbsel-workshop-desc">With the initial framework and practices developed, we launched an online
+                pilot workshop with a goal to engage with a small focus group of teachers/educators, for trialling out
+                the initially developed practices and taking into consideration their feedback and responses which will
+                influence the future implementation of the programme.</p>
 
             <div class="nbsel-workshop-images">
                 <div class="nbsel-workshop-image">
@@ -69,16 +95,29 @@
             <div class="nbsel-download-info">
                 <h3 class="nbsel-download-title">Download Report</h3>
                 <div class="nbsel-download-buttons">
-                    <a href="{{asset 'files/Our Work/Research/NATURE-BASED SOCIAL-EMOTIONAL LEARNING (SEL) Pilot Report.pdf'}}" class="nbsel-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Our Work/Research/NATURE-BASED SOCIAL-EMOTIONAL LEARNING (SEL) Pilot Report.pdf'}}"
+                        class="nbsel-download-btn" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Download Report
                     </a>
-                    <a href="{{asset 'files/Our Work/Research/MASTER_S THESIS.pdf'}}" class="nbsel-download-btn nbsel-download-btn-outline" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <a href="{{asset 'files/Our Work/Research/MASTER_S THESIS.pdf'}}"
+                        class="nbsel-download-btn nbsel-download-btn-outline" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
                         Internship Report
                     </a>
                 </div>
-                <p class="nbsel-download-credit">This project was undertaken by Priyanka Prakash as a part of her Master's internship with Nature Classrooms.</p>
+                <p class="nbsel-download-credit">This project was undertaken by Priyanka Prakash as a part of her
+                    Master's internship with Nature Classrooms.</p>
             </div>
         </div>
     </section>
@@ -86,16 +125,21 @@
     <!-- Contact Section -->
     <section class="nbsel-contact-section">
         <div class="nbsel-contact-card">
-            <p>Connect if you want to collaborate with us for a research project: <a href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
+            <p>Connect if you want to collaborate with us for a research project: <a
+                    href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
         </div>
     </section>
 
     <!-- Back to Projects -->
     <section class="nbsel-explore-more">
         <a href="/" class="nbsel-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
             Back to Projects
         </a>
     </section>
 
-</div>
+    </div>
+    {{/post}}

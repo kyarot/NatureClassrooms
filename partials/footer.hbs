@@ -2,7 +2,11 @@
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-section footer-brand-section">
-                <img src="{{asset 'logo/main.png'}}" alt="Nature Classrooms" class="footer-logo">
+                {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}" class="footer-logo">
+                {{else}}
+                <img src="{{asset 'logo/main.png'}}" alt="{{@site.title}}" class="footer-logo">
+                {{/if}}
             </div>
 
             <div class="footer-section">
@@ -14,7 +18,7 @@
                     Address
                 </h3>
                 <p class="footer-text">
-                    Nature Classrooms<br>
+                    {{@site.title}}<br>
                     Flat No.1, First Floor, #339, 1st Cross Rd,
                     Canara Bank Layout, Rajiv Gandhi Nagar,
                     Kodigehalli, Bengaluru, Karnataka - 560097, India<br>
@@ -44,6 +48,14 @@
                     <a>info[at]natureclassrooms[dot]in</a>
                 </p>
                 <div class="footer-social-links">
+                    {{#if @site.facebook}}
+                    <a href="{{facebook_url}}" class="footer-social-link" target="_blank" rel="noopener"
+                        aria-label="Facebook">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    {{#if @site.twitter}}
+                    <a href="{{twitter_url}}" class="footer-social-link" target="_blank" rel="noopener"
+                        aria-label="X">{{> "icons/twitter"}}</a>
+                    {{/if}}
                     <a href="https://www.instagram.com/natureclassrooms" class="footer-social-link" target="_blank"
                         rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>
                     <a href="https://www.linkedin.com/company/nature-classrooms/" class="footer-social-link"
@@ -54,7 +66,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{date format="YYYY"}} Nature Classrooms. All rights reserved.</p>
+            <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
         </div>
     </div>
 </footer>

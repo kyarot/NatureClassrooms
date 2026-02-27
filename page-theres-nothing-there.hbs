@@ -12,20 +12,31 @@
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">There's Nothing There</h1>
-                    <p class="resources-hero-subtitle">
-
-                        Nature Classrooms’ nature learning book ‘There’s Nothing There!’ follows Arali and her Amma’s
-                        journey from her school to their home, and everything that they see (or maybe don’t) in between
-                        - and you will get a chance to join them in these delightful journeys! This visually stunning
-                        bilingual book was inspired by the younglings and teachers of Tarabanahalli Govt. School, in
-                        peri urban Bangalore who embarked on adventures to explore nature in and around their school
-                        grounds and local neighbourhoods.
-                    </p>
+                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}There's Nothing There{{/if}}</h1>
+                    <div class="resources-hero-subtitle">
+                        {{#if custom_excerpt}}
+                        {{custom_excerpt}}
+                        {{else}}
+                        <p>Nature Classrooms’ nature learning book ‘There’s Nothing There!’ follows Arali and her Amma’s
+                            journey from her school to their home, and everything that they see (or maybe don’t) in
+                            between - and you will get a chance to join them in these delightful journeys! This visually
+                            stunning bilingual book was inspired by the younglings and teachers of Tarabanahalli Govt.
+                            School, in peri urban Bangalore who embarked on adventures to explore nature in and around
+                            their school grounds and local neighbourhoods.</p>
+                        {{/if}}
+                    </div>
                 </div>
             </div>
         </section>
 
+        {{#if content}}
+        <section class="page-dynamic-content">
+            <div class="container">
+                {{content}}
+            </div>
+        </section>
+        {{else}}
+        {{!-- Fallback to original content --}}
         {{!-- 2. Feature Card Section --}}
         <section class="horizontal-feature-section">
             <div class="container">
@@ -53,9 +64,12 @@
                                 Download <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
                             </button>
                             <div class="download-dropdown-menu">
-                                <a href="{{asset 'files/Resources/There_s Nothing There/There_s Nothing There.pdf'}}" download>English</a>
-                                <a href="{{asset 'files/Resources/There_s Nothing There/Hindi There_s Nothing There.pdf'}}" download>हिन्दी</a>
-                                <a href="{{asset 'files/Resources/There_s Nothing There/There_s Nothing There.pdf'}}" download>ಕನ್ನಡ</a>
+                                <a href="{{asset 'files/Resources/There_s Nothing There/There_s Nothing There.pdf'}}"
+                                    download>English</a>
+                                <a href="{{asset 'files/Resources/There_s Nothing There/Hindi There_s Nothing There.pdf'}}"
+                                    download>हिन्दी</a>
+                                <a href="{{asset 'files/Resources/There_s Nothing There/There_s Nothing There.pdf'}}"
+                                    download>ಕನ್ನಡ</a>
                             </div>
                         </div>
                     </div>
@@ -107,28 +121,28 @@
                         <ul class="questions-list">
                             <p style="font-weight: bold;">Authors:</p> Roshni Ravi, Jane Sahi
 
-                                <p style="font-weight: bold;">Design and Illustrations:</p> Karunya Bhaskar
+                            <p style="font-weight: bold;">Design and Illustrations:</p> Karunya Bhaskar
 
-                                <p style="font-weight: bold;">Supported by:</p> The Bangalore Sustainability Forum
+                            <p style="font-weight: bold;">Supported by:</p> The Bangalore Sustainability Forum
 
-                                <p style="font-weight: bold;">In collaboration with:</p> The Fig Tree Learning Center
+                            <p style="font-weight: bold;">In collaboration with:</p> The Fig Tree Learning Center
 
-                                <p style="font-weight: bold;">Languages:</p> English and ಕನ್ನಡ, English and हिन्दी
+                            <p style="font-weight: bold;">Languages:</p> English and ಕನ್ನಡ, English and हिन्दी
 
-                                <p style="font-weight: bold;">Translation support (ಕನ್ನಡ):</p> Anu Mothi, Maadhyama Aneka Pvt. Ltd
+                            <p style="font-weight: bold;">Translation support (ಕನ್ನಡ):</p> Anu Mothi, Maadhyama Aneka
+                            Pvt. Ltd
 
-                                <p style="font-weight: bold;">Design support (हिन्दी):</p> Janhavi
+                            <p style="font-weight: bold;">Design support (हिन्दी):</p> Janhavi
 
-                                <p style="font-weight: bold;">Translation support (हिन्दी):</p> Nidhi Pal
+                            <p style="font-weight: bold;">Translation support (हिन्दी):</p> Nidhi Pal
 
-                                <p style="font-weight: bold;">Additional support (हिन्दी):</p> Mihir Pathak </li>
-
-                        
-
+                            <p style="font-weight: bold;">Additional support (हिन्दी):</p> Mihir Pathak </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
+        {{/if}}
     </main>
 
     <script>

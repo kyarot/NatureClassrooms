@@ -12,11 +12,22 @@
         <div class="hero-overlay">
             <div class="hero-overlay-bg"></div>
             <div class="hero-content">
+                {{#get "pages" slug="home" limit="1"}}
+                {{#foreach pages}}
+                <h1 class="hero-welcome">
+                    <span class="welcome-cursive">{{#if title}}{{title}}{{else}}Welcome to{{/if}}</span>
+                    <span class="welcome-bold">{{#if
+                        custom_excerpt}}{{custom_excerpt}}{{else}}{{@site.title}}{{/if}}</span>
+                </h1>
+                {{/foreach}}
+                {{else}}
                 <h1 class="hero-welcome">
                     <span class="welcome-cursive">Welcome to</span>
                     <span class="welcome-bold">Nature Classrooms</span>
                 </h1>
-                <button class="hero-read-more" id="readMoreBtn" onclick="document.getElementById('what-we-do').scrollIntoView({behavior:'smooth'})">Explore
+                {{/get}}
+                <button class="hero-read-more" id="readMoreBtn"
+                    onclick="document.getElementById('what-we-do').scrollIntoView({behavior:'smooth'})">Explore
                     More</button>
             </div>
         </div>
@@ -29,12 +40,18 @@
             <div class="what-we-do-wrapper">
                 <div class="what-we-do-content">
                     <p>
-                       We see nature as the ideal learning space, or classroom, and hope to blur the distinctions between the two - which inspired the name “Nature Classrooms". We symbolise this in our logo by depicting an ant that is curious and excited about exploring the natural world beyond classroom boundaries. This ubiquitous ant is also a reminder of how interspersed nature and nature learning is in our lives.
+                        We see nature as the ideal learning space, or classroom, and hope to blur the distinctions
+                        between the two - which inspired the name “Nature Classrooms". We symbolise this in our logo by
+                        depicting an ant that is curious and excited about exploring the natural world beyond classroom
+                        boundaries. This ubiquitous ant is also a reminder of how interspersed nature and nature
+                        learning is in our lives.
 
-​
+                        ​
                     </p>
                     <p>
-                        Nature Classrooms programme works in collaboration with Youth Conservation Action Network (YouCAN) to effectively advance our individual and collective goals for nature education and conservation.
+                        Nature Classrooms programme works in collaboration with Youth Conservation Action Network
+                        (YouCAN) to effectively advance our individual and collective goals for nature education and
+                        conservation.
                     </p>
                 </div>
 
@@ -57,7 +74,9 @@
                     <div class="arm-card-overlay"></div>
                     <div class="arm-card-content">
                         <h3 class="arm-card-title">Resource Creation</h3>
-                        <p class="arm-card-description">Browse through our growing collection of nature learning resources aimed at integrating age-appropriate and locally-contextually-culturally relevant nature learning in teaching-learning spaces.</p>
+                        <p class="arm-card-description">Browse through our growing collection of nature learning
+                            resources aimed at integrating age-appropriate and locally-contextually-culturally relevant
+                            nature learning in teaching-learning spaces.</p>
                         <a href="/resourcecreation/" class="arm-card-btn">Read More</a>
                     </div>
                 </div>
@@ -67,9 +86,10 @@
                     <div class="arm-card-overlay"></div>
                     <div class="arm-card-content">
                         <h3 class="arm-card-title">Capacity Building & Training</h3>
-                        <p class="arm-card-description">We conduct immersive, context-driven workshops empowering teachers and educators to integrate nature learning into diverse teaching-learning spaces.
+                        <p class="arm-card-description">We conduct immersive, context-driven workshops empowering
+                            teachers and educators to integrate nature learning into diverse teaching-learning spaces.
 
-</p>
+                        </p>
                         <a href="/capacity/" class="arm-card-btn">Read More</a>
                     </div>
                 </div>
@@ -79,7 +99,9 @@
                     <div class="arm-card-overlay"></div>
                     <div class="arm-card-content">
                         <h3 class="arm-card-title">Research</h3>
-                        <p class="arm-card-description">Through our research projects, we address questions that arise from engaging with Nature Learning and contribute towards meaningful education practices in the Global South.</p>
+                        <p class="arm-card-description">Through our research projects, we address questions that arise
+                            from engaging with Nature Learning and contribute towards meaningful education practices in
+                            the Global South.</p>
                         <a href="/research/" class="arm-card-btn">Read More</a>
                     </div>
                 </div>
@@ -89,7 +111,8 @@
                     <div class="arm-card-overlay"></div>
                     <div class="arm-card-content">
                         <h3 class="arm-card-title">Outreach & Public Engagement</h3>
-                        <p class="arm-card-description">Through our outreach initiatives, we foster dialogue, collaboration, and co-learning.</p>
+                        <p class="arm-card-description">Through our outreach initiatives, we foster dialogue,
+                            collaboration, and co-learning.</p>
                         <a href="/outreach/" class="arm-card-btn">Read More</a>
                     </div>
                 </div>
@@ -121,12 +144,58 @@
                 <div class="partner-card">
                     <img src="{{asset "partnerlogo/Moonfrog.png"}}" alt="Moonfrog">
                 </div>
-                 <div class="partner-card">
+                <div class="partner-card">
                     <img src="{{asset "partnerlogo/wipro.jpeg"}}" alt="Moonfrog">
                 </div>
-                 <div class="partner-card">
+                <div class="partner-card">
                     <img src="{{asset "partnerlogo/BSF logo.jpg"}}" alt="Moonfrog">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest from the Blog -->
+    <section class="home-blog-section" style="padding: 100px 0; background: #f8f9fa;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px;">
+                <div>
+                    <h2 style="font-size: 50px; margin-bottom: 10px;">Latest Stories</h2>
+                    <p style="color: #666; font-size: 1.1rem;">Reflections and learnings from our journey</p>
+                </div>
+                <a href="/blog/" class="view-all-btn"
+                    style="color: #2d5a27; font-weight: 600; text-decoration: none; border-bottom: 2px solid #2d5a27; padding-bottom: 5px;">View
+                    All Stories</a>
+            </div>
+
+            <div class="blog-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                {{#get "posts" limit="3" include="authors,tags"}}
+                {{#foreach posts}}
+                <a href="{{url}}" class="post-card"
+                    style="text-decoration: none; color: inherit; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+                    <div class="post-card-img" style="aspect-ratio: 16/9; overflow: hidden;">
+                        {{#if feature_image}}
+                        <img src="{{img_url feature_image}}" alt="{{title}}"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        {{else}}
+                        <div style="width: 100%; height: 100%; background: #e9ecef;"></div>
+                        {{/if}}
+                    </div>
+                    <div class="post-card-content" style="padding: 25px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4;">{{title}}</h3>
+                        <p
+                            style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            {{excerpt words="25"}}...</p>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div
+                                style="width: 30px; height: 30px; border-radius: 50%; background: #2d5a27; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; font-weight: 600;">
+                                {{primary_author.name.[0]}}</div>
+                            <span style="font-size: 0.9rem; color: #444;">{{primary_author.name}}</span>
+                        </div>
+                    </div>
+                </a>
+                {{/foreach}}
+                {{/get}}
             </div>
         </div>
     </section>

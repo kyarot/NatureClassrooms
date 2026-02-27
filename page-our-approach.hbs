@@ -12,14 +12,30 @@
             <div class="approach-hero-bg" style="background-image: url('{{asset "ourapproach/our1.jpg"}}');"></div>
             <div class="approach-hero-overlay"></div>
             <div class="approach-hero-content">
-                <h1 class="approach-hero-title" data-reveal>Our Approach</h1>
-                <p class="approach-hero-description" data-reveal>
-                    In today’s changing world, learners often view nature as unfamiliar and distant from their lives. Informed by research and our experiences of engaging with teachers, educators, and children from different contexts and geographies, we have developed a Nature Learning Framework and Pedagogy. This approach aims to provide opportunities for learners to develop a deeper sense of wonder, love, and a lasting connection with nature, the natural world. 
-
- 
-
-This dynamic and collaborative approach deeply informs our nature learning and resource creation process. It is based on observations and reflections from classrooms, conversations with teachers, understanding the needs of teachers and students, and correlating them with the school curriculum. 
-                </p>
+                <h1 class="approach-hero-title" data-reveal>{{#if title}}{{title}}{{else}}Our Approach{{/if}}</h1>
+                <div class="approach-hero-description" data-reveal>
+                    {{#if content}}
+                    {{!-- Content handled below if fully dynamic --}}
+                    {{else}}
+                    {{#if custom_excerpt}}
+                    {{custom_excerpt}}
+                    {{else}}
+                    <p>
+                        In today’s changing world, learners often view nature as unfamiliar and distant from their
+                        lives. Informed by research and our experiences of engaging with teachers, educators, and
+                        children from different contexts and geographies, we have developed a Nature Learning Framework
+                        and Pedagogy. This approach aims to provide opportunities for learners to develop a deeper sense
+                        of wonder, love, and a lasting connection with nature, the natural world.
+                    </p>
+                    <p>
+                        This dynamic and collaborative approach deeply informs our nature learning and resource creation
+                        process. It is based on observations and reflections from classrooms, conversations with
+                        teachers, understanding the needs of teachers and students, and correlating them with the school
+                        curriculum.
+                    </p>
+                    {{/if}}
+                    {{/if}}
+                </div>
             </div>
 
             {{!-- 2. Fog / Cloud Section Separator --}}
@@ -28,7 +44,15 @@ This dynamic and collaborative approach deeply informs our nature learning and r
             </div>
         </section>
 
-        {{!-- 3. Philosophy Section (Alternating) --}}
+        {{#if content}}
+        <section class="approach-dynamic-content">
+            <div class="container">
+                {{content}}
+            </div>
+        </section>
+        {{else}}
+        {{!-- Fallback to original content --}}
+        {{!-- 3. Philosophy Section --}}
         <section class="approach-section approach-overview" id="philosophy">
             <div class="container">
                 <div class="approach-grid">
@@ -55,7 +79,7 @@ This dynamic and collaborative approach deeply informs our nature learning and r
             </div>
         </section>
 
-        {{!-- 4. Research Section (Alternating) --}}
+        {{!-- 4. Research Section --}}
         <section class="approach-section" id="research">
             <div class="container">
                 <div class="approach-grid alternate">
@@ -87,26 +111,28 @@ This dynamic and collaborative approach deeply informs our nature learning and r
             </div>
         </section>
 
-        {{!-- 5. Pedagogy & Framework Section (Pillars) --}}
+        {{!-- 5. Pedagogy & Framework Section --}}
         <section class="approach-section pillar-section" id="pedagogy">
             <div class="container">
                 <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">The
                     Pillars
                     of Our Program</h2>
                 <div class="pillar-grid">
-                    {{!-- Pillar 1: Pedagogy --}}
                     <div class="pillar-card" data-reveal>
                         <div class="pillar-image">
-                            <img src="{{asset "ourapproach/Nature Classrooms Pedagogy.png"}}" alt="Capacity Building & Training">
+                            <img src="{{asset "ourapproach/Nature Classrooms Pedagogy.png"}}"
+                                alt="Capacity Building & Training">
                         </div>
                         <div class="pillar-content-wrapper">
                             <h3 class="pillar-title">Nature Classrooms Pedagogy</h3>
                             <p class="pillar-description">
-                                Aims to provide a dynamic, inclusive, and collaborative approach to planning nature learning engagements and resources, to develop wonder, love, and a physical and emotional connection to nature. 
+                                Aims to provide a dynamic, inclusive, and collaborative approach to planning nature
+                                learning engagements and resources, to develop wonder, love, and a physical and
+                                emotional connection to nature.
                             </p>
-                            <a href="{{asset 'files/Our Approach/Nature Classrooms Pedagogy.pdf'}}"
-                                class="download-btn" target="_blank">Download Pedagogy <svg width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <a href="{{asset 'files/Our Approach/Nature Classrooms Pedagogy.pdf'}}" class="download-btn"
+                                target="_blank">Download Pedagogy <svg width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -114,19 +140,20 @@ This dynamic and collaborative approach deeply informs our nature learning and r
                         </div>
                     </div>
 
-                    {{!-- Pillar 2: Framework --}}
                     <div class="pillar-card" data-reveal>
                         <div class="pillar-image">
-                            <img src="{{asset "ourapproach/Nature Learning Framework.png"}}" alt="Research & Framework">
+                            <img src="{{asset "ourapproach/Nature Learning Framework.png"}}"
+                                alt="Research & Framework">
                         </div>
                         <div class="pillar-content-wrapper">
                             <h3 class="pillar-title">Nature Learning Framework</h3>
                             <p class="pillar-description">
-                               Guides educators in selecting, designing, and developing age-appropriate resources and session plans for nature learning.
+                                Guides educators in selecting, designing, and developing age-appropriate resources and
+                                session plans for nature learning.
                             </p>
-                            <a href="{{asset 'files/Our Approach/Framework.pdf'}}"
-                                class="download-btn" target="_blank">Download Framework <svg width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <a href="{{asset 'files/Our Approach/Framework.pdf'}}" class="download-btn"
+                                target="_blank">Download Framework <svg width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -145,10 +172,12 @@ This dynamic and collaborative approach deeply informs our nature learning and r
                     Action</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our4.jpg"}}" alt="Nature Classroom Activity" class="gallery-img">
+                        <img src="{{asset "ourapproach/our4.jpg"}}" alt="Nature Classroom Activity"
+                            class="gallery-img">
                     </div>
                     <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our5.jpg"}}" alt="Children exploring nature" class="gallery-img">
+                        <img src="{{asset "ourapproach/our5.jpg"}}" alt="Children exploring nature"
+                            class="gallery-img">
                     </div>
                     <div class="gallery-item" data-reveal>
                         <img src="{{asset "ourapproach/our6.jpg"}}" alt="Nature observation" class="gallery-img">
@@ -163,10 +192,12 @@ This dynamic and collaborative approach deeply informs our nature learning and r
         {{!-- 7. Action Checklist Section --}}
         <section class="checklist-section approach-section">
             <div class="container">
-                <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">Nature Learning Checklist</h2>
+                <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">Nature Learning Checklist
+                </h2>
                 <p class="text-center"
                     style="text-align: center; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--text-secondary);">
-                   To begin implementing Nature Learning Pedagogy in your classroom, you can download our Pedagogy in the form of an action-oriented checklist here:
+                    To begin implementing Nature Learning Pedagogy in your classroom, you can download our Pedagogy in
+                    the form of an action-oriented checklist here:
                 </p>
 
                 <div class="checklist-container" data-reveal>
@@ -178,7 +209,8 @@ This dynamic and collaborative approach deeply informs our nature learning and r
                         class="checklist-btn" target="_blank">Download in हिंदी</a>
                 </div>
                 <div style="margin-top: 40px; text-align: center;" data-reveal>
-                    <p style="margin-bottom: 24px; font-weight: 600;">For a more elaborate version of the checklist (with explanations, examples, and more questions for consideration), click here:</p>
+                    <p style="margin-bottom: 24px; font-weight: 600;">For a more elaborate version of the checklist
+                        (with explanations, examples, and more questions for consideration), click here:</p>
                     <div class="elaborate-links"
                         style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                         <a href="{{asset 'files/Our Approach/Nature Learning Checklists/Complete Checklist English.pdf'}}"
@@ -235,17 +267,18 @@ This dynamic and collaborative approach deeply informs our nature learning and r
                 </div>
             </div>
         </section>
+        {{/if}}
 
-        {{!-- 9. CTA Section --}}
+        {{!-- 9. CTA Section (Always visible) --}}
         <section class="approach-cta approach-section">
             <div class="container">
                 <div class="cta-content" data-reveal>
                     <h2 class="cta-title">Recommended Readings</h2>
                     <p class="cta-description"
                         style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-secondary);">
-                       Looking for articles and opinion pieces on nature education and nature learning pedagogies?
+                        Looking for articles and opinion pieces on nature education and nature learning pedagogies?
 
-Find a curated list of readings here.
+                        Find a curated list of readings here.
                     </p>
                     <a href="/readings" class="cta-btn">View Recommended Readings</a>
                 </div>

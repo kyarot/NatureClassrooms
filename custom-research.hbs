@@ -1,4 +1,4 @@
-{{!< default}} <div class="research-page">
+{{!< default}} {{#post}} <div class="research-page">
     <div class="research-page-illustration" data-reveal>
         <img src="{{asset 'illustrations/14.PNG'}}" alt="">
     </div>
@@ -10,20 +10,32 @@
         <div class="research-hero-bg"></div>
         <div class="research-hero-overlay"></div>
         <div class="research-hero-content">
-            <h1 style="color: white;">Research</h1>
-            <p>Everything we do is rooted in thoughtful reflection and research.</p>
+            <h1 style="color: white;">{{#if title}}{{title}}{{else}}Research{{/if}}</h1>
+            <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}Everything we do is rooted in thoughtful reflection and
+                research.{{/if}}</p>
         </div>
     </header>
+
+    {{#if content}}
+    <section class="research-dynamic-content">
+        <div class="container" style="padding: 100px 20px;">
+            {{content}}
+        </div>
+    </section>
+    {{/if}}
 
     <!-- Core Philosophy Section -->
     <section class="research-philosophy">
         <div class="research-container">
             <div class="philosophy-content">
                 <h2>Our Research Approach</h2>
-             
-                <p>
-                    Everything we do is rooted in thoughtful reflection and research. We explore how students and teachers experience and connect with the natural world, uncovering stories and insights that guide how we engage with learners and how we design our nature-based learning and approaches. Through gap analysis especially in the context of the Global South, we keep our work grounded, contextual, and evolving. Through our research, we aim to inform our own practice and support the wider nature education community in reimagining how everyday nature can be meaningfully and seamlessly woven into teaching–learning spaces.
-                </p>
+                <p>Everything we do is rooted in thoughtful reflection and research. We explore how students and
+                    teachers experience and connect with the natural world, uncovering stories and insights that guide
+                    how we engage with learners and how we design our nature-based learning and approaches. Through gap
+                    analysis especially in the context of the Global South, we keep our work grounded, contextual, and
+                    evolving. Through our research, we aim to inform our own practice and support the wider nature
+                    education community in reimagining how everyday nature can be meaningfully and seamlessly woven into
+                    teaching–learning spaces.</p>
             </div>
         </div>
     </section>
@@ -39,11 +51,10 @@
                 <div class="project-details">
                     <span class="project-category">Open Source Tool</span>
                     <h3>Nature Education Assessment Framework (NEAF)</h3>
-                    <p>
-                        Developed with the support of the Inlaks Ravi Sankaran Small Grants Programme as an open-source tool to assess the effectiveness of nature education programmes and other nature learning initiatives.
-                    </p>
-                    <a href="/nature-education-assessment-framework/"
-                        class="read-more-link">Read More</a>
+                    <p>Developed with the support of the Inlaks Ravi Sankaran Small Grants Programme as an open-source
+                        tool to assess the effectiveness of nature education programmes and other nature learning
+                        initiatives.</p>
+                    <a href="/nature-education-assessment-framework/" class="read-more-link">Read More</a>
                 </div>
             </div>
 
@@ -55,11 +66,8 @@
                 <div class="project-details">
                     <span class="project-category">Educator Programme</span>
                     <h3>Nature-based Social-Emotional Learning for Teachers and Educators</h3>
-                    <p>
-                        A programme that integrates nature learning with social-emotional learning.
-                    </p>
-                    <a href="/nature-based-social-emotional-learning/"
-                        class="read-more-link">Read More</a>
+                    <p>A programme that integrates nature learning with social-emotional learning.</p>
+                    <a href="/nature-based-social-emotional-learning/" class="read-more-link">Read More</a>
                 </div>
             </div>
 
@@ -71,12 +79,11 @@
                 <div class="project-details">
                     <span class="project-category">Urban Research</span>
                     <h3>Children and Nature in the City</h3>
-                    <p>
-                        A research project to explore the city through the lens of children
-                    </p>
+                    <p>A research project to explore the city through the lens of children</p>
                     <a href="/children-nature-city/" class="read-more-link">Read More</a>
                 </div>
             </div>
         </div>
     </section>
     </div>
+    {{/post}}

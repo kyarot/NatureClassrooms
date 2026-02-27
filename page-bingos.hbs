@@ -1,24 +1,37 @@
 {{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
     {{/contentFor}}
 
-    {{#post}} <main class="site-main">
+    {{#post}}
+    <main class="site-main">
 
         <div class="page-bingo1-illustration" data-reveal>
+            {{#if feature_image}}
+            <img src="{{feature_image}}" alt="{{title}}">
+            {{else}}
             <img src="{{asset 'illustrations/10.PNG'}}" alt="">
+            {{/if}}
         </div>
+
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">Nature Bingos</h1>
-                    <p class="resources-hero-subtitle">
-
-                        We believe learning should be self-directed and fun, and Bingos are designed to do just that.
-                        Bingos encourage exploring the immediate nature around homes, neighborhoods, and schools –
-                        promoting close observation, engaging multiple senses, and making learning a delightful game for
-                        both young students and adults. Use these diverse themes of Bingos to make your nature
-                        exploration all the more exciting!
-                    </p>
+                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Nature Bingos{{/if}}</h1>
+                    <div class="resources-hero-subtitle">
+                        {{#if content}}
+                        {{content}}
+                        {{else}}
+                        <p>
+                            We believe learning should be self-directed and fun, and Bingos are designed to do just
+                            that.
+                            Bingos encourage exploring the immediate nature around homes, neighborhoods, and schools –
+                            promoting close observation, engaging multiple senses, and making learning a delightful game
+                            for
+                            both young students and adults. Use these diverse themes of Bingos to make your nature
+                            exploration all the more exciting!
+                        </p>
+                        {{/if}}
+                    </div>
                     <div class="hero-age-label">Ages 5+, Adults</div>
                 </div>
             </div>
@@ -28,6 +41,18 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-horizontal-list">
+                    {{#get "posts" filter="tag:#hash-bingo" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
+                    {{else}}
+                    {{!-- Fallback to original content --}}
                     {{!-- Nature Bingo --}}
                     {{> "icons/resource-item"
                     title="Nature Bingo"
@@ -82,9 +107,11 @@
                     lang2="ಕನ್ನಡ"
                     lang2_url=(asset "files/Resources/Bingos/Paddy Bingo/Kannada Paddy Bingo .pdf")
                     }}
+                    {{/get}}
                 </div>
             </div>
         </section>
+
         {{!-- 4. Educator Note Section --}}
         <section class="educator-note-section">
             <div class="container">
@@ -98,7 +125,7 @@
                             row or
                             a column (or all items, for a longer activity!) in their immediate surroundings. To add a
                             layer
-                            of exploration, encourage students to use all their senses while exploring and looking for
+                            of exploration, encourage students to use all your senses while exploring and looking for
                             the
                             items on the bingo. Once they find three in a row/column, they can shout out 'BINGO!' This
                             can
