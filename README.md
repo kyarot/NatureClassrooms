@@ -9,6 +9,7 @@ A custom Ghost CMS theme built for [Nature Classrooms](https://natureclassrooms.
 - Ghost CMS **v5.0.0 or later**
 - Node.js (as required by your Ghost version)
 
+
 ---
 
 ## Installation
