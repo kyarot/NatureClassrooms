@@ -114,6 +114,35 @@
         <div class="team-loop-container">
             <div class="team-track">
                 <!-- Set 1 -->
+                {{#get "posts" limit="100" filter="tag:#team-member" include="tags,authors"}}
+                {{#foreach posts}}
+                <div class="team-card" data-initials="">
+                    {{#if feature_image}}
+                    <img src="{{img_url feature_image}}" alt="{{title}}" class="team-card-image">
+                    {{/if}}
+                    <div class="team-info">
+                        <div class="team-header-info">
+                            <h3>{{title}}</h3>
+                            <span class="role">{{primary_tag.name}}</span>
+                        </div>
+                        <div class="team-bio">
+                            {{content}}
+                            {{#if excerpt}}
+                            <a href="{{excerpt}}" target="_blank" rel="noopener noreferrer" class="team-link"
+                                style="color: #fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg></a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+
                 <div class="team-card" data-initials="VK">
                     <img src="{{asset 'about/Vena Kapoor.png'}}" alt="Vena Kapoor" class="team-card-image">
                     <div class="team-info">
@@ -334,6 +363,35 @@
                 </div>
 
                 <!-- Duplicate Set for Seamless Loop -->
+                {{#get "posts" limit="100" filter="tag:#team-member" include="tags,authors"}}
+                {{#foreach posts}}
+                <div class="team-card" data-initials="">
+                    {{#if feature_image}}
+                    <img src="{{img_url feature_image}}" alt="{{title}}" class="team-card-image">
+                    {{/if}}
+                    <div class="team-info">
+                        <div class="team-header-info">
+                            <h3>{{title}}</h3>
+                            <span class="role">{{primary_tag.name}}</span>
+                        </div>
+                        <div class="team-bio">
+                            {{content}}
+                            {{#if excerpt}}
+                            <a href="{{excerpt}}" target="_blank" rel="noopener noreferrer" class="team-link"
+                                style="color: #fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg></a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+
                 <div class="team-card" data-initials="VK">
                     <img src="{{asset 'about/Vena Kapoor.png'}}" alt="Vena Kapoor" class="team-card-image">
                     <div class="team-info">

@@ -65,6 +65,22 @@
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 20px;"> Who Do We Engage With</h2>
             <div class="engagement-grid">
+                {{#get "posts" limit="100" filter="tag:#capacity-engagement" include="tags,authors"}}
+                {{#foreach posts}}
+                <div class="engagement-card">
+                    <div class="card-image">
+                        {{#if feature_image}}
+                        <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                    </div>
+                    <div class="card-content">
+                        <h3>{{title}}</h3>
+                        {{content}}
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+
                 <!-- Teachers -->
                 <div class="engagement-card">
                     <div class="card-image">

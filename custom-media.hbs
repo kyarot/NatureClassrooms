@@ -36,6 +36,26 @@
         </div>
 
         <div class="media-grid">
+            {{#get "posts" limit="100" filter="tag:#media-article" include="tags,authors"}}
+            {{#foreach posts}}
+            <div class="media-card" data-category="{{primary_tag.slug}}">
+                <a href="{{excerpt}}" target="_blank" rel="noopener">
+                    <div class="media-card-img">
+                        <span class="media-category-badge {{primary_tag.slug}}">{{primary_tag.name}}</span>
+                        {{#if feature_image}}
+                        <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                    </div>
+                    <div class="media-card-content">
+                        <span class="media-publisher">{{#foreach tags from="2" to="2"}}{{name}}{{/foreach}}</span>
+                        <h3>{{title}}</h3>
+                        <p class="media-author">{{authors}}</p>
+                    </div>
+                </a>
+            </div>
+            {{/foreach}}
+            {{/get}}
+
             <!-- Article 1 -->
             <div class="media-card" data-category="press">
                 <a href="https://www.natureclassrooms.org/_files/ugd/9fa2a3_99b40ce2bad742dd8746f8dc357d948f.pdf"
@@ -218,6 +238,33 @@
         </div>
 
         <div class="podcast-grid">
+            {{#get "posts" limit="100" filter="tag:#media-podcast" include="tags,authors"}}
+            {{#foreach posts}}
+            <div class="podcast-card">
+                <div class="podcast-thumb">
+                    {{#if feature_image}}
+                    <img src="{{img_url feature_image}}" alt="{{title}}">
+                    {{/if}}
+                </div>
+                <div class="podcast-content">
+                    <div class="podcast-label">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="23" />
+                            <line x1="8" y1="23" x2="16" y2="23" />
+                        </svg>
+                        {{primary_tag.name}}
+                    </div>
+                    <h3>{{title}}</h3>
+                    <p class="podcast-host">{{#foreach tags from="2" to="2"}}{{name}}{{/foreach}}</p>
+                    <a href="{{excerpt}}" target="_blank" rel="noopener" class="podcast-link">Listen Now →</a>
+                </div>
+            </div>
+            {{/foreach}}
+            {{/get}}
+
             <!-- Podcast 1 -->
             <div class="podcast-card">
                 <div class="podcast-thumb">

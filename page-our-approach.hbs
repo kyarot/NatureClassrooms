@@ -118,6 +118,32 @@
                     Pillars
                     of Our Program</h2>
                 <div class="pillar-grid">
+                    {{#get "posts" limit="100" filter="tag:#program-pillar" include="tags,authors"}}
+                    {{#foreach posts}}
+                    <div class="pillar-card" data-reveal>
+                        <div class="pillar-image">
+                            {{#if feature_image}}
+                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                            {{/if}}
+                        </div>
+                        <div class="pillar-content-wrapper">
+                            <h3 class="pillar-title">{{title}}</h3>
+                            <div class="pillar-description">
+                                {{content}}
+                            </div>
+                            {{#if excerpt}}
+                            <a href="{{excerpt}}" class="download-btn" target="_blank">Download <svg width="18"
+                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg></a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/foreach}}
+                    {{/get}}
+
                     <div class="pillar-card" data-reveal>
                         <div class="pillar-image">
                             <img src="{{asset "ourapproach/Nature Classrooms Pedagogy.png"}}"
@@ -256,6 +282,7 @@
                         </div>
                     </div>
                     <div class="process-step" data-reveal>
+                        <div class="step-number">03</div>
                         <div class="step-number">03</div>
                         <div class="step-content">
                             <h3>Implement & Reflect</h3>

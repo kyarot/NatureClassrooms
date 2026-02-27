@@ -37,10 +37,27 @@
     <section class="outreach-initiatives">
         <div class="outreach-container">
             <div class="initiative-grid">
+                {{#get "posts" limit="100" filter="tag:#outreach-initiative" include="tags,authors"}}
+                {{#foreach posts}}
+                <div class="initiative-card">
+                    <div class="card-image">
+                        {{#if feature_image}}
+                        <img src="{{img_url feature_image}}" alt="{{title}}">
+                        {{/if}}
+                    </div>
+                    <div class="card-body">
+                        <h3>{{title}}</h3>
+                        {{content}}
+                        <a href="{{excerpt}}" class="btn-text" target="_blank" rel="noopener">Read More</a>
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+
                 <!-- Communities of Practice -->
                 <div class="initiative-card">
                     <div class="card-image">
-                        <img src="{{asset 'outreach/out2.PNG'}}" alt="Communities of Practice">
+                        <img src="{{asset 'outreach/out2.png'}}" alt="Communities of Practice">
                     </div>
                     <div class="card-body">
                         <h3>Communities of Practice</h3>
@@ -53,7 +70,7 @@
                 <!-- Nature Educators Meet-ups -->
                 <div class="initiative-card">
                     <div class="card-image">
-                        <img src="{{asset 'outreach/out3.jpg'}}" alt="Nature Educators Meet-ups">
+                        <img src="{{asset 'outreach/out3.JPG'}}" alt="Nature Educators Meet-ups">
                     </div>
                     <div class="card-body">
                         <h3>Nature Educators Meet-ups</h3>
