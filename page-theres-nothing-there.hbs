@@ -30,14 +30,14 @@
         </section>
 
         {{#if content}}
-        <section class="page-dynamic-content">
+        <section class="page-dynamic-content" style="padding-top: 50px;">
             <div class="container">
                 {{content}}
             </div>
         </section>
-        {{else}}
-        {{!-- Fallback to original content --}}
-        {{!-- 2. Feature Card Section --}}
+        {{/if}}
+
+        {{!-- 2. Feature Card Section (Always Visible) --}}
         <section class="horizontal-feature-section">
             <div class="container">
                 <div class="feature-card-horizontal" data-reveal>
@@ -77,7 +77,7 @@
             </div>
         </section>
 
-        {{!-- 3. Game Section --}}
+        {{!-- 3. Game Section (Always Visible) --}}
         <section class="game-promo-section">
             <div class="container">
                 <div class="game-promo-container" data-reveal>
@@ -91,7 +91,7 @@
         </section>
 
 
-        {{!-- 4. Educator Note Section --}}
+        {{!-- 4. Educator Note Section (Always Visible) --}}
         <section class="educator-note-section">
             <div class="container">
                 <div class="educator-note-card" data-reveal>
@@ -142,7 +142,6 @@
                 </div>
             </div>
         </section>
-        {{/if}}
     </main>
 
     <script>

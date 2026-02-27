@@ -17,9 +17,7 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Alphabet Charts{{/if}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
-                        {{content}}
-                        {{else}}
+                        {{!-- Original Static Description (Always There) --}}
                         <p>
                             Walk into most stores and classrooms in India, and you will find alphabet learning charts
                             connecting the alphabet using exotic animals, birds, or other man-made things from our
@@ -32,6 +30,12 @@
                             them,
                             spark conversations about local ecology, and inspire further exploration.
                         </p>
+
+                        {{!-- Extra Ghost Content (Additive) --}}
+                        {{#if content}}
+                        <div class="ghost-content" style="margin-top: 20px;">
+                            {{content}}
+                        </div>
                         {{/if}}
                     </div>
                     <div class="hero-age-label">Ages 3+, Adults</div>
@@ -43,18 +47,7 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-2-col">
-                    {{#get "posts" filter="tag:#hash-alphabet-chart" order="published_at desc" include="tags"}}
-                    {{#foreach posts}}
-                    {{> "icons/resource-item"
-                    title=title
-                    description=custom_excerpt
-                    preview_image=feature_image
-                    download_url=url
-                    is_explore=true
-                    }}
-                    {{/foreach}}
-                    {{else}}
-                    {{!-- Fallback to original content --}}
+                    {{!-- 1. Static Content (Always Visible) --}}
                     {{!-- Kashmiri --}}
                     {{> "icons/resource-item"
                     title="Kashmiri Alphabet Chart"
@@ -117,6 +110,18 @@
                     download_url="/gujaratialphabetchart/"
                     is_explore=true
                     }}
+
+                    {{!-- 2. Dynamic Content (Ghost) --}}
+                    {{#get "posts" filter="tag:#hash-alphabet-chart" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
                     {{/get}}
                 </div>
             </div>

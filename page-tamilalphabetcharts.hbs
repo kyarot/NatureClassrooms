@@ -63,12 +63,13 @@
             </div>
         </div>
         {{/foreach}}
-        {{else}}
-        {{!-- Fallback to original content --}}
+        {{/get}}
+
+        {{!-- Original Static Content (Always Visible) --}}
         <!-- Tamil Alphabet Chart -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="{{asset 'ta/Preview - Tamil Alphabet Chart.png'}}" alt="Tamil Alphabet Chart">
+                <img src="{{asset 'ta/Tamil Alphabet Chart.png'}}" alt="Tamil Alphabet Chart">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Tamil Alphabet Chart.pdf'}}"
                         class="ta-overlay-link" download>
@@ -104,7 +105,7 @@
         <!-- Explainer Document -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="{{asset 'ta/Preview - Explainer Document.png'}}" alt="Explainer Document">
+                <img src="{{asset 'ta/Explainer Document - Tamil Alphabet Chart.png'}}" alt="Explainer Document">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Explainer Document.pdf'}}"
                         class="ta-overlay-link" download>
@@ -140,7 +141,7 @@
         <!-- Vowels -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="{{asset 'ta/Preview - Vowels.png'}}" alt="Vowels">
+                <img src="{{asset 'ta/Vowels- Tamil Alphabet Chart.png'}}" alt="Vowels">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowels.pdf'}}"
                         class="ta-overlay-link" download>
@@ -175,7 +176,7 @@
         <!-- Vowel-Consonants -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="{{asset 'ta/Preview - Vowel-Consonants.png'}}" alt="Vowel-Consonants">
+                <img src="{{asset 'ta/Vowels Consonants - Tamil Alphabet Chart.png'}}" alt="Vowel-Consonants">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowel-Consonants.pdf'}}"
                         class="ta-overlay-link" download>
@@ -210,7 +211,7 @@
         <!-- Consonants -->
         <div class="ta-card">
             <div class="ta-card-img">
-                <img src="{{asset 'ta/Preview - Consonants.png'}}" alt="Consonants">
+                <img src="{{asset 'ta/Consonants - Tamil Alphabet Chart.png'}}" alt="Consonants">
                 <div class="ta-card-overlay">
                     <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Consonants.pdf'}}"
                         class="ta-overlay-link" download>
@@ -241,7 +242,6 @@
                 </div>
             </div>
         </div>
-        {{/get}}
     </div>
 
     <!-- Video Note Section -->

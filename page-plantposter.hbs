@@ -31,7 +31,7 @@
 
     <!-- Resource Grid -->
     <div class="pp-grid">
-        {{#get "posts" filter="tag:#hash-plant-poster" order="published_at desc" include="tags"}}
+        {{#get "posts" filter="tag:#hash-plant-posters" order="published_at desc" include="tags"}}
         {{#foreach posts}}
         <div class="pp-card">
             <div class="pp-card-img">
@@ -61,8 +61,9 @@
             </div>
         </div>
         {{/foreach}}
-        {{else}}
-        {{!-- Fallback to original content if no posts found --}}
+        {{/get}}
+
+        {{!-- Original Static Content (Always Visible) --}}
         <!-- Giant Milkweed -->
         <div class="pp-card">
             <div class="pp-card-img">
@@ -310,7 +311,6 @@
                 </div>
             </div>
         </div>
-        {{/get}}
     </div>
 
     <!-- Educator Note Section -->

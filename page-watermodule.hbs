@@ -9,34 +9,43 @@
     <section class="wm-about-section">
         <div class="wm-about-card">
             <div class="wm-about-content">
+                {{!-- Original Static Description (Always There) --}}
+                <div class="static-content">
+                    <p>In our current school textbooks, the topic of water is introduced to teachers and learners with a
+                        focus on our 'uses of water.' For example: how and why is water useful and important to humans,
+                        what
+                        does scarcity of water imply for us, or how should we conserve it? Water, as an ecosystem,
+                        however,
+                        goes so much beyond our use and interactions with it. As you will discover through this module,
+                        water is also home to and as important to a multitude of life on Earth.</p>
+
+                    <p class="wm-levels-intro">Divided into three levels — each level has been designed for children
+                        belonging to specific grades and age groups.</p>
+
+                    <ul class="wm-about-list">
+                        <li>With two major topics and relevant sub-topics covered, each level has been designed with an
+                            aim
+                            to achieve a series of nature learning goals.</li>
+                        <li>The module is designed using different mediums to engage the learner, including read-aloud
+                            stories, observation charts, picture-cards, audio-visual resources, group activities, and
+                            discussions.</li>
+                        <li>The lessons are linked with existing EVS chapters and cover a range of topics that nurture
+                            wonderment for water as an ecosystem.</li>
+                    </ul>
+                </div>
+
+                {{!-- Extra Ghost Content (Additive) --}}
                 {{#if content}}
-                {{content}}
-                {{else}}
-                <p>In our current school textbooks, the topic of water is introduced to teachers and learners with a
-                    focus on our 'uses of water.' For example: how and why is water useful and important to humans, what
-                    does scarcity of water imply for us, or how should we conserve it? Water, as an ecosystem, however,
-                    goes so much beyond our use and interactions with it. As you will discover through this module,
-                    water is also home to and as important to a multitude of life on Earth.</p>
-
-                <p class="wm-levels-intro">Divided into three levels — each level has been designed for children
-                    belonging to specific grades and age groups.</p>
-
-                <ul class="wm-about-list">
-                    <li>With two major topics and relevant sub-topics covered, each level has been designed with an aim
-                        to achieve a series of nature learning goals.</li>
-                    <li>The module is designed using different mediums to engage the learner, including read-aloud
-                        stories, observation charts, picture-cards, audio-visual resources, group activities, and
-                        discussions.</li>
-                    <li>The lessons are linked with existing EVS chapters and cover a range of topics that nurture
-                        wonderment for water as an ecosystem.</li>
-                </ul>
+                <div class="ghost-content"
+                    style="margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem;">
+                    {{content}}
+                </div>
                 {{/if}}
             </div>
         </div>
     </section>
 
-    {{#unless content}}
-    <!-- Download Section (Fallback) -->
+    {{!-- Download Section (Always Visible) --}}
     <section class="wm-download-section">
         <div class="wm-download-card">
             <div class="wm-download-image">
@@ -73,7 +82,6 @@
             </div>
         </div>
     </section>
-    {{/unless}}
 
     <!-- Explore More Section -->
     <section class="wm-explore-more">

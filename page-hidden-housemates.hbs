@@ -4,12 +4,16 @@
     <section class="hh-hero">
         <h1>{{#if title}}{{title}}{{else}}Hidden Housemates{{/if}}</h1>
         <div class="hh-hero-subtitle">
-            {{#if content}}
-            {{content}}
-            {{else}}
+            {{!-- Original Static Description (Always There) --}}
             <p>Uncover the creatures and natural phenomena that often go unnoticed, right inside your home or school.
                 These bingo sheets and the accompanying activity sheets invite you to closely observe everyday spaces,
                 fostering an understanding of urban biodiversity.</p>
+
+            {{!-- Extra Ghost Content (Additive) --}}
+            {{#if content}}
+            <div class="ghost-content" style="margin-top: 2rem;">
+                {{content}}
+            </div>
             {{/if}}
         </div>
     </section>
@@ -29,38 +33,7 @@
 
     <!-- Resource Grid -->
     <div class="hh-grid">
-        {{#get "posts" filter="tag:#hash-hidden-housemates" order="published_at desc" include="tags"}}
-        {{#foreach posts}}
-        <div class="hh-card">
-            <div class="hh-card-img">
-                {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
-                {{/if}}
-                <div class="hh-card-overlay">
-                    <a href="{{url}}" class="hh-overlay-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Explore
-                    </a>
-                </div>
-            </div>
-            <div class="hh-card-content">
-                <h3>{{title}}</h3>
-                <p class="hh-card-desc">{{custom_excerpt}}</p>
-                <div class="hh-card-footer">
-                    <a href="{{url}}" class="hh-download-btn">
-                        Explore Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-        {{/foreach}}
-        {{else}}
-        {{!-- Fallback to original content --}}
+        {{!-- 1. Static Content (Always Visible) --}}
         <!-- Hidden Housemates (1) -->
         <div class="hh-card">
             <div class="hh-card-img">
@@ -94,7 +67,7 @@
                         <div class="hh-dropdown-menu">
                             <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 1 (English, digital).pdf'}}"
                                 class="hh-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Hindi/Copy of प्रकृति की पोटಲಿ 1_Hidden Housemates 1 (Hindi)_NatureClassrooms.pdf'}}"
+                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Hindi/Copy of प्रकृति की पोटલી 1_Hidden Housemates 1 (Hindi)_NatureClassrooms.pdf'}}"
                                 class="hh-dropdown-item">हिन्दी</a>
                             <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Kannada/Kannada Hidden Housemates 1.pdf'}}"
                                 class="hh-dropdown-item">ಕನ್ನಡ</a>
@@ -189,6 +162,38 @@
                 </div>
             </div>
         </div>
+
+        {{!-- 2. Dynamic Content (Ghost) --}}
+        {{#get "posts" filter="tag:#hash-hidden-housemates" order="published_at desc" include="tags"}}
+        {{#foreach posts}}
+        <div class="hh-card">
+            <div class="hh-card-img">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
+                <div class="hh-card-overlay">
+                    <a href="{{url}}" class="hh-overlay-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Explore
+                    </a>
+                </div>
+            </div>
+            <div class="hh-card-content">
+                <h3>{{title}}</h3>
+                <p class="hh-card-desc">{{custom_excerpt}}</p>
+                <div class="hh-card-footer">
+                    <a href="{{url}}" class="hh-download-btn">
+                        Explore Resource
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
         {{/get}}
     </div>
 

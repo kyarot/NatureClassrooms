@@ -20,5 +20,4 @@ npm-debug.log
 
 # Large assets (Must be uploaded via Ghost Media or Hosted Externally)
 assets/files/
-# Excluding other potentially large directories found in initial check
-assets/illustrations
+

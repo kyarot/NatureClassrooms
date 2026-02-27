@@ -2,7 +2,7 @@
   "name": "nature-classrooms",
   "scripts": {
     "dev": "node server.js",
-    "zip": "zip -r nature-classrooms-theme.zip . -x \"node_modules/*\" \"*.git*\" \"*.DS_Store*\" \"server.js\" \".ghostignore\" \"assets/files/*\" \"assets/illustrations/*\" \"*.zip\""
+    "zip": "zip -r nature-classrooms-theme.zip . -x \"node_modules/*\" \"*.git*\" \"*.DS_Store*\" \"server.js\" \".ghostignore\" \"assets/files/*\" \"*.zip\""
   },
   "version": "1.0.0",
   "description": "Production-ready Ghost theme for Nature Classrooms",

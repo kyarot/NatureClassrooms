@@ -13,15 +13,19 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Nature Activities{{/if}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
-                        {{content}}
-                        {{else}}
+                        {{!-- Original Static Description (Always There) --}}
                         <p>
                             Here are some quick nature activities to help you explore the natural world around you, with
                             a
                             goal in mind! Use these activities to introduce new learners into the world of their
                             immediate nature.
                         </p>
+
+                        {{!-- Extra Ghost Content (Additive) --}}
+                        {{#if content}}
+                        <div class="ghost-content" style="margin-top: 20px;">
+                            {{content}}
+                        </div>
                         {{/if}}
                     </div>
                     {{#if custom_excerpt}}
@@ -35,18 +39,7 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-2-col">
-                    {{#get "posts" filter="tag:#hash-activity" order="published_at desc" include="tags"}}
-                    {{#foreach posts}}
-                    {{> "icons/resource-item"
-                    title=title
-                    description=custom_excerpt
-                    preview_image=feature_image
-                    download_url=url
-                    is_explore=true
-                    }}
-                    {{/foreach}}
-                    {{else}}
-                    {{!-- Fallback to original content --}}
+                    {{!-- 1. Static Content (Always Visible) --}}
                     {{!-- Colors --}}
                     {{> "icons/resource-item"
                     title="Colors"
@@ -122,6 +115,18 @@
                     lang2="ಕನ್ನಡ"
                     lang2_url=(asset "files/Resources/Activities/Walls and Pavements/Walls & Pavements_Kannada.pdf")
                     }}
+
+                    {{!-- 2. Dynamic Content (Ghost) --}}
+                    {{#get "posts" filter="tag:#hash-activity" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
                     {{/get}}
                 </div>
             </div>

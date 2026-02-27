@@ -7,7 +7,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="rc-hero">
+    <section class="rc-hero" {{#if feature_image}}style="background-image: url('{{feature_image}}');" {{/if}}>
         <div class="rc-hero-content">
             <div class="rc-hero-subtitle">Nature Classrooms</div>
             <h1>{{#if title}}{{title}}{{else}}Resource Creation{{/if}}</h1>

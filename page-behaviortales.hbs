@@ -1,20 +1,19 @@
 {{!< default}} {{#post}} <div class="behavior-tales-page">
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Static Content) -->
     <section class="bt-hero">
-        <h1>{{#if title}}{{title}}{{else}}Behaviour Tales{{/if}}</h1>
         <div class="bt-hero-content">
-            {{#if content}}
-            {{content}}
-            {{else}}
-            <p>This resource delves into the amazing world of animal hygiene exploring how animals — from birds preening
-                their feathers to mammals licking their fur and insects maintaining their exoskeletons — employ unique
-                strategies to stay clean. This resource can be effectively integrated into science lessons focusing on
-                animal adaptations or health and hygiene units. The activity around it can be adapted to increasing or
-                decreasing complexity for older or younger students, respectively.</p>
-            {{/if}}
+            <div class="bt-hero-subtitle">Nature Classrooms</div>
+            <h1>Behavior Tales</h1>
+            <p>Listen to stories behavior of some common wildlife.</p>
         </div>
     </section>
+
+    {{#if content}}
+    <div class="ghost-content" style="margin-top: 2rem;">
+        {{content}}
+    </div>
+    {{/if}}
 
     <!-- Section Header -->
     <div class="bt-section-header">
@@ -30,9 +29,9 @@
         <div class="bt-section-line"></div>
     </div>
 
-    <!-- Resource Grid -->
+    <!-- Content Section -->
     <div class="bt-grid">
-        {{#get "posts" filter="tag:#hash-behaviour-tale" order="published_at desc" include="tags"}}
+        {{#get "posts" filter="tag:#hash-behavior-tales" order="published_at desc" include="tags"}}
         {{#foreach posts}}
         <div class="bt-card">
             <div class="bt-card-img">
@@ -47,7 +46,7 @@
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        Explore
+                        Listen
                     </a>
                 </div>
             </div>
@@ -56,14 +55,16 @@
                 <p class="bt-card-desc">{{custom_excerpt}}</p>
                 <div class="bt-card-footer">
                     <a href="{{url}}" class="bt-download-btn">
-                        Explore Resource
+                        Watch Video
                     </a>
                 </div>
             </div>
         </div>
         {{/foreach}}
-        {{else}}
-        {{!-- Fallback to original content if no posts found --}}
+        {{/get}}
+
+        {{!-- Original Static Content (Always Visible) --}}
+        <!-- Animal Grooming Chart -->
         <div class="bt-card">
             <div class="bt-card-img">
                 <img src="{{asset 'bt/Animal Grooming Chart.png'}}" alt="Animal Grooming Charts">
@@ -105,7 +106,6 @@
                 </div>
             </div>
         </div>
-        {{/get}}
     </div>
 
     <!-- Educator Note Section -->

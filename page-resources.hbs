@@ -25,8 +25,12 @@
 
             <div class="resources-hero-content">
                 <h1 class="resources-hero-title" data-reveal>
-                    <span class="title-cursive">{{#if title}}{{title}}{{else}}Our Nature classrooms{{/if}}</span>
-                    <span class="title-bold">{{#if title}}{{else}}Resources{{/if}}</span>
+                    {{#if title}}
+                    <span class="title-bold">{{title}}</span>
+                    {{else}}
+                    <span class="title-cursive">Our Nature classrooms</span>
+                    <span class="title-bold">Resources</span>
+                    {{/if}}
                 </h1>
                 <div class="title-separator" data-reveal></div>
                 <p class="resources-hero-subtitle" data-reveal>

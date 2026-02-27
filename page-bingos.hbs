@@ -18,9 +18,7 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Nature Bingos{{/if}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
-                        {{content}}
-                        {{else}}
+                        {{!-- Original Static Description (Always There) --}}
                         <p>
                             We believe learning should be self-directed and fun, and Bingos are designed to do just
                             that.
@@ -30,6 +28,12 @@
                             both young students and adults. Use these diverse themes of Bingos to make your nature
                             exploration all the more exciting!
                         </p>
+
+                        {{!-- Extra Ghost Content (Additive) --}}
+                        {{#if content}}
+                        <div class="ghost-content" style="margin-top: 20px;">
+                            {{content}}
+                        </div>
                         {{/if}}
                     </div>
                     <div class="hero-age-label">Ages 5+, Adults</div>
@@ -41,18 +45,7 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-horizontal-list">
-                    {{#get "posts" filter="tag:#hash-bingo" order="published_at desc" include="tags"}}
-                    {{#foreach posts}}
-                    {{> "icons/resource-item"
-                    title=title
-                    description=custom_excerpt
-                    preview_image=feature_image
-                    download_url=url
-                    is_explore=true
-                    }}
-                    {{/foreach}}
-                    {{else}}
-                    {{!-- Fallback to original content --}}
+                    {{!-- 1. Static Content (Always Visible) --}}
                     {{!-- Nature Bingo --}}
                     {{> "icons/resource-item"
                     title="Nature Bingo"
@@ -107,6 +100,18 @@
                     lang2="ಕನ್ನಡ"
                     lang2_url=(asset "files/Resources/Bingos/Paddy Bingo/Kannada Paddy Bingo .pdf")
                     }}
+
+                    {{!-- 2. Dynamic Content (Ghost) --}}
+                    {{#get "posts" filter="tag:#hash-bingo" order="published_at desc" include="tags"}}
+                    {{#foreach posts}}
+                    {{> "icons/resource-item"
+                    title=title
+                    description=custom_excerpt
+                    preview_image=feature_image
+                    download_url=url
+                    is_explore=true
+                    }}
+                    {{/foreach}}
                     {{/get}}
                 </div>
             </div>
