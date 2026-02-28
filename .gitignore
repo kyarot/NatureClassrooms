@@ -4,3 +4,6 @@ node_modules/
 assets/files/Resources/Alphabet Charts/Gojri Alphabet Chart/Gojri Alphabet Booklet.pdf
 assets/files/Resources/Natural History Stories/Fig and Wasp_Natural History.pdf
 assets/files/Resources/Activities/Bird Migration Blindfold Game Instructions-merged.pdf
+
+# Zip files
+*.zip
