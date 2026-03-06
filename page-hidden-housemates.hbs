@@ -2,18 +2,14 @@
 
     <!-- Hero Section -->
     <section class="hh-hero">
-        <h1>{{#if title}}{{title}}{{else}}Hidden Housemates{{/if}}</h1>
+        <h1>{{title}}</h1>
         <div class="hh-hero-subtitle">
-            {{!-- Original Static Description (Always There) --}}
-            <p>Uncover the creatures and natural phenomena that often go unnoticed, right inside your home or school.
-                These bingo sheets and the accompanying activity sheets invite you to closely observe everyday spaces,
-                fostering an understanding of urban biodiversity.</p>
-
-            {{!-- Extra Ghost Content (Additive) --}}
             {{#if content}}
-            <div class="ghost-content" style="margin-top: 2rem;">
+            <div class="ghost-content">
                 {{content}}
             </div>
+            {{else}}
+            <p>{{custom_excerpt}}</p>
             {{/if}}
         </div>
     </section>
@@ -33,137 +29,6 @@
 
     <!-- Resource Grid -->
     <div class="hh-grid">
-        {{!-- 1. Static Content (Always Visible) --}}
-        <!-- Hidden Housemates (1) -->
-        <div class="hh-card">
-            <div class="hh-card-img">
-                <img src="{{asset 'hh/h1.png'}}" alt="Hidden Housemates (1)">
-                <div class="hh-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 1 (English, digital).pdf'}}"
-                        class="hh-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="hh-card-content">
-                <h3>Hidden Housemates (1)</h3>
-                <p class="hh-card-desc">Discover the tiny creatures sharing your living spaces — from spiders to
-                    silverfish, they're all around.</p>
-                <div class="hh-card-footer">
-                    <div class="hh-download-dropdown">
-                        <button class="hh-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="hh-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 1 (English, digital).pdf'}}"
-                                class="hh-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Hindi/Copy of प्रकृति की पोटલી 1_Hidden Housemates 1 (Hindi)_NatureClassrooms.pdf'}}"
-                                class="hh-dropdown-item">हिन्दी</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Kannada/Kannada Hidden Housemates 1.pdf'}}"
-                                class="hh-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hidden Housemates (2) -->
-        <div class="hh-card">
-            <div class="hh-card-img">
-                <img src="{{asset 'hh/h2.png'}}" alt="Hidden Housemates (2)">
-                <div class="hh-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 2 (English, digital).pdf'}}"
-                        class="hh-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="hh-card-content">
-                <h3>Hidden Housemates (2)</h3>
-                <p class="hh-card-desc">Continue the exploration — more creatures and signs of nature hiding in plain
-                    sight inside your spaces.</p>
-                <div class="hh-card-footer">
-                    <div class="hh-download-dropdown">
-                        <button class="hh-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="hh-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 2 (English, digital).pdf'}}"
-                                class="hh-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Hindi/Copy of प्रकृति की पोटલી 2_Hidden Housemates 2 (Hindi)_NatureClassrooms.pdf'}}"
-                                class="hh-dropdown-item">हिन्दी</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Kannada/Kannada Hidden Housemates 2.pdf'}}"
-                                class="hh-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hidden Housemates (3) -->
-        <div class="hh-card">
-            <div class="hh-card-img">
-                <img src="{{asset 'hh/h3.png'}}" alt="Hidden Housemates (3)">
-                <div class="hh-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 3 (English, digital).pdf'}}"
-                        class="hh-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="hh-card-content">
-                <h3>Hidden Housemates (3)</h3>
-                <p class="hh-card-desc">The final set — uncover even more biodiversity thriving within indoor and urban
-                    environments.</p>
-                <div class="hh-card-footer">
-                    <div class="hh-download-dropdown">
-                        <button class="hh-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="hh-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/English/Copy of Hidden Housemates 3 (English, digital).pdf'}}"
-                                class="hh-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Hindi/Copy of प्रकृति की पोटલી 3_Hidden Housemates 3 (Hindi)_NatureClassrooms.pdf'}}"
-                                class="hh-dropdown-item">हिन्दी</a>
-                            <a href="{{asset 'files/Resources/Bingos/Hidden Housemates/Kannada/Kannada Hidden Housemates 3.pdf'}}"
-                                class="hh-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{!-- 2. Dynamic Content (Ghost) --}}
         {{#get "posts" filter="tag:#hash-hidden-housemates" order="published_at desc" include="tags"}}
         {{#foreach posts}}
         <div class="hh-card">

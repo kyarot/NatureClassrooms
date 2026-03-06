@@ -1,66 +1,71 @@
-{{!< default}} <!-- Hero Carousel Section -->
-    <section class="hero-carousel">
-        <div class="carousel-wrapper">
-            <div class="carousel-slide slide1 active" style="background-image: url('{{asset "home/h5.jpeg"}}');">
-            </div>
-            <div class="carousel-slide slide2" style="background-image: url('{{asset "home/h4.JPG"}}');">
-            </div>
-            <div class="carousel-slide slide3" style="background-image: url('{{asset "home/h6.jpeg"}}');">
-            </div>
+{{!< default}} <section class="hero-carousel">
+    <div class="carousel-wrapper" id="hero-carousel-wrapper">
+        {{#get "posts" filter="tag:hash-sec-home-hero" order="published_at asc" limit="all"}}
+        {{#foreach posts}}
+        <div class="carousel-slide slide{{@number}}{{#if @first}} active{{/if}}"
+            style="background-image: url('{{feature_image}}');">
         </div>
+        {{/foreach}}
+        {{else}}
+        {{!-- Fallback if no hero posts exist --}}
+        <div class="carousel-slide slide1 active" style="background-image: url('{{asset " home/h5.jpeg"}}');"></div>
+        <div class="carousel-slide slide2" style="background-image: url('{{asset " home/h4.JPG"}}');"></div>
+        {{/get}}
+    </div>
 
-        <div class="hero-overlay">
-            <div class="hero-overlay-bg"></div>
-            <div class="hero-content">
-                {{#get "pages" slug="home" limit="1"}}
-                {{#foreach pages}}
-                <h1 class="hero-welcome">
-                    <span class="welcome-cursive">{{#if title}}{{title}}{{else}}Welcome to{{/if}}</span>
-                    <span class="welcome-bold">{{#if
-                        custom_excerpt}}{{custom_excerpt}}{{else}}{{@site.title}}{{/if}}</span>
-                </h1>
-                {{/foreach}}
-                {{else}}
-                <h1 class="hero-welcome">
-                    <span class="welcome-cursive">Welcome to</span>
-                    <span class="welcome-bold">Nature Classrooms</span>
-                </h1>
-                {{/get}}
-                <button class="hero-read-more" id="readMoreBtn"
-                    onclick="document.getElementById('what-we-do').scrollIntoView({behavior:'smooth'})">Explore
-                    More</button>
-            </div>
+    <div class="hero-overlay">
+        <div class="hero-overlay-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-welcome">
+                <span class="welcome-cursive">Welcome to</span>
+                <span class="welcome-bold">Nature Classrooms</span>
+            </h1>
+            <button class="hero-read-more" id="readMoreBtn"
+                onclick="document.getElementById('what-we-do').scrollIntoView({behavior:'smooth'})">Explore
+                More</button>
         </div>
+    </div>
     </section>
 
     <!-- What We Do Section -->
+    {{#get "posts" filter="tag:hash-sec-home-what-we-do" limit="1"}}
+    {{#foreach posts}}
+    <section class="what-we-do-section" id="what-we-do">
+        <div class="container">
+            <h2 class="what-we-do-title" style="font-size: 50px; margin-bottom: 50px;">{{title}}</h2>
+            <div class="what-we-do-wrapper">
+                <div class="what-we-do-content">
+                    {{content}}
+                </div>
+
+                <div class="what-we-do-image">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{else}}
+                    <img src="{{asset " images/ant-aphids.png"}}" alt="Ant and Aphids Illustration">
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{else}}
     <section class="what-we-do-section" id="what-we-do">
         <div class="container">
             <h2 class="what-we-do-title" style="font-size: 50px; margin-bottom: 50px;">What We Do?</h2>
             <div class="what-we-do-wrapper">
                 <div class="what-we-do-content">
-                    <p>
-                        We see nature as the ideal learning space, or classroom, and hope to blur the distinctions
-                        between the two - which inspired the name “Nature Classrooms". We symbolise this in our logo by
-                        depicting an ant that is curious and excited about exploring the natural world beyond classroom
-                        boundaries. This ubiquitous ant is also a reminder of how interspersed nature and nature
-                        learning is in our lives.
-
-                        ​
-                    </p>
-                    <p>
-                        Nature Classrooms programme works in collaboration with Youth Conservation Action Network
-                        (YouCAN) to effectively advance our individual and collective goals for nature education and
-                        conservation.
-                    </p>
+                    <p>We see nature as the ideal learning space, or classroom, and hope to blur the distinctions
+                        between
+                        the two...</p>
                 </div>
-
                 <div class="what-we-do-image">
-                    <img src="{{asset "images/ant-aphids.png"}}" alt="Ant and Aphids Illustration">
+                    <img src="{{asset " images/ant-aphids.png"}}" alt="Ant and Aphids Illustration">
                 </div>
             </div>
         </div>
     </section>
+    {{/get}}
 
     <!-- Our Work - Four Arms Section -->
     <section class="four-arms-section">
@@ -68,55 +73,20 @@
             <h2 class="four-arms-title" style="font-size: 50px; margin-bottom: 50px;">Our Work</h2>
 
             <div class="four-arms-grid">
-
+                {{#get "posts" filter="tag:hash-sec-home-our-work" order="published_at asc"}}
+                {{#foreach posts}}
                 <div class="arm-card">
-                    <div class="arm-card-bg" style="background-image: url('{{asset "fourarms/ResourceCreation.jpg"}}');"></div>
+                    <div class="arm-card-bg" style="background-image: url('{{feature_image}}');"></div>
                     <div class="arm-card-overlay"></div>
                     <div class="arm-card-content">
-                        <h3 class="arm-card-title">Resource Creation</h3>
-                        <p class="arm-card-description">Browse through our growing collection of nature learning
-                            resources aimed at integrating age-appropriate and locally-contextually-culturally relevant
-                            nature learning in teaching-learning spaces.</p>
-                        <a href="/resourcecreation/" class="arm-card-btn">Read More</a>
+                        <h3 class="arm-card-title">{{title}}</h3>
+                        <p class="arm-card-description">{{excerpt words="40"}}</p>
+                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                            class="arm-card-btn">Read More</a>
                     </div>
                 </div>
-
-                <div class="arm-card">
-                    <div class="arm-card-bg" style="background-image: url('{{asset "fourarms/CapacityBuilding.JPG"}}');"></div>
-                    <div class="arm-card-overlay"></div>
-                    <div class="arm-card-content">
-                        <h3 class="arm-card-title">Capacity Building & Training</h3>
-                        <p class="arm-card-description">We conduct immersive, context-driven workshops empowering
-                            teachers and educators to integrate nature learning into diverse teaching-learning spaces.
-
-                        </p>
-                        <a href="/capacity/" class="arm-card-btn">Read More</a>
-                    </div>
-                </div>
-
-                <div class="arm-card">
-                    <div class="arm-card-bg" style="background-image: url('{{asset "fourarms/Research.JPG"}}');"></div>
-                    <div class="arm-card-overlay"></div>
-                    <div class="arm-card-content">
-                        <h3 class="arm-card-title">Research</h3>
-                        <p class="arm-card-description">Through our research projects, we address questions that arise
-                            from engaging with Nature Learning and contribute towards meaningful education practices in
-                            the Global South.</p>
-                        <a href="/research/" class="arm-card-btn">Read More</a>
-                    </div>
-                </div>
-
-                <div class="arm-card">
-                    <div class="arm-card-bg" style="background-image: url('{{asset "home/h7.JPG"}}');"></div>
-                    <div class="arm-card-overlay"></div>
-                    <div class="arm-card-content">
-                        <h3 class="arm-card-title">Outreach & Public Engagement</h3>
-                        <p class="arm-card-description">Through our outreach initiatives, we foster dialogue,
-                            collaboration, and co-learning.</p>
-                        <a href="/outreach/" class="arm-card-btn">Read More</a>
-                    </div>
-                </div>
-
+                {{/foreach}}
+                {{/get}}
             </div>
         </div>
     </section>
@@ -124,32 +94,28 @@
     <!-- Partners Section -->
     <section class="partners-section">
         <div class="ant-decoration ant-left">
-            <img src="{{asset "images/ant-left.png"}}" alt="">
+            <img src="{{asset " images/ant-left.png"}}" alt="">
         </div>
 
         <div class="ant-decoration ant-right">
-            <img src="{{asset "images/ant-right.png"}}" alt="">
+            <img src="{{asset " images/ant-right.png"}}" alt="">
         </div>
 
         <div class="container">
             <h2 class="partners-title" style="font-size: 50px; margin-bottom: 50px;">Our Partners</h2>
 
             <div class="partners-grid">
+                {{#get "posts" filter="tag:hash-sec-home-partners" order="published_at asc"}}
+                {{#foreach posts}}
                 <div class="partner-card">
-                    <img src="{{asset "partnerlogo/Padmini.png"}}" alt="Padmini">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{else}}
+                    <span class="partner-name">{{title}}</span>
+                    {{/if}}
                 </div>
-                <div class="partner-card">
-                    <img src="{{asset "partnerlogo/serenitytrust.jpeg"}}" alt="The Serenity Trust">
-                </div>
-                <div class="partner-card">
-                    <img src="{{asset "partnerlogo/Moonfrog.png"}}" alt="Moonfrog">
-                </div>
-                <div class="partner-card">
-                    <img src="{{asset "partnerlogo/wipro.jpeg"}}" alt="Moonfrog">
-                </div>
-                <div class="partner-card">
-                    <img src="{{asset "partnerlogo/BSF logo.jpg"}}" alt="Moonfrog">
-                </div>
+                {{/foreach}}
+                {{/get}}
             </div>
         </div>
     </section>
@@ -204,84 +170,51 @@
     <section class="collaborators-section">
         <div class="container">
             <h2 class="collaborators-title" style="font-size: 50px; margin-bottom: 50px;">Our Collaborators</h2>
-
             <div class="logo-loop-container">
                 <div class="logo-loop">
+                    {{#get "posts" filter="tag:hash-sec-home-collaborators" order="published_at asc" limit="100"}}
                     <div class="logo-track">
-                        <div class="logo-item"><img src="{{asset "collaborators/Azim_Premji_University_logo.png"}}"
-                                alt="Azim Premji University"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/BSF_logo.jpg"}}" alt="BSF"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/EarlyBird.png"}}" alt="EarlyBird">
+                        {{#foreach posts}}
+                        <div class="logo-item">
+                            {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}">
+                            {{else}}
+                            <span>{{title}}</span>
+                            {{/if}}
                         </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/FTLC logo.jpg"}}" alt="FTLC"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Himalayan Pastoral Trust.png"}}"
-                                alt="Himalayan Pastoral Trust"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Maadhyama Aneka logo.jpg"}}"
-                                alt="Maadhyama Aneka"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NCF Logo with Transparent BG.gif"}}"
-                                alt="NCF"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NICOECO_LOGO_FULL_COLOUR.png"}}"
-                                alt="NicoEco"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NicoEco-Logo-with tagline (1).png"}}"
-                                alt="NicoEco Tagline"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Punarchith.png"}}" alt="Punarchith">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Research Collection Facility
-                                NCBS.jpg"}}" alt="NCBS Research Collection Facility"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Sahajeevan.PNG"}}" alt="Sahajeevan">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/WhatsApp Image 2025-03-03 at
-                                12.59.50.jpeg"}}" alt="Collaborator"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Wipro-earthian-logo.png"}}"
-                                alt="Wipro Earthian"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/YouCAN Logo (1).jpg"}}" alt="YouCAN">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/aripana foundation_edited.png"}}"
-                                alt="Aripana Foundation"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/seasonwatch.png"}}" alt="SeasonWatch">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/wipro foundation-logo-1.png"}}"
-                                alt="Wipro Foundation"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/wipro.jpeg"}}" alt="Wipro"></div>
+                        {{/foreach}}
                     </div>
                     <div class="logo-track" aria-hidden="true">
-                        <div class="logo-item"><img src="{{asset "collaborators/Azim_Premji_University_logo.png"}}"
-                                alt="Azim Premji University"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/BSF_logo.jpg"}}" alt="BSF"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/EarlyBird.png"}}" alt="EarlyBird">
+                        {{#foreach posts}}
+                        <div class="logo-item">
+                            {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}">
+                            {{else}}
+                            <span>{{title}}</span>
+                            {{/if}}
                         </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/FTLC logo.jpg"}}" alt="FTLC"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Himalayan Pastoral Trust.png"}}"
-                                alt="Himalayan Pastoral Trust"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Maadhyama Aneka logo.jpg"}}"
-                                alt="Maadhyama Aneka"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NCF Logo with Transparent BG.gif"}}"
-                                alt="NCF"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NICOECO_LOGO_FULL_COLOUR.png"}}"
-                                alt="NicoEco"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/NicoEco-Logo-with tagline (1).png"}}"
-                                alt="NicoEco Tagline"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Punarchith.png"}}" alt="Punarchith">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Research Collection Facility
-                                NCBS.jpg"}}" alt="NCBS Research Collection Facility"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Sahajeevan.PNG"}}" alt="Sahajeevan">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/WhatsApp Image 2025-03-03 at
-                                12.59.50.jpeg"}}" alt="Collaborator"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/Wipro-earthian-logo.png"}}"
-                                alt="Wipro Earthian"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/YouCAN Logo (1).jpg"}}" alt="YouCAN">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/aripana foundation_edited.png"}}"
-                                alt="Aripana Foundation"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/seasonwatch.png"}}" alt="SeasonWatch">
-                        </div>
-                        <div class="logo-item"><img src="{{asset "collaborators/wipro foundation-logo-1.png"}}"
-                                alt="Wipro Foundation"></div>
-                        <div class="logo-item"><img src="{{asset "collaborators/wipro.jpeg"}}" alt="Wipro"></div>
+                        {{/foreach}}
                     </div>
+                    {{/get}}
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+
+            function nextSlide() {
+                if (slides.length <= 1) return;
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            if (slides.length > 1) {
+                setInterval(nextSlide, 5000);
+            }
+        });
+    </script>

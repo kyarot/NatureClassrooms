@@ -403,6 +403,7 @@
     margin-bottom: 12px;
     color: var(--color-primary);
     text-decoration: none !important;
+    text-align: center;
 }
 
 .resource-category-card:hover .resource-card-title {
@@ -416,7 +417,13 @@
     margin-bottom: 24px;
     flex-grow: 1;
     line-height: 1.6;
-    max-width: 240px;
+    max-width: 280px;
+    text-align: center;
+}
+
+.resource-card-description p {
+    text-align: center;
+    margin: 0 auto;
 }
 
 .resource-card-btn {
@@ -747,7 +754,8 @@
     border: 1px solid var(--border-light);
 }
 
-.download-dropdown:hover .dropdown-menu {
+.download-dropdown:hover .dropdown-menu,
+.download-dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);

@@ -1,147 +1,113 @@
-{{!< default}} {{#post}} <div class="behavior-tales-page">
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+    {{#post}}
+    <div class="behavior-tales-page">
 
-    <!-- Hero Section (Static Content) -->
-    <section class="bt-hero">
-        <div class="bt-hero-content">
-            <div class="bt-hero-subtitle">Nature Classrooms</div>
-            <h1>Behavior Tales</h1>
-            <p>Listen to stories behavior of some common wildlife.</p>
-        </div>
-    </section>
-
-    {{#if content}}
-    <div class="ghost-content" style="margin-top: 2rem;">
-        {{content}}
-    </div>
-    {{/if}}
-
-    <!-- Section Header -->
-    <div class="bt-section-header">
-        <div class="bt-section-title">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                <line x1="15" y1="9" x2="15.01" y2="9"></line>
-            </svg>
-            Resources
-        </div>
-        <div class="bt-section-line"></div>
-    </div>
-
-    <!-- Content Section -->
-    <div class="bt-grid">
-        {{#get "posts" filter="tag:#hash-behavior-tales" order="published_at desc" include="tags"}}
-        {{#foreach posts}}
-        <div class="bt-card">
-            <div class="bt-card-img">
-                {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
-                {{/if}}
-                <div class="bt-card-overlay">
-                    <a href="{{url}}" class="bt-overlay-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Listen
-                    </a>
-                </div>
+        <!-- Hero Section -->
+        <section class="bt-hero">
+            <div class="bt-hero-content">
+                <div class="bt-hero-subtitle">Nature Classrooms</div>
+                <h1>{{title}}</h1>
+                <p>{{custom_excerpt}}</p>
             </div>
-            <div class="bt-card-content">
-                <h3>{{title}}</h3>
-                <p class="bt-card-desc">{{custom_excerpt}}</p>
-                <div class="bt-card-footer">
-                    <a href="{{url}}" class="bt-download-btn">
-                        Watch Video
-                    </a>
-                </div>
-            </div>
-        </div>
-        {{/foreach}}
-        {{/get}}
+        </section>
 
-        {{!-- Original Static Content (Always Visible) --}}
-        <!-- Animal Grooming Chart -->
-        <div class="bt-card">
-            <div class="bt-card-img">
-                <img src="{{asset 'bt/Animal Grooming Chart.png'}}" alt="Animal Grooming Charts">
-                <div class="bt-card-overlay">
-                    <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}"
-                        class="bt-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
+        {{#if content}}
+        <div class="ghost-content" style="margin-top: 2rem;">
+            {{content}}
+        </div>
+        {{/if}}
+
+        <!-- Section Header -->
+        <div class="bt-section-header">
+            <div class="bt-section-title">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+                Resources
             </div>
-            <div class="bt-card-content">
-                <h3>Animal Grooming Charts</h3>
-                <p class="bt-card-desc">Explore how animals keep themselves clean — from birds preening to insects
-                    maintaining their exoskeletons.</p>
-                <div class="bt-card-footer">
-                    <div class="bt-download-dropdown">
-                        <button class="bt-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
+            <div class="bt-section-line"></div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="bt-grid">
+            {{#get "posts" filter="tag:hash-hash-behavior-tales" order="published_at asc" include="tags"}}
+            {{#foreach posts}}
+            <div class="bt-card">
+                <div class="bt-card-img">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{/if}}
+                    <div class="bt-card-overlay">
+                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                            class="bt-overlay-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
                             </svg>
-                        </button>
-                        <div class="bt-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/English Animal Grooming Charts.pdf'}}"
-                                class="bt-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Hindi Animal Grooming Charts.pdf'}}"
-                                class="bt-dropdown-item">हिंदी</a>
-                            <a href="{{asset 'files/Resources/Anchor Charts/Behaviour Tales/Kannada Animal Grooming Charts.pdf'}}"
-                                class="bt-dropdown-item">ಕನ್ನಡ</a>
+                            Explore
+                        </a>
+                    </div>
+                </div>
+                <div class="bt-card-content">
+                    <h3>{{title}}</h3>
+                    <p class="bt-card-desc">{{custom_excerpt}}</p>
+                    <div class="bt-card-footer resource-item-footer" data-custom-link="{{meta_description}}">
+                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                            class="bt-download-btn explore-btn">
+                            Learn More
+                        </a>
+                        <div class="dynamic-download-container" style="display: none;">
+                            <div class="download-dropdown">
+                                <button class="download-dropdown-btn">
+                                    <span>Download</span>
+                                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dynamic-menu">
+                                    <!-- Filled via JS -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{/foreach}}
+            {{/get}}
         </div>
-    </div>
 
-    <!-- Educator Note Section -->
-    <section class="bt-educator-note-section">
-        <div class="container">
-            <div class="bt-educator-note-card">
-                <div class="bt-educator-note-header">
-                    <div class="bt-educator-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
+        <!-- Educator Note Section -->
+        {{#get "posts" filter="tag:hash-sec-behaviortales-note" limit="1"}}
+        {{#foreach posts}}
+        <section class="bt-educator-note-section">
+            <div class="container">
+                <div class="bt-educator-note-card">
+                    <div class="bt-educator-note-header">
+                        <div class="bt-educator-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <h2 class="bt-educator-title">{{title}}</h2>
                     </div>
-                    <h2 class="bt-educator-title">Note for Educators</h2>
-                </div>
-                <div class="bt-educator-content">
-                    <p>Begin by asking students how and why they keep themselves clean. Introduce the concept that
-                        animals also groom themselves using different organs and behaviours that we do not have or use!
-                        Use the poster to discuss specific examples, and explore other animal grooming behaviours
-                        students might have observed of domestic animals around them. This resource is a direct example
-                        of how local nature and ecology can be incorporated into our EVS textbook chapters.</p>
-                </div>
-                <div class="bt-educator-questions">
-                    <span class="bt-questions-title">Questions to Explore</span>
-                    <ul class="bt-questions-list">
-                        <li>Why do animals need to keep clean? How do their methods compare to ours?</li>
-                        <li>Students can be encouraged to observe pets or local birds for grooming behaviors</li>
-                        <li>Draw different animals grooming or roleplay/enact different grooming behaviours</li>
-                        <li>Research other unique animal cleaning habits (e.g., ants grooming each other, fish cleaning
-                            stations)</li>
-                    </ul>
+                    <div class="bt-educator-content">
+                        {{content}}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        {{/foreach}}
+        {{/get}}
 
     </div>
     {{/post}}

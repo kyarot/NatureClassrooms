@@ -1,14 +1,10 @@
 {{!< default}} {{#post}} <div class="capacity-page">
-    <div class="capacity-page-illustration" data-reveal>
-        <img src="{{asset 'illustrations/4.PNG'}}" alt="">
-    </div>
-
-    <!-- Hero Section -->
+    {{!-- Hero Section --}}
     <section class="capacity-hero">
-        <div class="capacity-hero-bg"></div>
+        <div class="capacity-hero-bg" style="background-image: url('{{feature_image}}');"></div>
         <div class="capacity-hero-overlay"></div>
         <div class="capacity-hero-content">
-            <h1>{{#if title}}{{title}}{{else}}Capacity Building{{/if}}</h1>
+            <h1>{{title}}</h1>
         </div>
     </section>
 
@@ -20,52 +16,41 @@
     </section>
     {{/if}}
 
-    <!-- Intro Section -->
+    {{!-- Intro Section --}}
+    {{#get "posts" filter="tag:hash-sec-capacity-intro" limit="1"}}
+    {{#foreach posts}}
     <section class="capacity-intro">
         <div class="capacity-intro-container">
-            <h2>Our Purpose</h2>
-            <p>
-
-                Our capacity-building workshops have been designed with the intention of evoking wonder, fascination,
-                inquiry, and a deep connection with immediate nature in teachers and educators. We carefully plan each
-                workshop to align with the unique goals and local contexts of our participants.
-            </p> <br>
-
-            <p>
-                Our training workshops are contextually curated and range from a half-day session to an immersive
-                four-day engagement. Through interactive discussions we explore different educational theories,
-                practical tools, and pedagogical approaches with the teachers and educators. The goal is for the
-                learners to adopt and adapt these within their own teaching-learning spaces and communities and to
-                deepen their nature learning while weaving in the local-social-cultural contexts to which they belong.
-                The workshops are also interspersed with immersive group activities and outdoor sessions to enable the
-                participants to receive a hands-on experience of facilitating and engaging in planning and delivering
-                sessions in nature learning.​​​​
-            </p>
+            <h2>{{title}}</h2>
+            {{content}}
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Testimonial Section -->
+    {{!-- Testimonial Section --}}
+    {{#get "posts" filter="tag:hash-sec-capacity-testimonial" limit="1"}}
+    {{#foreach posts}}
     <section class="capacity-testimonial">
         <div class="testimonial-container">
             <div class="testimonial-text">
-                “I really liked the entire workshop. I teach literature and sometimes I used stories that were related
-                to nature...like a man living in a forest. But I have found that students were unable to make a
-                connection with nature through those stories. Earlier I felt unable to bring that connection. But after
-                attending the workshop, I think I can instead use local stories and students will be able to easily
-                relate to these stories.”
+                {{content}}
             </div>
             <div class="testimonial-author">
-                — An Educator's Experience of a Nature Learning Workshop
+                — {{title}}
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Who We Engage With -->
+    {{!-- Who We Engage With --}}
     <section class="engagement-section">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 20px;"> Who Do We Engage With</h2>
             <div class="engagement-grid">
-                {{#get "posts" limit="100" filter="tag:#capacity-engagement" include="tags,authors"}}
+                {{#get "posts" limit="100" filter="tag:hash-card-capacity-engagement" include="tags,authors"
+                order="published_at asc"}}
                 {{#foreach posts}}
                 <div class="engagement-card">
                     <div class="card-image">
@@ -80,106 +65,36 @@
                 </div>
                 {{/foreach}}
                 {{/get}}
-
-                <!-- Teachers -->
-                <div class="engagement-card">
-                    <div class="card-image">
-                        <img src="{{asset 'capacity/TnE.jpg'}}" alt="Teachers & Educators">
-                    </div>
-                    <div class="card-content">
-                        <h3>Teachers & Educators</h3>
-                        <p>
-                            We design and curate immersive nature learning workshops for teachers and educator groups
-                            from diverse teaching-learning spaces. We take them through the process of integrating
-                            concepts, phenomena, and patterns from the natural world into their existing EVS or school
-                            subject curricula using our Nature Learning Framework and Pedagogy. We actively guide them
-                            through lesson planning activities, giving them the firsthand experience to see how easily
-                            and meaningfully they could integrate nature learning into their sessions using new and
-                            existing resources even with the constraints of time and outdoor space.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Organisations -->
-                <div class="engagement-card">
-                    <div class="card-image">
-                        <img src="{{asset 'capacity/eduorg.JPG'}}" alt="Education Organisations">
-                    </div>
-                    <div class="card-content">
-                        <h3>Education Organisations and Fellowship Programmes</h3>
-                        <p>
-                            We collaborate with education organizations and fellowships to integrate nature learning
-                            into their existing programmes. We guide their educators and trainers on how to effectively
-                            blend educational theory and practice with ecological and nature-based concepts by providing
-                            them with the understanding, tools and resources to ensure their teaching-learning
-                            engagements are age-appropriate, contextual and meaningful.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Conservationists -->
-                <div class="engagement-card">
-                    <div class="card-image">
-                        <img src="{{asset 'capacity/cap6.jpg'}}" alt="Conservation Scientists">
-                    </div>
-                    <div class="card-content">
-                        <h3>Conservation Science Organisations and Students</h3>
-                        <p>
-                            We design and facilitate sessions for conservation science organisations and students
-                            introducing them to diverse and appropriate theories and practices from the field of
-                            education. We deep dive and engage in co-learning discussions and dilemmas about how
-                            educational approaches and tools can be used contextually to plan and deliver their
-                            conservation/nature education interventions.
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Collaborators Grid -->
+    {{!-- Collaborators Grid --}}
     <section class="collaborators-section">
         <div class="collaborators-container">
             <h2>Organisations we have collaborated with</h2>
             <div class="collaborators-list">
-                <span class="collaborator-tag">Fig Tree Learning Center</span>
-                <span class="collaborator-tag">Wipro Foundation</span>
-                <span class="collaborator-tag">Agastya International Foundation</span>
-                <span class="collaborator-tag">Azim Premji Foundation</span>
-                <span class="collaborator-tag">Center for Wildlife Studies</span>
-                <span class="collaborator-tag">Let’s Be The Change</span>
-                <span class="collaborator-tag">Bhoomi - Teach for Nature Fellowship</span>
-                <span class="collaborator-tag">EarlyBird Programme</span>
-                <span class="collaborator-tag">SeasonWatch Programme</span>
-                <span class="collaborator-tag">Aripana Foundation</span>
-                <span class="collaborator-tag">Punarchith</span>
-                <span class="collaborator-tag">Parikrma Humanity Foundation</span>
-                <span class="collaborator-tag">Nature Conservation Foundation</span>
-                <span class="collaborator-tag">SCCS-Bengaluru</span>
-                <span class="collaborator-tag">YouCAN Fellowship</span>
-                <span class="collaborator-tag">Aga Khan Foundation</span>
-                <span class="collaborator-tag">The Serenity Trust</span>
-                <span class="collaborator-tag">Care Earth Trust</span>
-                <span class="collaborator-tag">The Habitats Trust</span>
-                <span class="collaborator-tag">Shiv Nadar Schools</span>
-                <span class="collaborator-tag">Lal Family Foundation</span>
+                {{#get "posts" limit="100" filter="tag:hash-card-capacity-collaborator" order="published_at asc"}}
+                {{#foreach posts}}
+                <span class="collaborator-tag">{{title}}</span>
+                {{/foreach}}
+                {{/get}}
             </div>
         </div>
     </section>
 
-    <!-- Collaboration Callout -->
+    {{!-- Collaboration Callout --}}
+    {{#get "posts" filter="tag:hash-sec-capacity-cta" limit="1"}}
+    {{#foreach posts}}
     <section class="rc-collab-section">
         <div class="collab-box">
-
             <div class="collab-details">
-                <h4>
-                    If you want to be a part of our nature learning workshops for educators or want us to conduct a
-                    workshop for your institution, or just want to know more, </h4>
-                <p>Write to us at <a href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
+                <h4>{{title}}</h4>
+                {{content}}
             </div>
         </div>
     </section>
-
+    {{/foreach}}
+    {{/get}}
     </div>
     {{/post}}

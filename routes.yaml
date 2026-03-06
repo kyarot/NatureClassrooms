@@ -1,0 +1,90 @@
+# Ghost Custom Routing (routes.yaml)
+# Upload this file to Ghost Admin > Settings > Labs > Routes
+
+routes:
+  /resources/:
+    template: page-resources
+    data: page.resources
+
+  /our-approach/:
+    template: page-our-approach
+    data: page.our-approach
+
+  /blog/:
+    template: custom-blog
+    data: page.blog
+
+  /about/:
+    template: custom-about
+    data: page.about
+
+  /media/:
+    template: custom-media
+    data: page.media
+
+  /resourcecreation/:
+    template: custom-resourcecreation
+    data: page.resourcecreation
+
+  /capacity/:
+    template: custom-capacity
+    data: page.capacity
+
+  /research/:
+    template: custom-research
+    data: page.research
+
+  /outreach/:
+    template: custom-outreach
+    data: page.outreach
+
+  /resources/bingos/:
+    template: page-bingos
+    data: page.bingos
+  /resources/activities/:
+    template: page-activities
+    data: page.activities
+  /resources/alphabet-charts/:
+    template: page-alphabet-charts
+    data: page.alphabet-charts
+  /resources/anchor-charts/:
+    template: page-anchor-charts
+    data: page.anchor-charts
+  /resources/natural-history/:
+    template: page-natural-history
+    data: page.natural-history
+  /resources/modules/:
+    template: page-modules
+    data: page.modules
+  /resources/behaviortales/:
+    template: page-behaviortales
+    data: page.behaviortales
+  /resources/alphabet-charts/tamil/:
+    template: page-tamilalphabetcharts
+    data: page.tamil-alphabet
+  /resources/alphabet-charts/gojri/:
+    template: page-gojrialphabetchart
+    data: page.gojri-alphabet
+  /resources/alphabet-charts/gujarati/:
+    template: page-gujaratialphabetchart
+    data: page.gujarati-alphabet
+  /resources/alphabet-charts/kashmiri/:
+    template: page-kashmirialphabetcharts
+    data: page.kashmiri-alphabet
+  /resources/theres-nothing-there/:
+    template: page-theres-nothing-there
+    data: page.theres-nothing-there
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: custom-blog
+    filter: tag:blog
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
+

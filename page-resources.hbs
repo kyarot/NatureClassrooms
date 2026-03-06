@@ -2,19 +2,11 @@
     {{/contentFor}}
 
     {{#post}} <main class="site-main" style="position: relative;">
-        {{!-- Floating Illustration Overlay --}}
-        <div class="page-top-illustration" data-reveal>
-            <img src="{{asset 'illustrations/31.PNG'}}" alt="">
-        </div>
-
-        <div class="page-middle-illustration" data-reveal>
-            <img src="{{asset 'illustrations/16.PNG'}}" alt="">
-        </div>
-
         {{!-- 1. Enhanced Hero Section --}}
         <section class="resources-hero hero-v2">
             <div class="resources-hero-bg"
-                style="background-image: url('{{#if feature_image}}{{feature_image}}{{else}}{{asset "carousel/1.jpg"}}{{/if}}');"></div>
+                style="background-image: url('{{#if feature_image}}{{feature_image}}{{else}}{{asset "
+                carousel/1.jpg"}}{{/if}}');"></div>
             <div class="resources-hero-overlay"></div>
 
             {{!-- Decorative shapes --}}
@@ -25,31 +17,18 @@
 
             <div class="resources-hero-content">
                 <h1 class="resources-hero-title" data-reveal>
-                    {{#if title}}
                     <span class="title-bold">{{title}}</span>
-                    {{else}}
-                    <span class="title-cursive">Our Nature classrooms</span>
-                    <span class="title-bold">Resources</span>
-                    {{/if}}
                 </h1>
                 <div class="title-separator" data-reveal></div>
-                <p class="resources-hero-subtitle" data-reveal>
-                    {{#if custom_excerpt}}{{custom_excerpt}}{{else}}The Nature Learning Resources featured here span a
-                    variety of topics from the current EVS curriculum followed in India. Designed to be age-appropriate,
-                    they are organized into different themes, available in multiple languages, and some of the resources
-                    are adapted to specific regions as well. We regularly add new resources as they are developed, and
-                    you can find updates about our latest releases on our social media.{{/if}}
-                </p>
+                <div class="resources-hero-subtitle" data-reveal>
+                    {{#if content}}
+                    {{content}}
+                    {{else}}
+                    {{#if custom_excerpt}}{{custom_excerpt}}{{/if}}
+                    {{/if}}
+                </div>
             </div>
         </section>
-
-        {{#if content}}
-        <section class="resources-dynamic-content">
-            <div class="container" style="padding: 100px 20px;">
-                {{content}}
-            </div>
-        </section>
-        {{/if}}
 
         {{!-- 2. Resource Category Grid --}}
         <section class="resources-grid-section">
@@ -60,9 +39,11 @@
                     <div class="title-separator" style="margin: 20px auto;"></div>
                 </div>
                 <div class="resources-grid" data-reveal>
-                    {{#get "posts" limit="100" filter="tag:#resource-category" include="tags,authors"}}
+                    {{#get "posts" limit="100" filter="tag:hash-resource-category" include="tags,authors"
+                    order="published_at asc"}}
                     {{#foreach posts}}
-                    <a href="{{excerpt}}" class="resource-category-card">
+                    <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                        class="resource-category-card">
                         <div class="resource-card-icon">
                             {{#if feature_image}}
                             <img src="{{img_url feature_image}}" alt="{{title}}">
@@ -87,59 +68,8 @@
                     </a>
                     {{/foreach}}
                     {{/get}}
-
-                    {{!-- Bingos --}}
-                    {{> "icons/resource-card" url="/resources/bingos/" title="Bingos" description="Fun, interactive
-                    nature-themed bingo games for all ages." icon="bingos/Nature_Bingo.png"}}
-
-                    {{!-- Alphabet Charts --}}
-                    {{> "icons/resource-card" url="/resources/alphabet-charts/" title="Alphabet Charts"
-                    description="Learn the ABCs through the wonders of the natural world."
-                    icon="alphabets/Bird_Alphabet_Chart.png"}}
-
-                    {{!-- Anchor Charts --}}
-                    {{> "icons/resource-card" url="/resources/anchor-charts/" title="Anchor Charts" description="Visual
-                    aids to ground learning in natural concepts." icon="anchor/Plant_Poster.png"}}
-
-                    {{!-- Natural History --}}
-                    {{> "icons/resource-card" url="/resources/natural-history/" title="Natural History"
-                    description="Deep dives into the stories of plants and animals."
-                    icon="naturalhistory/Fig_and_Wasp_Resource.png"}}
-
-                    {{!-- Modules --}}
-                    {{> "icons/resource-card" url="/resources/modules/" title="Modules" description="Comprehensive
-                    learning units for structured nature education." icon="modules/Water_Module.png"}}
-
-                    {{!-- Activities --}}
-                    {{> "icons/resource-card" url="/resources/activities/" title="Activities" description="Hands-on
-                    projects and experiments to do outdoors." icon="activities/Colours.png"}}
-
-                    {{!-- There's Nothing There --}}
-                    {{> "icons/resource-card" url="/resources/theres-nothing-there/" title="Story Books" description="A
-                    unique series challenging how we perceive 'empty' spaces." icon="storybooks/storybooks.png"}}
                 </div>
             </div>
-        </section>
-
-        {{!-- 3. Illustration Section (Engagement) --}}
-        <section class="resource-illustration-section">
-            <div class="curve-separator"></div>
-            <div class="container">
-                <div class="illustration-grid" data-reveal>
-                    <div class="illustration-image" data-reveal>
-                        <img src="{{asset "images/ant-aphids.png"}}" alt="Learning through Nature">
-                    </div>
-                    <div class="illustration-text" data-reveal>
-                        <h2 class="illustration-title">Learning Through Nature</h2>
-                        <p class="illustration-description">
-                            We believe that every leaf, insect, and trail has a story to tell. Our resources are
-                            designed to turn the outdoors into a living classroom, fostering curiosity and a lifelong
-                            love for the environment.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="curve-separator-bottom"></div>
         </section>
 
 

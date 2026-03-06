@@ -1,19 +1,14 @@
 {{!< default}} {{#post}} <div class="rc-page">
-    <div class="rc-page-illustration" data-reveal>
-        <img src="{{asset 'illustrations/13_3289.PNG'}}" alt="">
-    </div>
-    <div class="rc-page-bottom-illustration" data-reveal>
-        <img src="{{asset 'illustrations/22.PNG'}}" alt="">
-    </div>
-
-    <!-- Hero Section -->
-    <section class="rc-hero" {{#if feature_image}}style="background-image: url('{{feature_image}}');" {{/if}}>
+    {{!-- 1. Hero Section --}}
+    <section class="rc-hero" style="background-image: url('{{#if feature_image}}{{feature_image}}{{else}}{{asset "
+        resourcecreation/res3.JPG"}}{{/if}}');">
         <div class="rc-hero-content">
             <div class="rc-hero-subtitle">Nature Classrooms</div>
-            <h1>{{#if title}}{{title}}{{else}}Resource Creation{{/if}}</h1>
+            <h1>{{title}}</h1>
         </div>
     </section>
 
+    {{!-- 2. Hero Content / Intro --}}
     {{#if content}}
     <section class="rc-dynamic-content">
         <div class="rc-intro">
@@ -22,107 +17,93 @@
     </section>
     {{/if}}
 
-    <!-- Intro Text -->
+    {{!-- 3. Additional Intro (from post) --}}
+    {{#get "posts" filter="tag:hash-sec-rc-intro" limit="1"}}
+    {{#foreach posts}}
     <section class="rc-intro">
-        <p>Our ever-expanding collection of free-to-use and open-source resources spans a wide range of topics drawn
-            from nature, and links closely with the environmental studies curriculum of different boards taught in
-            primary schools across India.</p>
-        <p>Designed and curated by our experienced team, and trialled in collaboration with teachers, expert resource
-            persons, and educators, these resources are available in various formats; activity sheets, anchor charts,
-            posters, natural history stories, and teaching-learning modules and lesson plans.</p>
+        {{content}}
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Inspiring Students -->
+    {{!-- 4. Inspiring Students --}}
+    {{#get "posts" filter="tag:hash-sec-rc-inspiring" limit="1"}}
+    {{#foreach posts}}
     <section class="rc-inspiring">
-        <h2>Inspiring Students</h2>
-        <p>Our resources are designed to help teachers and educators inspire students to:</p>
+        <h2>{{title}}</h2>
+        <div class="inspiring-intro-text">
+            {{content}}
+        </div>
 
         <div class="inspiring-grid">
+            {{#get "posts" limit="100" filter="tag:hash-card-rc-inspiring" order="published_at asc"}}
+            {{#foreach posts}}
             <div class="inspiring-card">
                 <div class="ic-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        {{#if meta_description}}
+                        {{{meta_description}}}
+                        {{else}}
                         <circle cx="12" cy="12" r="3"></circle>
                         <path d="M2 12c0 0 5-8 10-8s10 8 10 8-5 8-10 8-10-8-10-8z"></path>
+                        {{/if}}
                     </svg>
                 </div>
-                <p>Look closely and deeply engage with the natural world around them</p>
+                {{content}}
             </div>
-
-            <div class="inspiring-card">
-                <div class="ic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83">
-                        </path>
-                    </svg>
-                </div>
-                <p>Rekindle their innate sense of curiosity, exploration and wonder</p>
-            </div>
-
-            <div class="inspiring-card">
-                <div class="ic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                </div>
-                <p>Learn through direct and guided observations</p>
-            </div>
-
-            <div class="inspiring-card">
-                <div class="ic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                        <path d="M12 8v8M8 12h8"></path>
-                    </svg>
-                </div>
-                <p>Discover connections between themselves and the natural world</p>
-            </div>
+            {{/foreach}}
+            {{/get}}
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Collaboration Callout -->
-    <section class="rc-collab-section">
-        <p class="rc-collab-text">This resource bank continues to grow through brainstorming sessions and feedback from
-            educators and collaborators working and with experience from diverse contexts. We enjoy collaborating with
-            educators to design more resources or adapt our available resources to multiple contexts.</p>
-    </section>
-
-    <!-- Featured Project -->
+    {{!-- 5. Featured Projects & Additional Content --}}
+    {{#get "posts" filter="tag:hash-sec-rc-featured" order="published_at asc"}}
+    {{#foreach posts}}
     <section class="rc-featured">
         <div class="featured-container">
             <div class="featured-content">
                 <div class="featured-label">Featured Project</div>
-                <h2>Suttha Muttha</h2>
-                <p>Working with schools in Silvepura to make experiences and stories of local ecology and biodiversity
-                    accessible to school communities in peri-urban Bengaluru in partnership with the Fig Tree Learning
-                    Centre.</p>
-                <a href="/suttha-muttha/" class="btn-read-more">Read More →</a>
+                <h2>{{title}}</h2>
+                {{content}}
+                {{#if meta_description}}
+                <a href="{{meta_description}}" class="btn-read-more">Read More →</a>
+                {{/if}}
             </div>
             <div class="featured-image">
-                <img src="{{asset 'resourcecreation/res4.PNG'}}" alt="Children outdoors exploring nature">
+                {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}">
+                {{/if}}
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Explore More -->
+    {{!-- 6. Explore More --}}
+    {{#get "posts" filter="tag:hash-sec-rc-explore" order="published_at asc"}}
+    {{#foreach posts}}
     <section class="rc-explore">
         <div class="explore-image">
-            <img src="{{asset 'resourcecreation/res5.jpg'}}" alt="Spread of worksheets and learning materials"
-                style="height: 400px; width: 100%; object-fit: cover;">
+            {{#if feature_image}}
+            <img src="{{feature_image}}" alt="{{title}}" style="height: 400px; width: 100%; object-fit: cover;">
+            {{/if}}
         </div>
         <div class="explore-content">
-            <h2>Explore More Resources</h2>
-            <p>Browse through our growing collection of meaningfully designed Nature Learning Resources, created around
-                different themes in nature. All our resources are open-source, tested and trialled, and continually
-                updated as new ideas evolve. Our resources are free for teachers and educators to download, adapt, and
-                use.</p>
-            <a href="/resources/activities/" class="btn-browse">Browse Resources →</a>
+            <h2>{{title}}</h2>
+            {{content}}
+            {{#if meta_description}}
+            <a href="{{meta_description}}" class="btn-browse">Browse Resources →</a>
+            {{/if}}
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Always Visible Footer -->
-    <!-- Collaboration Callout -->
+    {{!-- 7. Bottom Collaboration Section --}}
+    {{#get "posts" filter="tag:hash-sec-rc-collab" limit="1"}}
+    {{#foreach posts}}
     <section class="rc-collab-section">
         <div class="collab-box">
             <div class="collab-icon">
@@ -132,11 +113,18 @@
                 </svg>
             </div>
             <div class="collab-details">
-                <h4>Want to collaborate?</h4>
-                <p>Write to us at <a href="mailto:info@natureclassrooms.in">info@natureclassrooms.in</a></p>
+                <h4>{{title}}</h4>
+                {{content}}
+                {{#if meta_description}}
+                <div style="margin-top: 10px;">
+                    <a href="{{meta_description}}"
+                        style="color: var(--nc-green); font-weight: 600; text-decoration: none;">Get in touch →</a>
+                </div>
+                {{/if}}
             </div>
         </div>
     </section>
-
+    {{/foreach}}
+    {{/get}}
     </div>
     {{/post}}

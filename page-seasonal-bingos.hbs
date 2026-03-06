@@ -2,16 +2,14 @@
 
     <!-- Hero Section -->
     <section class="sb-hero">
-        <h1>{{#if title}}{{title}}{{else}}Seasonal Bingo{{/if}}</h1>
+        <h1>{{title}}</h1>
         <div class="sb-hero-content">
-            <p>Seasons bring about remarkable transformations in the natural world, influencing how plants and animals
-                adapt and thrive. The Seasons Bingos are a delightful and engaging way to explore these ever-dynamic
-                changes right in your surroundings.</p>
-
             {{#if content}}
-            <div class="ghost-content" style="margin-top: 2rem;">
+            <div class="ghost-content">
                 {{content}}
             </div>
+            {{else}}
+            <p>{{custom_excerpt}}</p>
             {{/if}}
         </div>
     </section>
@@ -30,168 +28,7 @@
 
     <!-- Resource Grid -->
     <div class="sb-grid">
-        {{!-- 1. Static Content (Always Visible) --}}
-        <!-- Rain Bingo -->
-        <div class="sb-card">
-            <div class="sb-card-img">
-                <img src="{{asset 'sb/Rain Bingo.png'}}" alt="Rain Bingo">
-                <div class="sb-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Rain BIngo Kannada.pdf'}}"
-                        class="sb-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="sb-card-content">
-                <h3>Rain Bingo</h3>
-                <p class="sb-card-desc">Explore the wonders that arrive with the rains — from fungi to frogs, discover
-                    monsoon magic around you.</p>
-                <div class="sb-card-footer">
-                    <div class="sb-download-dropdown">
-                        <button class="sb-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="sb-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Rain BIngo Kannada.pdf'}}"
-                                class="sb-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Rain BIngo Kannada.pdf'}}"
-                                class="sb-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Winter Bingo -->
-        <div class="sb-card">
-            <div class="sb-card-img">
-                <img src="{{asset 'sb/Winter Bingo.png'}}" alt="Winter Bingo">
-                <div class="sb-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Winter Bingo Kannada.pdf'}}"
-                        class="sb-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="sb-card-content">
-                <h3>Winter Bingo</h3>
-                <p class="sb-card-desc">Spot the signs of winter — migratory birds, misty mornings, and the quiet beauty
-                    of the cold season.</p>
-                <div class="sb-card-footer">
-                    <div class="sb-download-dropdown">
-                        <button class="sb-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="sb-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Winter Bingo Kannada.pdf'}}"
-                                class="sb-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Winter Bingo Kannada.pdf'}}"
-                                class="sb-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Spring Bingo -->
-        <div class="sb-card">
-            <div class="sb-card-img">
-                <img src="{{asset 'sb/Spring Bingo.png'}}" alt="Kashmir Spring Bingo">
-                <div class="sb-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Spring Bingo.pdf'}}"
-                        class="sb-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="sb-card-content">
-                <h3>Spring Bingo — Kashmir</h3>
-                <p class="sb-card-desc">Celebrate the blossoming of Kashmir's spring — fresh blooms, returning birds,
-                    and new life everywhere.</p>
-                <div class="sb-card-footer">
-                    <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Spring Bingo.pdf'}}"
-                        class="sb-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Summer Bingo -->
-        <div class="sb-card">
-            <div class="sb-card-img">
-                <img src="{{asset 'sb/Summer Bingo.png'}}" alt="Summer Bingo">
-                <div class="sb-card-overlay">
-                    <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Summer Bingo Kannada.pdf'}}"
-                        class="sb-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="sb-card-content">
-                <h3>Summer Bingo</h3>
-                <p class="sb-card-desc">Feel the heat and find its traces in nature — soaring raptors, blooming trees,
-                    and scorching skies.</p>
-                <div class="sb-card-footer">
-                    <div class="sb-download-dropdown">
-                        <button class="sb-download-btn">
-                            <span>Download</span>
-                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="sb-dropdown-menu">
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Summer Bingo Kannada.pdf'}}"
-                                class="sb-dropdown-item">English</a>
-                            <a href="{{asset 'files/Resources/Bingos/Seasonal Bingos/Kannada/Summer Bingo Kannada.pdf'}}"
-                                class="sb-dropdown-item">ಕನ್ನಡ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{!-- 2. Dynamic Content (Ghost) --}}
-        {{#get "posts" filter="tag:#hash-seasonal-bingo" order="published_at desc" include="tags"}}
+        {{#get "posts" filter="tag:#hash-seasonal-bingos" order="published_at asc" include="tags"}}
         {{#foreach posts}}
         <div class="sb-card">
             <div class="sb-card-img">
@@ -222,6 +59,7 @@
         </div>
         {{/foreach}}
         {{/get}}
+    </div>
     </div>
 
     <!-- Educator Note Section -->

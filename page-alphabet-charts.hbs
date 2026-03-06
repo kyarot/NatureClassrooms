@@ -3,42 +3,23 @@
 
     {{#post}}
     <main class="site-main">
-        <div class="page-alphabet-illustration" data-reveal>
-            {{#if feature_image}}
-            <img src="{{feature_image}}" alt="{{title}}">
-            {{else}}
-            <img src="{{asset 'illustrations/11.PNG'}}" alt="">
-            {{/if}}
-        </div>
+        {{!-- Illustration removed for dynamic content --}}
+
 
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Alphabet Charts{{/if}}</h1>
+                    <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{!-- Original Static Description (Always There) --}}
-                        <p>
-                            Walk into most stores and classrooms in India, and you will find alphabet learning charts
-                            connecting the alphabet using exotic animals, birds, or other man-made things from our
-                            lives. We
-                            bring you locally and culturally relevant nature alphabet charts that bring together some of
-                            the
-                            commonly found plants, animals, and natural elements across region-specific ecosystems. Use
-                            them
-                            in your classrooms and homes to introduce your students to the diverse life forms around
-                            them,
-                            spark conversations about local ecology, and inspire further exploration.
-                        </p>
-
-                        {{!-- Extra Ghost Content (Additive) --}}
                         {{#if content}}
-                        <div class="ghost-content" style="margin-top: 20px;">
-                            {{content}}
-                        </div>
+                        {{content}}
+                        {{else}}
+                        {{#if custom_excerpt}}
+                        <p>{{custom_excerpt}}</p>
+                        {{/if}}
                         {{/if}}
                     </div>
-                    <div class="hero-age-label">Ages 3+, Adults</div>
                 </div>
             </div>
         </section>
@@ -47,78 +28,14 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-2-col">
-                    {{!-- 1. Static Content (Always Visible) --}}
-                    {{!-- Kashmiri --}}
-                    {{> "icons/resource-item"
-                    title="Kashmiri Alphabet Chart"
-                    description="This chart brings together the plants and animals of Kashmir - from kingfishers to
-                    willow trees to spiders and langurs—all through the English alphabet. This is a fun alternative to a
-                    regular A to Z chart that incorporates elements of Kashmir's landscape and language."
-                    preview_image=(asset "alphabets/Kashmiri_Alphabet_Chart.png")
-                    download_url="/kashmirialphabetcharts/"
-                    is_explore=true
-                    }}
-
-                    {{!-- Tamil --}}
-                    {{> "icons/resource-item"
-                    title="Tamil Alphabet Chart"
-                    description="TWalk into any bookstore and you’ll find alphabet charts filled with giraffes,
-                    penguins, and macaws. But what about the creatures that are around us? This chart brings together
-                    the plants and animals of Tamil Nadu, from dugongs to Indrella snails, fungi, odonates, wasps, and
-                    wildflowers, all through the Tamil alphabet."
-                    preview_image=(asset "alphabets/Tamil_Alphabet_Chart.png")
-                    download_url="/tamilalphabetcharts/"
-                    is_explore=true
-                    }}
-
-                    {{!-- Bird --}}
-                    {{> "icons/resource-item"
-                    title="Bird Alphabet Chart"
-                    description="B is for Birds! Here is a Bird Alphabet Chart for schools and homes that allows you to
-                    learn about some common birds of India through the English alphabet! India is home to a variety of
-                    beautiful birds, and this Bird Alphabet Chart in collaboration with EarlyBird is designed to make
-                    the learner curious and connect with some of the birds that live alongside us while learning the
-                    English alphabet."
-                    preview_image=(asset "alphabets/Bird_Alphabet_Chart.png")
-                    download_url=(asset "files/Resources/Alphabet Charts/Bird Alphabets Chart_1.png")
-                    lang1="V1"
-                    lang1_url=(asset "files/Resources/Alphabet Charts/Bird Alphabets Chart_1.png")
-                    lang2="V2"
-                    lang2_url=(asset "files/Resources/Alphabet Charts/Bird Alphabet Charts 2.png")
-                    }}
-
-                    {{!-- Gojri --}}
-                    {{> "icons/resource-item"
-                    title="Gojri Alphabet Chart"
-                    description="The Gojri alphabet chart celebrates the Gojri language and script by connecting it
-                    directly to the pastoral life and ecology of the Kashmir Himalayas. By linking the alphabet to local
-                    life—like Bakri (goat) or Jaberd (water pond)—it ensures literacy celebrates and preserves the
-                    community's environmental wisdom."
-                    preview_image=(asset "alphabets/Gojri.png")
-                    download_url="/gojrialphabetchart/"
-                    is_explore=true
-                    }}
-
-                    {{!-- Gujarati --}}
-                    {{> "icons/resource-item"
-                    title="Gujarati Alphabet Chart"
-                    description="This chart celebrates the Gujarati alphabet using the Kathiawadi dialect, and
-                    connecting it directly to the unique life of Gujarat's savanna grasslands and thorny forests. From
-                    wolves to indigenous livestock breeds, it represents Gujarat's local culture, ecology, and
-                    environmental wisdom."
-                    preview_image=(asset "alphabets/Gujarati.png")
-                    download_url="/gujaratialphabetchart/"
-                    is_explore=true
-                    }}
-
-                    {{!-- 2. Dynamic Content (Ghost) --}}
-                    {{#get "posts" filter="tag:#hash-alphabet-chart" order="published_at desc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-hash-alphabet-chart" order="published_at asc" include="tags"}}
                     {{#foreach posts}}
                     {{> "icons/resource-item"
                     title=title
                     description=custom_excerpt
                     preview_image=feature_image
                     download_url=url
+                    custom_link=meta_description
                     is_explore=true
                     }}
                     {{/foreach}}

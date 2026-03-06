@@ -2,36 +2,20 @@
     {{/contentFor}}
 
     {{#post}} <main class="site-main">
-        <div class="page-neem-illustration" data-reveal>
-            <img src="{{asset 'illustrations/neem_fruit.png'}}" alt="">
-        </div>
-        <div class="page-anchor-bottom-illustration" data-reveal>
-            {{#if access}}
-            {{!-- Fallback or secondary illustration can go here if needed --}}
-            {{/if}}
-        </div>
+        {{!-- Illustrations removed for dynamic content --}}
+
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Anchor Charts{{/if}}</h1>
+                    <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{!-- Original Static Description (Always There) --}}
-                        <p>
-                            Anchor charts are a fun way to learn actively or passively! These anchor charts are perfect
-                            for
-                            visually connecting things- like how a tiny insect relies on a specific plant—and
-                            understanding
-                            behaviors, interactions, and phenomena around us, making it simple to start conversations
-                            and
-                            get curious about the living world around us.
-                        </p>
-
-                        {{!-- Extra Ghost Content (Additive) --}}
                         {{#if content}}
-                        <div class="ghost-content" style="margin-top: 20px;">
-                            {{content}}
-                        </div>
+                        {{content}}
+                        {{else}}
+                        {{#if custom_excerpt}}
+                        <p>{{custom_excerpt}}</p>
+                        {{/if}}
                         {{/if}}
                     </div>
                 </div>
@@ -43,38 +27,14 @@
             <div class="container">
                 {{!-- 3. Resource Grid --}}
                 <div class="resource-horizontal-list">
-                    {{!-- 1. Static Content (Always Visible) --}}
-                    {{> "icons/resource-item"
-                    title="Plant Posters"
-                    description="Plants right outside our doors are hubs for ecological interactions like shelter, food,
-                    pollination, and seed dispersal - revealing a dynamic miniature ecosystem in every leaf and branch.
-                    These plant posters offer a close-up, dynamic view of a single plant, highlighting its various parts
-                    and the fascinating interactions it has with the most common animals, birds, and insects that use
-                    them."
-                    preview_image=(asset "anchor/Plant_Poster.png")
-                    download_url="/plantposter/"
-                    is_explore=true
-                    }}
-
-                    {{> "icons/resource-item"
-                    title="Behaviour Tales"
-                    description="Like how we humans groom and keep ourselves clean, animals too have fascinating ways in
-                    which they do these essential behaviours and adaptations! This resource was made to supplement
-                    primary school chapters on human cleaning habits and delves into the amazing world of animal
-                    hygiene, exploring how animals employ unique strategies to stay clean."
-                    preview_image=(asset "anchor/Behaviour_tales.png")
-                    download_url="/behaviortales/"
-                    is_explore=true
-                    }}
-
-                    {{!-- 2. Dynamic Content (Ghost) --}}
-                    {{#get "posts" filter="tag:#hash-anchor-chart" order="published_at desc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-hash-anchor-chart" order="published_at asc" include="tags"}}
                     {{#foreach posts}}
                     {{> "icons/resource-item"
                     title=title
                     description=custom_excerpt
                     preview_image=feature_image
                     download_url=url
+                    custom_link=meta_description
                     is_explore=true
                     }}
                     {{/foreach}}
@@ -84,39 +44,22 @@
         </section>
 
         {{!-- 4. Educator Note Section --}}
+        {{#get "posts" filter="tag:hash-sec-anchor-note" limit="1"}}
+        {{#foreach posts}}
         <section class="educator-note-section">
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-
-                        <h2 class="educator-title">Note for Educators</h2>
+                        <h2 class="educator-title">{{title}}</h2>
                     </div>
                     <div class="educator-content">
-                        <p>
-                            Anchor charts are a powerful tool for visually connecting behaviors, interactions, and
-                            natural
-                            phenomena.
-                            They help students understand complex ecological relationships—like how an insect relies on
-                            a
-                            specific
-                            plant—making it simple to start conversations and spark curiosity about the living world.
-                            Use
-                            them to
-                            supplement textbook chapters with real-world examples.
-                        </p>
-                    </div>
-                    <div class="educator-questions">
-                        <span class="questions-title">Questions to Explore</span>
-                        <ul class="questions-list">
-                            <li>Why do animals need to keep clean or groom themselves?</li>
-                            <li>How does the interaction on this chart help both species?</li>
-                            <li>What other animal behaviors have you observed in domestic pets?</li>
-                            <li>Can you find a real-life example of this interaction outdoors?</li>
-                        </ul>
+                        {{content}}
                     </div>
                 </div>
             </div>
         </section>
+        {{/foreach}}
+        {{/get}}
     </main>
 
     <script>

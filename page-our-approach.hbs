@@ -3,322 +3,142 @@
 
     <main class="site-main">
         {{#post}}
-        <div class="page-approach-illustration" data-reveal>
-            <img src="{{asset 'illustrations/28.PNG'}}" alt="">
-        </div>
-
         {{!-- 1. Hero Section --}}
         <section class="approach-hero">
-            <div class="approach-hero-bg" style="background-image: url('{{asset "ourapproach/our1.jpg"}}');"></div>
+            <div class="approach-hero-bg"
+                style="background-image: url('{{#if feature_image}}{{feature_image}}{{else}}{{asset "
+                ourapproach/our1.jpg"}}{{/if}}');"></div>
             <div class="approach-hero-overlay"></div>
             <div class="approach-hero-content">
-                <h1 class="approach-hero-title" data-reveal>{{#if title}}{{title}}{{else}}Our Approach{{/if}}</h1>
+                <h1 class="approach-hero-title" data-reveal>{{title}}</h1>
                 <div class="approach-hero-description" data-reveal>
                     {{#if content}}
-                    {{!-- Content handled below if fully dynamic --}}
+                    {{content}}
                     {{else}}
                     {{#if custom_excerpt}}
-                    {{custom_excerpt}}
-                    {{else}}
-                    <p>
-                        In today’s changing world, learners often view nature as unfamiliar and distant from their
-                        lives. Informed by research and our experiences of engaging with teachers, educators, and
-                        children from different contexts and geographies, we have developed a Nature Learning Framework
-                        and Pedagogy. This approach aims to provide opportunities for learners to develop a deeper sense
-                        of wonder, love, and a lasting connection with nature, the natural world.
-                    </p>
-                    <p>
-                        This dynamic and collaborative approach deeply informs our nature learning and resource creation
-                        process. It is based on observations and reflections from classrooms, conversations with
-                        teachers, understanding the needs of teachers and students, and correlating them with the school
-                        curriculum.
-                    </p>
+                    <p>{{custom_excerpt}}</p>
                     {{/if}}
                     {{/if}}
                 </div>
             </div>
 
-            {{!-- 2. Fog / Cloud Section Separator --}}
             <div class="fog-separator">
                 <div class="fog-blur"></div>
             </div>
         </section>
 
-        {{#if content}}
-        <section class="approach-dynamic-content">
-            <div class="container">
-                {{content}}
-            </div>
-        </section>
-        {{else}}
-        {{!-- Fallback to original content --}}
-        {{!-- 3. Philosophy Section --}}
-        <section class="approach-section approach-overview" id="philosophy">
-            <div class="container">
-                <div class="approach-grid">
-                    <div class="approach-content-block" data-reveal>
-                        <span class="approach-section-subtitle">Our Philosophy</span>
-                        <h2 class="approach-section-title">A Living Journey</h2>
-                        <div class="approach-section-text">
-                            <p>
-                                Our approach is not static; it is a dynamic and collaborative journey informed by deep
-                                research and real-world experiences. We engage with teachers, educators, and children
-                                across
-                                diverse geographies to understand the pulse of nature learning.
-                            </p>
-                            <p>
-                                By correlating school curricula with the natural world, we transform abstract concepts
-                                into experiential adventures that resonate with the heart and mind.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="approach-image-container" data-reveal>
-                        <img src="{{asset "ourapproach/our2.JPG"}}" alt="Children exploring nature">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{!-- 4. Research Section --}}
-        <section class="approach-section" id="research">
-            <div class="container">
-                <div class="approach-grid alternate">
-                    <div class="approach-content-block" data-reveal>
-                        <span class="approach-section-subtitle">Evidence Based</span>
-                        <h2 class="approach-section-title">Grounded in Research</h2>
-                        <div class="approach-section-text">
-                            <p>
-                                Our Nature Learning Framework is built on hours of classroom observations, reflections,
-                                and meaningful conversations with educators who are as passionate as we are about
-                                reconnecting children with the earth.
-                            </p>
-                            <div class="stats-mini">
-                                <div class="stat-item">
-                                    <span class="stat-num">100+</span>
-                                    <span class="stat-label">Workshops</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-num">15+</span>
-                                    <span class="stat-label">States</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="approach-image-container" data-reveal>
-                        <img src="{{asset "ourapproach/our3.jpg"}}" alt="Researcher in nature">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{!-- 5. Pedagogy & Framework Section --}}
+        {{!-- 2. Pillars Section --}}
         <section class="approach-section pillar-section" id="pedagogy">
             <div class="container">
                 <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">The
-                    Pillars
-                    of Our Program</h2>
+                    Pillars of Our Program</h2>
                 <div class="pillar-grid">
-                    {{#get "posts" limit="100" filter="tag:#program-pillar" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-sec-approach-pillars" order="published_at asc" include="tags"}}
                     {{#foreach posts}}
                     <div class="pillar-card" data-reveal>
                         <div class="pillar-image">
                             {{#if feature_image}}
-                            <img src="{{img_url feature_image}}" alt="{{title}}">
+                            <img src="{{feature_image}}" alt="{{title}}">
                             {{/if}}
                         </div>
-                        <div class="pillar-content-wrapper">
+                        <div class="pillar-content-wrapper js-content-box">
                             <h3 class="pillar-title">{{title}}</h3>
                             <div class="pillar-description">
                                 {{content}}
                             </div>
-                            {{#if excerpt}}
-                            <a href="{{excerpt}}" class="download-btn" target="_blank">Download <svg width="18"
-                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg></a>
-                            {{/if}}
+                            {{!-- Buttons are parsed via JS from content --}}
                         </div>
                     </div>
                     {{/foreach}}
                     {{/get}}
-
-                    <div class="pillar-card" data-reveal>
-                        <div class="pillar-image">
-                            <img src="{{asset "ourapproach/Nature Classrooms Pedagogy.png"}}"
-                                alt="Capacity Building & Training">
-                        </div>
-                        <div class="pillar-content-wrapper">
-                            <h3 class="pillar-title">Nature Classrooms Pedagogy</h3>
-                            <p class="pillar-description">
-                                Aims to provide a dynamic, inclusive, and collaborative approach to planning nature
-                                learning engagements and resources, to develop wonder, love, and a physical and
-                                emotional connection to nature.
-                            </p>
-                            <a href="{{asset 'files/Our Approach/Nature Classrooms Pedagogy.pdf'}}" class="download-btn"
-                                target="_blank">Download Pedagogy <svg width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg></a>
-                        </div>
-                    </div>
-
-                    <div class="pillar-card" data-reveal>
-                        <div class="pillar-image">
-                            <img src="{{asset "ourapproach/Nature Learning Framework.png"}}"
-                                alt="Research & Framework">
-                        </div>
-                        <div class="pillar-content-wrapper">
-                            <h3 class="pillar-title">Nature Learning Framework</h3>
-                            <p class="pillar-description">
-                                Guides educators in selecting, designing, and developing age-appropriate resources and
-                                session plans for nature learning.
-                            </p>
-                            <a href="{{asset 'files/Our Approach/Framework.pdf'}}" class="download-btn"
-                                target="_blank">Download Framework <svg width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        {{!-- 6. Visual Engagement Section --}}
+        {{!-- 3. Nature in Action (Gallery) --}}
+        {{#get "posts" filter="tag:hash-sec-approach-action" limit="1"}}
+        {{#foreach posts}}
         <section class="approach-gallery approach-section">
             <div class="container">
-                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 40px;">Nature
-                    in
-                    Action</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our4.jpg"}}" alt="Nature Classroom Activity"
-                            class="gallery-img">
-                    </div>
-                    <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our5.jpg"}}" alt="Children exploring nature"
-                            class="gallery-img">
-                    </div>
-                    <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our6.jpg"}}" alt="Nature observation" class="gallery-img">
-                    </div>
-                    <div class="gallery-item" data-reveal>
-                        <img src="{{asset "ourapproach/our7.jpg"}}" alt="Outdoor learning" class="gallery-img">
-                    </div>
+                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 40px;">
+                    {{title}}</h2>
+                {{!-- Raw content for JS parsing --}}
+                <div class="js-gallery-raw-content" style="display: none;">{{content}}</div>
+                <div class="gallery-grid js-gallery-grid">
+                    {{!-- Populated via JS --}}
                 </div>
             </div>
         </section>
+        {{/foreach}}
+        {{/get}}
 
-        {{!-- 7. Action Checklist Section --}}
+        {{!-- 4. Nature Learning Checklist --}}
+        {{#get "posts" filter="tag:hash-sec-approach-checklist" limit="1"}}
+        {{#foreach posts}}
         <section class="checklist-section approach-section">
             <div class="container">
-                <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">Nature Learning Checklist
-                </h2>
-                <p class="text-center"
-                    style="text-align: center; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--text-secondary);">
-                    To begin implementing Nature Learning Pedagogy in your classroom, you can download our Pedagogy in
-                    the form of an action-oriented checklist here:
-                </p>
-
-                <div class="checklist-container" data-reveal>
-                    <a href="{{asset 'files/Our Approach/Nature Learning Checklists/NATURE LEARNING CHECKLIST English.pdf'}}"
-                        class="checklist-btn" target="_blank">Download in English</a>
-                    <a href="{{asset 'files/Our Approach/Nature Learning Checklists/NATURE LEARNING CHECKLIST Kannada.pdf'}}"
-                        class="checklist-btn" target="_blank">Download in ಕನ್ನಡ</a>
-                    <a href="{{asset 'files/Our Approach/Nature Learning Checklists/NATURE LEARNING CHECKLIST Hindi.pdf'}}"
-                        class="checklist-btn" target="_blank">Download in हिंदी</a>
-                </div>
-                <div style="margin-top: 40px; text-align: center;" data-reveal>
-                    <p style="margin-bottom: 24px; font-weight: 600;">For a more elaborate version of the checklist
-                        (with explanations, examples, and more questions for consideration), click here:</p>
-                    <div class="elaborate-links"
-                        style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                        <a href="{{asset 'files/Our Approach/Nature Learning Checklists/Complete Checklist English.pdf'}}"
-                            class="checklist-btn"
-                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
-                            target="_blank">English Guide</a>
-                        <a href="{{asset 'files/Our Approach/Nature Learning Checklists/Complete Checklist Kannada.pdf'}}"
-                            class="checklist-btn"
-                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
-                            target="_blank">ಕನ್ನಡ Guide</a>
-                        <a href="{{asset 'files/Our Approach/Nature Learning Checklists/Complete Checklist Hindi.pdf'}}"
-                            class="checklist-btn"
-                            style="background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary) !important;"
-                            target="_blank">हिंदी Guide</a>
-                    </div>
+                <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">{{title}}</h2>
+                <div class="js-checklist-box text-center" style="color: var(--text-secondary);">
+                    {{content}}
                 </div>
             </div>
         </section>
+        {{/foreach}}
+        {{/get}}
 
-        {{!-- 8. Process Section --}}
-        <section class="process-section approach-section">
-            <div class="container">
-                <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">Our
-                    Process
-                </h2>
-                <div class="process-steps">
-                    <div class="process-step" data-reveal>
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3>Observe & Listen</h3>
-                            <p>We start in the classroom, observing interactions and listening to the needs of both
-                                teachers
-                                and students.</p>
-                        </div>
-                    </div>
-                    <div class="process-step" data-reveal>
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3>Collaborate & Design</h3>
-                            <p>Working closely with experienced educators, we co-create resources that are
-                                age-appropriate
-                                and curriculum-aligned.</p>
-                        </div>
-                    </div>
-                    <div class="process-step" data-reveal>
-                        <div class="step-number">03</div>
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3>Implement & Reflect</h3>
-                            <p>Resources are tested in real environments, followed by a cycle of reflection and
-                                continuous
-                                improvement.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{/if}}
-
-        {{!-- 9. CTA Section (Always visible) --}}
+        {{!-- 5. Recommended Reading --}}
+        {{#get "posts" filter="tag:hash-sec-approach-reading" limit="1"}}
+        {{#foreach posts}}
         <section class="approach-cta approach-section">
             <div class="container">
-                <div class="cta-content" data-reveal>
-                    <h2 class="cta-title">Recommended Readings</h2>
-                    <p class="cta-description"
+                <div class="cta-content js-reading-box" data-reveal>
+                    <h2 class="cta-title">{{title}}</h2>
+                    <div class="cta-description"
                         style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-secondary);">
-                        Looking for articles and opinion pieces on nature education and nature learning pedagogies?
-
-                        Find a curated list of readings here.
-                    </p>
-                    <a href="/readings" class="cta-btn">View Recommended Readings</a>
+                        {{content}}
+                    </div>
                 </div>
             </div>
         </section>
+        {{/foreach}}
+        {{/get}}
 
         {{/post}}
     </main>
 
-    {{!-- Scroll Reveal & Navbar Switching Script --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Scroll Reveal Initialization
+            // 1. Nature in Action (Gallery Parsing)
+            const rawContentContainer = document.querySelector('.js-gallery-raw-content');
+            const galleryGrid = document.querySelector('.js-gallery-grid');
+            if (rawContentContainer && galleryGrid) {
+                const images = rawContentContainer.querySelectorAll('img');
+                let html = '';
+                images.forEach(img => {
+                    html += `
+                        <div class="gallery-item" data-reveal>
+                            <img src="${img.src}" alt="${img.alt || 'Nature in Action'}" class="gallery-img">
+                        </div>`;
+                });
+                galleryGrid.innerHTML = html;
+            }
+
+            // 2. Button Styling (Pillars, Checklist, Reading)
+            // Style any <a> tag inside these boxes as a themed button
+            const boxes = document.querySelectorAll('.js-content-box, .js-checklist-box, .js-reading-box');
+            boxes.forEach(box => {
+                const links = box.querySelectorAll('a');
+                links.forEach(link => {
+                    // Check if it's a download link or regular link
+                    if (link.textContent.toLowerCase().includes('download')) {
+                        link.classList.add('download-btn');
+                    } else {
+                        link.classList.add('checklist-btn'); // Default approach button style
+                    }
+                });
+            });
+
+            // 3. Scroll Reveal Initialization
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -328,13 +148,25 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // For gallery items that might be added dynamically
+                        if (entry.target.classList.contains('gallery-item')) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('[data-reveal]').forEach(el => {
-                observer.observe(el);
-            });
+            // Observe existing and newly added elements
+            function observeElements() {
+                document.querySelectorAll('[data-reveal]').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            observeElements();
+            // Re-run for dynamic gallery items
+            setTimeout(observeElements, 500);
         });
     </script>
 

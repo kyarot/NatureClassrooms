@@ -75,6 +75,65 @@
     <!-- FIXED JS PATH -->
     <script src="{{asset 'js/main.js'}}" defer></script>
 
+    <!-- Dynamic Download Parser -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const resourceFooters = document.querySelectorAll('.resource-item-footer[data-custom-link^="DOWNLOAD:"]');
+
+            resourceFooters.forEach(footer => {
+                const linkData = footer.getAttribute('data-custom-link');
+                const cleanData = linkData.replace('DOWNLOAD:', '').trim();
+
+                // Format: Language|URL, Language|URL
+                const items = cleanData.split(',').map(item => item.trim());
+                const menu = footer.querySelector('.dynamic-menu');
+                const exploreBtn = footer.querySelector('.explore-btn');
+                const downloadContainer = footer.querySelector('.dynamic-download-container');
+                const card = footer.closest('.resource-item-card');
+                const overlayLink = card ? card.querySelector('.overlay-download-link') : null;
+
+                if (items.length > 0 && menu) {
+                    items.forEach(item => {
+                        const [label, url] = item.split('|').map(s => s.trim());
+                        if (label && url) {
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.className = 'dropdown-item';
+                            a.setAttribute('download', '');
+                            a.textContent = label;
+                            menu.appendChild(a);
+                        }
+                    });
+
+                    // Toggle visibility
+                    if (exploreBtn) exploreBtn.style.display = 'none';
+                    if (downloadContainer) downloadContainer.style.display = 'block';
+                    if (overlayLink) overlayLink.style.display = 'none';
+                }
+            });
+
+            // Handle Dropdown Toggles for Dynamic Menus
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.download-dropdown-btn');
+                if (btn) {
+                    const dropdown = btn.closest('.download-dropdown');
+                    dropdown.classList.toggle('active');
+
+                    // Close other dropdowns
+                    document.querySelectorAll('.download-dropdown').forEach(d => {
+                        if (d !== dropdown) d.classList.remove('active');
+                    });
+
+                    e.stopPropagation();
+                } else {
+                    document.querySelectorAll('.download-dropdown').forEach(d => {
+                        d.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+
     {{ghost_foot}}
 
 </body>

@@ -1,288 +1,135 @@
-{{!< default}} {{#post}} <div class="tamil-alphabet-page">
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+    {{#post}}
+    <div class="tamil-alphabet-page">
 
-    <!-- Hero Section -->
-    <section class="ta-hero">
-        <h1>{{#if title}}{{title}}{{else}}Tamil Alphabet Chart{{/if}}</h1>
-        <div class="ta-hero-content">
-            <p>Walk into any bookstore and you'll find alphabet charts filled with giraffes, penguins, and macaws. But
-                what about all of nature that is right around us? This chart brings together the plants and animals of
-                Tamil Nadu, from dugongs to Indrella snails, fungi, odonates, wasps, and wildflowers, all through the
-                Tamil alphabet.</p>
-
-            {{#if content}}
-            <div class="ghost-content" style="margin-top: 2rem;">
-                {{content}}
-            </div>
-            {{/if}}
-        </div>
-    </section>
-
-    <!-- Section Header -->
-    <div class="ta-section-header">
-        <div class="ta-section-title">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                <line x1="9" y1="7" x2="15" y2="7"></line>
-                <line x1="9" y1="11" x2="15" y2="11"></line>
-            </svg>
-            Resources
-        </div>
-        <div class="ta-section-line"></div>
-    </div>
-
-    <!-- Resource Grid -->
-    <div class="ta-grid">
-        {{#get "posts" filter="tag:#hash-tamil-alphabet" order="published_at desc" include="tags"}}
+        <!-- Hero Section -->
+        {{#get "posts" filter="tag:hash-sec-tamil-hero" limit="1"}}
         {{#foreach posts}}
-        <div class="ta-card">
-            <div class="ta-card-img">
-                {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
+        <section class="ta-hero">
+            <h1>{{#if title}}{{title}}{{else}}Tamil Alphabet Chart{{/if}}</h1>
+            <div class="ta-hero-content">
+                {{#if content}}
+                <div class="ghost-content">
+                    {{content}}
+                </div>
+                {{else}}
+                <p>Walk into any bookstore and you'll find alphabet charts filled with giraffes, penguins, and macaws.
+                    But
+                    what about all of nature that is right around us? This chart brings together the plants and animals
+                    of
+                    Tamil Nadu, from dugongs to Indrella snails, fungi, odonates, wasps, and wildflowers, all through
+                    the
+                    Tamil alphabet.</p>
                 {{/if}}
-                <div class="ta-card-overlay">
-                    <a href="{{url}}" class="ta-overlay-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Explore
-                    </a>
-                </div>
             </div>
-            <div class="ta-card-content">
-                <h3>{{title}}</h3>
-                <p class="ta-card-desc">{{custom_excerpt}}</p>
-                <div class="ta-card-footer">
-                    <a href="{{url}}" class="ta-download-btn">
-                        Explore Resource
-                    </a>
-                </div>
-            </div>
-        </div>
+        </section>
         {{/foreach}}
         {{/get}}
 
-        {{!-- Original Static Content (Always Visible) --}}
-        <!-- Tamil Alphabet Chart -->
-        <div class="ta-card">
-            <div class="ta-card-img">
-                <img src="{{asset 'ta/Tamil Alphabet Chart.png'}}" alt="Tamil Alphabet Chart">
-                <div class="ta-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Tamil Alphabet Chart.pdf'}}"
-                        class="ta-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
+        <!-- Section Header -->
+        <div class="ta-section-header">
+            <div class="ta-section-title">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="9" y1="7" x2="15" y2="7"></line>
+                    <line x1="9" y1="11" x2="15" y2="11"></line>
+                </svg>
+                Resources
             </div>
-            <div class="ta-card-content">
-                <h3>Tamil Alphabet Chart</h3>
-                <p class="ta-card-desc">The complete Tamil alphabet chart featuring the rich biodiversity of Tamil Nadu.
-                </p>
-                <div class="ta-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Tamil Alphabet Chart.pdf'}}"
-                        class="ta-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
+            <div class="ta-section-line"></div>
         </div>
 
-        <!-- Explainer Document -->
-        <div class="ta-card">
-            <div class="ta-card-img">
-                <img src="{{asset 'ta/Explainer Document - Tamil Alphabet Chart.png'}}" alt="Explainer Document">
-                <div class="ta-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Explainer Document.pdf'}}"
-                        class="ta-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="ta-card-content">
-                <h3>Explainer Document</h3>
-                <p class="ta-card-desc">Detailed explainer document about the Tamil Alphabet Chart and how to use it.
-                </p>
-                <div class="ta-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Explainer Document.pdf'}}"
-                        class="ta-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vowels -->
-        <div class="ta-card">
-            <div class="ta-card-img">
-                <img src="{{asset 'ta/Vowels- Tamil Alphabet Chart.png'}}" alt="Vowels">
-                <div class="ta-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowels.pdf'}}"
-                        class="ta-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="ta-card-content">
-                <h3>Vowels</h3>
-                <p class="ta-card-desc">Practice and learn Tamil vowels with these beautiful illustrations.</p>
-                <div class="ta-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowels.pdf'}}"
-                        class="ta-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vowel-Consonants -->
-        <div class="ta-card">
-            <div class="ta-card-img">
-                <img src="{{asset 'ta/Vowels Consonants - Tamil Alphabet Chart.png'}}" alt="Vowel-Consonants">
-                <div class="ta-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowel-Consonants.pdf'}}"
-                        class="ta-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="ta-card-content">
-                <h3>Vowel-Consonants</h3>
-                <p class="ta-card-desc">Explore Tamil vowel-consonants through regional nature and wildlife.</p>
-                <div class="ta-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Vowel-Consonants.pdf'}}"
-                        class="ta-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Consonants -->
-        <div class="ta-card">
-            <div class="ta-card-img">
-                <img src="{{asset 'ta/Consonants - Tamil Alphabet Chart.png'}}" alt="Consonants">
-                <div class="ta-card-overlay">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Consonants.pdf'}}"
-                        class="ta-overlay-link" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Quick Download
-                    </a>
-                </div>
-            </div>
-            <div class="ta-card-content">
-                <h3>Consonants</h3>
-                <p class="ta-card-desc">Learn Tamil consonants with nature-based examples from the local landscape.</p>
-                <div class="ta-card-footer">
-                    <a href="{{asset 'files/Resources/Alphabet Charts/Tamil Alphabet Chart/Consonants.pdf'}}"
-                        class="ta-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Resource
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Video Note Section -->
-    <section class="ta-video-section">
-        <div class="container">
-            <div class="ta-video-card">
-                <div class="ta-video-header">
-                    <div class="ta-video-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M23 7l-7 5 7 5V7z"></path>
-                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                        </svg>
+        <!-- Resource Grid -->
+        <div class="ta-grid">
+            {{#get "posts" filter="tag:hash-hash-tamil-alphabet" order="published_at asc" include="tags"}}
+            {{#foreach posts}}
+            <div class="ta-card">
+                <div class="ta-card-img">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{/if}}
+                    <div class="ta-card-overlay">
+                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                            class="ta-overlay-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Explore
+                        </a>
                     </div>
-                    <h2 class="ta-video-title">Learn with Video</h2>
                 </div>
-                <div class="ta-video-content">
-                    <p>Watch this walkthrough video to learn how to use the Tamil Alphabet Chart effectively in your
-                        teaching and learning journey. We explore each element and share tips for classroom engagement.
-                    </p>
-                </div>
-                <div class="ta-video-wrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PjEitK4oTf4"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                <div class="ta-card-content">
+                    <h3>{{title}}</h3>
+                    <p class="ta-card-desc">{{custom_excerpt}}</p>
+                    <div class="ta-card-footer resource-item-footer" data-custom-link="{{meta_description}}">
+                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                            class="ta-download-btn explore-btn">
+                            Explore Resource
+                        </a>
+                        <div class="dynamic-download-container" style="display: none;">
+                            <div class="download-dropdown">
+                                <button class="download-dropdown-btn">
+                                    <span>Download</span>
+                                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dynamic-menu">
+                                    <!-- Filled via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            {{/foreach}}
+            {{/get}}
         </div>
-    </section>
 
-    <!-- Explore More Section -->
-    <section class="ta-explore-more">
-        <a href="/alphabet-charts/" class="ta-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            Explore More Alphabet Charts
-        </a>
-    </section>
+        {{#get "posts" filter="tag:hash-sec-tamil-video" limit="1"}}
+        {{#foreach posts}}
+        <section class="ta-video-section">
+            <div class="container">
+                <div class="ta-video-card">
+                    <div class="ta-video-header">
+                        <div class="ta-video-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M23 7l-7 5 7 5V7z"></path>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </div>
+                        <h2 class="ta-video-title">{{title}}</h2>
+                    </div>
+                    <div class="ta-video-content">
+                        {{custom_excerpt}}
+                    </div>
+                    <div class="ta-video-wrapper">
+                        {{content}}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{/foreach}}
+        {{/get}}
+
+        <!-- Explore More Section -->
+        <section class="ta-explore-more">
+            <a href="/alphabet-charts/" class="ta-explore-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Explore More Alphabet Charts
+            </a>
+        </section>
 
     </div>
     {{/post}}

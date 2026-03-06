@@ -1,88 +1,53 @@
 {{!< default}} {{#post}} <div class="research-page">
-    <div class="research-page-illustration" data-reveal>
-        <img src="{{asset 'illustrations/14.PNG'}}" alt="">
-    </div>
-    <div class="research-page-bottom-illustration" data-reveal>
-        <img src="{{asset 'illustrations/18.PNG'}}" alt="">
-    </div>
-    <!-- Hero Section -->
-    <header class="research-hero">
-        <div class="research-hero-bg"></div>
-        <div class="research-hero-overlay"></div>
-        <div class="research-hero-content">
-            <h1 style="color: white;">{{#if title}}{{title}}{{else}}Research{{/if}}</h1>
-            <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}Everything we do is rooted in thoughtful reflection and
-                research.{{/if}}</p>
-        </div>
-    </header>
-
-    {{#if content}}
-    <section class="research-dynamic-content">
-        <div class="container" style="padding: 100px 20px;">
+    {{!-- 1. Hero Section (Source: Page) --}}
+    <div class="research-hero-bg" style="background-image: url('{{feature_image}}');"></div>
+    <div class="research-hero-overlay"></div>
+    <div class="research-hero-content">
+        <h1 style="color: white;">{{title}}</h1>
+        <div class="research-hero-description">
             {{content}}
         </div>
-    </section>
-    {{/if}}
+    </div>
+    </header>
 
-    <!-- Core Philosophy Section -->
+    {{!-- 2. Core Philosophy Section --}}
+    {{#get "posts" filter="tag:hash-sec-research-intro" limit="1"}}
+    {{#foreach posts}}
     <section class="research-philosophy">
         <div class="research-container">
             <div class="philosophy-content">
-                <h2>Our Research Approach</h2>
-                <p>Everything we do is rooted in thoughtful reflection and research. We explore how students and
-                    teachers experience and connect with the natural world, uncovering stories and insights that guide
-                    how we engage with learners and how we design our nature-based learning and approaches. Through gap
-                    analysis especially in the context of the Global South, we keep our work grounded, contextual, and
-                    evolving. Through our research, we aim to inform our own practice and support the wider nature
-                    education community in reimagining how everyday nature can be meaningfully and seamlessly woven into
-                    teaching–learning spaces.</p>
+                <h2>{{title}}</h2>
+                {{content}}
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Research Projects Section -->
+    {{!-- 3. Research Projects Section --}}
     <section class="research-projects">
         <div class="research-container">
-            <!-- NEAF -->
-            <div class="project-item alternating">
+            {{#get "posts" limit="100" filter="tag:hash-card-research-project" include="tags,authors"
+            order="published_at
+            asc"}}
+            {{#foreach posts}}
+            <div class="project-item alternating {{#if @even}}reversed{{/if}}">
                 <div class="project-image">
-                    <img src="{{asset 'research/res2.JPG'}}" alt="Nature Education Assessment Framework">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{/if}}
                 </div>
                 <div class="project-details">
-                    <span class="project-category">Open Source Tool</span>
-                    <h3>Nature Education Assessment Framework (NEAF)</h3>
-                    <p>Developed with the support of the Inlaks Ravi Sankaran Small Grants Programme as an open-source
-                        tool to assess the effectiveness of nature education programmes and other nature learning
-                        initiatives.</p>
-                    <a href="/nature-education-assessment-framework/" class="read-more-link">Read More</a>
+                    <span class="project-category">{{#primary_tag}}{{name}}{{/primary_tag}}</span>
+                    <h3>{{title}}</h3>
+                    {{content}}
+                    {{#if meta_description}}
+                    <a href="{{meta_description}}" class="read-more-link">Read More</a>
+                    {{/if}}
                 </div>
             </div>
-
-            <!-- Social-Emotional Learning -->
-            <div class="project-item alternating reversed">
-                <div class="project-image">
-                    <img src="{{asset 'research/res3.jpg'}}" alt="Social-Emotional Learning">
-                </div>
-                <div class="project-details">
-                    <span class="project-category">Educator Programme</span>
-                    <h3>Nature-based Social-Emotional Learning for Teachers and Educators</h3>
-                    <p>A programme that integrates nature learning with social-emotional learning.</p>
-                    <a href="/nature-based-social-emotional-learning/" class="read-more-link">Read More</a>
-                </div>
-            </div>
-
-            <!-- Children and Nature in the City -->
-            <div class="project-item alternating">
-                <div class="project-image">
-                    <img src="{{asset 'research/res4.jpg'}}" alt="Children and Nature in the City">
-                </div>
-                <div class="project-details">
-                    <span class="project-category">Urban Research</span>
-                    <h3>Children and Nature in the City</h3>
-                    <p>A research project to explore the city through the lens of children</p>
-                    <a href="/children-nature-city/" class="read-more-link">Read More</a>
-                </div>
-            </div>
+            {{/foreach}}
+            {{/get}}
         </div>
     </section>
     </div>

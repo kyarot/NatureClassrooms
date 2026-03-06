@@ -3,34 +3,23 @@
 
     {{#post}}
     <main class="site-main">
-        <div class="page-activities-illustration" data-reveal>
-            <img src="{{#if feature_image}}{{feature_image}}{{else}}{{asset 'illustrations/23.PNG'}}{{/if}}" alt="">
-        </div>
+        {{!-- Illustration removed for dynamic content --}}
+
 
         {{!-- 1. Hero Banner --}}
         <section class="resources-hero hero-minimal">
             <div class="container">
                 <div class="resources-hero-content" data-reveal>
-                    <h1 class="resources-hero-title">{{#if title}}{{title}}{{else}}Nature Activities{{/if}}</h1>
+                    <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{!-- Original Static Description (Always There) --}}
-                        <p>
-                            Here are some quick nature activities to help you explore the natural world around you, with
-                            a
-                            goal in mind! Use these activities to introduce new learners into the world of their
-                            immediate nature.
-                        </p>
-
-                        {{!-- Extra Ghost Content (Additive) --}}
                         {{#if content}}
-                        <div class="ghost-content" style="margin-top: 20px;">
-                            {{content}}
-                        </div>
+                        {{content}}
+                        {{else}}
+                        {{#if custom_excerpt}}
+                        <p>{{custom_excerpt}}</p>
+                        {{/if}}
                         {{/if}}
                     </div>
-                    {{#if custom_excerpt}}
-                    <div class="hero-age-label">{{custom_excerpt}}</div>
-                    {{/if}}
                 </div>
             </div>
         </section>
@@ -39,91 +28,14 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-2-col">
-                    {{!-- 1. Static Content (Always Visible) --}}
-                    {{!-- Colors --}}
-                    {{> "icons/resource-item"
-                    title="Colors"
-                    description="A printable activity sheet that helps learners pay attention to the various colours in
-                    the natural world, from the many shades of green to the colours of birds, butterflies, soil, and
-                    spiders! Document your colour walk by collecting fallen leaves, seeds, or flowers to create a
-                    display, take pictures, or fill in the colour wheel in the activity sheet."
-                    preview_image=(asset "activities/Colours.png")
-                    download_url=(asset "files/Resources/Activities/Colors/Colours in Nature_English.pdf")
-                    lang1="English"
-                    lang1_url=(asset "files/Resources/Activities/Colors/Colours in Nature_English.pdf")
-                    lang2="ಕನ್ನಡ"
-                    lang2_url=(asset "files/Resources/Activities/Colors/Colours in Nature_Kannada.pdf")
-                    }}
-
-                    {{!-- Patterns --}}
-                    {{> "icons/resource-item"
-                    title="Patterns"
-                    description="A printable activity sheet that helps learners pay attention to different patterns in
-                    the natural world, from dots and spots on insects to patterns on leaves. Document your shape &
-                    pattern walk using the activity sheet, sketch, and make notes of what you find, take pictures, or
-                    create a display with fallen leaves, seeds, or flowers."
-                    preview_image=(asset "activities/Shapes.png")
-                    download_url=(asset "files/Resources/Activities/Patterns/Patterns in Nature_English.pdf")
-                    lang1="English"
-                    lang1_url=(asset "files/Resources/Activities/Patterns/Patterns in Nature_English.pdf")
-                    lang2="ಕನ್ನಡ"
-                    lang2_url=(asset "files/Resources/Activities/Patterns/Patterns in Nature_Kannada.pdf")
-                    }}
-
-                    {{!-- Textures --}}
-                    {{> "icons/resource-item"
-                    title="Textures"
-                    description="A printable activity sheet that helps learners pay attention to different textures in
-                    the natural world- from rough, to smooth, to soft, to bumpy. Document the textures you experience in
-                    the nature around you using the activity sheet. Sketch and make notes of what you find, take
-                    pictures, or create a display with fallen leaves, seeds, or flowers."
-                    preview_image=(asset "activities/Textures.png")
-                    download_url=(asset "files/Resources/Activities/Textures/Texture Hunt NC.pdf")
-                    lang1="English"
-                    lang1_url=(asset "files/Resources/Activities/Textures/Texture Hunt NC.pdf")
-                    lang2="ಕನ್ನಡ"
-                    lang2_url=(asset "files/Resources/Activities/Textures/Kannada Texture Hunt NC.pdf")
-                    }}
-
-                    {{!-- Bird Migration --}}
-                    {{> "icons/resource-item"
-                    title="Bird Migration"
-                    description="All in a Bird's Life is a ‘bird survivor’ and life cycle game that helps learn about
-                    the different events and challenges (natural and man-made) that occur in a bird's life. This game
-                    introduces the players to how birds migrate and builds teamwork, empathy, and knowledge while
-                    learning about the intricacies of the life of a bird. The design is simple and versatile, and can be
-                    used in various contexts of learning and playing, with various age groups."
-                    preview_image=(asset "activities/Bird_Migration_Game.png")
-                    download_url=(asset "files/Resources/Activities/Bird Migration Blindfold Game
-                    Instructions-merged.pdf")
-                    lang1="English"
-                    }}
-
-                    {{!-- Walls and Pavement --}}
-                    {{> "icons/resource-item"
-                    title="Walls and Pavement"
-                    description="There is an abundance of nature that lies hidden and not-so-hidden on our bricked and
-                    cemented walls and pavements! These charismatic and quirky species are a great source of joy and
-                    curiosity once you begin to explore these surfaces. Take this activity sheet with you to explore the
-                    walls and pavements around or within your homes, schools, or streets and observe, marvel, and
-                    document what creatures you come across!"
-                    preview_image=(asset "activities/Walls_and_Pavements.png")
-                    download_url=(asset "files/Resources/Activities/Walls and Pavements/Walls and
-                    Pavements_English.pdf")
-                    lang1="English"
-                    lang1_url=(asset "files/Resources/Activities/Walls and Pavements/Walls and Pavements_English.pdf")
-                    lang2="ಕನ್ನಡ"
-                    lang2_url=(asset "files/Resources/Activities/Walls and Pavements/Walls & Pavements_Kannada.pdf")
-                    }}
-
-                    {{!-- 2. Dynamic Content (Ghost) --}}
-                    {{#get "posts" filter="tag:#hash-activity" order="published_at desc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-hash-activity" order="published_at asc" include="tags"}}
                     {{#foreach posts}}
                     {{> "icons/resource-item"
                     title=title
                     description=custom_excerpt
                     preview_image=feature_image
                     download_url=url
+                    custom_link=meta_description
                     is_explore=true
                     }}
                     {{/foreach}}
@@ -133,35 +45,22 @@
         </section>
 
         {{!-- 4. Educator Note Section --}}
+        {{#get "posts" filter="tag:hash-sec-activity-note" limit="1"}}
+        {{#foreach posts}}
         <section class="educator-note-section">
             <div class="container">
                 <div class="educator-note-card" data-reveal>
                     <div class="educator-note-header">
-                        <h2 class="educator-title">Note for Educators</h2>
+                        <h2 class="educator-title">{{title}}</h2>
                     </div>
                     <div class="educator-content">
-                        <p>
-                            These primary nature activities are designed to help students pay attention to the world
-                            around them with a focus on specific elements like patterns, textures, or migration. They
-                            are
-                            simple, versatile, and can be used in various learning contexts to foster empathy, teamwork,
-                            and
-                            sharp observation skills. Feel free to adapt them to your specific school premises or local
-                            neighborhood streets.
-                        </p>
-                    </div>
-                    <div class="educator-questions">
-                        <span class="questions-title">Questions to Explore</span>
-                        <ul class="questions-list">
-                            <li>What common patterns or textures did you observe in the wild?</li>
-                            <li>How did using all your senses change how you notice colors in nature?</li>
-                            <li>What challenges did you face while documenting your findings?</li>
-                            <li>How do these tiny details help animals and plants survive?</li>
-                        </ul>
+                        {{content}}
                     </div>
                 </div>
             </div>
         </section>
+        {{/foreach}}
+        {{/get}}
     </main>
 
     <script>

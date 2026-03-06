@@ -2,7 +2,8 @@
     <div class="resource-item-thumbnail">
         <img src="{{preview_image}}" alt="{{title}}" loading="lazy">
         <div class="resource-actions-overlay">
-            <a href="{{download_url}}" class="overlay-download-link" {{#unless is_explore}}download{{/unless}}>
+            <a href="{{#if custom_link}}{{custom_link}}{{else}}{{download_url}}{{/if}}" class="overlay-download-link"
+                {{#unless is_explore}}download{{/unless}}>
                 {{#if is_explore}}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -26,11 +27,25 @@
         <h3 class="resource-item-title">{{title}}</h3>
         <p class="resource-item-desc">{{description}}</p>
 
-        <div class="resource-item-footer">
+        <div class="resource-item-footer" data-custom-link="{{custom_link}}">
             {{#if is_explore}}
-            <a href="{{download_url}}" class="explore-btn">
+            <a href="{{#if custom_link}}{{custom_link}}{{else}}{{download_url}}{{/if}}" class="explore-btn">
                 Explore
             </a>
+            <div class="dynamic-download-container" style="display: none;">
+                <div class="download-dropdown">
+                    <button class="download-dropdown-btn">
+                        <span>Download</span>
+                        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dynamic-menu">
+                        <!-- Filled via JS -->
+                    </div>
+                </div>
+            </div>
             {{else}}
             {{#if lang1}}
             {{!-- Unified dropdown for one or more languages --}}
@@ -43,9 +58,12 @@
                     </svg>
                 </button>
                 <div class="dropdown-menu">
-                    {{#if lang1}}<a href="{{#if lang1_url}}{{lang1_url}}{{else}}{{download_url}}{{/if}}" class="dropdown-item" download>{{lang1}}</a>{{/if}}
-                    {{#if lang2}}<a href="{{#if lang2_url}}{{lang2_url}}{{else}}{{download_url}}{{/if}}" class="dropdown-item" download>{{lang2}}</a>{{/if}}
-                    {{#if lang3}}<a href="{{#if lang3_url}}{{lang3_url}}{{else}}{{download_url}}{{/if}}" class="dropdown-item" download>{{lang3}}</a>{{/if}}
+                    {{#if lang1}}<a href="{{#if lang1_url}}{{lang1_url}}{{else}}{{download_url}}{{/if}}"
+                        class="dropdown-item" download>{{lang1}}</a>{{/if}}
+                    {{#if lang2}}<a href="{{#if lang2_url}}{{lang2_url}}{{else}}{{download_url}}{{/if}}"
+                        class="dropdown-item" download>{{lang2}}</a>{{/if}}
+                    {{#if lang3}}<a href="{{#if lang3_url}}{{lang3_url}}{{else}}{{download_url}}{{/if}}"
+                        class="dropdown-item" download>{{lang3}}</a>{{/if}}
                 </div>
             </div>
             {{else}}
