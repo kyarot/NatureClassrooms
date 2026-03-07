@@ -6,10 +6,10 @@
         <div class="hh-hero-subtitle">
             {{#if content}}
             <div class="ghost-content">
-                {{content}}
+                <div class="resources-hero-subtitle">
+                    {{content}}
+                </div>
             </div>
-            {{else}}
-            <p>{{custom_excerpt}}</p>
             {{/if}}
         </div>
     </section>
@@ -29,35 +29,17 @@
 
     <!-- Resource Grid -->
     <div class="hh-grid">
-        {{#get "posts" filter="tag:#hash-hidden-housemates" order="published_at desc" include="tags"}}
+        {{#get "posts" filter="tag:hash-hash-hidden-housemates" order="published_at desc" include="tags"
+        formats="html"}}
         {{#foreach posts}}
-        <div class="hh-card">
-            <div class="hh-card-img">
-                {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
-                {{/if}}
-                <div class="hh-card-overlay">
-                    <a href="{{url}}" class="hh-overlay-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Explore
-                    </a>
-                </div>
-            </div>
-            <div class="hh-card-content">
-                <h3>{{title}}</h3>
-                <p class="hh-card-desc">{{custom_excerpt}}</p>
-                <div class="hh-card-footer">
-                    <a href="{{url}}" class="hh-download-btn">
-                        Explore Resource
-                    </a>
-                </div>
-            </div>
-        </div>
+        {{> "icons/resource-item"
+        title=title
+        description=html
+        preview_image=feature_image
+        download_url=url
+        custom_link=meta_description
+        is_explore=true
+        }}
         {{/foreach}}
         {{/get}}
     </div>

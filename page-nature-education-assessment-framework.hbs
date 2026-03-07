@@ -3,22 +3,43 @@
     <!-- Hero Section -->
     <section class="neaf-hero">
         <h1>{{title}}</h1>
-        <p class="neaf-hero-subtitle">{{custom_excerpt}}</p>
+        <div class="neaf-hero-subtitle">{{content}}</div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-neaf-about" limit="1"}}
+    {{#foreach posts}}
     <section class="neaf-about-section">
         <div class="neaf-about-card">
-            <div class="neaf-about-content">
+            <div class="neaf-about-content resource-item-desc">
                 {{content}}
+            </div>
+            <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                style="margin-top: 20px;">
+                <div class="dynamic-download-container" style="display: none;">
+                    <div class="download-dropdown">
+                        <button class="download-dropdown-btn">
+                            <span>Download</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dynamic-menu"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
+
+
 
     <!-- Timeline Image -->
     <section class="neaf-image-section">
         <div class="neaf-image-wrapper">
-            <img src="{{asset 'neaf/image.png'}}" alt="NEAF Timeline">
+            <img src="{{asset 'images/img2.png'}}" alt="NEAF Timeline">
         </div>
     </section>
 
@@ -29,7 +50,7 @@
                 <h3 class="neaf-partners-title">Supported by</h3>
                 <div class="neaf-partners-logos">
                     <a href="https://www.inlaksfoundation.org/" target="_blank" rel="noopener">
-                        <img src="{{asset 'collaborators/WhatsApp Image 2025-03-03 at 12.59.50.jpeg'}}"
+                        <img src="{{asset 'images/img1.png'}}"
                             alt="InLaks Ravi Sankaran Small Grants">
                     </a>
                 </div>

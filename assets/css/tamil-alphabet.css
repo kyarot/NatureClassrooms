@@ -94,26 +94,29 @@
 }
 
 /* ── Resource Card ── */
-.ta-card {
+.ta-card,
+.resource-item-card {
     background: var(--ta-white);
     border: 1px solid var(--ta-border-light);
     border-radius: var(--ta-radius-lg);
     overflow: visible;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: var(--ta-transition);
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.ta-card:hover {
+.ta-card:hover,
+.resource-item-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(74, 124, 89, 0.1);
     border-color: var(--ta-primary);
 }
 
 /* Card Thumbnail */
-.ta-card-img {
+.ta-card-img,
+.resource-item-thumbnail {
     width: 100%;
     height: 180px;
     overflow: hidden;
@@ -134,7 +137,8 @@
 }
 
 /* Image Overlay */
-.ta-card-overlay {
+.ta-card-overlay,
+.resource-actions-overlay {
     position: absolute;
     inset: 0;
     background: rgba(74, 124, 89, 0.4);
@@ -146,11 +150,13 @@
     transition: var(--ta-transition);
 }
 
-.ta-card-img:hover .ta-card-overlay {
+.ta-card-img:hover .ta-card-overlay,
+.resource-item-thumbnail:hover .resource-actions-overlay {
     opacity: 1;
 }
 
-.ta-overlay-link {
+.ta-overlay-link,
+.overlay-download-link {
     background: rgba(255, 255, 255, 0.95);
     color: var(--ta-primary);
     padding: 12px 20px;
@@ -166,19 +172,22 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.ta-card-img:hover .ta-overlay-link {
+.ta-card-img:hover .ta-overlay-link,
+.resource-item-thumbnail:hover .overlay-download-link {
     transform: translateY(0);
 }
 
 /* Card Content */
-.ta-card-content {
+.ta-card-content,
+.resource-item-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.ta-card-content h3 {
+.ta-card-content h3,
+.resource-item-title {
     font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
@@ -187,28 +196,27 @@
     line-height: 1.3;
 }
 
-.ta-card-desc {
+.ta-card-desc,
+.resource-item-desc {
     font-size: 0.9rem;
     color: var(--ta-text-secondary);
     margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     line-height: 1.5;
-    height: 3em;
+    flex-grow: 1;
 }
 
 /* Card Footer */
-.ta-card-footer {
+.ta-card-footer,
+.resource-item-footer {
     margin-top: auto;
     padding-top: 16px;
     border-top: 1px solid var(--ta-border-light);
 }
 
 /* Download Button */
-.ta-download-btn {
+.ta-download-btn,
+.explore-btn,
+.download-dropdown-btn {
     width: 100%;
     display: flex;
     align-items: center;

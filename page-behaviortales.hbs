@@ -8,15 +8,10 @@
             <div class="bt-hero-content">
                 <div class="bt-hero-subtitle">Nature Classrooms</div>
                 <h1>{{title}}</h1>
-                <p>{{custom_excerpt}}</p>
+                <div class="bt-hero-description">{{content}}</div>
             </div>
         </section>
 
-        {{#if content}}
-        <div class="ghost-content" style="margin-top: 2rem;">
-            {{content}}
-        </div>
-        {{/if}}
 
         <!-- Section Header -->
         <div class="bt-section-header">
@@ -34,9 +29,10 @@
 
         <!-- Content Section -->
         <div class="bt-grid">
-            {{#get "posts" filter="tag:hash-hash-behavior-tales" order="published_at asc" include="tags"}}
+            {{#get "posts" filter="tag:hash-hash-behavior-tales" order="published_at asc" include="tags"
+            formats="html"}}
             {{#foreach posts}}
-            <div class="bt-card">
+            <div class="bt-card resource-item-card">
                 <div class="bt-card-img">
                     {{#if feature_image}}
                     <img src="{{feature_image}}" alt="{{title}}">
@@ -56,12 +52,14 @@
                 </div>
                 <div class="bt-card-content">
                     <h3>{{title}}</h3>
-                    <p class="bt-card-desc">{{custom_excerpt}}</p>
-                    <div class="bt-card-footer resource-item-footer" data-custom-link="{{meta_description}}">
-                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
-                            class="bt-download-btn explore-btn">
+                    <div class="bt-card-desc resource-item-desc">{{{html}}}</div>
+                    <div class="bt-card-footer resource-item-footer" data-custom-link="{{meta_description}}"
+                        data-parse-body="true">
+                        {{#if meta_description}}
+                        <a href="{{meta_description}}" class="bt-download-btn explore-btn">
                             Learn More
                         </a>
+                        {{/if}}
                         <div class="dynamic-download-container" style="display: none;">
                             <div class="download-dropdown">
                                 <button class="download-dropdown-btn">

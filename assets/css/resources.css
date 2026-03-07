@@ -636,7 +636,7 @@
     /* Allow dropdowns to pop out */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -687,8 +687,7 @@
     color: var(--text-secondary);
     margin-bottom: 20px;
     line-height: 1.5;
-    height: auto;
-    overflow: visible;
+    flex-grow: 1;
 }
 
 .resource-item-footer {
@@ -1828,7 +1827,7 @@
 }
 
 .resource-item-grid-2-col .resource-item-card {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -1857,7 +1856,7 @@
 }
 
 .resource-item-grid-3-col .resource-item-card {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }

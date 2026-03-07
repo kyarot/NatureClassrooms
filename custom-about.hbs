@@ -90,8 +90,7 @@
         <div class="team-loop-container">
             <div class="team-track">
                 {{!-- Set 1 --}}
-                {{#get "posts" limit="100" filter="tag:hash-team-member" include="tags,authors" order="published_at
-                asc"}}
+                {{#get "posts" limit="100" filter="tag:hash-team-member" include="tags,authors" visibility="all" order="published_at asc"}}
                 {{#foreach posts}}
                 <div class="team-card">
                     {{#if feature_image}}
@@ -123,8 +122,7 @@
                 {{/get}}
 
                 {{!-- Duplicate Set for Seamless Loop --}}
-                {{#get "posts" limit="100" filter="tag:hash-team-member" include="tags,authors" order="published_at
-                asc"}}
+                {{#get "posts" limit="100" filter="tag:hash-team-member" include="tags,authors" visibility="all" order="published_at asc"}}
                 {{#foreach posts}}
                 <div class="team-card">
                     {{#if feature_image}}

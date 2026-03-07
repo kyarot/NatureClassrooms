@@ -94,26 +94,29 @@
 }
 
 /* ── Resource Card ── */
-.gu-card {
+.gu-card,
+.resource-item-card {
     background: var(--gu-white);
     border: 1px solid var(--gu-border-light);
     border-radius: var(--gu-radius-lg);
     overflow: visible;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: var(--gu-transition);
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.gu-card:hover {
+.gu-card:hover,
+.resource-item-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(74, 124, 89, 0.1);
     border-color: var(--gu-primary);
 }
 
 /* Card Thumbnail */
-.gu-card-img {
+.gu-card-img,
+.resource-item-thumbnail {
     width: 100%;
     height: 180px;
     overflow: hidden;
@@ -134,7 +137,8 @@
 }
 
 /* Image Overlay */
-.gu-card-overlay {
+.gu-card-overlay,
+.resource-actions-overlay {
     position: absolute;
     inset: 0;
     background: rgba(74, 124, 89, 0.4);
@@ -146,11 +150,13 @@
     transition: var(--gu-transition);
 }
 
-.gu-card-img:hover .gu-card-overlay {
+.gu-card-img:hover .gu-card-overlay,
+.resource-item-thumbnail:hover .resource-actions-overlay {
     opacity: 1;
 }
 
-.gu-overlay-link {
+.gu-overlay-link,
+.overlay-download-link {
     background: rgba(255, 255, 255, 0.95);
     color: var(--gu-primary);
     padding: 12px 20px;
@@ -166,19 +172,22 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.gu-card-img:hover .gu-overlay-link {
+.gu-card-img:hover .gu-overlay-link,
+.resource-item-thumbnail:hover .overlay-download-link {
     transform: translateY(0);
 }
 
 /* Card Content */
-.gu-card-content {
+.gu-card-content,
+.resource-item-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.gu-card-content h3 {
+.gu-card-content h3,
+.resource-item-title {
     font-family: 'Oswald', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
@@ -187,28 +196,27 @@
     line-height: 1.3;
 }
 
-.gu-card-desc {
+.gu-card-desc,
+.resource-item-desc {
     font-size: 0.9rem;
     color: var(--gu-text-secondary);
     margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     line-height: 1.5;
-    height: 3em;
+    flex-grow: 1;
 }
 
 /* Card Footer */
-.gu-card-footer {
+.gu-card-footer,
+.resource-item-footer {
     margin-top: auto;
     padding-top: 16px;
     border-top: 1px solid var(--gu-border-light);
 }
 
 /* Download Button */
-.gu-download-btn {
+.gu-download-btn,
+.explore-btn,
+.download-dropdown-btn {
     width: 100%;
     display: flex;
     align-items: center;

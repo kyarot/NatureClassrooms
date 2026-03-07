@@ -12,13 +12,7 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
                         {{content}}
-                        {{else}}
-                        {{#if custom_excerpt}}
-                        <p>{{custom_excerpt}}</p>
-                        {{/if}}
-                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -28,11 +22,12 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-2-col">
-                    {{#get "posts" filter="tag:hash-hash-activity" order="published_at asc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-hash-activity" order="published_at asc" include="tags"
+                    formats="html"}}
                     {{#foreach posts}}
                     {{> "icons/resource-item"
                     title=title
-                    description=custom_excerpt
+                    description=html
                     preview_image=feature_image
                     download_url=url
                     custom_link=meta_description

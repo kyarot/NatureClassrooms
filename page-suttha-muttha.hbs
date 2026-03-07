@@ -3,29 +3,49 @@
     <!-- Hero Section -->
     <section class="sm-hero">
         <h1>{{title}}</h1>
-        <p class="sm-hero-subtitle">{{custom_excerpt}}</p>
+        <div class="sm-hero-subtitle">{{content}}</div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-sm-about" limit="1"}}
+    {{#foreach posts}}
     <section class="sm-about-section">
         <div class="sm-about-card">
-            <div class="sm-about-content">
+            <div class="sm-about-content resource-item-desc">
                 {{content}}
+            </div>
+            <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                style="margin-top: 20px;">
+                <div class="dynamic-download-container" style="display: none;">
+                    <div class="download-dropdown">
+                        <button class="download-dropdown-btn">
+                            <span>Download</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dynamic-menu"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
+
 
     {{!-- The following sections are preserved as hardcoded unless managed via Ghost later --}}
     <!-- Image Gallery Row 1 -->
     <section class="sm-image-section">
         <div class="sm-image-row">
             <div class="sm-image-item">
-                <img src="{{asset 'sm/sm1.png'}}" alt="How do animals eat?">
+                <img src="{{asset 'images/sm1.png'}}" alt="How do animals eat?">
                 <p class="sm-image-caption">How do animals eat? Students observing cows in a shed near their school to
                     find the answer.</p>
             </div>
             <div class="sm-image-item">
-                <img src="{{asset 'sm/sm2.jpg'}}" alt="Students going on a nature walk">
+                <img src="{{asset 'images/sm2.png'}}" alt="Students going on a nature walk">
                 <p class="sm-image-caption">Students going on a nature walk!</p>
             </div>
         </div>
@@ -69,7 +89,7 @@
 
             <!-- Goal Image -->
             <div class="sm-goal-image-wrapper">
-                <img src="{{asset 'sm/sm4.png'}}" alt="Students playing Colours in Nature">
+                <img src="{{asset 'images/sm3.png'}}" alt="Students playing Colours in Nature">
                 <p class="sm-image-caption">Students playing "Colours in Nature", a game designed to observe the variety
                     of colours that can be found in the natural world</p>
             </div>
@@ -96,7 +116,7 @@
 
             <!-- Goal 3 Image -->
             <div class="sm-goal-image-wrapper">
-                <img src="{{asset 'sm/sm3.png'}}" alt="Children playing nature games during an immersion workshop">
+                <img src="{{asset 'images/sm4.png'}}" alt="Children playing nature games during an immersion workshop">
                 <p class="sm-image-caption">Children playing nature games during an immersion workshop in Silvepura</p>
             </div>
 
@@ -104,32 +124,28 @@
     </section>
 
     <!-- Partners & Funders Section -->
-    <section class="sm-partners-section">
-        <div class="sm-partners-container">
+     <!-- Partners Section -->
+    <section class="partners-section">
 
-            <div class="sm-partners-block">
-                <h3 class="sm-partners-title">Partners</h3>
-                <div class="sm-partners-logos">
-                    <a href="https://www.instagram.com/figtreelearningcentre/" target="_blank" rel="noopener">
-                        <img src="{{asset 'partner/FTLC logo.jpg'}}" alt="Fig Tree Learning Centre">
-                    </a>
-                    <a href="https://maadhyama-aneka.com/" target="_blank" rel="noopener">
-                        <img src="{{asset 'partner/Maadhyama Aneka logo.jpg'}}" alt="Maadhyama Aneka">
-                    </a>
+        <div class="container">
+            <h2 class="partners-title" style="font-size: 50px; margin-bottom: 50px;">Our Partners</h2>
+
+            <div class="partners-grid">
+                {{#get "posts" filter="tag:hash-sec-sm-partners" order="published_at asc"}}
+                {{#foreach posts}}
+                <div class="partner-card">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{else}}
+                    <span class="partner-name">{{title}}</span>
+                    {{/if}}
                 </div>
+                {{/foreach}}
+                {{/get}}
             </div>
-
-            <div class="sm-partners-block">
-                <h3 class="sm-partners-title">Funders</h3>
-                <div class="sm-partners-logos">
-                    <a href="http://www.bengalurusustainabilityforum.org/" target="_blank" rel="noopener">
-                        <img src="{{asset 'collaborators/BSF_logo.jpg'}}" alt="Bangalore Sustainability Forum">
-                    </a>
-                </div>
-            </div>
-
         </div>
     </section>
+
 
     <!-- Back to Projects -->
     <section class="sm-explore-more">

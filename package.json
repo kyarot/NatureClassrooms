@@ -2,7 +2,7 @@
   "name": "nature-classrooms",
   "scripts": {
     "dev": "node server.js",
-    "zip": "zip -r nature-classrooms-theme.zip . -x \"node_modules/*\" \"*.git*\" \"*.DS_Store*\" \"server.js\" \".ghostignore\" \"assets/files/*\" \"*.zip\" \"assets/about/*\" \"assets/activities/*\" \"assets/alphabets/*\" \"assets/anchor/*\" \"assets/bingos/*\" \"assets/bt/*\" \"assets/capacity/*\" \"assets/carousel/*\" \"assets/fourarms/*\" \"assets/gj/*\" \"assets/gojri/*\" \"assets/hh/*\" \"assets/home/*\" \"assets/images/*\" \"assets/ka/*\" \"assets/mod/*\" \"assets/modules/*\" \"assets/naturalhistory/*\" \"assets/nbsel/*\" \"assets/ncmedia/*\" \"assets/neaf/*\" \"assets/ourapproach/*\" \"assets/outreach/*\" \"assets/pp/*\" \"assets/research/*\" \"assets/resourcecreation/*\" \"assets/sb/*\" \"assets/sm/*\" \"assets/storybooks/*\" \"assets/ta/*\""
+    "zip": "zip -r nature-classrooms-theme.zip . -x \"node_modules/*\" \"*.git*\" \"*.DS_Store*\" \"server.js\" \".ghostignore\" \"assets/files/*\" \"*.zip\" \"assets/about/*\" \"assets/activities/*\" \"assets/alphabets/*\" \"assets/anchor/*\" \"assets/bingos/*\" \"assets/bt/*\" \"assets/capacity/*\" \"assets/carousel/*\" \"assets/fourarms/*\" \"assets/gj/*\" \"assets/gojri/*\" \"assets/hh/*\" \"assets/home/*\" \"assets/ka/*\" \"assets/mod/*\" \"assets/modules/*\" \"assets/naturalhistory/*\" \"assets/nbsel/*\" \"assets/ncmedia/*\" \"assets/neaf/*\" \"assets/ourapproach/*\" \"assets/outreach/*\" \"assets/pp/*\" \"assets/research/*\" \"assets/resourcecreation/*\" \"assets/sb/*\" \"assets/sm/*\" \"assets/storybooks/*\" \"assets/ta/*\""
   },
   "version": "1.0.0",
   "description": "Production-ready Ghost theme for Nature Classrooms",

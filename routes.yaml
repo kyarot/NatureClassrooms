@@ -41,6 +41,9 @@ routes:
   /resources/bingos/:
     template: page-bingos
     data: page.bingos
+  /resources/seasonal-bingos/:
+    template: page-seasonal-bingos
+    data: page.seasonal-bingos
   /resources/activities/:
     template: page-activities
     data: page.activities

@@ -10,32 +10,52 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
                         {{content}}
-                        {{else}}
-                        {{#if custom_excerpt}}
-                        <p>{{custom_excerpt}}</p>
-                        {{/if}}
-                        {{/if}}
                     </div>
                 </div>
             </div>
         </section>
 
-        {{#if content}}
-        <section class="page-dynamic-content" style="padding-top: 50px;">
+        <!-- About Section (Dynamic) -->
+        {{#get "posts" filter="tag:hash-sec-nothing-about" limit="1"}}
+        {{#foreach posts}}
+        <section class="nothing-about-section" style="padding: 60px 0; background: var(--bg-secondary);">
             <div class="container">
-                {{content}}
+                <div class="about-card resource-item-card"
+                    style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); min-height: auto;">
+                    <div class="about-content resource-item-desc"
+                        style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        {{content}}
+                    </div>
+                    <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                        style="margin-top: 20px;">
+                        <div class="dynamic-download-container" style="display: none;">
+                            <div class="download-dropdown">
+                                <button class="download-dropdown-btn">
+                                    <span>Download</span>
+                                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dynamic-menu"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        {{/if}}
+        {{/foreach}}
+        {{/get}}
+
 
         {{!-- 2. Feature Card Section --}}
-        {{#get "posts" filter="tag:hash-sec-nothing-card" limit="1" include="tags"}}
+        {{#get "posts" filter="tag:hash-sec-nothing-card" limit="1" include="tags" formats="html"}}
         {{#foreach posts}}
         <section class="horizontal-feature-section">
             <div class="container">
-                <div class="feature-card-horizontal" data-reveal>
+                <div class="feature-card-horizontal resource-item-card" data-reveal>
                     <div class="feature-card-image">
                         {{#if feature_image}}
                         <img src="{{feature_image}}" alt="{{title}}">
@@ -47,16 +67,24 @@
                         <h2 class="feature-card-title js-dynamic-title">
                             {{title}}
                         </h2>
-                        <div class="feature-card-description">
-                            {{content}}
+                        <div class="feature-card-description resource-item-desc">
+                            {{{html}}}
                         </div>
 
-                        <div class="download-container js-download-container" data-links="{{meta_description}}">
-                            <button class="download-btn-main">
-                                Download <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-                            </button>
-                            <div class="download-dropdown-menu js-dropdown-menu">
-                                {{!-- Populated via JS --}}
+                        <div class="resource-item-footer" data-custom-link="{{meta_description}}"
+                            data-parse-body="true">
+                            <div class="dynamic-download-container" style="display: none;">
+                                <div class="download-dropdown">
+                                    <button class="download-dropdown-btn">
+                                        <span>Download</span>
+                                        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu dynamic-menu"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,27 +177,7 @@
                 }
             });
 
-            // 2. Dynamic Download Dropdown Parsing
-            const downloadContainers = document.querySelectorAll('.js-download-container');
-            downloadContainers.forEach(container => {
-                const linksData = container.getAttribute('data-links');
-                const menu = container.querySelector('.js-dropdown-menu');
-
-                if (linksData && menu) {
-                    // Expected format: Language|URL, Language|URL
-                    const pairs = linksData.split(',').map(s => s.trim());
-                    let html = '';
-                    pairs.forEach(pair => {
-                        const [lang, url] = pair.split('|').map(s => s.trim());
-                        if (lang && url) {
-                            html += `<a href="${url}" download>${lang}</a>`;
-                        }
-                    });
-                    if (html) menu.innerHTML = html;
-                }
-            });
-
-            // 3. Scroll Reveal
+            // 2. Scroll Reveal
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'

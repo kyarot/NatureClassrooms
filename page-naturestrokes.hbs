@@ -4,20 +4,14 @@
     <section class="ns-hero">
         <h1>{{title}}</h1>
         <div class="ns-hero-content">
-            {{#if content}}
-            <div class="ghost-content">
-                {{content}}
-            </div>
-            {{else}}
-            <p>{{custom_excerpt}}</p>
-            {{/if}}
+            {{content}}
         </div>
     </section>
 
     <!-- Resources Section -->
     <div class="ns-grid">
         {{!-- 1. Dynamic Content (Ghost) --}}
-        {{#get "posts" filter="tag:#hash-nature-stroke" order="published_at desc" include="tags"}}
+        {{#get "posts" filter="tag:hash-hash-nature-stroke" order="published_at desc" include="tags" formats="html"}}
         {{#foreach posts}}
         <div class="ns-card">
             <div class="ns-card-img">
@@ -38,8 +32,8 @@
             </div>
             <div class="ns-card-content">
                 <h3>{{title}}</h3>
-                <p class="ns-card-desc">{{custom_excerpt}}</p>
-                <div class="ns-card-footer">
+                <div class="ns-card-desc">{{{html}}}</div>
+                <div class="ns-card-footer resource-item-footer" data-custom-link="{{url}}" data-parse-body="true">
                     <a href="{{url}}" class="ns-download-btn">
                         Explore Resource
                     </a>

@@ -3,17 +3,36 @@
     <!-- Hero Section -->
     <section class="cnc-hero">
         <h1>{{title}}</h1>
-        <p class="cnc-hero-subtitle">{{custom_excerpt}}</p>
+        <div class="cnc-hero-subtitle">{{content}}</div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-cnc-about" limit="1"}}
+    {{#foreach posts}}
     <section class="cnc-about-section">
         <div class="cnc-about-card">
-            <div class="cnc-about-content">
+            <div class="cnc-about-content resource-item-desc">
                 {{content}}
+            </div>
+            <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                style="margin-top: 20px;">
+                <div class="dynamic-download-container" style="display: none;">
+                    <div class="download-dropdown">
+                        <button class="download-dropdown-btn">
+                            <span>Download</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dynamic-menu"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
     <!-- Team Members Section -->
     <section class="cnc-team-section">
@@ -36,38 +55,69 @@
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-cnc-download" limit="1"}}
+    {{#foreach posts}}
+    <section class="cnc-download-section">
+        <div class="cnc-download-card">
+            <div class="cnc-download-info">
+                <h3 class="cnc-download-title">{{title}}</h3>
+                <div class="cnc-download-content resource-item-desc">
+                    {{content}}
+                </div>
+                <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                    style="margin-top: 20px;">
+                    <div class="dynamic-download-container" style="display: none;">
+                        <div class="download-dropdown">
+                            <button class="download-dropdown-btn">
+                                <span>Download</span>
+                                <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu dynamic-menu"></div>
+                        </div>
+                    </div>
+                </div>
+                {{#if custom_excerpt}}
+                <p class="cnc-download-credit">{{custom_excerpt}}</p>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{else}}
+    {{!-- Fallback if no post is found --}}
     <section class="cnc-download-section">
         <div class="cnc-download-card">
             <div class="cnc-download-info">
                 <h3 class="cnc-download-title">Download Report</h3>
-                <div class="cnc-download-buttons">
-                    <a href="{{asset 'files/Our Work/Research/Child Nature Ooru.pdf'}}" class="cnc-download-btn"
-                        download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download
-                    </a>
-                </div>
+                <p class="cnc-download-credit">No reports available for download yet.</p>
             </div>
         </div>
     </section>
+    {{/get}}
 
     <!-- Partner Section -->
-    <section class="cnc-partners-section">
-        <div class="cnc-partners-container">
-            <div class="cnc-partners-block">
-                <h3 class="cnc-partners-title">Partner</h3>
-                <div class="cnc-partners-logos">
-                    <a href="https://azimpremjiuniversity.edu.in/" target="_blank" rel="noopener">
-                        <img src="{{asset 'collaborators/Azim_Premji_University_logo.png'}}"
-                            alt="Azim Premji University">
-                    </a>
+   <section class="partners-section">
+
+        <div class="container">
+            <h2 class="partners-title" style="font-size: 50px; margin-bottom: 50px;">Our Partners</h2>
+
+            <div class="partners-grid">
+                {{#get "posts" filter="tag:hash-sec-cnc-partners" order="published_at asc"}}
+                {{#foreach posts}}
+                <div class="partner-card">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{else}}
+                    <span class="partner-name">{{title}}</span>
+                    {{/if}}
                 </div>
+                {{/foreach}}
+                {{/get}}
             </div>
         </div>
     </section>

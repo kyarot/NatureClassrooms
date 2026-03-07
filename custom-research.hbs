@@ -1,54 +1,58 @@
-{{!< default}} {{#post}} <div class="research-page">
-    {{!-- 1. Hero Section (Source: Page) --}}
-    <div class="research-hero-bg" style="background-image: url('{{feature_image}}');"></div>
-    <div class="research-hero-overlay"></div>
-    <div class="research-hero-content">
-        <h1 style="color: white;">{{title}}</h1>
-        <div class="research-hero-description">
-            {{content}}
-        </div>
-    </div>
-    </header>
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/research.css'}}">
+    {{/contentFor}}
 
-    {{!-- 2. Core Philosophy Section --}}
-    {{#get "posts" filter="tag:hash-sec-research-intro" limit="1"}}
-    {{#foreach posts}}
-    <section class="research-philosophy">
-        <div class="research-container">
-            <div class="philosophy-content">
-                <h2>{{title}}</h2>
-                {{content}}
-            </div>
-        </div>
-    </section>
-    {{/foreach}}
-    {{/get}}
-
-    {{!-- 3. Research Projects Section --}}
-    <section class="research-projects">
-        <div class="research-container">
-            {{#get "posts" limit="100" filter="tag:hash-card-research-project" include="tags,authors"
-            order="published_at
-            asc"}}
-            {{#foreach posts}}
-            <div class="project-item alternating {{#if @even}}reversed{{/if}}">
-                <div class="project-image">
-                    {{#if feature_image}}
-                    <img src="{{feature_image}}" alt="{{title}}">
-                    {{/if}}
-                </div>
-                <div class="project-details">
-                    <span class="project-category">{{#primary_tag}}{{name}}{{/primary_tag}}</span>
-                    <h3>{{title}}</h3>
+    {{#post}}
+    <div class="research-page">
+        {{!-- 1. Hero Section (Source: Page) --}}
+        <div class="research-hero">
+            <div class="research-hero-bg" style="background-image: url('{{feature_image}}');"></div>
+            <div class="research-hero-overlay"></div>
+            <div class="research-hero-content">
+                <h1 style="color: white;">{{title}}</h1>
+                <div class="research-hero-description">
                     {{content}}
-                    {{#if meta_description}}
-                    <a href="{{meta_description}}" class="read-more-link">Read More</a>
-                    {{/if}}
                 </div>
             </div>
-            {{/foreach}}
-            {{/get}}
         </div>
-    </section>
+
+        {{!-- 2. Core Philosophy Section --}}
+        {{#get "posts" filter="tag:hash-sec-research-intro" limit="1"}}
+        {{#foreach posts}}
+        <section class="research-philosophy">
+            <div class="research-container">
+                <div class="philosophy-content">
+                    <h2>{{title}}</h2>
+                    {{content}}
+                </div>
+            </div>
+        </section>
+        {{/foreach}}
+        {{/get}}
+
+        {{!-- 3. Research Projects Section --}}
+        <section class="research-projects">
+            <div class="research-container">
+                {{#get "posts" limit="100" filter="tag:hash-card-research-project" include="tags,authors"
+                order="published_at asc"}}
+                {{#foreach posts}}
+                <div class="project-item alternating {{#if @even}}reversed{{/if}}">
+                    <div class="project-image">
+                        {{#if feature_image}}
+                        <img src="{{feature_image}}" alt="{{title}}">
+                        {{/if}}
+                    </div>
+                    <div class="project-details">
+                        <span class="project-category">{{#primary_tag}}{{name}}{{/primary_tag}}</span>
+                        <h3>{{title}}</h3>
+                        {{content}}
+                        {{#if meta_description}}
+                        <a href="{{meta_description}}" class="read-more-link">Read More</a>
+                        {{/if}}
+                    </div>
+                </div>
+                {{/foreach}}
+                {{/get}}
+            </div>
+        </section>
     </div>
     {{/post}}

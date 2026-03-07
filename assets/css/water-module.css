@@ -131,7 +131,9 @@
     margin-bottom: 24px;
 }
 
-.wm-download-btn {
+.wm-download-btn,
+.explore-btn,
+.download-dropdown-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -146,13 +148,68 @@
     cursor: pointer;
     text-decoration: none !important;
     transition: var(--wm-transition);
+    width: 100%;
 }
 
-.wm-download-btn:hover {
+.wm-download-btn:hover,
+.explore-btn:hover,
+.download-dropdown-btn:hover {
     background: var(--wm-primary-hover);
     border-color: var(--wm-primary-hover);
     box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
     transform: translateY(-2px);
+}
+
+/* Dropdown Menu Styles */
+.download-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--wm-white);
+    border: 1px solid var(--wm-border-light);
+    border-radius: var(--wm-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--wm-transition);
+    z-index: 100;
+    padding: 8px 0;
+}
+
+.download-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: var(--wm-text-primary);
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--wm-bg-light);
+    color: var(--wm-primary);
+}
+
+.download-dropdown-btn .chevron {
+    transition: transform 0.3s ease;
+}
+
+.download-dropdown:hover .download-dropdown-btn .chevron {
+    transform: rotate(180deg);
 }
 
 .wm-download-btn-outline {

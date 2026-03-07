@@ -3,16 +3,37 @@
     <!-- Hero Section -->
     <section class="nbsel-hero">
         <h1>{{title}}</h1>
+        <div class="nbsel-hero-subtitle">{{content}}</div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-nbsel-about" limit="1"}}
+    {{#foreach posts}}
     <section class="nbsel-about-section">
         <div class="nbsel-about-card">
-            <div class="nbsel-about-content">
+            <div class="nbsel-about-content resource-item-desc">
                 {{content}}
+            </div>
+            <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                style="margin-top: 20px;">
+                <div class="dynamic-download-container" style="display: none;">
+                    <div class="download-dropdown">
+                        <button class="download-dropdown-btn">
+                            <span>Download</span>
+                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dynamic-menu"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
+
 
     <!-- Pilot Workshop Section -->
     <section class="nbsel-workshop-section">
@@ -25,47 +46,59 @@
 
             <div class="nbsel-workshop-images">
                 <div class="nbsel-workshop-image">
-                    <img src="{{asset 'nbsel/image copy.png'}}" alt="Pilot Workshop Session 2">
+                    <img src="{{asset 'images/img3.png'}}" alt="Pilot Workshop Session 2">
                 </div>
                 <div class="nbsel-workshop-image">
-                    <img src="{{asset 'nbsel/image.png'}}" alt="SEL Session 2">
+                    <img src="{{asset 'images/img4.png'}}" alt="SEL Session 2">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-nbsel-download" limit="1"}}
+    {{#foreach posts}}
+    <section class="nbsel-download-section">
+        <div class="nbsel-download-card">
+            <div class="nbsel-download-info">
+                <h3 class="nbsel-download-title">{{title}}</h3>
+                <div class="nbsel-download-content resource-item-desc">
+                    {{content}}
+                </div>
+                <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                    style="margin-top: 20px;">
+                    <div class="dynamic-download-container" style="display: none;">
+                        <div class="download-dropdown">
+                            <button class="download-dropdown-btn">
+                                <span>Download Report</span>
+                                <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu dynamic-menu"></div>
+                        </div>
+                    </div>
+                </div>
+                {{#if custom_excerpt}}
+                <p class="nbsel-download-credit">{{custom_excerpt}}</p>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{else}}
+    {{!-- Fallback if no post is found --}}
     <section class="nbsel-download-section">
         <div class="nbsel-download-card">
             <div class="nbsel-download-info">
                 <h3 class="nbsel-download-title">Download Report</h3>
-                <div class="nbsel-download-buttons">
-                    <a href="{{asset 'files/Our Work/Research/NATURE-BASED SOCIAL-EMOTIONAL LEARNING (SEL) Pilot Report.pdf'}}"
-                        class="nbsel-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Report
-                    </a>
-                    <a href="{{asset 'files/Our Work/Research/MASTER_S THESIS.pdf'}}"
-                        class="nbsel-download-btn nbsel-download-btn-outline" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Internship Report
-                    </a>
-                </div>
-                <p class="nbsel-download-credit">This project was undertaken by Priyanka Prakash as a part of her
-                    Master's internship with Nature Classrooms.</p>
+                <p class="nbsel-download-credit">No report available for download yet.</p>
             </div>
         </div>
     </section>
+    {{/get}}
 
     <!-- Contact Section -->
     <section class="nbsel-contact-section">

@@ -11,13 +11,7 @@
                 <div class="resources-hero-content" data-reveal>
                     <h1 class="resources-hero-title">{{title}}</h1>
                     <div class="resources-hero-subtitle">
-                        {{#if content}}
                         {{content}}
-                        {{else}}
-                        {{#if custom_excerpt}}
-                        <p>{{custom_excerpt}}</p>
-                        {{/if}}
-                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -27,11 +21,12 @@
         <section class="site-section">
             <div class="container">
                 <div class="resource-item-grid-3-col">
-                    {{#get "posts" filter="tag:hash-hash-natural-history" order="published_at asc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-hash-natural-history" order="published_at asc" include="tags"
+                    formats="html"}}
                     {{#foreach posts}}
                     {{> "icons/resource-item"
                     title=title
-                    description=custom_excerpt
+                    description=html
                     preview_image=feature_image
                     download_url=url
                     custom_link=meta_description
@@ -43,23 +38,6 @@
             </div>
         </section>
 
-        {{!-- 4. Educator Note Section --}}
-        {{#get "posts" filter="tag:hash-sec-naturalhistory-note" limit="1"}}
-        {{#foreach posts}}
-        <section class="educator-note-section">
-            <div class="container">
-                <div class="educator-note-card" data-reveal>
-                    <div class="educator-note-header">
-                        <h2 class="educator-title">{{title}}</h2>
-                    </div>
-                    <div class="educator-content">
-                        {{content}}
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{/foreach}}
-        {{/get}}
     </main>
 
     <script>

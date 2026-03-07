@@ -171,7 +171,17 @@ Follow these steps for any specific resource category page.
     - **Anchor Charts**: `#hash-anchor-chart`, `#sec-anchor-note`
     - **Learning Modules**: `#hash-module`, `#sec-module-note`
     - **Natural History**: `#hash-natural-history`, `#sec-naturalhistory-note`
-    - **There's Nothing There**: `#sec-nothing-card` (Feature Card), `#sec-nothing-game` (Game Section).
+    - **Seasonal Bingos**: `#hash-seasonal-bingo`, `#sec-bingo-note`
+    - **Hidden Housemates**: `#hash-hidden-housemates`
+    - **There's Nothing There**: `#sec-nothing-card` (Feature Card), `#sec-nothing-game` (Game Section), `#sec-nothing-about` (Dynamic About Section).
+    - **Dynamic About Sections**: Use `#sec-[slug]-about` to add extra introduction or "about" content below the hero section.
+        - **Nature Education Framework**: `#sec-neaf-about`
+        - **Nature-Based SEL**: `#sec-nbsel-about` (About Section), `#hash-sec-nbsel-download` (Download Report Section)
+        - **Children, Nature, City**: `#sec-cnc-about` (About Section), `#hash-sec-cnc-download` (Download Report Section)
+        - **Communities of Practice**: `#sec-cop-about`
+        - **Game Page**: `#sec-game-about`
+        - **Suttha Muttha**: `#sec-sm-about`
+        - **Water Module**: `#sec-wm-about` (About Section), `#hash-sec-wm-download` (Dynamic Download Card)
 
 ### B. "There's Nothing There" Special Sections
 - **Feature Card** (`#sec-nothing-card`):

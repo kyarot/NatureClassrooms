@@ -1,65 +1,43 @@
-{{!< default}} {{#post}} <div class="seasonal-bingos-page">
+{{!< default}} {{#post}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+    <div class="seasonal-bingos-page">
 
-    <!-- Hero Section -->
-    <section class="sb-hero">
-        <h1>{{title}}</h1>
-        <div class="sb-hero-content">
-            {{#if content}}
-            <div class="ghost-content">
+        <!-- Hero Section -->
+        <section class="sb-hero">
+            <h1>{{title}}</h1>
+            <div class="sb-hero-content">
                 {{content}}
             </div>
-            {{else}}
-            <p>{{custom_excerpt}}</p>
-            {{/if}}
-        </div>
-    </section>
+        </section>
 
-    <!-- Section Header -->
-    <div class="sb-section-header">
-        <div class="sb-section-title">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a7 7 0 0 1-9 10z"></path>
-                <line x1="9" y1="21" x2="12" y2="11"></line>
-            </svg>
-            Resources
+        <!-- Section Header -->
+        <div class="sb-section-header">
+            <div class="sb-section-title">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a7 7 0 0 1-9 10z"></path>
+                    <line x1="9" y1="21" x2="12" y2="11"></line>
+                </svg>
+                Resources
+            </div>
+            <div class="sb-section-line"></div>
         </div>
-        <div class="sb-section-line"></div>
-    </div>
 
-    <!-- Resource Grid -->
-    <div class="sb-grid">
-        {{#get "posts" filter="tag:#hash-seasonal-bingos" order="published_at asc" include="tags"}}
-        {{#foreach posts}}
-        <div class="sb-card">
-            <div class="sb-card-img">
-                {{#if feature_image}}
-                <img src="{{feature_image}}" alt="{{title}}">
-                {{/if}}
-                <div class="sb-card-overlay">
-                    <a href="{{url}}" class="sb-overlay-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Explore
-                    </a>
-                </div>
-            </div>
-            <div class="sb-card-content">
-                <h3>{{title}}</h3>
-                <p class="sb-card-desc">{{custom_excerpt}}</p>
-                <div class="sb-card-footer">
-                    <a href="{{url}}" class="sb-download-btn">
-                        Explore Resource
-                    </a>
-                </div>
-            </div>
+        <!-- Resource Grid -->
+        <div class="sb-grid">
+            {{#get "posts" filter="tag:hash-hash-seasonal-bingo" order="published_at asc" include="tags"
+            visibility="all" formats="html"}}
+            {{#foreach posts}}
+            {{> "icons/resource-item"
+            title=title
+            description=html
+            preview_image=feature_image
+            download_url=url
+            custom_link=meta_description
+            is_explore=true
+            }}
+            {{/foreach}}
+            {{/get}}
         </div>
-        {{/foreach}}
-        {{/get}}
-    </div>
     </div>
 
     <!-- Educator Note Section -->
@@ -99,5 +77,4 @@
         </div>
     </section>
 
-    </div>
     {{/post}}

@@ -1,4 +1,5 @@
-{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/ourapproach.css'}}">
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/ourapproach.css'}}">
     {{/contentFor}}
 
     <main class="site-main">
@@ -12,13 +13,7 @@
             <div class="approach-hero-content">
                 <h1 class="approach-hero-title" data-reveal>{{title}}</h1>
                 <div class="approach-hero-description" data-reveal>
-                    {{#if content}}
                     {{content}}
-                    {{else}}
-                    {{#if custom_excerpt}}
-                    <p>{{custom_excerpt}}</p>
-                    {{/if}}
-                    {{/if}}
                 </div>
             </div>
 
@@ -33,9 +28,10 @@
                 <h2 class="approach-section-title text-center" style="text-align: center; margin-bottom: 60px;">The
                     Pillars of Our Program</h2>
                 <div class="pillar-grid">
-                    {{#get "posts" filter="tag:hash-sec-approach-pillars" order="published_at asc" include="tags"}}
+                    {{#get "posts" filter="tag:hash-sec-approach-pillars" order="published_at asc" include="tags"
+                    formats="html"}}
                     {{#foreach posts}}
-                    <div class="pillar-card" data-reveal>
+                    <div class="pillar-card resource-item-card" data-reveal>
                         <div class="pillar-image">
                             {{#if feature_image}}
                             <img src="{{feature_image}}" alt="{{title}}">
@@ -43,10 +39,26 @@
                         </div>
                         <div class="pillar-content-wrapper js-content-box">
                             <h3 class="pillar-title">{{title}}</h3>
-                            <div class="pillar-description">
-                                {{content}}
+                            <div class="pillar-description resource-item-desc">
+                                {{{html}}}
                             </div>
-                            {{!-- Buttons are parsed via JS from content --}}
+                            <div class="resource-item-footer"
+                                data-custom-link="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
+                                data-parse-body="true">
+                                <div class="dynamic-download-container" style="display: none;">
+                                    <div class="download-dropdown">
+                                        <button class="download-dropdown-btn">
+                                            <span>Download</span>
+                                            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu dynamic-menu"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {{/foreach}}
@@ -73,13 +85,18 @@
         {{/get}}
 
         {{!-- 4. Nature Learning Checklist --}}
-        {{#get "posts" filter="tag:hash-sec-approach-checklist" limit="1"}}
+        {{#get "posts" filter="tag:hash-sec-approach-checklist" limit="2"}}
         {{#foreach posts}}
         <section class="checklist-section approach-section">
             <div class="container">
                 <h2 class="approach-section-title text-center" style="margin-bottom: 48px;">{{title}}</h2>
                 <div class="js-checklist-box text-center" style="color: var(--text-secondary);">
-                    {{content}}
+                    {{!-- Hidden container for parsing --}}
+                    <div class="resource-item-desc" style="display: none;">
+                        {{content}}
+                    </div>
+                    {{!-- Container for generated buttons --}}
+                    <div class="checklist-buttons-container"></div>
                 </div>
             </div>
         </section>
@@ -123,17 +140,33 @@
                 galleryGrid.innerHTML = html;
             }
 
-            // 2. Button Styling (Pillars, Checklist, Reading)
-            // Style any <a> tag inside these boxes as a themed button
-            const boxes = document.querySelectorAll('.js-content-box, .js-checklist-box, .js-reading-box');
-            boxes.forEach(box => {
-                const links = box.querySelectorAll('a');
+            // 2. Checklist File Parser (finds file cards/links in .resource-item-desc)
+            const checklistBoxes = document.querySelectorAll('.js-checklist-box');
+            checklistBoxes.forEach(box => {
+                const descContainer = box.querySelector('.resource-item-desc');
+                const btnContainer = box.querySelector('.checklist-buttons-container');
+                if (!descContainer || !btnContainer) return;
+
+                const links = descContainer.querySelectorAll('a');
                 links.forEach(link => {
-                    // Check if it's a download link or regular link
-                    if (link.textContent.toLowerCase().includes('download')) {
-                        link.classList.add('download-btn');
+                    let label = link.textContent.trim();
+                    const fileCard = link.closest('.kg-file-card');
+
+                    if (fileCard) {
+                        const titleEl = fileCard.querySelector('.kg-file-card-title');
+                        if (titleEl) label = titleEl.textContent.trim();
+                        fileCard.remove();
                     } else {
-                        link.classList.add('checklist-btn'); // Default approach button style
+                        link.remove();
+                    }
+
+                    if (label && link.href) {
+                        const a = document.createElement('a');
+                        a.href = link.href;
+                        a.className = 'checklist-btn';
+                        a.setAttribute('download', '');
+                        a.textContent = label;
+                        btnContainer.appendChild(a);
                     }
                 });
             });

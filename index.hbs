@@ -93,13 +93,6 @@
 
     <!-- Partners Section -->
     <section class="partners-section">
-        <div class="ant-decoration ant-left">
-            <img src="{{asset " images/ant-left.png"}}" alt="">
-        </div>
-
-        <div class="ant-decoration ant-right">
-            <img src="{{asset " images/ant-right.png"}}" alt="">
-        </div>
 
         <div class="container">
             <h2 class="partners-title" style="font-size: 50px; margin-bottom: 50px;">Our Partners</h2>
@@ -120,51 +113,6 @@
         </div>
     </section>
 
-    <!-- Latest from the Blog -->
-    <section class="home-blog-section" style="padding: 100px 0; background: #f8f9fa;">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px;">
-                <div>
-                    <h2 style="font-size: 50px; margin-bottom: 10px;">Latest Stories</h2>
-                    <p style="color: #666; font-size: 1.1rem;">Reflections and learnings from our journey</p>
-                </div>
-                <a href="/blog/" class="view-all-btn"
-                    style="color: #2d5a27; font-weight: 600; text-decoration: none; border-bottom: 2px solid #2d5a27; padding-bottom: 5px;">View
-                    All Stories</a>
-            </div>
-
-            <div class="blog-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                {{#get "posts" limit="3" include="authors,tags"}}
-                {{#foreach posts}}
-                <a href="{{url}}" class="post-card"
-                    style="text-decoration: none; color: inherit; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-                    <div class="post-card-img" style="aspect-ratio: 16/9; overflow: hidden;">
-                        {{#if feature_image}}
-                        <img src="{{img_url feature_image}}" alt="{{title}}"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                        {{else}}
-                        <div style="width: 100%; height: 100%; background: #e9ecef;"></div>
-                        {{/if}}
-                    </div>
-                    <div class="post-card-content" style="padding: 25px;">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4;">{{title}}</h3>
-                        <p
-                            style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                            {{excerpt words="25"}}...</p>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div
-                                style="width: 30px; height: 30px; border-radius: 50%; background: #2d5a27; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; font-weight: 600;">
-                                {{primary_author.name.[0]}}</div>
-                            <span style="font-size: 0.9rem; color: #444;">{{primary_author.name}}</span>
-                        </div>
-                    </div>
-                </a>
-                {{/foreach}}
-                {{/get}}
-            </div>
-        </div>
-    </section>
 
     <!-- Collaborators Section -->
     <section class="collaborators-section">

@@ -4,28 +4,12 @@
     <div class="tamil-alphabet-page">
 
         <!-- Hero Section -->
-        {{#get "posts" filter="tag:hash-sec-tamil-hero" limit="1"}}
-        {{#foreach posts}}
         <section class="ta-hero">
-            <h1>{{#if title}}{{title}}{{else}}Tamil Alphabet Chart{{/if}}</h1>
+            <h1>{{title}}</h1>
             <div class="ta-hero-content">
-                {{#if content}}
-                <div class="ghost-content">
-                    {{content}}
-                </div>
-                {{else}}
-                <p>Walk into any bookstore and you'll find alphabet charts filled with giraffes, penguins, and macaws.
-                    But
-                    what about all of nature that is right around us? This chart brings together the plants and animals
-                    of
-                    Tamil Nadu, from dugongs to Indrella snails, fungi, odonates, wasps, and wildflowers, all through
-                    the
-                    Tamil alphabet.</p>
-                {{/if}}
+                {{content}}
             </div>
         </section>
-        {{/foreach}}
-        {{/get}}
 
         <!-- Section Header -->
         <div class="ta-section-header">
@@ -43,52 +27,17 @@
 
         <!-- Resource Grid -->
         <div class="ta-grid">
-            {{#get "posts" filter="tag:hash-hash-tamil-alphabet" order="published_at asc" include="tags"}}
+            {{#get "posts" filter="tag:hash-hash-tamil-alphabet" order="published_at asc" include="tags"
+            formats="html"}}
             {{#foreach posts}}
-            <div class="ta-card">
-                <div class="ta-card-img">
-                    {{#if feature_image}}
-                    <img src="{{feature_image}}" alt="{{title}}">
-                    {{/if}}
-                    <div class="ta-card-overlay">
-                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
-                            class="ta-overlay-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            Explore
-                        </a>
-                    </div>
-                </div>
-                <div class="ta-card-content">
-                    <h3>{{title}}</h3>
-                    <p class="ta-card-desc">{{custom_excerpt}}</p>
-                    <div class="ta-card-footer resource-item-footer" data-custom-link="{{meta_description}}">
-                        <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}"
-                            class="ta-download-btn explore-btn">
-                            Explore Resource
-                        </a>
-                        <div class="dynamic-download-container" style="display: none;">
-                            <div class="download-dropdown">
-                                <button class="download-dropdown-btn">
-                                    <span>Download</span>
-                                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu dynamic-menu">
-                                    <!-- Filled via JS -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{> "icons/resource-item"
+            title=title
+            description=html
+            preview_image=feature_image
+            download_url=url
+            custom_link=meta_description
+            is_explore=true
+            }}
             {{/foreach}}
             {{/get}}
         </div>

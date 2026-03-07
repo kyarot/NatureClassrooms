@@ -3,9 +3,7 @@
     <!-- Hero Section -->
     <section class="game-hero">
         <h1>{{#if title}}{{title}}{{else}}There's Nothing There: Game{{/if}}</h1>
-        <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}Join Arali and her Amma on their journey from school to their
-            home and help them spot hidden and not-so-hidden plants, animals, insects, birds and everything that you can
-            through this game!{{/if}}</p>
+        <div class="game-hero-description">{{content}}</div>
     </section>
 
     <!-- Game Preview Section -->
@@ -18,58 +16,36 @@
         </div>
     </section>
 
-    {{#if content}}
-    <section class="game-dynamic-content">
-        <div class="game-about-container">
-            {{content}}
-        </div>
-    </section>
-    {{else}}
-    <!-- Fallback to original content -->
-    <!-- About the Game Section -->
+    <!-- About the Game Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-game-about" limit="1"}}
+    {{#foreach posts}}
     <section class="game-about-section">
         <div class="game-about-container">
             <div class="game-about-card">
-                <div class="game-about-content">
-                    <p>This game is based on <strong>'There's Nothing There'</strong>, our bilingual children's
-                        storybook. We found our inspiration for this book through conversations and interactions during
-                        our collaborative Suttha Muttha project with the <strong>Fig Tree Learning Center</strong> and
-                        the younglings and teachers of <strong>Tarabanahalli Govt. School,</strong> situated in the
-                        rapidly changing landscapes of the peri-urban outskirts of Bangalore city.</p>
+                <div class="game-about-content resource-item-desc">
+                    {{content}}
                 </div>
-                <div class="game-credits">
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Authors</span>
-                        <span class="game-credit-value">Roshni Ravi, Jane Sahi, Karunya Bhaskar</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Design and Illustration</span>
-                        <span class="game-credit-value">Karunya Bhaskar</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Game Design</span>
-                        <span class="game-credit-value">Kruthi Raj</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Supported by</span>
-                        <span class="game-credit-value">The Bangalore Sustainability Forum</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">In Collaboration with</span>
-                        <span class="game-credit-value">The Fig Tree Learning Center</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Translation Support (ಕನ್ನಡ)</span>
-                        <span class="game-credit-value">Anu Mothi, Maadhyama Aneka Pvt. Ltd</span>
-                    </div>
-                    <div class="game-credit-item">
-                        <span class="game-credit-label">Translation Support (हिन्दी)</span>
-                        <span class="game-credit-value">Nidhi Pal</span>
+                <div class="resource-item-footer" data-custom-link="{{url}}" data-parse-body="true"
+                    style="margin-top: 20px;">
+                    <div class="dynamic-download-container" style="display: none;">
+                        <div class="download-dropdown">
+                            <button class="download-dropdown-btn">
+                                <span>Download</span>
+                                <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu dynamic-menu"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
     <!-- Download Instructions Section -->
     <section class="game-download-section">
@@ -96,7 +72,8 @@
                     <div class="game-step-content">
                         <h3>Unzip & Open</h3>
                         <p>Once downloaded, unzip the folder, open it and click on the file named
-                            <strong>Book_Game_Prototype.exe</strong></p>
+                            <strong>Book_Game_Prototype.exe</strong>
+                        </p>
                     </div>
                 </div>
                 <div class="game-step-connector"></div>
@@ -109,20 +86,8 @@
                 </div>
             </div>
 
-            <div class="game-download-action">
-                <a href="{{asset 'files/Resources/There_s Nothing There/The Game/FINALVERSION/Book_Game_Prototype.exe'}}"
-                    class="game-download-btn" download>
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Download the Game
-                </a>
-            </div>
         </div>
     </section>
-    {{/if}}
 
     </div>
     {{/post}}

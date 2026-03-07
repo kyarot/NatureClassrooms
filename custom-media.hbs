@@ -39,8 +39,7 @@
         </div>
 
         <div class="media-grid">
-            {{#get "posts" limit="100" filter="tag:hash-media-article" include="tags,authors" order="published_at
-            desc"}}
+            {{#get "posts" limit="100" filter="tag:hash-media-article" include="tags,authors" order="published_at desc"}}
             {{#foreach posts}}
             <div class="media-card" data-category="{{primary_tag.slug}}">
                 <a href="{{#if meta_description}}{{meta_description}}{{else}}#{{/if}}" target="_blank" rel="noopener">
@@ -82,8 +81,7 @@
         </div>
 
         <div class="podcast-grid">
-            {{#get "posts" limit="100" filter="tag:hash-media-podcast" include="tags,authors" order="published_at
-            desc"}}
+            {{#get "posts" limit="100" filter="tag:hash-media-podcast" include="tags,authors" order="published_at desc"}}
             {{#foreach posts}}
             <div class="podcast-card">
                 <div class="podcast-thumb">

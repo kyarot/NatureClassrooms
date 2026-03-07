@@ -1,11 +1,18 @@
-{{!< default}} {{#post}} <div class="water-module-page">
+{{!< default}} {{#contentFor "styles" }} <link rel="stylesheet" href="{{asset 'css/resources.css'}}">
+    {{/contentFor}}
+    {{#post}}
 
     <!-- Hero Section -->
     <section class="wm-hero">
         <h1>{{title}}</h1>
+        <div class="wm-hero-subtitle"
+            style="max-width: 800px; margin: 20px auto 0; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+            {{content}}</div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Dynamic) -->
+    {{#get "posts" filter="tag:hash-sec-wm-about" limit="1"}}
+    {{#foreach posts}}
     <section class="wm-about-section">
         <div class="wm-about-card">
             <div class="wm-about-content">
@@ -13,55 +20,63 @@
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    {{!-- Download Section (Always Visible) --}}
+
+    {{!-- Dynamic Download Section --}}
+    {{#get "posts" filter="tag:hash-sec-wm-download" limit="1" include="tags"}}
+    {{#foreach posts}}
     <section class="wm-download-section">
-        <div class="wm-download-card">
-            <div class="wm-download-image">
-                <img src="{{asset 'mod/Water Module - Explore Life in Water.png'}}"
-                    alt="Water Module - Learning Module on Aquatic Ecosystems">
-            </div>
-            <div class="wm-download-info">
-                <h3 class="wm-download-title">Download the Water Module</h3>
-                <div class="wm-download-buttons">
-                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/Learning Module.pdf'}}"
-                        class="wm-download-btn" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Learning Module
-                    </a>
-                    <a href="{{asset 'files/Resources/Modules/Water Module - Explore Life in Water/WaterModule_WithResources (1).pdf'}}"
-                        class="wm-download-btn wm-download-btn-outline" download>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Module with Resources
-                    </a>
+        <div class="nm-grid resource-item-grid-1-col" style="max-width: 500px; margin: 0 auto;">
+            <div class="nm-card resource-item-card">
+                <div class="nm-card-img" style="height: auto; min-height: 250px;">
+                    {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}">
+                    {{else}}
+                    <img src="{{asset 'mod/Water Module - Explore Life in Water.png'}}" alt="{{title}}">
+                    {{/if}}
                 </div>
-                <p class="wm-download-tagline">This learning module is an invitation to discover, develop and nurture a
-                    wonderment and curiosity for water as an ecosystem that is teeming with amazing life forms that use
-                    it in various ways!</p>
+                <div class="nm-card-content">
+                    <h3
+                        style="text-align: center; margin-bottom: 20px; font-family: 'Oswald', sans-serif; font-size: 1.6rem;">
+                        {{title}}</h3>
+
+                    {{!-- Hidden container for JS parser to find links/file cards --}}
+                    <div class="resource-item-desc" style="display: none;">
+                        {{content}}
+                    </div>
+
+                    <div class="resource-item-footer" data-custom-link="{{meta_description}}" data-parse-body="true">
+                        {{!-- This will be populated by the global JS parser --}}
+                        <div class="dynamic-download-container" style="display: none; margin-bottom: 24px;">
+                            <div class="download-dropdown">
+                                <button class="download-dropdown-btn">
+                                    <span>Download</span>
+                                    <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dynamic-menu"></div>
+                            </div>
+                        </div>
+
+                        {{#if meta_description}}
+                        <a href="{{meta_description}}" class="nm-download-btn explore-btn">
+                            Explore Resource
+                        </a>
+                        {{/if}}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{/foreach}}
+    {{/get}}
 
-    <!-- Explore More Section -->
-    <section class="wm-explore-more">
-        <a href="/modules/" class="wm-explore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            Explore More Learning Modules
-        </a>
-    </section>
+
 
     </div>
     {{/post}}

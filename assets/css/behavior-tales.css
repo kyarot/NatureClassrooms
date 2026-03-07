@@ -187,17 +187,13 @@
     line-height: 1.3;
 }
 
-.bt-card-desc {
+.bt-card-desc,
+.resource-item-desc {
     font-size: 0.9rem;
     color: var(--bt-text-secondary);
     margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     line-height: 1.5;
-    height: 3em;
+    flex-grow: 1;
 }
 
 /* Card Footer — Download Links */
@@ -213,7 +209,10 @@
     width: 100%;
 }
 
-.bt-download-btn {
+/* Download Button & Dropdown Styles */
+.bt-download-btn,
+.explore-btn,
+.download-dropdown-btn {
     width: 100%;
     display: flex;
     align-items: center;
@@ -231,17 +230,63 @@
     transition: var(--bt-transition);
 }
 
-.bt-download-btn:hover {
+.bt-download-btn:hover,
+.explore-btn:hover,
+.download-dropdown-btn:hover {
     background: var(--bt-primary-hover);
     box-shadow: 0 8px 20px rgba(74, 124, 89, 0.25);
     transform: translateY(-1px);
 }
 
-.bt-download-btn .chevron {
+/* Dropdown Menu Styles */
+.download-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bt-white);
+    border: 1px solid var(--bt-border-light);
+    border-radius: var(--bt-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--bt-transition);
+    z-index: 100;
+    padding: 8px 0;
+}
+
+.download-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: var(--bt-text-primary);
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--bt-bg-light);
+    color: var(--bt-primary);
+}
+
+.download-dropdown-btn .chevron {
     transition: transform 0.3s ease;
 }
 
-.bt-download-dropdown:hover .bt-download-btn .chevron {
+.download-dropdown:hover .download-dropdown-btn .chevron {
     transform: rotate(180deg);
 }
 
