@@ -618,6 +618,54 @@ The table below lists every tag used across the theme in alphabetical order for 
 
 ---
 
+## Forwarding or Redirecting a Post
+
+If you want a post to exist in the blog but automatically "forward" the user to a different page as soon as they click it, you can use **Code Injection**.
+
+### Steps:
+
+1. Open the post in **Ghost Admin**.
+2. Click the **Settings** icon (top right).
+3. Scroll down and click on **Code Injection**.
+4. In the **Post Header** box, paste the following snippet:
+   ```html
+   <script>
+   window.location.href = 'REDIRECT_URL_HERE';
+   </script>
+   ```
+   *(Replace `REDIRECT_URL_HERE` with your actual link).*
+5. **Update** the post.
+
+### How it works:
+When a user clicks the post, the browser starts to load it, but the script immediately tells the browser to go to the new link instead.
+
+---
+
+## Using Meta Fields for Custom Links
+
+In this theme, the **Meta Description** field (found in Ghost Admin → Post Settings → Meta Data) is often used to store a custom external URL or a file download link. This allows you to link a card or button to something other than the default post page.
+
+### Common Use Cases:
+
+| Component / Page | Usage | Field Example |
+|---|---|---|
+| **Outreach initiatives** | "Read More" button link | `https://example.com/outreach` |
+| **Media articles / Podcasts** | Direct link to external article or podcast player | `https://spotify.com/...` |
+| **Downloadable resources** | Direct download link for PDFs, ZIPs, etc. | `/assets/files/resource.pdf` |
+| **Team members** | LinkedIn profile link | `https://linkedin.com/in/...` |
+| **Resource categories** | Custom navigation override | `/activities/` |
+
+### How to use:
+1. Open the post in **Ghost Admin**.
+2. Click the **Settings** icon.
+3. Scroll to **Meta Data**.
+4. Paste your custom URL or file path into the **Meta Description** box.
+5. **Update** the post.
+
+The theme will automatically pick up this link and use it for the primary action button or the card's click behavior.
+
+---
+
 ## License
 
 MIT — free to modify and use for the Nature Classrooms project.
