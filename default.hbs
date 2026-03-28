@@ -55,7 +55,7 @@
     <!-- Floating Logo -->
     <div class="floating-logo" id="floatingLogo">
         <a href="/" style="display: block;">
-            <img src="{{asset 'logo/main.png'}}" alt="{{@site.title}}" id="floatingLogoImg">
+            <img src="{{#if @site.logo}}{{@site.logo}}{{else}}{{asset 'logo/main.png'}}{{/if}}" alt="{{@site.title}}" id="floatingLogoImg">
         </a>
     </div>
 
@@ -68,8 +68,8 @@
     {{> footer}}
 
     <script>
-        window.whiteLogo = '{{asset "logo/main.png"}}';
-        window.blackLogo = '{{asset "logo/blackmain.png"}}';
+        window.whiteLogo = '{{#if @site.logo}}{{@site.logo}}{{else}}{{asset "logo/main.png"}}{{/if}}';
+        window.blackLogo = '{{#if @custom.second_logo}}{{@custom.second_logo}}{{else}}{{asset "logo/blackmain.png"}}{{/if}}';
     </script>
 
     <!-- FIXED JS PATH -->

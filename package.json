@@ -21,7 +21,13 @@
   ],
   "config": {
     "posts_per_page": 12,
-    "card_assets": true
+    "card_assets": true,
+    "custom": {
+      "second_logo": {
+        "type": "image",
+        "default": ""
+      }
+    }
   },
   "dependencies": {
     "express": "^5.2.1",

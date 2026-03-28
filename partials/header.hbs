@@ -9,57 +9,7 @@
         <div class="header-brand"></div>
 
         <nav class="header-nav">
-
-            <ul class="nav">
-
-                <li><a href="/">Home</a></li>
-
-                <!-- Resources -->
-                <li class="nav-dropdown">
-                    <a href="/resources/" class="nav-dropdown-toggle">Resources</a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/resources/bingos/">Bingos</a></li>
-                        <li><a href="/resources/activities/">Activities</a></li>
-                        <li><a href="/resources/alphabet-charts/">Alphabet Charts</a></li>
-                        <li><a href="/resources/anchor-charts/">Anchor Charts</a></li>
-                        <li><a href="/resources/natural-history/">Natural History</a></li>
-                        <li><a href="/resources/modules/">Modules</a></li>
-                        <li><a href="/resources/theres-nothing-there/">Story Books</a></li>
-                    </ul>
-                </li>
-
-                <!-- Our Approach -->
-                <li class="nav-dropdown">
-                    <a href="/our-approach/" class="nav-dropdown-toggle">Our Approach</a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/our-approach/#pedagogy">Nature Classrooms Pedagogy</a></li>
-                        <li><a href="/our-approach/#framework">Nature Learning Framework</a></li>
-                    </ul>
-                </li>
-
-                <!-- Our Work -->
-                <li class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-toggle">Our Work</a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/resourcecreation/">Resource Creation</a></li>
-                        <li><a href="/capacity/">Capacity Building & Training</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/outreach/">Outreach & Public Engagement</a></li>
-                    </ul>
-                </li>
-
-                <!-- About -->
-                <li class="nav-dropdown">
-                    <a href="/about/" class="nav-dropdown-toggle">About Us</a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/about/#team">Meet the Team</a></li>
-                        <li><a href="/media/">NC in Media</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="/blog/">Blog</a></li>
-
-            </ul>
+            <ul class="nav" id="desktopNavList"></ul>
 
         </nav>
 
@@ -113,57 +63,120 @@
             </button>
         </div>
         <nav class="mobile-nav">
-            <ul class="nav">
-                <li><a href="/">Home</a></li>
-                <li class="nav-dropdown">
-                    <div class="mobile-nav-link-row">
-                        <a href="/resources/" class="mobile-nav-page-link">Resources</a>
-                        <button class="mobile-dropdown-arrow" aria-label="Expand Resources">▾</button>
-                    </div>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/resources/bingos/">Bingos</a></li>
-                        <li><a href="/resources/activities/">Activities</a></li>
-                        <li><a href="/resources/alphabet-charts/">Alphabet Charts</a></li>
-                        <li><a href="/resources/anchor-charts/">Anchor Charts</a></li>
-                        <li><a href="/resources/natural-history/">Natural History</a></li>
-                        <li><a href="/resources/modules/">Modules</a></li>
-                        <li><a href="/resources/theres-nothing-there/">Story Books</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <div class="mobile-nav-link-row">
-                        <a href="/our-approach/" class="mobile-nav-page-link">Our Approach</a>
-                        <button class="mobile-dropdown-arrow" aria-label="Expand Our Approach">▾</button>
-                    </div>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/our-approach/#pedagogy">Nature Classrooms Pedagogy</a></li>
-                        <li><a href="/our-approach/#framework">Nature Learning Framework</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <div class="mobile-nav-link-row">
-                        <a href="#" class="mobile-nav-page-link">Our Work</a>
-                        <button class="mobile-dropdown-arrow" aria-label="Expand Our Work">▾</button>
-                    </div>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/resourcecreation/">Resource Creation</a></li>
-                        <li><a href="/capacity/">Capacity Building & Training</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/outreach/">Outreach & Public Engagement</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <div class="mobile-nav-link-row">
-                        <a href="/about/" class="mobile-nav-page-link">About Us</a>
-                        <button class="mobile-dropdown-arrow" aria-label="Expand About Us">▾</button>
-                    </div>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="/about/#team">Meet the Team</a></li>
-                        <li><a href="/media/">NC in Media</a></li>
-                    </ul>
-                </li>
-                <li><a href="/blog/">Blog</a></li>
-            </ul>
+            <ul class="nav" id="mobileNavList"></ul>
         </nav>
     </div>
 </div>
+
+<!-- Hidden Ghost Navigation Source -->
+<div id="ghostNavSource" style="display: none;">
+    {{navigation type="primary"}}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var source = document.getElementById('ghostNavSource');
+    var desktopNav = document.getElementById('desktopNavList');
+    var mobileNav = document.getElementById('mobileNavList');
+
+    if (!source || !desktopNav || !mobileNav) return;
+
+    var links = source.querySelectorAll('a');
+    if (!links.length) return;
+
+    var topOrder = [];
+    var grouped = {};
+
+    function ensureParent(label, href) {
+        if (!grouped[label]) {
+            grouped[label] = {
+                label: label,
+                href: href || '#',
+                children: []
+            };
+            topOrder.push(label);
+        } else if (href && grouped[label].href === '#') {
+            grouped[label].href = href;
+        }
+    }
+
+    links.forEach(function (link) {
+        var rawLabel = (link.textContent || '').replace(/\s+/g, ' ').trim();
+        var href = link.getAttribute('href') || link.href || '#';
+        if (!rawLabel) return;
+
+        if (rawLabel.indexOf('::') > -1) {
+            var parts = rawLabel.split('::');
+            var parentLabel = (parts[0] || '').trim();
+            var childLabel = (parts.slice(1).join('::') || '').trim();
+
+            if (!parentLabel || !childLabel) {
+                ensureParent(rawLabel, href);
+                return;
+            }
+
+            ensureParent(parentLabel, '#');
+            grouped[parentLabel].children.push({
+                label: childLabel,
+                href: href
+            });
+            return;
+        }
+
+        ensureParent(rawLabel, href);
+    });
+
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function renderDesktop(items) {
+        return items.map(function (item) {
+            if (item.children.length) {
+                var childHtml = item.children.map(function (child) {
+                    return '<li><a href="' + escapeHtml(child.href) + '">' + escapeHtml(child.label) + '</a></li>';
+                }).join('');
+
+                return '<li class="nav-dropdown">'
+                    + '<a href="' + escapeHtml(item.href) + '" class="nav-dropdown-toggle">' + escapeHtml(item.label) + '</a>'
+                    + '<ul class="nav-dropdown-menu">' + childHtml + '</ul>'
+                    + '</li>';
+            }
+
+            return '<li><a href="' + escapeHtml(item.href) + '">' + escapeHtml(item.label) + '</a></li>';
+        }).join('');
+    }
+
+    function renderMobile(items) {
+        return items.map(function (item) {
+            if (item.children.length) {
+                var childHtml = item.children.map(function (child) {
+                    return '<li><a href="' + escapeHtml(child.href) + '">' + escapeHtml(child.label) + '</a></li>';
+                }).join('');
+
+                return '<li class="nav-dropdown">'
+                    + '<div class="mobile-nav-link-row">'
+                    + '<a href="' + escapeHtml(item.href) + '" class="mobile-nav-page-link">' + escapeHtml(item.label) + '</a>'
+                    + '<button class="mobile-dropdown-arrow" aria-label="Expand ' + escapeHtml(item.label) + '">▾</button>'
+                    + '</div>'
+                    + '<ul class="nav-dropdown-menu">' + childHtml + '</ul>'
+                    + '</li>';
+            }
+
+            return '<li><a href="' + escapeHtml(item.href) + '">' + escapeHtml(item.label) + '</a></li>';
+        }).join('');
+    }
+
+    var orderedItems = topOrder.map(function (label) {
+        return grouped[label];
+    });
+
+    desktopNav.innerHTML = renderDesktop(orderedItems);
+    mobileNav.innerHTML = renderMobile(orderedItems);
+});
+</script>

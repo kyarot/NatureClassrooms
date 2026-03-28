@@ -135,6 +135,121 @@ Global and page-specific styles are split across dedicated files in `assets/css/
 
 ---
 
+## Ghost Admin Setup Guide (Navbar, Footer, Logos)
+
+This theme supports Ghost-admin-driven content for:
+
+- Navbar links and dropdowns
+- Footer text blocks and social links
+- Floating logo pair (primary and secondary)
+
+No CSS changes are required for these updates.
+
+---
+
+### 1) Navbar and Dropdowns from Ghost Navigation
+
+Manage this in Ghost Admin:
+
+- **Settings → Navigation → Primary navigation**
+
+Use this naming convention for dropdown items:
+
+- **Top-level item:** `Parent`
+- **Child item:** `Parent :: Child`
+
+Example rows:
+
+1. Home → /
+2. Resources → /resources/
+3. Resources :: Bingos → /resources/bingos/
+4. Resources :: Activities → /resources/activities/
+5. About Us → /about/
+6. About Us :: Meet the Team → /about/#team
+
+Rules:
+
+- Parent text must match exactly (including spaces/case).
+- Keep spaces around `::` exactly as shown.
+- Add, edit, remove, and reorder menu items only from Ghost Navigation.
+
+---
+
+### 2) Footer Content from Ghost Posts (Internal Tags)
+
+Create or edit Ghost posts with these internal tags:
+
+| Footer section | Internal tag to add in Ghost | Used fields |
+|---|---|---|
+| Address block | `#sec-footer-address` | **Title** (heading), **Content** (address text/HTML) |
+| Collaboration block | `#sec-footer-collaboration` | **Title** (heading), **Content** (collaboration text/HTML) |
+| Contact block | `#sec-footer-contact` | **Title** (heading), **Content** (contact text/HTML) |
+| Footer bottom line | `#sec-footer-bottom` | **Content** (bottom text/HTML) |
+
+Notes:
+
+- Internal tags entered in Ghost with `#` are queried in theme filters as `hash-...`.
+- If a footer-tagged post is missing, theme fallbacks are shown.
+
+---
+
+### 3) Footer Social Links from Ghost Posts
+
+Create one post per social link with internal tag:
+
+- `#item-footer-social`
+
+Recommended fields per post:
+
+- **Title:** Platform name (for aria label)
+- **Slug:** Platform key for icon matching
+- **Meta description:** Target URL (social profile link)
+- **Feature image:** Optional custom icon image fallback
+
+Built-in slug to icon mapping:
+
+- facebook
+- twitter
+- x
+- instagram
+- linkedin
+- youtube
+- threads
+- tiktok
+- bluesky
+- mastodon
+
+Fallback behavior:
+
+1. If slug matches known platform, built-in icon is used.
+2. If no icon match and feature image is present, feature image is used.
+3. If neither exists, generic link icon is used.
+
+---
+
+### 4) Logo Setup (First and Second Logo)
+
+This theme supports two floating logos without style changes.
+
+#### First logo (primary)
+
+- Ghost Admin path: **Settings → Design & branding → Publication logo**
+- Used as the primary floating logo source.
+
+#### Second logo (alternate)
+
+- Ghost Admin path: **Settings → Design → Customize active theme**
+- Upload image in theme setting named **Second logo**.
+
+Important:
+
+- If you do not see the **Second logo** field, re-upload and re-activate the latest theme zip first.
+- Safe fallbacks are present:
+   - primary fallback: `assets/logo/main.png`
+   - secondary fallback: `assets/logo/blackmain.png`
+
+---
+
 ## Fonts Used
 
 | Font | Usage |

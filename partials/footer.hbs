@@ -15,24 +15,57 @@
                         <path
                             d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
-                    Address
+                    {{#get "posts" filter="tag:hash-sec-footer-address" limit="1"}}
+                        {{#if posts}}
+                            {{#foreach posts limit="1"}}
+                                {{#if title}}{{title}}{{else}}Address{{/if}}
+                            {{/foreach}}
+                        {{else}}
+                            Address
+                        {{/if}}
+                    {{/get}}
                 </h3>
-                <p class="footer-text">
-                    {{@site.title}}<br>
-                    Flat No.1, First Floor, #339, 1st Cross Rd,
-                    Canara Bank Layout, Rajiv Gandhi Nagar,
-                    Kodigehalli, Bengaluru, Karnataka - 560097, India<br>
-
-                </p>
+                {{#get "posts" filter="tag:hash-sec-footer-address" limit="1"}}
+                    {{#if posts}}
+                        {{#foreach posts limit="1"}}
+                            <div class="footer-text">{{{content}}}</div>
+                        {{/foreach}}
+                    {{else}}
+                        <p class="footer-text">
+                            {{@site.title}}<br>
+                            Flat No.1, First Floor, #339, 1st Cross Rd,
+                            Canara Bank Layout, Rajiv Gandhi Nagar,
+                            Kodigehalli, Bengaluru, Karnataka - 560097, India<br>
+                        </p>
+                    {{/if}}
+                {{/get}}
             </div>
 
             <div class="footer-section">
-                <h3 class="footer-heading">Collaboration</h3>
+                <h3 class="footer-heading">
+                    {{#get "posts" filter="tag:hash-sec-footer-collaboration" limit="1"}}
+                        {{#if posts}}
+                            {{#foreach posts limit="1"}}
+                                {{#if title}}{{title}}{{else}}Collaboration{{/if}}
+                            {{/foreach}}
+                        {{else}}
+                            Collaboration
+                        {{/if}}
+                    {{/get}}
+                </h3>
                 <div class="collaboration-box">
-                    <p class="footer-text">
-                        A Programme in Collaboration with<br>
-                        <strong>Youth Conservation Action Network<br>(YouCAN)</strong>
-                    </p>
+                    {{#get "posts" filter="tag:hash-sec-footer-collaboration" limit="1"}}
+                        {{#if posts}}
+                            {{#foreach posts limit="1"}}
+                                <div class="footer-text">{{{content}}}</div>
+                            {{/foreach}}
+                        {{else}}
+                            <p class="footer-text">
+                                A Programme in Collaboration with<br>
+                                <strong>Youth Conservation Action Network<br>(YouCAN)</strong>
+                            </p>
+                        {{/if}}
+                    {{/get}}
                 </div>
             </div>
 
@@ -42,31 +75,108 @@
                         <path
                             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
-                    Contact Us
+                    {{#get "posts" filter="tag:hash-sec-footer-contact" limit="1"}}
+                        {{#if posts}}
+                            {{#foreach posts limit="1"}}
+                                {{#if title}}{{title}}{{else}}Contact Us{{/if}}
+                            {{/foreach}}
+                        {{else}}
+                            Contact Us
+                        {{/if}}
+                    {{/get}}
                 </h3>
-                <p class="footer-text">
-                    <a>info[at]natureclassrooms[dot]in</a>
-                </p>
+                {{#get "posts" filter="tag:hash-sec-footer-contact" limit="1"}}
+                    {{#if posts}}
+                        {{#foreach posts limit="1"}}
+                            <div class="footer-text">{{{content}}}</div>
+                        {{/foreach}}
+                    {{else}}
+                        <p class="footer-text">
+                            <a>info[at]natureclassrooms[dot]in</a>
+                        </p>
+                    {{/if}}
+                {{/get}}
                 <div class="footer-social-links">
-                    {{#if @site.facebook}}
-                    <a href="{{facebook_url}}" class="footer-social-link" target="_blank" rel="noopener"
-                        aria-label="Facebook">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    {{#if @site.twitter}}
-                    <a href="{{twitter_url}}" class="footer-social-link" target="_blank" rel="noopener"
-                        aria-label="X">{{> "icons/twitter"}}</a>
-                    {{/if}}
-                    <a href="https://www.instagram.com/natureclassrooms" class="footer-social-link" target="_blank"
-                        rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>
-                    <a href="https://www.linkedin.com/company/nature-classrooms/" class="footer-social-link"
-                        target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
-                    <a href="https://www.youtube.com/@NatureClassrooms" class="footer-social-link" target="_blank"
-                        rel="noopener" aria-label="YouTube">{{> "icons/youtube"}}</a>
+                    {{#get "posts" filter="tag:hash-item-footer-social" limit="20" order="published_at asc"}}
+                        {{#if posts}}
+                            {{#foreach posts}}
+                                <a href="{{#if meta_description}}{{meta_description}}{{else}}{{url}}{{/if}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="{{title}}">
+                                    {{#match slug "facebook"}}
+                                        {{> "icons/facebook"}}
+                                    {{else}}
+                                        {{#match slug "twitter"}}
+                                            {{> "icons/twitter"}}
+                                        {{else}}
+                                            {{#match slug "x"}}
+                                                {{> "icons/twitter"}}
+                                            {{else}}
+                                                {{#match slug "instagram"}}
+                                                    {{> "icons/instagram"}}
+                                                {{else}}
+                                                    {{#match slug "linkedin"}}
+                                                        {{> "icons/linkedin"}}
+                                                    {{else}}
+                                                        {{#match slug "youtube"}}
+                                                            {{> "icons/youtube"}}
+                                                        {{else}}
+                                                            {{#match slug "threads"}}
+                                                                {{> "icons/threads"}}
+                                                            {{else}}
+                                                                {{#match slug "tiktok"}}
+                                                                    {{> "icons/tiktok"}}
+                                                                {{else}}
+                                                                    {{#match slug "bluesky"}}
+                                                                        {{> "icons/bluesky"}}
+                                                                    {{else}}
+                                                                        {{#match slug "mastodon"}}
+                                                                            {{> "icons/mastodon"}}
+                                                                        {{else}}
+                                                                            {{#if feature_image}}
+                                                                                <img src="{{feature_image}}" alt="{{title}}" width="20" height="20">
+                                                                            {{else}}
+                                                                                {{> "icons/link"}}
+                                                                            {{/if}}
+                                                                        {{/match}}
+                                                                    {{/match}}
+                                                                {{/match}}
+                                                            {{/match}}
+                                                        {{/match}}
+                                                    {{/match}}
+                                                {{/match}}
+                                            {{/match}}
+                                        {{/match}}
+                                    {{/match}}
+                                </a>
+                            {{/foreach}}
+                        {{else}}
+                            {{#if @site.facebook}}
+                            <a href="{{facebook_url}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="Facebook">{{> "icons/facebook"}}</a>
+                            {{/if}}
+                            {{#if @site.twitter}}
+                            <a href="{{twitter_url}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="X">{{> "icons/twitter"}}</a>
+                            {{/if}}
+                            <a href="https://www.instagram.com/natureclassrooms" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>
+                            <a href="https://www.linkedin.com/company/nature-classrooms/" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
+                            <a href="https://www.youtube.com/@NatureClassrooms" class="footer-social-link" target="_blank" rel="noopener" aria-label="YouTube">{{> "icons/youtube"}}</a>
+                        {{/if}}
+                    {{/get}}
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+            {{#get "posts" filter="tag:hash-sec-footer-bottom" limit="1"}}
+                {{#if posts}}
+                    {{#foreach posts limit="1"}}
+                        {{#if content}}
+                            {{{content}}}
+                        {{else}}
+                            <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+                        {{/if}}
+                    {{/foreach}}
+                {{else}}
+                    <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+                {{/if}}
+            {{/get}}
         </div>
     </div>
 </footer>
