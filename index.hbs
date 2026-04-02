@@ -1,6 +1,6 @@
 {{!< default}} <section class="hero-carousel">
     <div class="carousel-wrapper" id="hero-carousel-wrapper">
-        {{#get "posts" filter="tag:hash-sec-home-hero" order="published_at asc" limit="all"}}
+        {{#get "posts" filter="tag:hash-sec-home-hero" order="published_at asc" limit="100"}}
         {{#foreach posts}}
         <div class="carousel-slide slide{{@number}}{{#if @first}} active{{/if}}"
             style="background-image: url('{{feature_image}}');">

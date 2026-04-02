@@ -150,10 +150,10 @@
                             {{/foreach}}
                         {{else}}
                             {{#if @site.facebook}}
-                            <a href="{{facebook_url}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="Facebook">{{> "icons/facebook"}}</a>
+                            <a href="{{social_url type="facebook"}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="Facebook">{{> "icons/facebook"}}</a>
                             {{/if}}
                             {{#if @site.twitter}}
-                            <a href="{{twitter_url}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="X">{{> "icons/twitter"}}</a>
+                            <a href="{{social_url type="twitter"}}" class="footer-social-link" target="_blank" rel="noopener" aria-label="X">{{> "icons/twitter"}}</a>
                             {{/if}}
                             <a href="https://www.instagram.com/natureclassrooms" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>
                             <a href="https://www.linkedin.com/company/nature-classrooms/" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
